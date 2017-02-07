@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+
+</head>
+<body>
+<nav th:fragment="header"
+     class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/teammgt}">Team Management</a>
+        </div>
+    </div>
+</nav>
+
+<h1>Main content</h1>
+
+<footer th:fragment="footer" class="container">
+    &copy; 2017 binhht
+</footer>
+</body>
+</html>

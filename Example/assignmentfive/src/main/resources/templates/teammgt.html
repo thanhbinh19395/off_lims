@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="${Layout}">
+    <script layout:fragment="scripts">
+        $(document).ready(function () {
+            $('#test').w2grid({
+                name: 'grid',
+                //url:'/api/TeamMgt/GetList',
+                header: 'List of Teams',
+                records:window.ViewBag.hello,
+                fixedBody:false,
+                recid:'id',
+                show: {
+                    toolbar: true,
+                    header: true
+                },
+                searches: [
+                    { field: 'name', caption: 'Name', type: 'text' },
+                ],
+                multiSearch:false,
+                columns: [
+                    { field: 'id', caption: 'ID', size: '50px', sortable: true, attr: 'align=center' },
+                    { field: 'name', caption: 'Team Name', size: '30%', sortable: true, resizable: true },
+                ],
+                toolbar: {
+                    items: [
+                        { type: 'button', id: 'btnInsert', caption: 'Insert', img: 'w2ui-icon-plus', onClick:function(){window.openPopup();} },
+                        { type: 'button', id: 'btnUpdate', caption: 'Update', img: 'w2ui-icon-pencil', onClick:function(){
+                            if(this.owner.getSelection().length == 0){
+                                w2alert('Choose team to update');
+                                return;
+                            }
+                            window.openPopup(this.owner.getSelection()[0]);
+                        }},
+                        { type: 'button', id: 'btnDelete', caption: 'Delete', img: 'w2ui-icon-cross', onClick:function(){
+                            if(this.owner.getSelection().length == 0){
+                                w2alert('Choose team to delete');
+                                return;
+                            }
+                            var record = this.owner.get(this.owner.getSelection()[0]);
+                            w2confirm('Are you sure to delete Team ' + record.name + '?')
+                                .yes(function () {
+                                    $.post('/api/TeamMgt/DeleteById', record, function(data){
+                                        w2ui['grid'].reload();
+                                    });
+                                });
+                        }}
+                    ]
+                },
+                onSearch:function (e) {
+                    e.preventDefault();
+                    $.post('/api/TeamMgt/GetListByName',{name:e.searchValue}, function (data) {
+                        if(data.length != 0){
+                            w2ui.grid.clear();
+                            w2ui.grid.add(data);
+                        }
+                        else{
+                            w2alert('Not found !');
+                        }
+                    } )
+                }
+            });
+
+        })
+        function openPopup (id) {
+            if (!w2ui.foo) {
+                $().w2form({
+                    name: 'foo',
+                    style: 'border: 0px; background-color: transparent;',
+                    fields: [
+                        { field: 'name', type: 'text', required: true },
+                    ],
+                    actions: {
+                        "save": function (target, data) {
+                            if(this.validate().length == 0){
+                                $.post('/api/TeamMgt/Save', this.record, function(data){
+                                    $().w2popup('close');
+                                    w2ui['grid'].reload();
+                                });
+                            }
+                        },
+                        "reset": function () { this.clear(); }
+                    }
+                });
+            }
+            $().w2popup('open', {
+                body    : '<div id="form" style="width: 100%; height: 100%;"></div>',
+                style   : 'padding: 15px 0px 0px 0px',
+                width   : 500,
+                height  : 150,
+                showMax : true,
+                onClose:function () {
+                    w2ui['foo'].clear();
+                },
+                onToggle: function (event) {
+                    $(w2ui.foo.box).hide();
+                    event.onComplete = function () {
+                        $(w2ui.foo.box).show();
+                        w2ui.foo.resize();
+                    }
+                },
+                onOpen: function (event) {
+                    event.onComplete = function () {
+                        if(id){
+                            $.post('/api/TeamMgt/GetById', {id:id}, function(data){
+                                w2ui['foo'].record = data;
+                                w2ui['foo'].refresh();
+                            });
+                        }
+                        $('#w2ui-popup #form').w2render('foo');
+                    }
+                }
+            });
+        }
+    </script>
+<div layout:fragment="content" >
+    <div id="test">
+
+    </div>
+</div>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8" />
+    <title>Assignment 5 - binhht</title>
+    <!-- Bootstrap -->
+    <link
+            th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+            rel="stylesheet" />
+    <link
+            th:href="@{/webjars/w2ui/1.5.rc1/w2ui.css}"
+            rel="stylesheet" />
+    <link
+            th:href="@{/css/style.css}"
+            rel="stylesheet" />
+    <script
+            th:src="@{/webjars/jquery/1.12.4/jquery.min.js}"></script>
+    <script
+            th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+    <script
+            th:src="@{/webjars/w2ui/1.5.rc1/w2ui.js}"></script>
+    <div th:remove="tag" th:utext="${ViewBag}"></div>
+    <script layout:fragment="scripts" ></script>
+</head>
+<body>
+<div layout:fragment="content" class="container main-content"></div>
+</body>
+</html>
