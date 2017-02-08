@@ -23,7 +23,7 @@ public class MvcWebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
-
+        registry.addResourceHandler("/pagemodule/**").addResourceLocations("classpath:/templates/");
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

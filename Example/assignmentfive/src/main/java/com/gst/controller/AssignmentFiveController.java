@@ -27,4 +27,11 @@ public class AssignmentFiveController extends BaseController{
         model.addAttribute("thinhgay", teamRepository.findAll());
         return View("hello");
     }
+    @RequestMapping("/teammgt1")
+    public String TeamMgt1(Model model) {
+        model.addAttribute("hello", teamRepository.findAll());
+        model.addAttribute("phuonggay", teamRepository.findAll());
+        model.addAttribute("thinhgay", teamRepository.findAll());
+        return "teammgt";
+    }
 }

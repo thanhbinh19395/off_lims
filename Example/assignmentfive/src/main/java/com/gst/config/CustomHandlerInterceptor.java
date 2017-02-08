@@ -29,6 +29,7 @@ public class CustomHandlerInterceptor implements HandlerInterceptor {
         Gson gson = new Gson();
         String viewbagStr = "<script> var ViewBag = %s;</script>";
         modelAndView.getModelMap().addAttribute("ViewBag", String.format(viewbagStr,gson.toJson(modelAndView.getModelMap())));
+        modelAndView.getModelMap().addAttribute("PageModule",modelAndView.getViewName());
     }
 
     @Override
