@@ -1,10 +1,13 @@
 package com.gst.config;
 import com.google.gson.Gson;
+import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 /**
  * Created by Thanh Binh on 2/7/2017.
@@ -18,18 +21,21 @@ public class CustomHandlerInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-        Object parentId = httpServletRequest.getParameterValues("ParentId");
-        if(parentId != null) {
+        String parentId = httpServletRequest.getParameter("ParentId");
+        if(!StringUtils.isEmptyOrWhitespace(parentId)) {
             modelAndView.getModelMap().addAttribute("Layout","layoutPopup");
-            modelAndView.getModelMap().addAttribute("ParentId",parentId.toString());
+            modelAndView.getModelMap().addAttribute("ParentId",parentId);
         }
         else {
             modelAndView.getModelMap().addAttribute("Layout","layout");
         }
+
         Gson gson = new Gson();
         String viewbagStr = "<script> var ViewBag = %s;</script>";
         modelAndView.getModelMap().addAttribute("ViewBag", String.format(viewbagStr,gson.toJson(modelAndView.getModelMap())));
-        modelAndView.getModelMap().addAttribute("PageModule",modelAndView.getViewName());
+        String uuid = UUID.randomUUID().toString();
+        httpServletRequest.getSession().setAttribute(uuid,"/templates/" + modelAndView.getViewName()+".js");
+        modelAndView.getModelMap().addAttribute("PageModule",uuid);
     }
 
     @Override

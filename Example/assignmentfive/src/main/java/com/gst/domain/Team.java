@@ -24,14 +24,18 @@ public class Team implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @OneToOne
+    @JoinColumn(name = "countryid")
+    private Country country;
     public Team(){
         super();
     }
 
-    public Team(String name) {
-        super();
+    public Team(String name, Country country) {
         this.name = name;
+        this.country = country;
     }
+
 
     public int getId() {
         return id;
@@ -47,5 +51,13 @@ public class Team implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 }

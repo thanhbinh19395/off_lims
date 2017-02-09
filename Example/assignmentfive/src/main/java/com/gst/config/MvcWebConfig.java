@@ -28,6 +28,6 @@ public class MvcWebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new CustomHandlerInterceptor() {
-        });
+        }).excludePathPatterns("/api/**");
     }
 }

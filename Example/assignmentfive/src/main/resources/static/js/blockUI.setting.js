@@ -14,7 +14,7 @@
 			'margin-left': '-24px',
 			'background-color': 'transparent',
 		},
-		message: '<img src="/Content/Images/loader.gif" style="width: ' + size + '; height: ' + size + ';" />'
+		message: '<img src="/images/loader.gif" style="width: ' + size + '; height: ' + size + ';" />'
 	});
 })
         .ajaxStop($.unblockUI)
