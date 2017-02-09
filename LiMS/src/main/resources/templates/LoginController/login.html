@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+
+    <link rel="stylesheet" th:href="@{css/style.css}"/>
+
+
+</head>
+
+<body>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+
+
+<form action="/login" th:action="@{/login}" method="POST">
+
+    <h4> Login Information </h4>
+    <div th:if="${param.logout}">
+        <h3 class="label label-success" th:text="${logout}"></h3>
+        <br/>
+    </div>
+    <div th:if="${param.error}">
+        <h3 class="label label-danger" th:text="${error}"></h3>
+        <br/>
+    </div>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <div class="form-group" th:classappend="${param.error} ? 'has-error' : ''">
+        <input class="form-control" type="text" placeholder="Enter Username" th:name="username" th:id="username"/>
+    </div>
+
+    <div class="form-group" th:classappend="${param.error} ? 'has-error' : ''">
+        <input class="form-control" type="password" placeholder="Enter Password" th:name="password" th:id="password"/>
+    </div>
+    <div class="form-group">
+        <input class="button" type="submit" value="Log in"/>
+    </div>
+</form>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
