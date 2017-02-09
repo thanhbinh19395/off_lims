@@ -14,8 +14,8 @@ $.extend(framework.common, {
         var defaultOptions = {
             name: 'unnamedPopup',
             minHeight: 0,
-            height: 450,
-            width: 950,
+            //height: 450,
+            //width: 950,
             modal: false,
             resizable: true,
             position: { my: "center top+150px", at: "center top", of: window },
