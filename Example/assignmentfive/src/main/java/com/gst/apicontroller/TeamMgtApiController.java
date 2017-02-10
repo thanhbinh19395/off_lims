@@ -22,7 +22,7 @@ public class TeamMgtApiController {
         this.teamRepository = teamRepository;
     }
 
-    @RequestMapping("/api/TeamMgt/{id}/GetList")
+    @RequestMapping("/api/TeamMgt/GetList")
     Collection<Team> getList(){
         return (Collection<Team>) teamRepository.findAll();
     }
