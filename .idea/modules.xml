@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Example/assignmentfive/assignmentfive.iml" filepath="$PROJECT_DIR$/Example/assignmentfive/assignmentfive.iml" />
       <module fileurl="file://$PROJECT_DIR$/LiMS/lims.iml" filepath="$PROJECT_DIR$/LiMS/lims.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/off_lims.iml" filepath="$PROJECT_DIR$/.idea/off_lims.iml" />
     </modules>
