@@ -1,7 +1,10 @@
 package com.gst.apicontroller;
 
 import com.gst.domain.Country;
+import com.gst.extension.CustomException;
+import com.gst.extension.Result;
 import com.gst.repository.CountryRepository;
+import com.gst.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,25 +18,30 @@ import java.util.Iterator;
 
 @RestController()
 @RequestMapping("/api/Country")
-public class CountryApiController {
-    private final CountryRepository countryRepository;
-
+public class CountryApiController extends BaseApiController {
     @Autowired
-    public CountryApiController(CountryRepository countryRepository)
-    {
-        this.countryRepository = countryRepository;
-    }
+    private CountryService countryService;
+
 
     @RequestMapping("/Save")
-    Country Save(Country model){
-        return countryRepository.save(model);
+    Result Save(Country model){
+        return countryService.save(model);
     }
     @RequestMapping("/Deletes")
-    void Deletes(int id){
-        countryRepository.delete(id);
+    Result Deletes(int id){
+        return countryService.delete(id);
     }
     @RequestMapping("/GetList")
-    Iterable<Country> GetList(){
-        return countryRepository.findAll();
+    Result GetList(){
+        return countryService.findAll();
+    }
+
+    @RequestMapping("/test")
+    Result test(int id){
+
+        if(id == 1)
+            return Fail("fail rồi nha");
+
+        return Success(countryService.findAll(),"hello");
     }
 }

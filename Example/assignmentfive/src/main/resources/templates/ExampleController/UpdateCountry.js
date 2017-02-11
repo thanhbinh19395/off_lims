@@ -1,10 +1,9 @@
 /**
- * Created by Thanh Binh on 2/9/2017.
+ * Created by Thanh Binh on 2/8/2017.
  */
-
-framework.factory('UpdateCountry', {
+framework.factory('InsertCountry', {
     onInitHeader: function (header) {
-        header.setName('header1').setTitle(' Update Country')
+        header.setName('header1').setTitle(' Insert Country')
             .setIcon('fa-plus');
         ;
     },
@@ -12,31 +11,32 @@ framework.factory('UpdateCountry', {
         var self = this;
         console.log(this.ViewBag);
         var form = widget.setting.form();
-        form.setName('updateForm').setFieldPerRow(1)
+        form.setName('insertForm').setFieldPerRow(1)
             .addFields([
                 { field: 'countryname', type: 'text', required: true, caption: 'Tên' }
-            ])
-            .setRecord(this.ViewBag.country)
-        ;
+            ]).setRecord(this.ViewBag.country);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
-            .addItem({ id: 'btnInsert', type: 'button', caption: 'Lưu', icon: 'fa-floppy-o', onClick:self.onBtnUpdateClick.bind(this) })
+            .addItem({ id: 'btnInsert', type: 'button', caption: 'Lưu', icon: 'fa-floppy-o', onClick:self.onBtnInsertClick.bind(this) })
             .addItem({ id: 'btnClear', type: 'button', caption:'Nhập lại', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
         ;
         content.setName('content1').addItem(form.end()).addItem(formFooter.end());
     },
-    onBtnUpdateClick: function () {
+    onBtnInsertClick: function () {
         var self = this;
-        var form = this.findElement('updateForm');
+        var form = this.findElement('insertForm');
         if (!form.validate().length) {
-            $.post('/api/Country/Save', form.record , function (data) {
-                alertSuccess('Updated !');
-                self.sendMessage(data);
+            $.post('/api/Country/Save', form.record , function (result) {
+                if(result.success)
+                    alertSuccess(result.message);
+                else
+                    alert(result.message)
+                self.sendMessage(result);
             });
         }
     },
     onBtnClearClick: function () {
-        var form = this.findElement('updateForm');
+        var form = this.findElement('insertForm');
         form.clear();
     }
 

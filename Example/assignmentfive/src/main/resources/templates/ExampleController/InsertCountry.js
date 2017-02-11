@@ -26,9 +26,12 @@ framework.factory('InsertCountry', {
         var self = this;
         var form = this.findElement('insertForm');
         if (!form.validate().length) {
-            $.post('/api/Country/Save', form.record , function (data) {
-                alertSuccess('Inserted !');
-                self.sendMessage(data);
+            $.post('/api/Country/Save', form.record , function (result) {
+                if(result.success)
+                    alertSuccess(result.message);
+                else
+                    alert(result.message)
+                self.sendMessage(result);
             });
         }
     },
