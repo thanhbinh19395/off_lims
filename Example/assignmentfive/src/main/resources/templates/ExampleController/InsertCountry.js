@@ -25,7 +25,7 @@ framework.factory('InsertCountry', {
     onBtnInsertClick: function () {
         var self = this;
         var form = this.findElement('insertForm');
-        if (!form.validate().length) {
+        //if (!form.validate().length) {
             $.post('/api/Country/Save', form.record , function (result) {
                 if(result.success)
                     alertSuccess(result.message);
@@ -33,7 +33,7 @@ framework.factory('InsertCountry', {
                     alert(result.message)
                 self.sendMessage(result);
             });
-        }
+        //}
     },
     onBtnClearClick: function () {
         var form = this.findElement('insertForm');

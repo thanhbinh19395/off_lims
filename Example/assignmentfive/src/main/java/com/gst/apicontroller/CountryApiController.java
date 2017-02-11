@@ -6,7 +6,10 @@ import com.gst.extension.Result;
 import com.gst.repository.CountryRepository;
 import com.gst.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -18,13 +21,12 @@ import java.util.Iterator;
 
 @RestController()
 @RequestMapping("/api/Country")
-public class CountryApiController extends BaseApiController {
+public class CountryApiController {
     @Autowired
     private CountryService countryService;
 
-
     @RequestMapping("/Save")
-    Result Save(Country model){
+    Result Save(@Validated Country model){
         return countryService.save(model);
     }
     @RequestMapping("/Deletes")
@@ -38,10 +40,10 @@ public class CountryApiController extends BaseApiController {
 
     @RequestMapping("/test")
     Result test(int id){
+        if(id == 1) {
+            throw new CustomException("Lỗi : loi");
+        }
 
-        if(id == 1)
-            return Fail("fail rồi nha");
-
-        return Success(countryService.findAll(),"hello");
+        return countryService.findAll();
     }
 }

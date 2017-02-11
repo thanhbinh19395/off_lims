@@ -5,12 +5,13 @@ import com.gst.extension.Result;
 import com.gst.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 /**
  * Created by Thanh Binh on 2/11/2017.
  */
 @Service
-public class CountryServiceImpl extends BaseService implements CountryService {
+public class CountryServiceImpl extends CommandBase implements CountryService {
 
     @Autowired
     private CountryRepository countryRepository;
@@ -32,8 +33,8 @@ public class CountryServiceImpl extends BaseService implements CountryService {
     }
 
     @Override
-    public Result delete(int id) {
+    public Result<Integer> delete(int id) {
         countryRepository.delete(id);
-        return Success(null, "Xóa thành công");
+        return Success(id,"Xóa thành công");
     }
 }
