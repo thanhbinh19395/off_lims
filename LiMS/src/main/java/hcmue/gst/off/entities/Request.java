@@ -1,15 +1,16 @@
 package hcmue.gst.off.entities;
 
+import hcmue.gst.off.extensions.EntityBase;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by WIN8.1 on 07/02/2017.
  */
 @Entity
 @Table(name = "request")
-public class Request extends Base implements Serializable{
+public class Request extends EntityBase implements Serializable{
     private String book_name;
     private String author;
 

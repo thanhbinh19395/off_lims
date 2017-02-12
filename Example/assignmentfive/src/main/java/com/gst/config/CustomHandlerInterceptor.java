@@ -22,7 +22,7 @@ public class CustomHandlerInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
         String parentId = httpServletRequest.getParameter("ParentId");
-        if(!StringUtils.isEmptyOrWhitespace(parentId)) {
+        if( parentId != null && !StringUtils.isEmptyOrWhitespace(parentId)) {
             modelAndView.getModelMap().addAttribute("Layout","layoutPopup");
             modelAndView.getModelMap().addAttribute("ParentId",parentId);
         }

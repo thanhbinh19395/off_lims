@@ -1,0 +1,286 @@
+﻿#main-content {
+    background-color: #fff !important;
+}
+
+/* make box transparent */
+.box.box-transparent > .box-title {
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: 0 0 0;
+    border-bottom: 1px solid #afafaf;
+}
+
+.box.box-transparent > .box-content {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.box.box-transparent > .box-title h3,
+.box.box-transparent > .box-title div,
+.box.box-transparent > .box-title span,
+.box.box-transparent > .box-title a,
+.box.box-transparent > .box-title i:not(.fa) {
+    color: #393939;
+}
+
+.select2-container,
+.tpx-select2-container {
+    width: 100%;
+}
+/* fix bug horizontal */
+#nav-horizontal ul.dropdown-menu {
+    border-color: #282b2f;
+}
+
+/* beautiful pagination */
+.pagination li.active a,
+.pagination li.active a:hover {
+    background-color: #595959;
+    color: #fff !important;
+}
+
+/* chinh position btn-scrollup */
+#btn-scrollup {
+    bottom: 15px;
+    right: 20px;
+}
+
+table[id^=table_grid_] .w2ui-field label:not(.label-radiocheck) {
+    width: 96px;
+}
+
+table[id^=table_grid_] .w2ui-field label.label-radiocheck {
+    width: 160px;
+}
+
+table[id^=table_grid_] .w2ui-field > div {
+    margin-left: 105px;
+}
+
+table[id^=table_grid_] textarea {
+    height: 4em;
+    resize: none;
+}
+
+table[id^=table_grid_] textarea,
+table[id^=table_grid_] input,
+table[id^=table_grid_] select {
+    width: 100%;
+}
+
+    table[id^=table_grid_] input[type=checkbox],
+    table[id^=table_grid_] input[type=radio] {
+        width: auto;
+        margin-right: 3px;
+    }
+
+/*.box-content*/ .form-box-footer:last-child {
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+    width: 100%;
+    background-color: #ddd;
+    padding: 3px 0;
+}
+
+.w2ui-popup .w2ui-msg-body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+.input-icon {
+    background: transparent;
+    border: 0;
+    margin-left: -20px !important;
+}
+
+#main-content {
+    padding: 0 !important;
+}
+
+.w2ui-popup .w2ui-msg-body {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.w2ui-form .w2ui-page {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.inf-spin {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 1000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 1000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.modal-body {
+    padding: 0;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 5px;
+    border-bottom: 0;
+    cursor: move;
+}
+
+    .modal-header h4 {
+        font-size: 15px;
+    }
+
+.disable-section {
+    pointer-events: none;
+    overflow: hidden !important;
+    z-index: 9999 !important;
+}
+
+
+
+
+select {
+    border-radius: 0 !important;
+    border: 0px !important;
+}
+
+.pagination > li > a, .pager > li > a {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+}
+
+.navbar {
+    z-index: 100 !important;
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+
+.print-only {
+    display: none;
+}
+
+@media print {
+    .print-only {
+        display: block;
+    }
+}
+
+.box > .box-title {
+    text-shadow: none !important;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: 5px !important;
+    color: white;
+    font-size: 14px;
+    border-radius: 0 !important;
+    font-family: 'Open Sans' !important;
+    font-weight: 900;
+    background-color: #555 !important;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0px !important;
+    overflow: hidden !important;
+    padding-bottom: -20px !important;
+}
+
+.ui-dialog-content .ui-widget-content {
+    padding-bottom: -10px !important;
+}
+
+.ui-dialog {
+    margin:-1px 3px -1px -1px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border: 1px solid #595959;
+    border-color: #595959 !important;
+    box-shadow: 0px 0px 3px 3px rgba(125, 125, 125, 0.2);
+}
+
+.ui-widget-header {
+    border-width: 0 !important;
+    height:28px;
+}
+
+
+.ui-dialog-titlebar-close {
+     border-radius: 0 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    margin: -1px !important;
+    
+}
+.ui-dialog-titlebar-maximize {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.ui-dialog-titlebar-restore {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.ui-dialog-titlebar-minimize {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.ui-dialog-titlebar-close > .ui-icon {
+    background-image: url("/plugins/jquery-ui-1.11.4/images/ui-icons_ffffff_256x240.png") !important;
+}
+.ui-dialog-titlebar-minimize > .ui-icon {
+    background-image: url("/plugins/jquery-ui-1.11.4/images/ui-icons_ffffff_256x240.png") !important;
+}
+.ui-dialog-titlebar-maximize > .ui-icon {
+    background-image: url("/plugins/jquery-ui-1.11.4/images/ui-icons_ffffff_256x240.png") !important;
+}
+.ui-dialog-titlebar-restore > .ui-icon {
+    background-image: url("/plugins/jquery-ui-1.11.4/images/ui-icons_ffffff_256x240.png") !important;
+}

@@ -31,6 +31,7 @@ public class ExampleController extends BaseController {
     public String InsertCountry(Model model) {
         return View();
     }
+
     @RequestMapping("/UpdateCountry/{CountryId}")
     public String UpdateCountry(@PathVariable("CountryId") int CountryId, Model model) {
         model.addAttribute("country", countryRepository.findOne(CountryId));

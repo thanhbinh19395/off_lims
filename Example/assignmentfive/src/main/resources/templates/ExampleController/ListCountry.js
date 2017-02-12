@@ -2,12 +2,12 @@
  * Created by Thanh Binh on 2/8/2017.
  */
 framework.factory('ListCountry', {
-    onMessageReceive: function (sender, message) {
+    onMessageReceive: function (sender, data) {
         if(sender.pageName =='InsertCountry' || sender.pageName =='UpdateCountry'){
-            this.onbtnReloadClick();
-
-            //close page con
-            sender.close();
+            if(data.success){
+                this.onbtnReloadClick();
+                sender.close();
+            }
         }
     },
     onInitHeader: function (header) {
@@ -68,7 +68,6 @@ framework.factory('ListCountry', {
             .setIdColumn('id')
             .addRecords(self.ViewBag.listCountry)
         ;
-
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
         }
@@ -103,9 +102,13 @@ framework.factory('ListCountry', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/Country/Deletes', { id: id }, function (data) {
-                alertSuccess('Deleted !');
-                self.onbtnReloadClick();
+            $.post('/api/Country/Deletes', { id: id }, function (result) {
+                if(result.success){
+                    alertSuccess(result.message);
+                    self.onbtnReloadClick();
+                }
+                else
+                    alert(result.message)
             });
         });
     },
@@ -120,9 +123,9 @@ framework.factory('ListCountry', {
         var form = this.findElement('searchForm');
 
         //reload grid data
-        $.post('/api/Country/GetList',null, function (data) {
+        $.post('/api/Country/GetList',null, function (result) {
             grid.clear();
-            grid.add(data);
+            grid.add(result.data);
         });
 
         //clear form search + param

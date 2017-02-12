@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<div th:remove="tag" layout:fragment="contentBody"></div>
+<div th:remove="tag" th:utext="${ViewBag}"></div>
+<script th:inline="javascript">
+    require(['jquery', 'jqueryUIDiaglogExtend', 'blockUISetting','flatyScript', 'jqueryCookie', 'jquerySlimscroll', 'bootstrap', 'noty', 'notySetting','pluploadui'], function () {
+        require(['framework'], function () {
+            /*<![CDATA[*/
+            /*[+
+             require(['/api/Javascript/GetJS?id=' + [[${PageModule}]]], function(){});
+             +]*/
+            /*]]>*/
+        });
+    });
+</script>
+
+<script layout:fragment="scripts" ></script>
+<div th:remove="tag" layout:fragment="styles"></div>
+
+</html>

@@ -1,5 +1,6 @@
 package hcmue.gst.off.controllers;
 
+import hcmue.gst.off.extensions.ControllerBase;
 import hcmue.gst.off.services.SecurityService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by WIN8.1 on 09/02/2017.
  */
 @Controller
-public class HomeController extends BaseController {
+public class HomeController extends ControllerBase {
 
     @Autowired
     private SecurityService securityService;
