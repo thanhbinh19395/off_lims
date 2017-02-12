@@ -1,5 +1,6 @@
 package hcmue.gst.off.configuration;
 
+import hcmue.gst.off.authentication.RESTAuthenticationSuccessHandler;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Created by WIN8.1 on 09/02/2017.
@@ -31,25 +31,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    private RESTAuthenticationSuccessHandler authenticationSuccessHandler;
+
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/Hello/**").authenticated()
                 .antMatchers("/**", "/css/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/admin/**").hasRole("LIBRARIAN")
-                .antMatchers("/user/**").hasRole("USER")
-                .anyRequest().fullyAuthenticated()
-                .and()
-                    .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/home")
-                    .permitAll()
-                .and()
-                    .logout()
-                    .permitAll()
-                .and()
-                    .exceptionHandling().accessDeniedPage("/access_denied");
+                .antMatchers("/librarian/**").hasRole("LIBRARIAN")
+                .antMatchers("/user/**").hasRole("USER");
+        http
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login?error")
+                .successHandler(authenticationSuccessHandler);
+        http
+                .logout()
+                .permitAll();
     }
 
     @Autowired

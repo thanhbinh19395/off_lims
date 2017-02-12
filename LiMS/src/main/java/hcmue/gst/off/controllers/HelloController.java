@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //Khi tao controller thi tao folder HelloController trong thu muc templates de chua View cua controller do
 //Extext Base Controller tra ve ham View(<viewName>)
 @Controller
+@RequestMapping("/Hello")
 public class HelloController extends BaseController {
 
     @RequestMapping("/hello")

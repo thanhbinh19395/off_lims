@@ -9,20 +9,9 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "role")
-public class Role implements Serializable{
-    private long id;
+public class Role extends Base implements Serializable{
     private String name;
     private Set<User> users;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
