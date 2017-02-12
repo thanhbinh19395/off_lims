@@ -38,11 +38,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/Hello/**").authenticated()
-                .antMatchers("/**", "/css/**").permitAll()
+                .antMatchers("/Admin/**", "/Librarian").authenticated()
+                .antMatchers("/**", "/css/**","/User/**").permitAll()
                 .antMatchers("/Admin/**").hasRole("ADMIN")
+                .antMatchers("/Librarian/**").hasRole("ADMIN")
                 .antMatchers("/Librarian/**").hasRole("LIBRARIAN")
-                .antMatchers("/User/**").hasRole("USER");
+                .antMatchers("/User/Private/**").hasRole("USER");
         http
                 .formLogin()
                 .loginPage("/login")
@@ -51,9 +52,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .logout()
                 .permitAll();
-
-        //disable crossite request
-        http.csrf().disable();
+        http
+                .csrf().disable();
+        http
+                .exceptionHandling().accessDeniedPage("/Access_Denied");
     }
 
     @Autowired

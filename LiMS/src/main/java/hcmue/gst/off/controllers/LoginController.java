@@ -18,13 +18,12 @@ import javax.servlet.http.HttpServletResponse;
  * Created by WIN8.1 on 09/02/2017.
  */
 @Controller
-@RequestMapping("/")
 public class LoginController extends BaseController {
 
     @Autowired
     private SecurityService securityService;
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid");
@@ -32,16 +31,7 @@ public class LoginController extends BaseController {
             model.addAttribute("logout", "You have been logged out");
         return View("login");
     }
-    /*
-    @RequestMapping(value = "/processLogin", method = RequestMethod.POST)
-    public String login(@ModelAttribute("modelLogin") User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "redirect:/login?error";
-        }
-        securityService.autoLogin(user.getUsername(), user.getPassword());
-        return "redirect:/home";
-    }
-    */
+
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -50,4 +40,7 @@ public class LoginController extends BaseController {
         }
         return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
     }
+
+
+
 }
