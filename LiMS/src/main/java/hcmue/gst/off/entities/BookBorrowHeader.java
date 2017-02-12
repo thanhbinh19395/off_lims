@@ -12,7 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "bookborrow")
-public class BookBorrow extends EntityBase implements Serializable{
+public class BookBorrowHeader extends EntityBase implements Serializable{
     private Date returnDate;
     private int bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;
@@ -35,7 +35,7 @@ public class BookBorrow extends EntityBase implements Serializable{
         this.bookTransaction = bookTransaction;
     }
 
-    @OneToMany(mappedBy = "bookBorrow",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bookBorrowHeader",cascade = CascadeType.ALL)
     public Set<BookBorrowDetail> getBookBorrowDetails() {
         return bookBorrowDetails;
     }

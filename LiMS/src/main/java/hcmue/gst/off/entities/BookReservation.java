@@ -11,16 +11,16 @@ import java.io.Serializable;
 @Entity
 @Table(name = "reservation")
 public class BookReservation extends EntityBase implements Serializable {
-    private BookBorrow bookBorrow;
+    private BookBorrowHeader bookBorrowHeader;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookborrow_id")
-    public BookBorrow getBookBorrow() {
-        return bookBorrow;
+    public BookBorrowHeader getBookBorrowHeader() {
+        return bookBorrowHeader;
     }
 
-    public void setBookBorrow(BookBorrow bookBorrow) {
-        this.bookBorrow = bookBorrow;
+    public void setBookBorrowHeader(BookBorrowHeader bookBorrowHeader) {
+        this.bookBorrowHeader = bookBorrowHeader;
     }
 
 }

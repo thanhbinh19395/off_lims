@@ -13,8 +13,7 @@ public class BookBorrowDetail extends EntityBase {
 
     private String note;
     private Book book;
-    private BookStatus bookStatus;
-    private BookBorrow bookBorrow;
+    private BookBorrowHeader bookBorrowHeader;
 
     public String getNote() {
         return note;
@@ -23,6 +22,7 @@ public class BookBorrowDetail extends EntityBase {
     public void setNote(String note) {
         this.note = note;
     }
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
@@ -34,23 +34,15 @@ public class BookBorrowDetail extends EntityBase {
         this.book = book;
     }
 
-    @OneToOne
-    @JoinColumn(name = "bookstatus_id")
-    public BookStatus getBookStatus() {
-        return bookStatus;
-    }
 
-    public void setBookStatus(BookStatus bookStatus) {
-        this.bookStatus = bookStatus;
-    }
 
     @ManyToOne
     @JoinColumn(name = "bookBorrow_id")
-    public BookBorrow getBookBorrow() {
-        return bookBorrow;
+    public BookBorrowHeader getBookBorrowHeader() {
+        return bookBorrowHeader;
     }
 
-    public void setBookBorrow(BookBorrow bookBorrow) {
-        this.bookBorrow = bookBorrow;
+    public void setBookBorrowHeader(BookBorrowHeader bookBorrowHeader) {
+        this.bookBorrowHeader = bookBorrowHeader;
     }
 }

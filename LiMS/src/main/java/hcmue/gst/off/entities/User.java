@@ -26,7 +26,7 @@ public class User implements Serializable {
     private Set<Book> books;
     private Set<BookBorrowDetail> bookBorrowDetails;
     private Set<BookStatus> bookStatuses;
-    private Set<BookBorrow> bookBorrows;
+    private Set<BookBorrowHeader> bookBorrowHeaders;
     private Set<BookReservation> bookReservations;
     private Set<BookCategory> bookCategories;
 
@@ -138,12 +138,12 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
-    public Set<BookBorrow> getBookBorrows() {
-        return bookBorrows;
+    public Set<BookBorrowHeader> getBookBorrowHeaders() {
+        return bookBorrowHeaders;
     }
 
-    public void setBookBorrows(Set<BookBorrow> bookBorrows) {
-        this.bookBorrows = bookBorrows;
+    public void setBookBorrowHeaders(Set<BookBorrowHeader> bookBorrowHeaders) {
+        this.bookBorrowHeaders = bookBorrowHeaders;
     }
 
     @OneToMany(mappedBy = "created_by")

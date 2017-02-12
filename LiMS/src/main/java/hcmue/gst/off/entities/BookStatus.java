@@ -4,6 +4,7 @@ import hcmue.gst.off.extensions.EntityBase;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by WIN8.1 on 08/02/2017.
@@ -12,7 +13,7 @@ import java.io.Serializable;
 @Table(name = "bookstatus")
 public class BookStatus extends EntityBase implements Serializable {
     private String description;
-    private BookBorrowDetail bookBorrowDetail;
+    private Set<Book> books;
 
     public String getDescription() {
         return description;
@@ -22,12 +23,12 @@ public class BookStatus extends EntityBase implements Serializable {
         this.description = description;
     }
 
-    @OneToOne(mappedBy = "bookStatus")
-    public BookBorrowDetail getBookBorrowDetail() {
-        return bookBorrowDetail;
+    @OneToMany(mappedBy = "bookStatus", cascade = CascadeType.ALL)
+    public Set<Book> getBooks() {
+        return books;
     }
 
-    public void setBookBorrowDetail(BookBorrowDetail bookBorrowDetail) {
-        this.bookBorrowDetail = bookBorrowDetail;
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }

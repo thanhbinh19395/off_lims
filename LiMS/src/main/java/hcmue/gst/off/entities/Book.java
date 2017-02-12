@@ -15,6 +15,7 @@ public class Book extends EntityBase implements Serializable {
     private String name;
     private int publish_year;
     private byte[] image;
+    private BookStatus bookStatus;
     private BookCategory bookCategory;
     private BookBorrowDetail bookBorrowDetail;
 
@@ -74,4 +75,13 @@ public class Book extends EntityBase implements Serializable {
     }
 
 
+    @ManyToOne
+    @JoinColumn(name = "bookstatus_id")
+    public BookStatus getBookStatus() {
+        return bookStatus;
+    }
+
+    public void setBookStatus(BookStatus bookStatus) {
+        this.bookStatus = bookStatus;
+    }
 }
