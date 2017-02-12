@@ -4,12 +4,12 @@ package hcmue.gst.off.entities;
  * Created by Thanh Binh on 2/12/2017.
  */
 
-import hcmue.gst.off.extensions.EntityBase;
+import hcmue.gst.off.extensions.BaseEntity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 @Entity
-public class Country extends EntityBase {
+public class Country extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @NotEmpty

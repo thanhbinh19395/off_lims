@@ -1,6 +1,7 @@
 package hcmue.gst.off.controllers.Admin;
 
-import hcmue.gst.off.extensions.AdminControllerBase;
+import hcmue.gst.off.extensions.AdminBaseController;
+import hcmue.gst.off.extensions.BaseController;
 import hcmue.gst.off.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/Admin/Country")
-public class CountryController extends AdminControllerBase {
+public class CountryController extends AdminBaseController {
     private final CountryService countryService;
 
     @Autowired
@@ -33,7 +34,7 @@ public class CountryController extends AdminControllerBase {
     }
 
     @RequestMapping("/UpdateCountry/{CountryId}")
-    public String UpdateCountry(@PathVariable("CountryId") int CountryId, Model model) {
+    public String UpdateCountry(@PathVariable("CountryId") Long CountryId, Model model) {
         model.addAttribute("country", countryService.findOne(CountryId));
         return View();
     }

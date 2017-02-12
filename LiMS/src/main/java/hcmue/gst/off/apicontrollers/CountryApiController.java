@@ -23,7 +23,7 @@ public class CountryApiController {
         return countryService.save(model);
     }
     @RequestMapping("/Deletes")
-    Result Deletes(int id){
+    Result Deletes(Long id){
         return countryService.delete(id);
     }
     @RequestMapping("/GetList")

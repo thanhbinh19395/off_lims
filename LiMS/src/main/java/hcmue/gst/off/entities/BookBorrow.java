@@ -1,6 +1,6 @@
 package hcmue.gst.off.entities;
 
-import hcmue.gst.off.extensions.EntityBase;
+import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "bookborrow")
-public class BookBorrow extends EntityBase implements Serializable{
+public class BookBorrow extends BaseEntity implements Serializable{
     private Date returnDate;
     private int bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;

@@ -1,5 +1,7 @@
 package hcmue.gst.off.entities;
 
+import hcmue.gst.off.extensions.BaseEntity;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -9,7 +11,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "role")
-public class Role extends Base implements Serializable{
+public class Role extends BaseEntity implements Serializable{
     private String name;
     private Set<User> users;
 

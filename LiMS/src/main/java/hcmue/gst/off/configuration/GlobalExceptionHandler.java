@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     //all
     @ExceptionHandler(Exception.class)
     public Result<Object> handleAllException(HttpServletRequest request, Exception ex){
-        return new Result<Object>(null,ex.getClass().getSimpleName(),false);
+        return new Result<Object>(ex.getClass().getSimpleName(),ex.getMessage(),false);
     }
 
     //rest bind

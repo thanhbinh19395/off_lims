@@ -9,9 +9,9 @@ import hcmue.gst.off.extensions.Result;
 public interface CountryService {
     Result<Iterable<Country>> findAll();
 
-    Result<Country> findOne(int id);
+    Result<Country> findOne(Long id);
 
     Result<Country> save(Country contact);
 
-    Result delete(int id);
+    Result delete(Long id);
 }
