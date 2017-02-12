@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * Created by Thanh Binh on 2/12/2017.
  */
 @Service
-public class CountryServiceImpl extends CommandBase implements CountryService {
+public class CountryServiceImpl extends BaseCommand implements CountryService {
 
     @Autowired
     private CountryRepository countryRepository;
@@ -22,7 +22,7 @@ public class CountryServiceImpl extends CommandBase implements CountryService {
     }
 
     @Override
-    public Result<Country> findOne(int id) {
+    public Result<Country> findOne(Long id) {
         return Success(countryRepository.findOne(id));
     }
 
@@ -32,7 +32,7 @@ public class CountryServiceImpl extends CommandBase implements CountryService {
     }
 
     @Override
-    public Result<Integer> delete(int id) {
+    public Result<Long> delete(Long id) {
         countryRepository.delete(id);
         return Success(id,"Xóa thành công");
     }

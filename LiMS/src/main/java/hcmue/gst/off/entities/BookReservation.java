@@ -1,6 +1,6 @@
 package hcmue.gst.off.entities;
 
-import hcmue.gst.off.extensions.EntityBase;
+import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "reservation")
-public class BookReservation extends EntityBase implements Serializable {
+public class BookReservation extends BaseEntity implements Serializable {
     private BookBorrowHeader bookBorrowHeader;
 
     @OneToOne(cascade = CascadeType.ALL)

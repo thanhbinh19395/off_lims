@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by WIN8.1 on 08/02/2017.
  */
 @MappedSuperclass
-public class EntityBase {
+public class BaseEntity {
     private long id;
     private User created_by;
     private Date created_date;

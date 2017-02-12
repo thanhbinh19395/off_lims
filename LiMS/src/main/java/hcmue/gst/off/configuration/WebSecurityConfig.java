@@ -34,8 +34,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private RESTAuthenticationSuccessHandler authenticationSuccessHandler;
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -53,6 +51,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .logout()
                 .permitAll();
+
+        //disable crossite request
+        http.csrf().disable();
     }
 
     @Autowired

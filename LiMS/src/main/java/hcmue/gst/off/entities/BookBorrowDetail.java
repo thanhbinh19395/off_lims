@@ -1,6 +1,6 @@
 package hcmue.gst.off.entities;
 
-import hcmue.gst.off.extensions.EntityBase;
+import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
 
@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "bookborrowdetail")
-public class BookBorrowDetail extends EntityBase {
+public class BookBorrowDetail extends BaseEntity {
 
     private String note;
     private Book book;

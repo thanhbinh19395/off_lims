@@ -3,7 +3,7 @@ package hcmue.gst.off.extensions;
 /**
  * Created by Thanh Binh on 2/12/2017.
  */
-public class CommandBase {
+public class BaseCommand {
 
     public <T> Result<T> Success(T data, String message) {
         return new Result<T>(data,message,true);
