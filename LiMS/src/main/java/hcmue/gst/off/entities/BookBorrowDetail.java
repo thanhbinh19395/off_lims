@@ -37,7 +37,7 @@ public class BookBorrowDetail extends BaseEntity {
 
 
     @ManyToOne
-    @JoinColumn(name = "bookBorrow_id")
+    @JoinColumn(name = "bookBorrowHeader_id")
     public BookBorrowHeader getBookBorrowHeader() {
         return bookBorrowHeader;
     }

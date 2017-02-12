@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by WIN8.1 on 08/02/2017.
  */
 @Entity
-@Table(name = "bookborrow")
+@Table(name = "bookborrowheader")
 public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
     private int bookTransaction;
@@ -43,7 +43,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
         this.bookBorrowDetails = bookBorrowDetails;
     }
 
-    @OneToOne(mappedBy = "bookBorrow")
+    @OneToOne(mappedBy = "bookBorrowHeader")
     public BookReservation getBookReservation() {
         return bookReservation;
     }

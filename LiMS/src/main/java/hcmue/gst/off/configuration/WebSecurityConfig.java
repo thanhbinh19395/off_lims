@@ -40,9 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/Hello/**").authenticated()
                 .antMatchers("/**", "/css/**").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/librarian/**").hasRole("LIBRARIAN")
-                .antMatchers("/user/**").hasRole("USER");
+                .antMatchers("/Admin/**").hasRole("ADMIN")
+                .antMatchers("/Librarian/**").hasRole("LIBRARIAN")
+                .antMatchers("/User/**").hasRole("USER");
         http
                 .formLogin()
                 .loginPage("/login")
@@ -59,9 +59,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
         for (User user : userRepository.findAll()) {
-            auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("USER");
+            if (user.getRole().getName().matches("ADMIN"))
+                auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("ADMIN");
+            if (user.getRole().getName().matches("LIBRARIAN"))
+                auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("LIBRARIAN");
+            if (user.getRole().getName().matches("USER"))
+                auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("USER");
         }
     }
 

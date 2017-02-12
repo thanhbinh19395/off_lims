@@ -1,4 +1,4 @@
-package hcmue.gst.off.entities;
+package com.gst.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,13 +22,6 @@ public class User implements Serializable {
     private String confirmPassword;
     private boolean status;
     private Role role;
-    private Set<Request> requests;
-    private Set<Book> books;
-    private Set<BookBorrowDetail> bookBorrowDetails;
-    private Set<BookStatus> bookStatuses;
-    private Set<BookBorrowHeader> bookBorrowHeaders;
-    private Set<BookReservation> bookReservations;
-    private Set<BookCategory> bookCategories;
 
 
     public User() {
@@ -79,7 +72,7 @@ public class User implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "role")
     public Role getRole() {
         return role;
     }
@@ -128,66 +121,4 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
-    public Set<Request> getRequests() {
-        return requests;
-    }
-
-    public void setRequests(Set<Request> requests) {
-        this.requests = requests;
-    }
-
-    @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
-    public Set<BookBorrowHeader> getBookBorrowHeaders() {
-        return bookBorrowHeaders;
-    }
-
-    public void setBookBorrowHeaders(Set<BookBorrowHeader> bookBorrowHeaders) {
-        this.bookBorrowHeaders = bookBorrowHeaders;
-    }
-
-    @OneToMany(mappedBy = "created_by")
-    public Set<BookReservation> getBookReservations() {
-        return bookReservations;
-    }
-
-    public void setBookReservations(Set<BookReservation> bookReservations) {
-        this.bookReservations = bookReservations;
-    }
-
-    @OneToMany(mappedBy = "created_by")
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-
-    @OneToMany(mappedBy = "created_by")
-    public Set<BookBorrowDetail> getBookBorrowDetails() {
-        return bookBorrowDetails;
-    }
-
-    public void setBookBorrowDetails(Set<BookBorrowDetail> bookBorrowDetails) {
-        this.bookBorrowDetails = bookBorrowDetails;
-    }
-
-    @OneToMany(mappedBy = "created_by")
-    public Set<BookStatus> getBookStatuses() {
-        return bookStatuses;
-    }
-
-    public void setBookStatuses(Set<BookStatus> bookStatuses) {
-        this.bookStatuses = bookStatuses;
-    }
-
-    @OneToMany(mappedBy = "created_by")
-    public Set<BookCategory> getBookCategories() {
-        return bookCategories;
-    }
-
-    public void setBookCategories(Set<BookCategory> bookCategories) {
-        this.bookCategories = bookCategories;
-    }
 }
