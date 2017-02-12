@@ -12,7 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "bookborrow")
-public class BookBorrow extends BaseEntity implements Serializable{
+public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
     private int bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;
