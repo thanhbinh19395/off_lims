@@ -1,14 +1,15 @@
 package hcmue.gst.off.entities;
 
+import hcmue.gst.off.extensions.EntityBase;
+
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by WIN8.1 on 08/02/2017.
  */
 @Entity
 @Table(name = "bookborrowdetail")
-public class BookBorrowDetail extends Base {
+public class BookBorrowDetail extends EntityBase {
 
     private String note;
     private Book book;

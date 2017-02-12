@@ -1,16 +1,17 @@
 package hcmue.gst.off.entities;
 
 
+import hcmue.gst.off.extensions.EntityBase;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * Created by WIN8.1 on 07/02/2017.
  */
 @Entity
 @Table(name = "book")
-public class Book extends Base implements Serializable {
+public class Book extends EntityBase implements Serializable {
     private String name;
     private int publish_year;
     private byte[] image;
