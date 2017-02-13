@@ -24,12 +24,11 @@
     //this sau khi extend sẽ được chứa trong $(this.el).data('w2field')
     $.extend(self, {
         onMessageReceive: function (sender, message) {
-            debugger
             if (sender.pageName == 'ListRole')
             {
-                $(self.el).val(message.data.id);
+                $(self.el).val(message.id);
                 $(self.el).change();
-                $(input).val(message.data.name)
+                $(input).val(message.name)
                 $(self.el).data('data', message);
                 sender.close();
             }
