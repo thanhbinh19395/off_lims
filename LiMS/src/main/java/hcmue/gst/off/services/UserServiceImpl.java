@@ -2,6 +2,8 @@ package hcmue.gst.off.services;
 
 import hcmue.gst.off.entities.Role;
 import hcmue.gst.off.entities.User;
+import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RoleRepository;
 import hcmue.gst.off.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import java.util.HashSet;
  * Created by WIN8.1 on 09/02/2017.
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseCommand implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -27,9 +29,25 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User save(User user) {
+    public Result<User> save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        return Success(userRepository.save(user));
+    }
+
+    @Override
+    public Result<Iterable<User>> findAll() {
+        return Success(userRepository.findAll());
+    }
+
+    @Override
+    public Result<User> findOne(Long id) {
+        return Success(userRepository.findOne(id));
+    }
+
+    @Override
+    public Result delete(Long id) {
+        userRepository.delete(id);
+        return Success();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.*;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.Set;
 @Table(name = "role")
 public class Role extends BaseEntity implements Serializable{
     private String name;
+
     private Set<User> users;
 
     public String getName() {
@@ -24,6 +26,7 @@ public class Role extends BaseEntity implements Serializable{
     }
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    @JsonIgnore
     public Set<User> getUsers() {
         return users;
     }

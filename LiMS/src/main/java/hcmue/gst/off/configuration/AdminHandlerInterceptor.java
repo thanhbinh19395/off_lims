@@ -1,12 +1,15 @@
 package hcmue.gst.off.configuration;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -22,17 +25,25 @@ public class AdminHandlerInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
         String parentId = httpServletRequest.getParameter("ParentId");
+        Map<String, Object> viewBagData =  new HashMap<String, Object>();
+        if(modelAndView.getModel().get("ViewBagData") == null){
+            modelAndView.getModelMap().addAttribute("ViewBagData",viewBagData);
+        }
+        else{
+            viewBagData = (Map<String, Object>) modelAndView.getModel().get("ViewBagData");
+        }
         if( parentId != null && !StringUtils.isEmptyOrWhitespace(parentId)) {
             modelAndView.getModelMap().addAttribute("Layout","/Shared/Admin/layoutPopup");
-            modelAndView.getModelMap().addAttribute("ParentId",parentId);
+            viewBagData.put("ParentId",parentId);
         }
         else {
             modelAndView.getModelMap().addAttribute("Layout","/Shared/Admin/layout");
         }
 
-        Gson gson = new Gson();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         String viewbagStr = "<script> var ViewBag = %s;</script>";
-        modelAndView.getModelMap().addAttribute("ViewBag", String.format(viewbagStr,gson.toJson(modelAndView.getModelMap())));
+        modelAndView.getModelMap().addAttribute("ViewBag", String.format(viewbagStr,mapper.writeValueAsString(modelAndView.getModelMap().get("ViewBagData"))));
         String uuid = UUID.randomUUID().toString();
         httpServletRequest.getSession().setAttribute(uuid,"/templates" + modelAndView.getViewName()+".js");
         modelAndView.getModelMap().addAttribute("PageModule",uuid);

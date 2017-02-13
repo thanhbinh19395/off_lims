@@ -1,5 +1,7 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,6 +23,10 @@ public class User implements Serializable {
     private String password;
     private String confirmPassword;
     private boolean status;
+
+
+
+    private long roleId;
     private Role role;
     private Set<Request> requests;
     private Set<Book> books;
@@ -43,6 +49,26 @@ public class User implements Serializable {
     public void setId(long id) {
         this.id = id;
     }
+
+    @Column(name = "role_id")
+    public long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(long roleId) {
+        this.roleId = roleId;
+    }
+
+    @ManyToOne()
+    @JoinColumn(name = "role_id", insertable = false, updatable = false)
+    public Role getRole() {
+        return role;
+    }
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+
 
     public String getUsername() {
         return username;
@@ -77,16 +103,6 @@ public class User implements Serializable {
         this.status = status;
     }
 
-
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public String getName() {
         return name;
@@ -190,4 +206,6 @@ public class User implements Serializable {
     public void setBookCategories(Set<BookCategory> bookCategories) {
         this.bookCategories = bookCategories;
     }
+
+
 }

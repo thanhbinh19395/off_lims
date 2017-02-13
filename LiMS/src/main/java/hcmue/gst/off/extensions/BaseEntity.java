@@ -1,5 +1,7 @@
 package hcmue.gst.off.extensions;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import hcmue.gst.off.entities.User;
 
 import javax.persistence.*;

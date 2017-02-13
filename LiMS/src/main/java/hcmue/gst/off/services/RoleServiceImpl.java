@@ -2,17 +2,22 @@ package hcmue.gst.off.services;
 
 import hcmue.gst.off.entities.Role;
 import hcmue.gst.off.entities.User;
+import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.*;
 import java.util.Date;
 
 /**
  * Created by WIN8.1 on 10/02/2017.
  */
 @Service
-public class RoleServiceImpl implements RoleService {
+public class RoleServiceImpl extends BaseCommand implements RoleService {
 
     @Autowired
     private RoleRepository roleRepository;
@@ -24,7 +29,22 @@ public class RoleServiceImpl implements RoleService {
     private UserService userService;
 
     @Override
-    public Role save(Role role) {
+    public Result<Iterable<Role>> findAll() {
+        return Success(roleRepository.findAll());
+    }
+
+    @Override
+    public Result<Iterable<Role>> findByNameContaining(String name) {
+        return Success(roleRepository.findByNameContaining(name));
+    }
+
+    @Override
+    public Result<Role> findOne(Long id) {
+        return Success(roleRepository.findOne(id));
+    }
+
+    @Override
+    public Result<Role> save(Role role) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
         if (role.getId() == 0) {
             role.setCreated_by(user);
@@ -34,6 +54,12 @@ public class RoleServiceImpl implements RoleService {
             role.setUpdate_date(new Date());
             role.setUpdate_by(user);
         }
-        return roleRepository.save(role);
+        return Success(roleRepository.save(role));
+    }
+
+    @Override
+    public Result delete(Long id) {
+        roleRepository.delete(id);
+        return Success();
     }
 }

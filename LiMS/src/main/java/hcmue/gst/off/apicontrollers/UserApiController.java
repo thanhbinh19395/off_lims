@@ -1,25 +1,23 @@
 package hcmue.gst.off.apicontrollers;
 
-import com.sun.net.httpserver.Authenticator;
-import hcmue.gst.off.entities.Role;
+import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.Result;
-import hcmue.gst.off.repositories.RoleRepository;
-import hcmue.gst.off.services.RoleService;
+import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by WIN8.1 on 10/02/2017.
+ * Created by Thanh Binh on 2/13/2017.
  */
 @RestController
-@RequestMapping("/api/Role")
-public class RoleApiController {
+@RequestMapping("/api/User")
+public class UserApiController {
     @Autowired
-    private RoleService roleService;
+    private UserService roleService;
 
     @RequestMapping("/Save")
-    Result<Role> Save(Role model){
+    Result<User> Save(User model){
         return roleService.save(model);
     }
     @RequestMapping("/Deletes")
@@ -27,11 +25,7 @@ public class RoleApiController {
         return roleService.delete(id);
     }
     @RequestMapping("/GetList")
-    Result<Iterable<Role>> GetList(){
+    Result<Iterable<User>> GetList(){
         return roleService.findAll();
-    }
-    @RequestMapping("/FindByNameContaining")
-    Result<Iterable<Role>> FindByNameContaining(String name){
-        return roleService.findByNameContaining(name);
     }
 }

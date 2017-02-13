@@ -15,16 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/Admin/Country")
 public class CountryController extends AdminBaseController {
-    private final CountryService countryService;
-
     @Autowired
-    public CountryController(CountryService countryService){
-        this.countryService = countryService;
-    }
+    private CountryService countryService;
 
     @RequestMapping("/ListCountry")
     public String ListCountry(Model model) {
-        model.addAttribute("listCountry", countryService.findAll());
+        getViewBag(model).put("listCountry", countryService.findAll());
+        getViewBag(model).put("test", countryService.findAll());
         return View();
     }
 

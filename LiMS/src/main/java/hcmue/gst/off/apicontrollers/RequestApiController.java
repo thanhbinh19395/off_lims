@@ -1,6 +1,7 @@
 package hcmue.gst.off.apicontrollers;
 
 import hcmue.gst.off.entities.Role;
+import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RoleRepository;
 import hcmue.gst.off.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class RequestApiController {
     private RoleService roleService;
 
     @RequestMapping("/Save")
-    Role Save(Role model){
+    Result<Role> Save(Role model){
         return roleService.save(model);
     }
     @RequestMapping("/Deletes")
