@@ -14,7 +14,7 @@ framework.factory('InsertCountry', {
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
                 { field: 'countryname', type: 'text', required: true, caption: 'Tên' }
-            ]).setRecord(this.ViewBag.country);
+            ]).setRecord(this.ViewBag.country.Data);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
             .addItem({ id: 'btnInsert', type: 'button', caption: 'Lưu', icon: 'fa-floppy-o', onClick:self.onBtnInsertClick.bind(this) })
