@@ -1,4 +1,4 @@
-package hcmue.gst.off.controllers;
+package hcmue.gst.off.controllers.User;
 
 import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.extensions.BaseController;
@@ -8,6 +8,7 @@ import hcmue.gst.off.services.BookService;
 import hcmue.gst.off.services.SecurityService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,12 +33,15 @@ public class HomeController extends UserBaseController {
     public String Index(Model model, Pageable pageable) {
 
         boolean isAnonymous = true;
+        Page<Book> bookPage = bookService.findAll(pageable);
+        PageWrapper<Book> page = new PageWrapper<Book>(bookService.findAll(pageable), "/");
+        model.addAttribute("books", page.getContent());
+        model.addAttribute("page",page);
         if (securityService.findLoggedInUsername() == null) {
             model.addAttribute("isAnonymous", isAnonymous);
             return View("Index");
         }
-        PageWrapper<Book> page = new PageWrapper<Book>(bookService.getAll(pageable), "/");
-        model.addAttribute("page",page);
+
         model.addAttribute("isUser", true);
         return View("Index");
     }

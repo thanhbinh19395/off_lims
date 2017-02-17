@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Table(name = "book")
 public class Book extends BaseEntity implements Serializable {
     private String name;
+    private String author;
     private int publish_year;
     private byte[] image;
     private BookStatus bookStatus;
@@ -22,8 +23,9 @@ public class Book extends BaseEntity implements Serializable {
     public Book() {
     }
 
-    public Book(String name, int publish_year, byte[] image, BookCategory bookCategory) {
+    public Book(String name, String author ,int publish_year, byte[] image, BookCategory bookCategory) {
         this.name = name;
+        this.author = author;
         this.publish_year = publish_year;
         this.image = image;
         this.bookCategory = bookCategory;

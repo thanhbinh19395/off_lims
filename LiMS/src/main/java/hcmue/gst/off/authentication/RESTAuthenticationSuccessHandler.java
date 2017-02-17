@@ -37,7 +37,7 @@ public class RESTAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
 
         SavedRequest savedRequest = requestCache.getRequest(request,response);
         if (savedRequest == null) {
-            setDefaultTargetUrl("/home");
+            setDefaultTargetUrl("/");
             super.onAuthenticationSuccess(request,response,authentication);
             return;
         }
