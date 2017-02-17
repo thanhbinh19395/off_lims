@@ -145,6 +145,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
+    @JsonIgnore
     public Set<Request> getRequests() {
         return requests;
     }
@@ -154,6 +155,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
+    @JsonIgnore
     public Set<BookBorrowHeader> getBookBorrowHeaders() {
         return bookBorrowHeaders;
     }
@@ -163,6 +165,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookReservation> getBookReservations() {
         return bookReservations;
     }
@@ -172,6 +175,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<Book> getBooks() {
         return books;
     }
@@ -181,6 +185,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookBorrowDetail> getBookBorrowDetails() {
         return bookBorrowDetails;
     }
@@ -190,6 +195,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookStatus> getBookStatuses() {
         return bookStatuses;
     }
@@ -199,10 +205,11 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookCategory> getBookCategories() {
         return bookCategories;
     }
-
+    @JsonIgnore
     public void setBookCategories(Set<BookCategory> bookCategories) {
         this.bookCategories = bookCategories;
     }

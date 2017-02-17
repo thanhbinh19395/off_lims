@@ -1,6 +1,7 @@
 package hcmue.gst.off.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -18,6 +19,9 @@ public class Book extends BaseEntity implements Serializable {
     private BookStatus bookStatus;
     private BookCategory bookCategory;
     private BookBorrowDetail bookBorrowDetail;
+    private long bookCategoryId;
+    private long bookStatusId;
+
 
     public Book() {
     }
@@ -54,8 +58,26 @@ public class Book extends BaseEntity implements Serializable {
         this.image = image;
     }
 
+    @Column(name = "bookcategory_id")
+    public long getBookCategoryId() {
+        return bookCategoryId;
+    }
+
+    public void setBookCategoryId(long bookCategoryId) {
+        this.bookCategoryId = bookCategoryId;
+    }
+
+    @Column(name = "bookstatus_id")
+    public long getBookStatusId() {
+        return bookStatusId;
+    }
+
+    public void setBookStatusId(long bookStatusId) {
+        this.bookStatusId = bookStatusId;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "book_category_id")
+    @JoinColumn(name = "bookcategory_id", insertable = false,updatable = false)
     public BookCategory getBookCategory() {
         return bookCategory;
     }
@@ -76,7 +98,7 @@ public class Book extends BaseEntity implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "bookstatus_id")
+    @JoinColumn(name = "bookstatus_id", insertable = false,updatable = false)
     public BookStatus getBookStatus() {
         return bookStatus;
     }
