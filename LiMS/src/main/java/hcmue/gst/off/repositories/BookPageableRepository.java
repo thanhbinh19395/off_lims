@@ -12,6 +12,6 @@ import java.util.List;
  * Created by Ho Phuong on 14/02/2017.
  */
 @Repository
-public interface BookRepository extends CrudRepository<Book,Long> {
+public interface BookPageableRepository extends CrudRepository<Book,Long> {
     Page<Book> findAll(Pageable pageable);
 }

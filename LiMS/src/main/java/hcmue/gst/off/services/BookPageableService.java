@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 /**
  * Created by Ho Phuong on 15/02/2017.
  */
-public interface BookService {
+public interface BookPageableService {
     Page<Book> findAll(Pageable pageable);
 
 }
