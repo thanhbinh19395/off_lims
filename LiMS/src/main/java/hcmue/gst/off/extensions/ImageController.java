@@ -1,7 +1,7 @@
 package hcmue.gst.off.extensions;
 
 import hcmue.gst.off.entities.Book;
-import hcmue.gst.off.repositories.BookRepository;
+import hcmue.gst.off.repositories.BookPageableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +21,11 @@ import java.io.IOException;
 public class ImageController {
 
     @Autowired
-    private BookRepository bookRepository;
+    private BookPageableRepository bookPageableRepository;
 
     @RequestMapping(value = "/showBookImage", method = RequestMethod.GET)
     public void showImage(@RequestParam("bookId") long id, HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Book book = bookRepository.findOne(id);
+        Book book = bookPageableRepository.findOne(id);
         response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
         response.getOutputStream().write(book.getImage());
         response.getOutputStream().close();
