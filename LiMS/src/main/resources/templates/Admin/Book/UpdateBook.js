@@ -17,8 +17,9 @@ framework.factory('UpdateBook', {
                 { field: 'name', type: 'text', required: true, caption: 'Tên Sách' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
                 { field: 'image', type: 'text', required: false, caption: 'Hình' },
-                { field: 'bookCategoryId', type: 'text', required: true, caption: 'Thể loại' },
-                { field: 'bookStatusId', type: 'text', required: true, caption: 'Trạng thái' }
+                { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
+                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
+                { field: 'bookStatusId', required: true,type: 'popupListBookStatus',required: true, options:{caller:self}  }
             ])
             .setRecord(this.ViewBag.Book.data)
         ;

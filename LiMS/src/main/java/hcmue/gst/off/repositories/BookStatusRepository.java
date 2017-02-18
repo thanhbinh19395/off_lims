@@ -12,4 +12,6 @@ import java.util.List;
 @Repository
 public interface BookStatusRepository extends CrudRepository<BookStatus,Long> {
     List<BookStatus> findByDescription(String description);
+    Iterable<BookStatus> findByDescriptionContaining(String description);
+
 }

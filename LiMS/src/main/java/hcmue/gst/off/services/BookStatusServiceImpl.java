@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by WIN8.1 on 10/02/2017.
@@ -55,5 +56,10 @@ public class BookStatusServiceImpl extends BaseCommand implements BookStatusServ
     public Result delete(Long id) {
         bookStatusRepository.delete(id);
         return Success(id,"Xóa thành công");
+    }
+
+    @Override
+    public Result<Iterable<BookStatus>> findByDescriptionContaining(String description) {
+        return Success(bookStatusRepository.findByDescriptionContaining(description));
     }
 }

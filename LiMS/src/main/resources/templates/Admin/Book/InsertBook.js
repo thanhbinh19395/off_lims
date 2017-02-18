@@ -16,8 +16,8 @@ framework.factory('InsertBook', {
                 { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
                 { field: 'image', type: 'text', required: false, caption: 'Hình' },
-                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
-
+                { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
+                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} }
             ]);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')

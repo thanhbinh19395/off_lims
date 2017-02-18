@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String phone;
     private String address;
     private String idcard;
+    private String email;
     private Date birthday;
     private String username;
     private String password;
@@ -142,6 +143,14 @@ public class User implements Serializable {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)

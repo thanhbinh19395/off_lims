@@ -34,4 +34,9 @@ public class BookStatusApiController {
     Result<Iterable<BookStatus>> GetList(){
         return bookStatusService.findAll();
     }
+    @RequestMapping("/FindByNameContaining")
+    Result GetListByName(String description)
+    {
+        return bookStatusService.findByDescriptionContaining(description);
+    }
 }

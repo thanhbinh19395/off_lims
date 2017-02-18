@@ -89,7 +89,7 @@ public class Book extends BaseEntity implements Serializable {
     }
 
 
-    @OneToOne(mappedBy = "book")
+    @OneToOne(mappedBy = "book",cascade = {CascadeType.ALL})
     public BookBorrowDetail getBookBorrowDetail() {
         return bookBorrowDetail;
     }
@@ -107,5 +107,13 @@ public class Book extends BaseEntity implements Serializable {
 
     public void setBookStatus(BookStatus bookStatus) {
         this.bookStatus = bookStatus;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
