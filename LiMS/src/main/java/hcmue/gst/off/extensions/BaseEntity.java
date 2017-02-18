@@ -1,9 +1,6 @@
 package hcmue.gst.off.extensions;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import hcmue.gst.off.entities.User;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -42,7 +39,8 @@ public class BaseEntity {
         this.created_by = created_by;
     }
 
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss",timezone = "PST")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getCreated_date() {
         return created_date;
     }
@@ -62,7 +60,8 @@ public class BaseEntity {
         this.update_by = update_by;
     }
 
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss",timezone = "PST")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getUpdate_date() {
         return update_date;
     }

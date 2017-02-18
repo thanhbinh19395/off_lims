@@ -15,4 +15,5 @@ public interface BookCategoryService {
     Result<Iterable<BookCategory>> findAll();
     Result<BookCategory> findOne(Long id);
     Result delete(Long id);
+    Result<Iterable<BookCategory>> findByCategory_nameContaining(String category_name);
 }

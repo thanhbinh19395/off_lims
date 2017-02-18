@@ -135,10 +135,12 @@ framework.factory('ListBookCategory', {
         this.searchParam = {};
         form.clear();
     },
+    /*
     onDblClickGrid: function (e) {
         var self = this;
         var grid = this.findElement('grid');
         var record = grid.get(e.recid);
+        console.log(record);
         var mess = {
             type: 'popupListBookCategory',
             data: record,
@@ -147,5 +149,12 @@ framework.factory('ListBookCategory', {
             }
         }
         this.sendMessage(mess);
+    }
+    */
+    onDblClickGrid: function (e) {
+        var self = this;
+        var grid = this.findElement('grid');
+        var record = grid.get(e.recid);
+        this.sendMessage(record);
     }
 });

@@ -8,6 +8,8 @@ import hcmue.gst.off.repositories.BookCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -55,5 +57,10 @@ public class BookCategoryServiceImpl extends BaseCommand implements BookCategory
     public Result delete(Long id) {
         bookCategoryRepository.delete(id);
         return Success(id,"Xóa thành công");
+    }
+
+    @Override
+    public Result<Iterable<BookCategory>> findByCategory_nameContaining(String category_name) {
+        return Success(bookCategoryRepository.findByCategory__nameContaining(category_name));
     }
 }

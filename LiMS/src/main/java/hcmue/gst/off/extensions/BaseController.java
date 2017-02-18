@@ -13,5 +13,4 @@ public class BaseController {
     protected String View(String viewName, String folderName) {
         return "/" + folderName + "/" + viewName;
     }
-
 }

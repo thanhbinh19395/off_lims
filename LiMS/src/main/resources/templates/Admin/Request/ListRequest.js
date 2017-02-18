@@ -1,9 +1,10 @@
 /**
- * Created by dylan on 2/17/2017.
+ * Created by dylan on 2/18/2017.
  */
-framework.factory('ListBook', {
+
+framework.factory('ListRequest', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBook' || sender.pageName =='UpdateBook'){
+        if(sender.pageName =='InsertRequest' || sender.pageName =='UpdateRequest'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -18,14 +19,11 @@ framework.factory('ListBook', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
-                { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'image', type: 'text', required: false, caption: 'Hình' },
-                { field: 'author', type: 'text', required: false, caption: 'Tác Giả' },
-                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
+                { field: 'book_name', type: 'text', required: false, caption: "Tên sách" },
+                { field: 'author', type: 'text', required: false, caption: "Tên tác giả" },
             ])
         ;
-        header.setTitle('Danh sách Sách')
+        header.setTitle('Danh sách yêu cầu')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -64,21 +62,16 @@ framework.factory('ListBook', {
         var grid = widget.setting.grid();
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '5%', sortable: true, resizable: true },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
+                { field: 'id', caption: 'Mã', size: '10%', sortable: true, resizable: true },
+                { field: 'book_name', caption: 'Tên sách' , size: '45%', sortable: true, resizable: true },
+                { field: 'author', caption: 'Tên tác giả ', size: '45%', sortable: true, resizable: true },
+
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnApprove', 'Chấp nhận', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnReject', 'Bác bỏ', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBook.data)
+            .addRecords(self.ViewBag.listRequest.data)
         ;
-        //nếu đc mở kiểu popup thì có thêm sự kiện click grid
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
         }
@@ -86,28 +79,10 @@ framework.factory('ListBook', {
         content.addItem(grid.end());
     },
     onbtnInsertClickGrid: function () {
-        this.openPopup({
-            name: 'insertPopup',
-            url: '/Admin/Book/InsertBook',
-            title: 'Insert Book',
-            width: '700px'
-        });
+       alert("approved");
     },
     onbtnUpdateClickGrid: function () {
-        var grid = this.findElement('grid');
-        var id = grid.getSelection()[0];
-        console.log(id);
-        if (!id) {
-            //thong bao = noty
-            alert("vui long chon");
-            return;
-        }
-        this.openPopup({
-            name: 'updatePopup',
-            url: '/Admin/Book/UpdateBook/'+id,
-            title: 'Update Role',
-            width: '700px'
-        });
+        alert("rejected");
 
     },
     onbtnDeleteClickGrid: function () {
@@ -115,7 +90,7 @@ framework.factory('ListBook', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/Book/Deletes', { id: id }, function (result) {
+            $.post('/api/Request/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -136,7 +111,7 @@ framework.factory('ListBook', {
         var form = this.findElement('searchForm');
 
         //reload grid data
-        $.post('/api/Book/GetList',null, function (result) {
+        $.post('/api/Request/GetList',null, function (result) {
             grid.clear();
             grid.add(result.data);
         });
@@ -145,17 +120,26 @@ framework.factory('ListBook', {
         this.searchParam = {};
         form.clear();
     },
+    /*
+     onDblClickGrid: function (e) {
+     var self = this;
+     var grid = this.findElement('grid');
+     var record = grid.get(e.recid);
+     console.log(record);
+     var mess = {
+     type: 'popupListRequest',
+     data: record,
+     callback: function () {
+     self.close();
+     }
+     }
+     this.sendMessage(mess);
+     }
+     */
     onDblClickGrid: function (e) {
         var self = this;
-        var grid = this.findElement('grid');tạo
+        var grid = this.findElement('grid');
         var record = grid.get(e.recid);
-        var mess = {
-            type: 'popupListBook',
-            data: record,
-            callback: function () {
-                self.close();
-            }
-        }
-        this.sendMessage(mess);
+        this.sendMessage(record);
     }
 });

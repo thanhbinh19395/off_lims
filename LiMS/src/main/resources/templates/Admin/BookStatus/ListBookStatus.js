@@ -136,6 +136,7 @@ framework.factory('ListBookStatus', {
         this.searchParam = {};
         form.clear();
     },
+    /*
     onDblClickGrid: function (e) {
         var self = this;
         var grid = this.findElement('grid');
@@ -148,5 +149,11 @@ framework.factory('ListBookStatus', {
             }
         }
         this.sendMessage(mess);
+    }*/
+    onDblClickGrid: function (e) {
+        var self = this;
+        var grid = this.findElement('grid');
+        var record = grid.get(e.recid);
+        this.sendMessage(record);
     }
 });
