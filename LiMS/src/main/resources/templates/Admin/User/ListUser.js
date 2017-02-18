@@ -18,7 +18,14 @@ framework.factory('ListUser', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: false, caption: "Tên vai trò" },
+                { field: 'name', caption: 'Name', type: 'text'},
+                { field: 'phone', caption: 'Phone', type: 'text'},
+                { field: 'address', caption: 'Address' , type: 'text'},
+                { field: 'idcard', caption: 'ID Number', type: 'text' },
+                { field: 'birthday', caption: 'Birthday', type: 'date' },
+                { field: 'username', caption: 'Username' , type: 'text'},
+                { field: 'password', caption: 'Password', type: 'text' },
+                { field: 'roleId', caption: 'Role', type: 'popupListRole', options:{caller:self} },
             ])
         ;
         header.setTitle('Danh sách User')
@@ -119,6 +126,12 @@ framework.factory('ListUser', {
         });
     },
     onbtnSearchClickSearchForm: function (evt) {
+        var form = this.findElement("searchForm");
+        var grid = this.findElement('grid');
+        var self = this;
+        this.searchParam = form.record;
+        this.reloadGridData();
+        this.findElement("headerContent").toggle();
 
     },
     onPageClick: function (event, page) {
@@ -128,15 +141,24 @@ framework.factory('ListUser', {
         var grid = this.findElement('grid');
         var form = this.findElement('searchForm');
 
-        //reload grid data
-        $.post('/api/User/GetList',null, function (result) {
-            grid.clear();
-            grid.add(result.data);
-        });
-
         //clear form search + param
         this.searchParam = {};
         form.clear();
+
+        //reload grid data
+        this.reloadGridData();
+    },
+    reloadGridData:function(){
+        var grid = this.findElement('grid');
+        $.post('/api/User/Search',this.searchParam, function (result) {
+            if(result.success){
+                grid.clear();
+                grid.add(result.data);
+            }
+            else{
+
+            }
+        });
     },
     onDblClickGrid: function (e) {
         var self = this;

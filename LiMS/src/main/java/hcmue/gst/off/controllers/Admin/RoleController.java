@@ -25,9 +25,8 @@ public class RoleController extends AdminBaseController {
     }
 
     @RequestMapping("/ListRole")
-    public String ListRole(Model model) {
-        getViewBag(model).put("listRole",roleService.findAll());
-        String e = View();
+    public String ListRole(Model model, Role role) {
+        getViewBag(model).put("listRole",roleService.search(role));
         return View();
     }
 

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 /**
  * Created by Thanh Binh on 2/13/2017.
  */
@@ -28,4 +30,10 @@ public class UserApiController {
     Result<Iterable<User>> GetList(){
         return userService.findAll();
     }
+
+    @RequestMapping("/Search")
+    Result<Iterable<User>> Search(User model){
+        return userService.search(model);
+    }
+
 }

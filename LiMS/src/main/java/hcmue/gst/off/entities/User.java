@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
-    private long id;
+    private Long id;
     private String name;
     private String phone;
     private String address;
@@ -26,7 +26,7 @@ public class User implements Serializable {
 
 
 
-    private long roleId;
+    private Long roleId;
     private Role role;
     private Set<Request> requests;
     private Set<Book> books;
@@ -42,17 +42,17 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @Column(name = "role_id")
-    public long getRoleId() {
-        return roleId;
+    public Long getRoleId() {
+        return this.roleId;
     }
 
     public void setRoleId(long roleId) {
@@ -60,7 +60,7 @@ public class User implements Serializable {
     }
 
     @ManyToOne()
-    @JoinColumn(name = "role_id", insertable = false, updatable = false)
+    @JoinColumn(referencedColumnName = "id", insertable = false, updatable = false)
     public Role getRole() {
         return role;
     }

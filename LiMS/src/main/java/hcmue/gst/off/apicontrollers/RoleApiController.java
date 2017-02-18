@@ -34,4 +34,9 @@ public class RoleApiController {
     Result<Iterable<Role>> FindByNameContaining(String name){
         return roleService.findByNameContaining(name);
     }
+
+    @RequestMapping("/Search")
+    Result<Iterable<Role>> Search(Role model){
+        return roleService.search(model);
+    }
 }

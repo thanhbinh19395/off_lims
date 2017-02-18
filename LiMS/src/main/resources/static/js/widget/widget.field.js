@@ -73,7 +73,7 @@
             options.caller.onPopupHandler && options.caller.onPopupHandler(data);
         }
         $.extend(data.param, {name : input.val()});
-        $.post('/api/Role/FindByNameContaining', data.param, function (result) {
+        $.post('/api/Role/Search', data.param, function (result) {
             var records = result.data;
             if (records.length == 0) {
                 alert("Role Not found !");

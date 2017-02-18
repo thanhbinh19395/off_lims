@@ -15,7 +15,9 @@ public interface RoleService {
 
     Result<Role> findOne(Long id);
 
-    Result<Role> save(Role contact);
+    Result<Role> save(Role role);
+
+    Result<Iterable<Role>> search(Role role);
 
     Result delete(Long id);
 }

@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @MappedSuperclass
 public class BaseEntity {
-    private long id;
+    private Long id;
     private User created_by;
     private Date created_date;
     private User update_by;
@@ -23,7 +23,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
