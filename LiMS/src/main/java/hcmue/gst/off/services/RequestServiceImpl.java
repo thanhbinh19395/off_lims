@@ -55,4 +55,9 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
         requestRepository.delete(id);
         return Success(id,"Xóa thành công");
     }
+
+    @Override
+    public Result findByStatus(String status) {
+        return Success(requestRepository.findByStatusContaining(status));
+    }
 }
