@@ -69,6 +69,7 @@ framework.factory('ListUser', {
                 { field: 'id', caption: 'Mã vai trò', size: '40%', sortable: true, resizable: true },
                 { field: 'name', caption: 'Name', size: '50%', sortable: true, resizable: true },
                 { field: 'phone', caption: 'Phone', size: '50%', sortable: true, resizable: true },
+                { field: 'email', caption: 'Email', size: '50%', sortable: true, resizable: true },
                 { field: 'address', caption: 'Address', size: '50%', sortable: true, resizable: true },
                 { field: 'idcard', caption: 'ID Number', size: '50%', sortable: true, resizable: true },
                 { field: 'birthday', caption: 'Birthday', size: '50%', sortable: true, resizable: true },

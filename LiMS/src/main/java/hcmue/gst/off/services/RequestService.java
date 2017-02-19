@@ -16,4 +16,6 @@ public interface RequestService {
     Result<Request> save(Request request);
 
     Result delete(Long id);
+
+    Result findByStatus(String status);
 }
