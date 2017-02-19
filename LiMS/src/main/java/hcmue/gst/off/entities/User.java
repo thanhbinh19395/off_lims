@@ -13,11 +13,12 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
-    private long id;
+    private Long id;
     private String name;
     private String phone;
     private String address;
     private String idcard;
+    private String email;
     private Date birthday;
     private String username;
     private String password;
@@ -26,7 +27,7 @@ public class User implements Serializable {
 
 
 
-    private long roleId;
+    private Long roleId;
     private Role role;
     private Set<Request> requests;
     private Set<Book> books;
@@ -42,17 +43,17 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @Column(name = "role_id")
-    public long getRoleId() {
-        return roleId;
+    public Long getRoleId() {
+        return this.roleId;
     }
 
     public void setRoleId(long roleId) {
@@ -60,7 +61,7 @@ public class User implements Serializable {
     }
 
     @ManyToOne()
-    @JoinColumn(name = "role_id", insertable = false, updatable = false)
+    @JoinColumn(referencedColumnName = "id", insertable = false, updatable = false)
     public Role getRole() {
         return role;
     }
@@ -144,7 +145,16 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
+    @JsonIgnore
     public Set<Request> getRequests() {
         return requests;
     }
@@ -154,6 +164,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by",cascade = CascadeType.ALL)
+    @JsonIgnore
     public Set<BookBorrowHeader> getBookBorrowHeaders() {
         return bookBorrowHeaders;
     }
@@ -163,6 +174,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookReservation> getBookReservations() {
         return bookReservations;
     }
@@ -172,6 +184,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<Book> getBooks() {
         return books;
     }
@@ -181,6 +194,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookBorrowDetail> getBookBorrowDetails() {
         return bookBorrowDetails;
     }
@@ -190,6 +204,7 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookStatus> getBookStatuses() {
         return bookStatuses;
     }
@@ -199,10 +214,11 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "created_by")
+    @JsonIgnore
     public Set<BookCategory> getBookCategories() {
         return bookCategories;
     }
-
+    @JsonIgnore
     public void setBookCategories(Set<BookCategory> bookCategories) {
         this.bookCategories = bookCategories;
     }

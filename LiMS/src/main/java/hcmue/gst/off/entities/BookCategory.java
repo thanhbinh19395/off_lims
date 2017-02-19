@@ -1,5 +1,6 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class BookCategory extends BaseEntity implements Serializable {
 
 
     @OneToMany(mappedBy = "bookCategory",cascade = CascadeType.ALL)
+    @JsonIgnore
     public Set<Book> getBook() {
         return books;
     }

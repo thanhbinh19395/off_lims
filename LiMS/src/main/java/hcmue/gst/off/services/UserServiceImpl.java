@@ -54,4 +54,9 @@ public class UserServiceImpl extends BaseCommand implements UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+    @Override
+    public Result<Iterable<User>> search(User model) {
+        return Success(userRepository.search(model));
+    }
 }

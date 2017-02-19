@@ -111,7 +111,12 @@ framework.factory('ListRole', {
         });
     },
     onbtnSearchClickSearchForm: function (evt) {
-
+        var form = this.findElement("searchForm");
+        var grid = this.findElement('grid');
+        var self = this;
+        this.searchParam = form.record;
+        this.reloadGridData();
+        this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
 
@@ -120,15 +125,24 @@ framework.factory('ListRole', {
         var grid = this.findElement('grid');
         var form = this.findElement('searchForm');
 
-        //reload grid data
-        $.post('/api/Role/GetList',null, function (result) {
-            grid.clear();
-            grid.add(result.data);
-        });
-
         //clear form search + param
         this.searchParam = {};
         form.clear();
+
+        //reload grid data
+        this.reloadGridData();
+    },
+    reloadGridData:function () {
+        var grid = this.findElement('grid');
+        $.post('/api/Role/Search',this.searchParam, function (result) {
+            if(result.success){
+                grid.clear();
+                grid.add(result.data);
+            }
+            else{
+
+            }
+        });
     },
     onDblClickGrid: function (e) {
         var self = this;

@@ -1,6 +1,7 @@
 package hcmue.gst.off.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -13,17 +14,22 @@ import java.io.Serializable;
 @Table(name = "book")
 public class Book extends BaseEntity implements Serializable {
     private String name;
+    private String author;
     private int publish_year;
     private byte[] image;
     private BookStatus bookStatus;
     private BookCategory bookCategory;
     private BookBorrowDetail bookBorrowDetail;
+    private long bookCategoryId;
+    private long bookStatusId;
+
 
     public Book() {
     }
 
-    public Book(String name, int publish_year, byte[] image, BookCategory bookCategory) {
+    public Book(String name, String author ,int publish_year, byte[] image, BookCategory bookCategory) {
         this.name = name;
+        this.author = author;
         this.publish_year = publish_year;
         this.image = image;
         this.bookCategory = bookCategory;
@@ -54,8 +60,26 @@ public class Book extends BaseEntity implements Serializable {
         this.image = image;
     }
 
+    @Column(name = "bookcategory_id")
+    public long getBookCategoryId() {
+        return bookCategoryId;
+    }
+
+    public void setBookCategoryId(long bookCategoryId) {
+        this.bookCategoryId = bookCategoryId;
+    }
+
+    @Column(name = "bookstatus_id")
+    public long getBookStatusId() {
+        return bookStatusId;
+    }
+
+    public void setBookStatusId(long bookStatusId) {
+        this.bookStatusId = bookStatusId;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "book_category_id")
+    @JoinColumn(name = "bookcategory_id", insertable = false,updatable = false)
     public BookCategory getBookCategory() {
         return bookCategory;
     }
@@ -65,7 +89,7 @@ public class Book extends BaseEntity implements Serializable {
     }
 
 
-    @OneToOne(mappedBy = "book")
+    @OneToOne(mappedBy = "book",cascade = {CascadeType.ALL})
     public BookBorrowDetail getBookBorrowDetail() {
         return bookBorrowDetail;
     }
@@ -76,12 +100,20 @@ public class Book extends BaseEntity implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "bookstatus_id")
+    @JoinColumn(name = "bookstatus_id", insertable = false,updatable = false)
     public BookStatus getBookStatus() {
         return bookStatus;
     }
 
     public void setBookStatus(BookStatus bookStatus) {
         this.bookStatus = bookStatus;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 /**
  * Created by Thanh Binh on 2/13/2017.
  */
@@ -14,18 +16,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/User")
 public class UserApiController {
     @Autowired
-    private UserService roleService;
+    private UserService userService;
 
     @RequestMapping("/Save")
     Result<User> Save(User model){
-        return roleService.save(model);
+        return userService.save(model);
     }
     @RequestMapping("/Deletes")
     Result Deletes(long id){
-        return roleService.delete(id);
+        return userService.delete(id);
     }
     @RequestMapping("/GetList")
     Result<Iterable<User>> GetList(){
-        return roleService.findAll();
+        return userService.findAll();
     }
+
+    @RequestMapping("/Search")
+    Result<Iterable<User>> Search(User model){
+        return userService.search(model);
+    }
+
 }

@@ -38,12 +38,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/Admin/**", "/Librarian").authenticated()
-                .antMatchers("/**", "/css/**","/User/**").permitAll()
+                .antMatchers("/Admin/**", "/Librarian/**", "/User/**").authenticated()
+                .antMatchers("/**", "/css/**").permitAll()
                 .antMatchers("/Admin/**").hasRole("ADMIN")
                 .antMatchers("/Librarian/**").hasRole("ADMIN")
                 .antMatchers("/Librarian/**").hasRole("LIBRARIAN")
-                .antMatchers("/User/Private/**").hasRole("USER");
+                .antMatchers("/User/**").hasRole("USER");
         http
                 .formLogin()
                 .loginPage("/login")

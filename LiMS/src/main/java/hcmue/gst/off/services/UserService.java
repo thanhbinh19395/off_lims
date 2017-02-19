@@ -9,11 +9,9 @@ import hcmue.gst.off.extensions.Result;
  */
 public interface UserService {
     Result<Iterable<User>> findAll();
-
     Result<User> findOne(Long id);
-
     Result<User> save(User model);
-
     Result delete(Long id);
     User findByUsername(String username);
+    Result<Iterable<User>> search(User model);
 }

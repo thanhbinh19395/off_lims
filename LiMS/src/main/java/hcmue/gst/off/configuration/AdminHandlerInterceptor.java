@@ -8,6 +8,8 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -42,6 +44,10 @@ public class AdminHandlerInterceptor implements HandlerInterceptor {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        //date format
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        mapper.setDateFormat(df);
         String viewbagStr = "<script> var ViewBag = %s;</script>";
         modelAndView.getModelMap().addAttribute("ViewBag", String.format(viewbagStr,mapper.writeValueAsString(modelAndView.getModelMap().get("ViewBagData"))));
         String uuid = UUID.randomUUID().toString();

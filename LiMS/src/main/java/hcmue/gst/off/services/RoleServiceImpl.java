@@ -58,6 +58,11 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
     }
 
     @Override
+    public Result<Iterable<Role>> search(Role role) {
+        return Success(roleRepository.search(role));
+    }
+
+    @Override
     public Result delete(Long id) {
         roleRepository.delete(id);
         return Success();

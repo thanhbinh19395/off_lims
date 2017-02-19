@@ -1,8 +1,8 @@
 package hcmue.gst.off.extensions;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import hcmue.gst.off.entities.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @MappedSuperclass
 public class BaseEntity {
-    private long id;
+    private Long id;
     private User created_by;
     private Date created_date;
     private User update_by;
@@ -20,7 +20,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -30,6 +30,7 @@ public class BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "created_by")
+    @JsonIgnore
     public User getCreated_by() {
         return created_by;
     }
@@ -38,6 +39,8 @@ public class BaseEntity {
         this.created_by = created_by;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss",timezone = "PST")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getCreated_date() {
         return created_date;
     }
@@ -48,6 +51,7 @@ public class BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "updated_by")
+    @JsonIgnore
     public User getUpdate_by() {
         return update_by;
     }
@@ -56,6 +60,8 @@ public class BaseEntity {
         this.update_by = update_by;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss",timezone = "PST")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getUpdate_date() {
         return update_date;
     }

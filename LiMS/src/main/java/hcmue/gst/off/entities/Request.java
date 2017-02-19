@@ -13,8 +13,7 @@ import java.io.Serializable;
 public class Request extends BaseEntity implements Serializable{
     private String book_name;
     private String author;
-
-
+    private String status;
     public String getBook_name() {
         return book_name;
     }
@@ -31,4 +30,11 @@ public class Request extends BaseEntity implements Serializable{
         this.author = author;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -1,5 +1,6 @@
 package hcmue.gst.off.controllers.Admin;
 
+import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.AdminBaseController;
 import hcmue.gst.off.services.RoleService;
 import hcmue.gst.off.services.UserService;
@@ -20,9 +21,8 @@ public class UserController extends AdminBaseController {
     private UserService userService;
 
     @RequestMapping("/ListUser")
-    public String ListUser(Model model) {
-        getViewBag(model).put("listUser",userService.findAll());
-        String e = View();
+    public String ListUser(Model model, User data) {
+        getViewBag(model).put("listUser",userService.search(data));
         return View();
     }
 
