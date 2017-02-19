@@ -63,6 +63,14 @@ framework.factory('ListUser', {
     },
     onInitContent: function (content) {
         var self = this;
+        console.log(this.ViewBag);
+        var pagi = widget.setting.pagination();
+        pagi.setName('page')
+            .setTotalPages(this.ViewBag.listUser.totalPage)
+            .setStartPage(this.ViewBag.listUser.currentPage)
+            .setPageClickHandler(self.onPageClick.bind(this))
+        ;
+
         var grid = widget.setting.grid();
         grid.setName('grid')
             .addColumns([
@@ -81,7 +89,7 @@ framework.factory('ListUser', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listUser.data)
+            .addRecords(self.ViewBag.listUser.data).setPaginateOptions(pagi.end())
         ;
 
         if (this.parentId) {
@@ -136,7 +144,13 @@ framework.factory('ListUser', {
 
     },
     onPageClick: function (event, page) {
-
+        var grid = this.findElement('grid');
+        this.searchParam = {
+            page:page,
+            size : 1
+        };
+        debugger;
+        this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
         var grid = this.findElement('grid');
@@ -151,10 +165,12 @@ framework.factory('ListUser', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/User/Search',this.searchParam, function (result) {
+        $.post('/api/User/PageableSearch',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
+                if (grid.pagination)
+                    grid.pagination.reset(result.currentPage, result.totalPage);
             }
             else{
 

@@ -753,7 +753,9 @@ define(function () {
                         return this;
                     },
                     setPageClickHandler: function (val) {
-                        $.extend(obj, { onPageClick: val });
+                        $.extend(obj, { onPageClick: function(e,p){
+                            val(e,p-1);
+                        } });
                         return this;
                     },
                     end: function () {
