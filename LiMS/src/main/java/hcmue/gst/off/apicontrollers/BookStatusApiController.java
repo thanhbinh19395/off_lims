@@ -27,7 +27,7 @@ public class BookStatusApiController {
         return bookStatusService.save(model);
     }
     @RequestMapping("/Deletes")
-    void Deletes(long id){
+    void Deletes(Long id){
         bookStatusService.delete(id);
     }
     @RequestMapping("/GetList")
