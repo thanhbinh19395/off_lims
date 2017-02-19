@@ -28,8 +28,8 @@ public class BookCategoryApiController {
     }
 
     @RequestMapping("/Deletes")
-    void Deletes(Long id) {
-        bookCategoryService.delete(id);
+    Result Deletes(Long id) {
+        return bookCategoryService.delete(id);
     }
 
     @RequestMapping("/GetList")
