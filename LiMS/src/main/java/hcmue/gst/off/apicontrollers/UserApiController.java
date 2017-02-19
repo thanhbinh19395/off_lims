@@ -26,7 +26,7 @@ public class UserApiController {
         return userService.save(model);
     }
     @RequestMapping("/Deletes")
-    Result Deletes(long id){
+    Result Deletes(Long id){
         return userService.delete(id);
     }
     @RequestMapping("/Search")

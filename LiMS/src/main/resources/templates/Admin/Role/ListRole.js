@@ -103,8 +103,10 @@ framework.factory('ListRole', {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/Role/Deletes', { id: id }, function (result) {
-                if(result.success)
+                if(result.success) {
                     alertSuccess(result.message);
+                    self.onbtnReloadClick();
+                }
                 else
                     alert(result.message)
             });

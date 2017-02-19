@@ -23,7 +23,7 @@ public class RoleApiController {
         return roleService.save(model);
     }
     @RequestMapping("/Deletes")
-    Result Deletes(long id){
+    Result Deletes(Long id){
         return roleService.delete(id);
     }
     @RequestMapping("/GetList")

@@ -33,7 +33,7 @@ public class BookServiceImpl extends BaseCommand implements BookService  {
     @Override
     public Result<Book> save(Book book) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
-        if (book.getId() == 0) {
+        if (book.getId() == null) {
             book.setCreated_by(user);
             book.setCreated_date(new Date());
             book.setBookStatusId(bookStatusRepository.findByDescription("Available").get(0).getId());
