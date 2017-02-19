@@ -32,7 +32,7 @@ public class BookCategoryServiceImpl extends BaseCommand implements BookCategory
     @Override
     public Result<BookCategory> save(BookCategory bookCategory) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
-        if (bookCategory.getId() == 0) {
+        if (bookCategory.getId() == null) {
             bookCategory.setCreated_by(user);
             bookCategory.setCreated_date(new Date());
         }

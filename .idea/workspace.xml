@@ -2,63 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13de4f63-edbf-4fbf-9f4f-951eab43071a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_2_4_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20140107.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_4_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_12_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_10_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bootstrap_3_3_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_1_12_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_ui_1_12_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_w2ui_1_5_rc1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookApiController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/AdminHandlerInterceptor.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/AdminHandlerInterceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Request.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Request.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseEntity.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookRepository.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookStatusRepository.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookStatusRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryService.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RoleApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RoleApiController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/UserApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/UserApiController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusService.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.base.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.field.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.field.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/UpdateBook.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/UpdateBook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookStatus/ListBookStatus.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookStatus/ListBookStatus.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/LiMS/target/" />
     <ignored path="$PROJECT_DIR$/Example/assignmentfive/target/" />
@@ -80,118 +35,52 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RequestController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java">
+      <file leaf-file-name="BookCategoryServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="58" column="44" lean-forward="true" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookCategoryApiController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#956#957#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListRequest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.html">
+      <file leaf-file-name="BookCategoryRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state relative-caret-position="187">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InsertCountry.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Country/InsertCountry.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InsertCountry.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Country/InsertCountry.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListBookCategory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="974">
-              <caret line="150" column="23" lean-forward="false" selection-start-line="150" selection-start-column="23" selection-end-line="150" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListRequest.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestApiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1070#1071#0" expanded="true" />
-                <element signature="e#1117#1118#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CountryApiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/CountryApiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="40" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Request.java">
+      <file leaf-file-name="BaseCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseCommand.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
-                <element signature="e#694#695#0" expanded="true" />
-                <element signature="e#723#724#0" expanded="true" />
-                <element signature="e#767#768#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="147" column="30" lean-forward="true" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
-              <folding>
-                <element signature="e#2974#2975#0" expanded="true" />
-                <element signature="e#3016#3017#0" expanded="true" />
-                <element signature="e#3050#3051#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -250,11 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/css/style.css" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/ImageApiController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/ImageController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/HomeController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/BookController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/User/layout.html" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/User/Home/Pageable.html" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookService.java" />
@@ -267,8 +151,6 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RoleController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookCategory.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/AdminHandlerInterceptor.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseEntity.java" />
@@ -276,31 +158,38 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RoleRepository.java" />
         <option value="$PROJECT_DIR$/Example/assignmentfive/src/main/java/com/gst/repository/BookCategoryRepository.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryService.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.html" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusService.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookStatusRepository.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookStatus/ListBookStatus.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/UpdateBook.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.base.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.field.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.html" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Request.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RoleApiController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/UserApiController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookApiController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -313,7 +202,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1370" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -334,9 +223,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -434,6 +322,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -675,6 +597,108 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repositories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -781,6 +805,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="configuration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="apicontrollers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -801,6 +859,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1296,19 +1355,21 @@
       <workItem from="1487396643780" duration="485000" />
       <workItem from="1487417612119" duration="4370000" />
       <workItem from="1487424203514" duration="11710000" />
+      <workItem from="1487438180263" duration="4428000" />
+      <workItem from="1487471720143" duration="4820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131244000" />
+    <option name="totallyTimeSpent" value="140492000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1317,17 +1378,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39770868" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39747635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8363339" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8359621" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27987897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27843428" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1337,7 +1398,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1348,7 +1409,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1362,211 +1423,143 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Example/assignmentfive/src/main/java/com/gst/repository/BookBorrowRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Example/assignmentfive/src/main/java/com/gst/services/BookCategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Example/assignmentfive/src/main/java/com/gst/repository/BookCategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/InsertBookCategory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RoleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding>
-            <element signature="e#1555#1556#0" expanded="false" />
-            <element signature="e#1621#1622#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Example/assignmentfive/src/main/java/com/gst/services/BookCategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="51" lean-forward="true" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/ListUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Role/ListRole.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="69" column="32" lean-forward="false" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="32" />
+          <caret line="33" column="90" lean-forward="true" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="111" column="31" lean-forward="false" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
-          <folding>
-            <element signature="e#2311#2312#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2697#2698#0" expanded="true" />
-            <element signature="e#2741#2742#0" expanded="true" />
-            <element signature="e#2777#2778#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookStatusController.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RoleApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="272">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/UserApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-          <folding>
-            <element signature="e#716#717#0" expanded="false" />
-            <element signature="e#762#763#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.grid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-434">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1486895264020" expanded="true" signature="531:563" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1641">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="43" selection-end-column="5" />
+        <state relative-caret-position="289">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusService.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/CountryApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="48" column="32" lean-forward="false" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.6.RELEASE/spring-aop-4.3.6.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookPageableRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookStatusRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
@@ -1574,84 +1567,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookStatusRepository.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/CountryRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="64" column="1" lean-forward="true" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="41" column="1" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
-          <folding>
-            <element signature="e#1175#1176#0" expanded="false" />
-            <element signature="e#1256#1257#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookStatus/ListBookStatus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="157" column="5" lean-forward="false" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#612#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/UpdateBook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="119" lean-forward="false" selection-start-line="21" selection-start-column="119" selection-end-line="21" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.field.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="344" column="43" lean-forward="false" selection-start-line="344" selection-start-column="43" selection-end-line="344" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#79#3898#0" expanded="false" />
-            <element signature="e#3996#7917#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1663,163 +1583,262 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/CountryServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="185">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/CountryService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="15" selection-end-column="27" />
+        <state relative-caret-position="100">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="494" column="0" lean-forward="false" selection-start-line="494" selection-start-column="0" selection-end-line="494" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="e#790#791#0" expanded="true" />
-            <element signature="e#849#850#0" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#971#972#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="118">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="425" column="0" lean-forward="false" selection-start-line="425" selection-start-column="0" selection-end-line="425" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="408" column="0" lean-forward="false" selection-start-line="408" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/8.5.11/tomcat-embed-websocket-8.5.11.jar!/org/apache/tomcat/websocket/server/WsFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" column="90" lean-forward="true" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
+        <state relative-caret-position="100">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/CountryController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/access/ExceptionTranslationFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="100">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Country/InsertCountry.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/session/SessionManagementFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="118">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Country/InsertCountry.js">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/authentication/AnonymousAuthenticationFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="118">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/servletapi/SecurityContextHolderAwareRequestFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state relative-caret-position="118">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="147" column="30" lean-forward="true" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
-          <folding>
-            <element signature="e#2974#2975#0" expanded="true" />
-            <element signature="e#3016#3017#0" expanded="true" />
-            <element signature="e#3050#3051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Request.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/savedrequest/RequestCacheAwareFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="974">
-          <caret line="150" column="23" lean-forward="false" selection-start-line="150" selection-start-column="23" selection-end-line="150" selection-end-column="23" />
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/CountryApiController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="118">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/authentication/logout/LogoutFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
+        <state relative-caret-position="118">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/header/HeaderWriterFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/context/SecurityContextPersistenceFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session/1.3.0.RELEASE/spring-session-1.3.0.RELEASE.jar!/org/springframework/session/web/http/OncePerRequestFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session/1.3.0.RELEASE/spring-session-1.3.0.RELEASE.jar!/org/springframework/session/web/http/SessionRepositoryFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="67" column="157" lean-forward="false" selection-start-line="67" selection-start-column="157" selection-end-line="67" selection-end-column="157" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/filter/HiddenHttpMethodFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.11/tomcat-embed-core-8.5.11.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/filter/DelegatingFilterProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/filter/HttpPutFormContentFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/filter/RequestContextFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="35" column="157" lean-forward="false" selection-start-line="35" selection-start-column="157" selection-end-line="35" selection-end-column="157" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/context/request/async/WebAsyncManagerIntegrationFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state relative-caret-position="317">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="false" />
+            <element signature="e#956#957#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="58" column="44" lean-forward="true" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

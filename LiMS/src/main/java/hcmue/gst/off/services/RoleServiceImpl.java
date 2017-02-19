@@ -46,7 +46,7 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
     @Override
     public Result<Role> save(Role role) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
-        if (role.getId() == 0) {
+        if (role.getId() == null) {
             role.setCreated_by(user);
             role.setCreated_date(new Date());
         }

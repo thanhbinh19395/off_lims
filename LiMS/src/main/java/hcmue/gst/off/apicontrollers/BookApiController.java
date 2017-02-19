@@ -25,7 +25,7 @@ public class BookApiController {
     }
 
     @RequestMapping("/Deletes")
-    void Deletes(long id) {
+    void Deletes(Long id) {
         bookService.delete(id);
     }
 
