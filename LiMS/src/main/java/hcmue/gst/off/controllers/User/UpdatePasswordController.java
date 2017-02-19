@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -19,13 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class UpdatePasswordController extends BaseController {
 
-    @Inject
-    private UserRepository users;
+    @Autowired
+    private UserService users;
     @Autowired
     private SecurityService securityService;
     @Autowired
     private UserService userService;
-
     @RequestMapping(value = "/UpdatePassword", method = RequestMethod.POST)
     public String UpdatePassword(@ModelAttribute User user, HttpServletRequest request) {
         User userToUpdate = users.findByUsername(user.getUsername());
