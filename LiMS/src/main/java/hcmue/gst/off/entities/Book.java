@@ -15,19 +15,21 @@ import java.io.Serializable;
 public class Book extends BaseEntity implements Serializable {
     private String name;
     private String author;
-    private int publish_year;
+    private Integer publish_year;
     private byte[] image;
     private BookStatus bookStatus;
     private BookCategory bookCategory;
     private BookBorrowDetail bookBorrowDetail;
-    private long bookCategoryId;
-    private long bookStatusId;
+    private Long bookCategoryId;
+    private Long bookStatusId;
+
+    public Book(){
 
 
-    public Book() {
     }
 
-    public Book(String name, String author ,int publish_year, byte[] image, BookCategory bookCategory) {
+
+    public Book(String name, String author ,Integer publish_year, byte[] image, BookCategory bookCategory) {
         this.name = name;
         this.author = author;
         this.publish_year = publish_year;
@@ -44,11 +46,11 @@ public class Book extends BaseEntity implements Serializable {
         this.name = name;
     }
 
-    public int getPublish_year() {
+    public Integer getPublish_year() {
         return publish_year;
     }
 
-    public void setPublish_year(int publish_year) {
+    public void setPublish_year(Integer publish_year) {
         this.publish_year = publish_year;
     }
 
@@ -61,20 +63,20 @@ public class Book extends BaseEntity implements Serializable {
     }
 
     @Column(name = "bookcategory_id")
-    public long getBookCategoryId() {
+    public Long getBookCategoryId() {
         return bookCategoryId;
     }
 
-    public void setBookCategoryId(long bookCategoryId) {
+    public void setBookCategoryId(Long bookCategoryId) {
         this.bookCategoryId = bookCategoryId;
     }
 
     @Column(name = "bookstatus_id")
-    public long getBookStatusId() {
+    public Long getBookStatusId() {
         return bookStatusId;
     }
 
-    public void setBookStatusId(long bookStatusId) {
+    public void setBookStatusId(Long bookStatusId) {
         this.bookStatusId = bookStatusId;
     }
 

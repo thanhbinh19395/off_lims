@@ -17,7 +17,8 @@
                     .css('padding', '3px 3px 0 0')
         ;
         this.element.addClass('text-' + this.options.position).append(this.pagi);
-        this.options.startPage = this.options.startPage +1;
+        this.options.startPage = this.options.startPage + 1;
+        this.options.totalPages = this.options.totalPages == 0 ? 1 : this.options.totalPages;
         var pagination = this.pagi.twbsPagination(this.options);
 
         this._super();

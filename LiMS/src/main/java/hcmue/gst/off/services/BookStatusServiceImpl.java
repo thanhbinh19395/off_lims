@@ -3,10 +3,13 @@ package hcmue.gst.off.services;
 import hcmue.gst.off.entities.BookStatus;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.BookStatusRepository;
 import hcmue.gst.off.repositories.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -61,5 +64,15 @@ public class BookStatusServiceImpl extends BaseCommand implements BookStatusServ
     @Override
     public Result<Iterable<BookStatus>> findByDescriptionContaining(String description) {
         return Success(bookStatusRepository.findByDescriptionContaining(description));
+    }
+
+    @Override
+    public PageableResult<BookStatus> search(BookStatus model, Pageable p) {
+        return Success(bookStatusRepository.search(model,new PageRequest(p.getPageNumber(),PAGESIZE,p.getSort())));
+    }
+
+    @Override
+    public Result<Iterable<BookStatus>> search(BookStatus model) {
+        return Success(bookStatusRepository.search(model));
     }
 }

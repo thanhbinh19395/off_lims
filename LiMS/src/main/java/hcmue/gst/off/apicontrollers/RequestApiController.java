@@ -12,6 +12,7 @@ import hcmue.gst.off.services.CountryService;
 import hcmue.gst.off.services.MailService;
 import hcmue.gst.off.services.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,8 +42,9 @@ public class RequestApiController {
         return requestService.delete(id);
     }
     @RequestMapping("/GetList")
-    Result GetList(){
-        return requestService.findAll();
+    Result GetList(Request request, Pageable p){
+        request.setStatus("chờ");
+        return requestService.search(request,p);
     }
     @RequestMapping("/Approve")
     Result Approve(Mail mail){

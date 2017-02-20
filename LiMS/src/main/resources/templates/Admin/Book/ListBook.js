@@ -11,7 +11,7 @@ framework.factory('ListBook', {
         }
     },
     onInitHeader: function (header) {
-        console.log(this.ViewBag);
+
         header.setName('header');
         var self = this;
         var form = widget.setting.form();
@@ -20,9 +20,9 @@ framework.factory('ListBook', {
             .addFields([
                 { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'image', type: 'text', required: false, caption: 'Hình' },
                 { field: 'author', type: 'text', required: false, caption: 'Tác Giả' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
+                { field: 'bookStatusId', caption: 'Trạng thái', type: 'text', required: true }
             ])
         ;
         header.setTitle('Danh sách Sách')
@@ -60,8 +60,14 @@ framework.factory('ListBook', {
     },
     onInitContent: function (content) {
         var self = this;
-
         var grid = widget.setting.grid();
+        var pagi = widget.setting.pagination();
+        console.log(this.ViewBag);
+        pagi.setName('page')
+            .setTotalPages(this.ViewBag.listBook.totalPage)
+            .setStartPage(this.ViewBag.listBook.currentPage)
+            .setPageClickHandler(self.onPageClick.bind(this))
+        ;
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '5%', sortable: true, resizable: true },
@@ -76,7 +82,7 @@ framework.factory('ListBook', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBook.data)
+            .addRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
         ;
         //nếu đc mở kiểu popup thì có thêm sự kiện click grid
         if (this.parentId) {
@@ -85,6 +91,7 @@ framework.factory('ListBook', {
 
         content.addItem(grid.end());
     },
+
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
@@ -126,24 +133,46 @@ framework.factory('ListBook', {
         });
     },
     onbtnSearchClickSearchForm: function (evt) {
-
+        var form = this.findElement("searchForm");
+        var grid = this.findElement('grid');
+        var self = this;
+        this.searchParam = form.record;
+        this.reloadGridData();
+        this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
-
+        var grid = this.findElement('grid');
+        this.searchParam = {
+            page:page,
+            size : 1
+        };
+        debugger;
+        this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
         var grid = this.findElement('grid');
         var form = this.findElement('searchForm');
 
-        //reload grid data
-        $.post('/api/Book/GetList',null, function (result) {
-            grid.clear();
-            grid.add(result.data);
-        });
-
         //clear form search + param
         this.searchParam = {};
         form.clear();
+
+        //reload grid data
+        this.reloadGridData();
+    },
+    reloadGridData:function(){
+        var grid = this.findElement('grid');
+        $.post('/api/Book/GetList',this.searchParam, function (result) {
+            if(result.success){
+                grid.clear();
+                grid.add(result.data);
+                if (grid.pagination)
+                    grid.pagination.reset(result.currentPage, result.totalPage);
+            }
+            else{
+
+            }
+        });
     },
     onDblClickGrid: function (e) {
         var self = this;

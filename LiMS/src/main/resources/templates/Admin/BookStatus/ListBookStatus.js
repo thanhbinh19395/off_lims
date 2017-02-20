@@ -57,8 +57,14 @@ framework.factory('ListBookStatus', {
     },
     onInitContent: function (content) {
         var self = this;
-
         var grid = widget.setting.grid();
+        var pagi = widget.setting.pagination();
+        console.log(this.ViewBag);
+        pagi.setName('page')
+            .setTotalPages(this.ViewBag.listBookStatus.totalPage)
+            .setStartPage(this.ViewBag.listBookStatus.currentPage)
+            .setPageClickHandler(self.onPageClick.bind(this))
+        ;
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
@@ -68,7 +74,7 @@ framework.factory('ListBookStatus', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBookStatus.data)
+            .addRecords(self.ViewBag.listBookStatus.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -117,24 +123,46 @@ framework.factory('ListBookStatus', {
         });
     },
     onbtnSearchClickSearchForm: function (evt) {
-
+        var form = this.findElement("searchForm");
+        var grid = this.findElement('grid');
+        var self = this;
+        this.searchParam = form.record;
+        this.reloadGridData();
+        this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
-
+        var grid = this.findElement('grid');
+        this.searchParam = {
+            page:page,
+            size : 1
+        };
+        debugger;
+        this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
         var grid = this.findElement('grid');
         var form = this.findElement('searchForm');
 
-        //reload grid data
-        $.post('/api/BookStatus/GetList',null, function (result) {
-            grid.clear();
-            grid.add(result.data);
-        });
-
         //clear form search + param
         this.searchParam = {};
         form.clear();
+
+        //reload grid data
+        this.reloadGridData();
+    },
+    reloadGridData:function(){
+        var grid = this.findElement('grid');
+        $.post('/api/BookStatus/GetList',this.searchParam, function (result) {
+            if(result.success){
+                grid.clear();
+                grid.add(result.data);
+                if (grid.pagination)
+                    grid.pagination.reset(result.currentPage, result.totalPage);
+            }
+            else{
+
+            }
+        });
     },
     /*
     onDblClickGrid: function (e) {

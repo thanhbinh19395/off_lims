@@ -1,14 +1,14 @@
 package hcmue.gst.off.services;
 
-import hcmue.gst.off.entities.Book;
-import hcmue.gst.off.entities.BookBorrowDetail;
-import hcmue.gst.off.entities.BookStatus;
-import hcmue.gst.off.entities.User;
+import hcmue.gst.off.entities.*;
 import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.BookRepository;
 import hcmue.gst.off.repositories.BookStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -36,7 +36,9 @@ public class BookServiceImpl extends BaseCommand implements BookService  {
         if (book.getId() == null) {
             book.setCreated_by(user);
             book.setCreated_date(new Date());
-            book.setBookStatusId(bookStatusRepository.findByDescription("Available").get(0).getId());
+            BookStatus model = new BookStatus();
+            model.setDescription("Available");
+            book.setBookStatusId(bookStatusRepository.search(model).iterator().next().getId());
             book.setBookBorrowDetail(new BookBorrowDetail());
         }
         else {
@@ -61,5 +63,15 @@ public class BookServiceImpl extends BaseCommand implements BookService  {
     public Result delete(Long id) {
         bookRepository.delete(id);
         return Success(id,"Xóa thành công");
+    }
+
+    @Override
+    public PageableResult<Book> search(Book model, Pageable p) {
+        return Success(bookRepository.search(model,new PageRequest(p.getPageNumber(),PAGESIZE,p.getSort())));
+    }
+
+    @Override
+    public Result<Iterable<Book>> search(Book model) {
+        return Success(bookRepository.search(model));
     }
 }
