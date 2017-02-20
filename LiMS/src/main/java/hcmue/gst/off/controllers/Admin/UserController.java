@@ -5,6 +5,7 @@ import hcmue.gst.off.extensions.AdminBaseController;
 import hcmue.gst.off.services.RoleService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +22,8 @@ public class UserController extends AdminBaseController {
     private UserService userService;
 
     @RequestMapping("/ListUser")
-    public String ListUser(Model model, User data) {
-        getViewBag(model).put("listUser",userService.search(data));
+    public String ListUser(Model model, User data, Pageable page) {
+        getViewBag(model).put("listUser",userService.search(data,page));
         return View();
     }
 

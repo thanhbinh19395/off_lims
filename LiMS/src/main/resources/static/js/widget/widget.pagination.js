@@ -17,7 +17,7 @@
                     .css('padding', '3px 3px 0 0')
         ;
         this.element.addClass('text-' + this.options.position).append(this.pagi);
-
+        this.options.startPage = this.options.startPage +1;
         var pagination = this.pagi.twbsPagination(this.options);
 
         this._super();
@@ -40,7 +40,7 @@
                 this.pagi.twbsPagination('destroy');
             }
             this.options.totalPages = total != 0 ? total : 1;
-            this.options.startPage = page;
+            this.options.startPage = page+1;
             //console.log(this.options);
             this.pagi.twbsPagination(this.options);
         }

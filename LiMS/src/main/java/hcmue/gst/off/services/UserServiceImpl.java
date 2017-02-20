@@ -1,16 +1,15 @@
 package hcmue.gst.off.services;
 
-import hcmue.gst.off.entities.Role;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RoleRepository;
 import hcmue.gst.off.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
+import org.springframework.data.domain.*;
 
 /**
  * Created by WIN8.1 on 09/02/2017.
@@ -53,6 +52,11 @@ public class UserServiceImpl extends BaseCommand implements UserService {
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public PageableResult<User> search(User model, Pageable p) {
+        return Success(userRepository.search(model, new PageRequest(p.getPageNumber(),PAGESIZE,p.getSort())));
     }
 
     @Override

@@ -23,6 +23,7 @@ framework.factory('InsertUser', {
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
                 { field: 'username', caption: 'Username' , type: 'text'},
                 { field: 'password', caption: 'Password', type: 'text' },
+                { field: 'email', caption: 'Email', type: 'text' },
                 { field: 'roleId', caption: 'Role', type: 'popupListRole', options:{caller:self} },
             ]);
         var formFooter = widget.setting.toolbar();

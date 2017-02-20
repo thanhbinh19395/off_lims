@@ -3,6 +3,7 @@ package hcmue.gst.off.configuration;
 import hcmue.gst.off.authentication.RESTAuthenticationSuccessHandler;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.repositories.UserRepository;
+import hcmue.gst.off.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +11,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by WIN8.1 on 09/02/2017.
@@ -20,8 +28,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+
+/*    @Autowired
     private UserDetailsService userDetailsService;
+*/
 
     @Autowired
     private UserRepository userRepository;
@@ -60,15 +70,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-        for (User user : userRepository.findAll()) {
-            if (user.getRole().getName().matches("ADMIN"))
-                auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("ADMIN");
-            if (user.getRole().getName().matches("LIBRARIAN"))
-                auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("LIBRARIAN");
-            if (user.getRole().getName().matches("USER"))
-                auth.inMemoryAuthentication().withUser(user.getUsername()).password(user.getPassword()).roles("USER");
-        }
+        auth.userDetailsService(inMemoryUserDetailsManager());
+    }
+
+    @Bean
+    public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+        Properties users = new Properties();
+        for(User user: userRepository.findAll())
+        users.put(user.getUsername(), user.getPassword()+","+user.getRole().getName()+",enabled");
+        return new InMemoryUserDetailsManager(users);
     }
 
 }

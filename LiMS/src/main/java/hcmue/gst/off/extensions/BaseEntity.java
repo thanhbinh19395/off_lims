@@ -30,7 +30,6 @@ public class BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "created_by")
-    @JsonIgnore
     public User getCreated_by() {
         return created_by;
     }
@@ -51,7 +50,6 @@ public class BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "updated_by")
-    @JsonIgnore
     public User getUpdate_by() {
         return update_by;
     }
