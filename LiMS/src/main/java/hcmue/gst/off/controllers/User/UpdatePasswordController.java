@@ -1,7 +1,6 @@
 package hcmue.gst.off.controllers.User;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseController;
-import hcmue.gst.off.repositories.UserRepository;
 import hcmue.gst.off.services.SecurityService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +47,7 @@ public class UpdatePasswordController extends BaseController {
     public String UpdatePassword(Model model) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
         model.addAttribute("userNeedChange", user);
+        model.addAttribute("username",securityService.findLoggedInUsername());
         return View();
-    }
-    @ModelAttribute(value ="username")
-    public String getUsername(){
-        return(securityService.findLoggedInUsername());
     }
 }
