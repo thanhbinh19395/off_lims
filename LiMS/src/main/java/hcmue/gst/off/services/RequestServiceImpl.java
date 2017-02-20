@@ -39,12 +39,14 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
         return Success(requestRepository.findOne(id));
     }
 
+
     @Override
     public Result<Request> save(Request request) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
         if (request.getId() == null) {
             request.setCreated_by(user);
             request.setCreated_date(new Date());
+            request.setStatus("Pending");
         }
         else {
             request.setUpdate_date(new Date());
