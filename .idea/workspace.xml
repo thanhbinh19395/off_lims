@@ -7,7 +7,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java" />
@@ -24,7 +23,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.pagination.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.pagination.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js" />
@@ -1174,12 +1172,12 @@
       <workItem from="1487493497132" duration="6576000" />
       <workItem from="1487501907728" duration="11720000" />
       <workItem from="1487556264436" duration="9998000" />
-      <workItem from="1487578641970" duration="6659000" />
+      <workItem from="1487578641970" duration="7006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183967000" />
+    <option name="totallyTimeSpent" value="184314000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
