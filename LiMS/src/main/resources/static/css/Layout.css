@@ -1,4 +1,4 @@
-﻿#main-content {
+#main-content {
     background-color: #fff !important;
 }
 
@@ -66,20 +66,20 @@ table[id^=table_grid_] select {
     width: 100%;
 }
 
-    table[id^=table_grid_] input[type=checkbox],
-    table[id^=table_grid_] input[type=radio] {
-        width: auto;
-        margin-right: 3px;
-    }
+table[id^=table_grid_] input[type=checkbox],
+table[id^=table_grid_] input[type=radio] {
+    width: auto;
+    margin-right: 3px;
+}
 
 /*.box-content*/ .form-box-footer:last-child {
-    border-left: 1px solid silver;
-    border-right: 1px solid silver;
-    border-bottom: 1px solid silver;
-    width: 100%;
-    background-color: #ddd;
-    padding: 3px 0;
-}
+                     border-left: 1px solid silver;
+                     border-right: 1px solid silver;
+                     border-bottom: 1px solid silver;
+                     width: 100%;
+                     background-color: #ddd;
+                     padding: 3px 0;
+                 }
 
 .w2ui-popup .w2ui-msg-body {
     padding: 0 !important;
@@ -168,9 +168,9 @@ table[id^=table_grid_] select {
     cursor: move;
 }
 
-    .modal-header h4 {
-        font-size: 15px;
-    }
+.modal-header h4 {
+    font-size: 15px;
+}
 
 .disable-section {
     pointer-events: none;
@@ -251,11 +251,11 @@ select {
 
 
 .ui-dialog-titlebar-close {
-     border-radius: 0 !important;
+    border-radius: 0 !important;
     background-color: transparent !important;
     border: 0 !important;
     margin: -1px !important;
-    
+
 }
 .ui-dialog-titlebar-maximize {
     border-radius: 0 !important;

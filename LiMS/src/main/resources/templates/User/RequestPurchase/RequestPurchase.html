@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
 <head>
     <meta charset="UTF-8"/>
     <title>Request a purchase</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 
 
 </head>
 <body>
-    <th:block fragment="content" >
+    <div layout:fragment="content" >
         <form class="col-sm-6" id="request_purchase_form" action="/RequestPurchase"
               th:action="@{/RequestPurchase}" th:object="${request}" method="POST">
             <h3>  Request a purchase </h3>
@@ -22,6 +23,11 @@
             <div th:if="${param.success}">
                 <h3>
                     <span class="label label-success"> Your request is submitted ! </span>
+                </h3>
+            </div>
+            <div th:if="${param.error}">
+                <h3>
+                    <span class="label label-danger"> Your request is invalid</span>
                 </h3>
             </div>
             <br/>
@@ -49,13 +55,13 @@
             <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm"  type="submit" value="Yes"/>
             <input class="col-sm-2 col-sm-offset-2 button btn-info btn-sm" id="btnClear" type="button" value="Clear"/>
         </form>
-    </th:block>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/jquery.requestPurchase.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.requestPurchase.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
 </body>
 </html>

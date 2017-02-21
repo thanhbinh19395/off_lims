@@ -23,7 +23,7 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String confirmPassword;
-    private boolean status;
+    private Boolean status;
 
 
 
@@ -96,11 +96,11 @@ public class User implements Serializable {
         this.confirmPassword = confirmPassword;
     }
 
-    public boolean isStatus() {
+    public Boolean isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
