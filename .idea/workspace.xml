@@ -2,21 +2,639 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13de4f63-edbf-4fbf-9f4f-951eab43071a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/1-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/1-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/1-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/2-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/2-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/4-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/4-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/4-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/4-4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/4-5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/bg-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/bg-1a.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/bg-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/bg-3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/feature1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/PublicBaseController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout/layout.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/jquery-1.11.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/jquery.scrollUp.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/jquery.singlePageNav.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/parallax.js-1.3.1/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/parallax.js-1.3.1/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/parallax.js-1.3.1/parallax.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/parallax.js-1.3.1/parallax.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/HelloController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap-select.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap-theme.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap-theme.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap-xl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap-xxl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/cloud-zoom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/cloudzoom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/flexslider.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/fontello.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/hoverfold.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/icomoon.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/isotope.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/jcarousel.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/jquery.countdown.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/jquery.fancybox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/jquery.rw-slider.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/loader.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-animate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-corporate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-electronics.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-food.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-intro.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-kids.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-noresponsive.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template-rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/megatron-template.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/owl.carousel.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/owl.theme.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/revolution.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/sfmenu.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/animated-overlay.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-icons_2e83ff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-icons_454545_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-icons_888888_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/images/ui-icons_cd0a0a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/jquery-ui-1.10.3.custom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/smoothness/jquery-ui-1.10.3.custom.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/timeline.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/BubblegumSans/bubblegumsans-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/BubblegumSans/bubblegumsans-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/BubblegumSans/bubblegumsans-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/BubblegumSans/bubblegumsans-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralight.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralight.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralight.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralight.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralightitalic.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralightitalic.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralightitalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-extralightitalic.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-light.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-light.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-light.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-light.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-lightitalic.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-lightitalic.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-lightitalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-lightitalic.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Exo2/exo2-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Fontello/fontello.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Fontello/fontello.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Fontello/fontello.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Fontello/fontello.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Glyphicons/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Glyphicons/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Glyphicons/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Glyphicons/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Icomoon/icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Icomoon/icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Icomoon/icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Icomoon/icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-bold-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-bold-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-bold-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-bold-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-regular-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-regular-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-regular-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Kameron/kameron-regular-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-black-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-black-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-black-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-black-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-bold-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-bold-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-bold-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-bold-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-medium-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-medium-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-medium-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-medium-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Mavenpro/mavenpro-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Omg/omg.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Omg/omg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Omg/omg.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Omg/omg.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-italic-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-italic-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-italic-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-italic-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-regular-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-regular-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-regular-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Sanchez/sanchez-regular-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicbold-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicbold-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicbold-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicbold-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicroman-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicroman-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicroman-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/fonts/Tradegothic/tradegothicroman-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/AjaxLoader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/about-us-image.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/ajax-loader-black.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/ajax-loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/attention_icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/back-bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/banner1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/banner2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/black-transparent.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/blank.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/blank.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/blog-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/blog-widget-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/box-parallax-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/brand-3docean.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/brand-activeden.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/brand-audiojungle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/brand-graphicriver.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/brand-themeforest.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/brand-videohive.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/contacts-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/container-paper-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/container-paper-clips.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/container-paper-clips1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/full-video.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-05.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-06.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-07.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-08.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-09.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-12.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-13.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-14.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-15.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-16.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-17.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-18.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-19.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-20.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-21.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-22.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features-23.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/corporate/icon-features.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/banner1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/banner2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/body-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/header-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/home_boxed_slider1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/home_boxed_slider2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/home_boxed_slider3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/logo-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-01-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-02-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-03-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-05.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-06.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-07.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-08.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-09.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/products/product-11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/slider-main-back-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/slider-main-back-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/electronics/slider-main-back-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/fancybox_close-mega.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/fancybox_loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/fancybox_loading@2x.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/fancybox_overlay.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/fancybox_sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/fancybox_sprite@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/body-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/brand-3docean.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/brand-activeden.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/brand-audiojungle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/brand-graphicriver.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/brand-themeforest.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/brand-videohive.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/footer-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/header-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-01-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-02-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-03-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-04-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-05.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-06.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-07.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-08.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-09.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-10-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/products/product-11-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/slider-main-back-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/slider-main-back-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/slider-main-back-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/food/temp/block-image-01-270x159.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/full-video.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-05.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-06.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-07.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-08.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-09.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img-12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/gallery/big/gallery_img.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/header-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/home_boxed_slider1-798x268.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/home_boxed_slider1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/home_boxed_slider2-798x268.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/home_boxed_slider2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/home_boxed_slider3-798x268.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/home_boxed_slider3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-cart-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-cart.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-category9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-megatron.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-payment-01.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-payment-02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-payment-03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-payment-04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icon-payment-05.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/icons-flags.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/imac.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/image-delivery.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/image-our-office.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/image-our-service.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/image-our-store.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-background-big.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-big.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-corporate-big.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-corporate.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-electronics-big.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-electronics.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-food-big.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-food.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-kids-big.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout-kids.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/img-layout.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/body-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/footer-navbar-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/header-logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/logo-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-01-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-02-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-03-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-04-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-05-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/products/product-06-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/slider-main-back-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/slider-main-back-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/slider-main-back-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/slider-main-back-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/kids/temp/block-image-01-270x159.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/large-icon-lock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/large-icon-sitemap.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/large-icon-tea.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/large-icon-user.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/logo-back-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/logo-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/menu-bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/menu-img-right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/page-loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-card-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-desc-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-lable-back-bot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-lable-back-center.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-lable-back-top.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-lable-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/product-qr.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-01-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-01-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-01-593x722.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-01-76x92.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-01-888x1080.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-02-593x722.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-02-76x92.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-02-888x1080.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-03-593x722.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-03-76x92.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-03-888x1080.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-04-593x722.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-04-76x92.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-04-888x1080.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-03-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-04-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-05-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-05.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-06-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-06.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-07-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-07-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-07.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-08-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-08.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-09-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-09.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-10-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-11-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-12-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-13-size1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-13-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-13.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-14-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-14.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-15-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-15.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-16-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-16.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-17-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-17.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-18-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-18.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-570x288-color1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-570x288-color2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-570x288-color3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-570x288-color4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-570x288-color5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-570x288.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-19.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-20.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-21.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-22-size1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-22.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-23-270x348.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-23.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-24.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-25.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-26.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-27.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-28.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-29.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-30.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-31.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-32-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-32-size1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-32.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-33-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-33-size1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-33.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-34.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-35-back.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/product-35.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/small-preview1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/products/small-preview2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/quotes.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/shopping-cart-back-left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/shopping-cart-back-mobile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/shopping-cart-back-right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/shopping-cart-back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider-main-back-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider-main-back-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider-main-back-02s.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider-main-back-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/dummy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-border.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-line.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-text1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-text2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide1-text3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-border.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-line.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-text1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-text2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider/slide2-text3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider1-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider2-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/slider3-small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-01-308x140.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-02-176x119.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-03-176x119.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-04-01-831x288.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-04-02-77x77.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-04-270x159.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-05-01-831x288.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-05-02-77x77.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-06-01-831x288.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/block-image-06-02-77x77.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/category-image-01-159x96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/category-image-02-159x96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/category-image-03-159x96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/category-image-04-159x96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/category-image-05-159x96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/category-image-06-159x96.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/listing-image-01-1171x208.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/listing-image-01-848x208.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/listing-image-02-1171x208.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/listing-image-02-848x208.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-01-269x177.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-02-269x177.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-03-269x177.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-04-269x177.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-05-71x71.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-06-71x71.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-07-71x71 copy.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/member-07-71x71.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-12.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/temp/post-image-9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/video-hover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/video.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/bootstrap-select.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/cloud-zoom.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/cloudzoom.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/hammer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/hoverIntent.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/html5shiv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery-1.10.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery-ui-1.10.3.custom.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.carouFredSel-6.2.1-packed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.countTo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.countdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.easing.1.3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.fancybox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.flexslider.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.form.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.hoverfold.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.inview.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.isotope.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.jcarousel.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.mousewheel.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.parallax.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.plugin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.rw-preloader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.rw-slider.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.ui.touch-punch.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/jquery.validate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/megatron.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/modernizr-2.6.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/owl.carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/respond.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/superfish.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/js/supersubs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrow_large_left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrow_large_right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrow_left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrow_left2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrow_right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrow_right2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrowleft.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrowright.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/arrows.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/black50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/boxed_bgtile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/bullet.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/bullet_boxed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/bullets.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/bullets.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/bullets2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/coloredbg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/grain.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/gridtile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/gridtile_3x3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/gridtile_3x3_white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/gridtile_white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/large_left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/large_right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/loader2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/navigdots.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/navigdots_bgtile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/shadow1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/shadow2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/shadow3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/small_arrows.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/small_left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/small_left_boxed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/small_right.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/small_right_boxed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/timer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/timerdot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/transparent.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/assets/white50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/css/extralayers.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/css/settings-ie8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/css/settings.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/font/revicons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/font/revicons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/font/revicons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/font/revicons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/cursor-arrow-left-dark.cur" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/cursor-arrow-left-dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/cursor-arrow-left.cur" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/cursor-arrow-right-dark.cur" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/cursor-arrow-right-dark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/cursor-arrow-right.cur" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/gradient/g30.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/images/gradient/g40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/js/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/js/jquery.themepunch.enablelog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/js/jquery.themepunch.plugins.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/js/jquery.themepunch.revolution.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/js/jquery.themepunch.revolution.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/rs-plugin/js/jquery.themepunch.tools.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/social/facebook.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/social/googlemap.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/social/twitter.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/social/youtubevideo.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/ErrorController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/ErrorController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/LoginController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/LoginController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/HomeController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/HomeController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Login/Login.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Login/Login.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/access_denied.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Error/access_denied.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/error.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Error/error.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/UpdatePassword/UpdatePassword.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/User/UpdatePassword/UpdatePassword.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/User/Home/Index.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/Thumbs.db" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/images/Thumbs.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/pom.xml" afterPath="$PROJECT_DIR$/LiMS/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebMvcConfig.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebMvcConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseEntity.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RequestRepository.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RequestRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/UpdatePasswordController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/UpdatePasswordController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityService.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/ListUser.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/ListUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/Layout.css" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/Layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/style.css" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/static/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/User/layout.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/User/layout.html" />
     </list>
     <ignored path="$PROJECT_DIR$/LiMS/target/" />
     <ignored path="$PROJECT_DIR$/Example/assignmentfive/target/" />
@@ -38,88 +656,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ListRequest.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js">
+      <file leaf-file-name="WebSecurityConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="110" column="39" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RequestRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="60" lean-forward="true" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestApiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+            <state relative-caret-position="239">
+              <caret line="50" column="49" lean-forward="false" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebMvcConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebMvcConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="60" column="72" lean-forward="false" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
-              <folding>
-                <element signature="e#1661#1662#0" expanded="true" />
-                <element signature="e#1741#1742#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reject.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/Reject.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -130,19 +673,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>popUpListCountry</find>
-      <find>Content</find>
-      <find>coun</find>
       <find>Signout</find>
       <find>input</find>
       <find>container page</find>
@@ -163,6 +703,16 @@
       <find>BookCategory</find>
       <find>Role</find>
       <find>Approve</find>
+      <find>boolean</find>
+      <find>Logout</find>
+      <find>icon-pa</find>
+      <find>content</find>
+      <find>class=&quot;container page-content&quot;nav</find>
+      <find>br</find>
+      <find>hr</find>
+      <find>section</find>
+      <find>img</find>
+      <find>testimornial</find>
     </findStrings>
     <replaceStrings>
       <replace>Users</replace>
@@ -179,40 +729,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RoleRepository.java" />
-        <option value="$PROJECT_DIR$/Example/assignmentfive/src/main/java/com/gst/repository/BookCategoryRepository.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryService.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.html" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusService.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookStatusRepository.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookStatus/ListBookStatus.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/UpdateBook.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.base.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/js/widget/widget.field.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.html" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Request.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookStatusServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RoleApiController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/UserApiController.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Role/ListRole.js" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookStatusApiController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookApiController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailService.java" />
         <option value="$PROJECT_DIR$/LiMS/pom.xml" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailServiceImpl.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/ListUser.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js" />
@@ -230,6 +751,35 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/authentication/CustomAuthenticationProvider.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebMvcConfig.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityService.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/HomeController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/UserRepository.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/LoginController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/UpdatePasswordController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/UpdatePassword/UpdatePassword.html" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/ErrorController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Error/error.html" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/PublicBaseController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/LoginController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/User/UpdatePassword/UpdatePassword.html" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/HomeController.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/css/style.css" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout.css" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/User/layout.html" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout/style.css" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/static/css/login.css" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Login/Login.html" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
       </list>
     </option>
   </component>
@@ -263,8 +813,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -376,38 +924,12 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
+              <option name="myItemId" value="UpdatePassword" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -441,11 +963,219 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Request" />
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="off_lims" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LiMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -501,45 +1231,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="off" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -570,48 +1270,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="off" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -659,40 +1317,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apicontrollers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -700,6 +1324,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -712,16 +1338,19 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static\css\layout" />
       <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static\images" />
-      <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static" />
       <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static\js" />
       <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static\fonts" />
       <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\static\js\layout" />
+      <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\templates\Public\Error" />
       <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\templates\User\Home" />
       <recent name="C:\Users\WIN8.1\Desktop\off_lims\LiMS\src\main\resources\templates\HomeController" />
     </key>
@@ -1201,11 +1830,15 @@
       <workItem from="1487480833626" duration="5145000" />
       <workItem from="1487493497132" duration="6576000" />
       <workItem from="1487501907728" duration="10153000" />
+      <workItem from="1487519497715" duration="6670000" />
+      <workItem from="1487559409303" duration="23778000" />
+      <workItem from="1487596008193" duration="12796000" />
+      <workItem from="1487663007974" duration="641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165743000" />
+    <option name="totallyTimeSpent" value="209628000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1231,17 +1864,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44189852" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44164038" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2429022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24386252" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2965204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29355782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1262,7 +1895,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="40" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/JavascriptApiController.java</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="56" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1276,423 +1917,363 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="25" column="67" lean-forward="true" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+        <state relative-caret-position="99">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/InsertBookCategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="3" lean-forward="true" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookCategory/ListBookCategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="81" column="41" lean-forward="true" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="553" column="0" lean-forward="false" selection-start-line="553" selection-start-column="0" selection-end-line="553" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/JavascriptApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/ListUser.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="79" column="95" lean-forward="true" selection-start-line="79" selection-start-column="95" selection-end-line="79" selection-end-column="95" />
-          <folding />
+        <state relative-caret-position="85">
+          <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/AdminHandlerInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserDetailsServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/HelloController.java" />
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/User/UpdatePasswordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/AdminBaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Error/error.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/UserBaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/Admin/emptylayout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/ListBook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="93" column="11" lean-forward="false" selection-start-line="88" selection-start-column="8" selection-end-line="93" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Role/InsertRole.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="73" lean-forward="true" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/CountryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Role/ListRole.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="96" column="11" lean-forward="true" selection-start-line="85" selection-start-column="7" selection-end-line="96" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="41" column="1" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookCategoryApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="31" column="15" lean-forward="false" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
-          <folding>
-            <element signature="e#958#959#0" expanded="false" />
-            <element signature="e#1011#1012#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/context/request/AbstractRequestAttributes.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/access/ExceptionTranslationFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/session/SessionManagementFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/authentication/AnonymousAuthenticationFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/servletapi/SecurityContextHolderAwareRequestFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Role/UpdateRole.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/ErrorController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RoleApiController.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#787#788#0" expanded="false" />
-            <element signature="e#832#833#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.6.RELEASE/spring-web-4.3.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="425" column="0" lean-forward="false" selection-start-line="425" selection-start-column="0" selection-end-line="425" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.6.RELEASE/spring-webmvc-4.3.6.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="408" column="0" lean-forward="false" selection-start-line="408" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/8.5.11/tomcat-embed-websocket-8.5.11.jar!/org/apache/tomcat/websocket/server/WsFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.11/tomcat-embed-core-8.5.11.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.1.RELEASE/spring-security-web-4.2.1.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/PublicBaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-          <folding />
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/UpdateBook.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Public/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/BaseEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="e#747#748#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/AdminBaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Book/InsertBook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookCategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/CountryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/Approve.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/RequestRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="60" lean-forward="true" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/Approve.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/Reject.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/Reject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/Request/ListRequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="110" column="39" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RequestServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="60" column="72" lean-forward="false" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
-          <folding>
-            <element signature="e#1661#1662#0" expanded="true" />
-            <element signature="e#1741#1742#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="256">
+          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/extensions/Mail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="419">
+          <caret line="54" column="45" lean-forward="false" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/SecurityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/RoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/MailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookCategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/js/layout/parallax.js-1.3.1/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/Admin/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="107" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/invoice.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/error.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/framework.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Error/access_denied.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/Layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="285" column="1" lean-forward="false" selection-start-line="285" selection-start-column="1" selection-end-line="285" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/images/1-1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/images/4-1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java">
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/layout/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="3961">
+          <caret line="233" column="13" lean-forward="false" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Shared/User/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+          <folding>
+            <element signature="n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Login/Login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="14" lean-forward="false" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/User/UpdatePassword/UpdatePassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="50" column="49" lean-forward="false" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
