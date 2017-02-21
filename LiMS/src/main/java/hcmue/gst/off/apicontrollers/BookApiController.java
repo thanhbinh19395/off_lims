@@ -3,10 +3,13 @@ package hcmue.gst.off.apicontrollers;
 import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.entities.BookCategory;
 import hcmue.gst.off.entities.BookStatus;
+import hcmue.gst.off.entities.User;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.services.BookCategoryService;
 import hcmue.gst.off.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,7 +33,8 @@ public class BookApiController {
     }
 
     @RequestMapping("/GetList")
-    Result GetList() {
-        return bookService.findAll();
+    PageableResult GetList(Book model, Pageable p) {
+        return bookService.search(model,p);
     }
+
 }

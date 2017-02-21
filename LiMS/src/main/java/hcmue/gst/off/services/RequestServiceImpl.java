@@ -3,9 +3,12 @@ package hcmue.gst.off.services;
 import hcmue.gst.off.entities.Request;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -36,12 +39,14 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
         return Success(requestRepository.findOne(id));
     }
 
+
     @Override
     public Result<Request> save(Request request) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
         if (request.getId() == null) {
             request.setCreated_by(user);
             request.setCreated_date(new Date());
+            request.setStatus("Pending");
         }
         else {
             request.setUpdate_date(new Date());
@@ -59,5 +64,15 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
     @Override
     public Result findByStatus(String status) {
         return Success(requestRepository.findByStatusContaining(status));
+    }
+
+    @Override
+    public PageableResult<Request> search(Request model, Pageable p) {
+        return Success(requestRepository.search(model,new PageRequest(p.getPageNumber(),PAGESIZE,p.getSort())));
+    }
+
+    @Override
+    public Result<Iterable<Request>> search(Request model) {
+        return Success(requestRepository.search(model));
     }
 }

@@ -20,7 +20,6 @@ framework.factory('ListRequest', {
             .addFields([
                 {field: 'book_name', type: 'text', required: false, caption: "Tên sách"},
                 {field: 'author', type: 'text', required: false, caption: "Tên tác giả"},
-                {field: 'created_by.username', type: 'text', required: false, caption: "Tên tác giả"}
             ])
         ;
         header.setTitle('Danh sách yêu cầu')
@@ -60,6 +59,12 @@ framework.factory('ListRequest', {
         var self = this;
 
         var grid = widget.setting.grid();
+        var pagi = widget.setting.pagination();
+        pagi.setName('page')
+            .setTotalPages(this.ViewBag.listRequest.totalPage)
+            .setStartPage(this.ViewBag.listRequest.currentPage)
+            .setPageClickHandler(self.onPageClick.bind(this))
+        ;
         grid.setName('grid')
             .addColumns([
                 {field: 'id', caption: 'Mã', size: '10%', sortable: true, resizable: true},
@@ -76,7 +81,7 @@ framework.factory('ListRequest', {
             .addButton('btnApprove', 'Chấp nhận', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnReject', 'Bác bỏ', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listRequest.data)
+            .addRecords(self.ViewBag.listRequest.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -130,24 +135,46 @@ framework.factory('ListRequest', {
         });
     },
     onbtnSearchClickSearchForm: function (evt) {
-
+        var form = this.findElement("searchForm");
+        var grid = this.findElement('grid');
+        var self = this;
+        this.searchParam = form.record;
+        this.reloadGridData();
+        this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
-
+        var grid = this.findElement('grid');
+        this.searchParam = {
+            page:page,
+            size : 1
+        };
+        debugger;
+        this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
         var grid = this.findElement('grid');
         var form = this.findElement('searchForm');
 
-        //reload grid data
-        $.post('/api/Request/GetList', null, function (result) {
-            grid.clear();
-            grid.add(result.data);
-        });
-
         //clear form search + param
         this.searchParam = {};
         form.clear();
+
+        //reload grid data
+        this.reloadGridData();
+    },
+    reloadGridData:function(){
+        var grid = this.findElement('grid');
+        $.post('/api/Request/GetList',this.searchParam, function (result) {
+            if(result.success){
+                grid.clear();
+                grid.add(result.data);
+                if (grid.pagination)
+                    grid.pagination.reset(result.currentPage, result.totalPage);
+            }
+            else{
+
+            }
+        });
     },
     /*
      onDblClickGrid: function (e) {

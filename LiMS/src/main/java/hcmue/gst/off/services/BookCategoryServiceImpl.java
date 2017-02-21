@@ -3,9 +3,12 @@ package hcmue.gst.off.services;
 import hcmue.gst.off.entities.BookCategory;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.BookCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
@@ -61,6 +64,18 @@ public class BookCategoryServiceImpl extends BaseCommand implements BookCategory
 
     @Override
     public Result<Iterable<BookCategory>> findByCategory_nameContaining(String category_name) {
-        return Success(bookCategoryRepository.findByCategory__nameContaining(category_name));
+        BookCategory model = new BookCategory();
+        model.setCategory_name(category_name);
+        return Success(bookCategoryRepository.search(model));
+    }
+
+    @Override
+    public PageableResult<BookCategory> search(BookCategory model, Pageable p) {
+        return Success(bookCategoryRepository.search(model,new PageRequest(p.getPageNumber(),PAGESIZE,p.getSort())));
+    }
+
+    @Override
+    public Result<Iterable<BookCategory>> search(BookCategory model) {
+        return Success(bookCategoryRepository.search(model));
     }
 }

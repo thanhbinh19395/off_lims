@@ -13,7 +13,11 @@ import java.io.Serializable;
 public class Request extends BaseEntity implements Serializable{
     private String book_name;
     private String author;
+    private String publisher;
+    private int published_year;
+    private String note;
     private String status;
+
     public String getBook_name() {
         return book_name;
     }
@@ -36,5 +40,29 @@ public class Request extends BaseEntity implements Serializable{
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getPublished_year() {
+        return published_year;
+    }
+
+    public void setPublished_year(int published_year) {
+        this.published_year = published_year;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
