@@ -22,6 +22,8 @@ public class Book extends BaseEntity implements Serializable {
     private BookBorrowDetail bookBorrowDetail;
     private Long bookCategoryId;
     private Long bookStatusId;
+    private String bookCode;
+
 
     public Book(){
 
@@ -117,5 +119,13 @@ public class Book extends BaseEntity implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getBookCode() {
+        return bookCode;
+    }
+
+    public void setBookCode(String bookCode) {
+        this.bookCode = bookCode;
     }
 }

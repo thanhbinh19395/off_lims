@@ -1,30 +1,28 @@
 /**
- * Created by Thanh Binh on 2/8/2017.
+ * Created by dylan on 2/21/2017.
  */
-framework.factory('ListRole', {
-    onMessageReceive: function (sender, message) {
-        if(sender.pageName =='InsertRole' || sender.pageName =='UpdateRole'){
-            this.onbtnReloadClick();
-
-            //close page con
-            if(message.success){
-                debugger;
+framework.factory('ListBookBorrowHeader', {
+    onMessageReceive: function (sender, data) {
+        if(sender.pageName =='InsertBookBorrowHeader' || sender.pageName =='UpdateBookBorrowHeader'){
+            if(data.success){
+                this.onbtnReloadClick();
                 sender.close();
             }
-
         }
     },
     onInitHeader: function (header) {
+        console.log(this.ViewBag);
         header.setName('header');
         var self = this;
         var form = widget.setting.form();
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: false, caption: "Tên vai trò" },
+                { field: 'bookTransaction', type: 'text', required: false, caption: "Tình trạng" },
+                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả sách" },
             ])
         ;
-        header.setTitle('Danh sách Vai Trò')
+        header.setTitle('Danh sách Thể Loại')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -59,19 +57,28 @@ framework.factory('ListRole', {
     },
     onInitContent: function (content) {
         var self = this;
+
         var grid = widget.setting.grid();
+        var pagi = widget.setting.pagination();
+        console.log(this.ViewBag);
+        pagi.setName('page')
+            .setTotalPages(this.ViewBag.listBookBorrowHeader.totalPage)
+            .setStartPage(this.ViewBag.listBookBorrowHeader.currentPage)
+            .setPageClickHandler(self.onPageClick.bind(this))
+        ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã vai trò', size: '40%', sortable: true, resizable: true },
-                { field: 'name', caption: 'Tên vai trò', size: '50%', sortable: true, resizable: true },
+                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
+                { field: 'bookTransaction', caption: 'Tình trạng', size: '50%', sortable: true, resizable: true },
+                { field: 'returnDate',render:'date', caption: 'Ngày trả', size: '50%', sortable: true, resizable: true },
+
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            //.addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            //.addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listRole.data)
+            .addRecords(self.ViewBag.listBookBorrowHeader.data).setPaginateOptions(pagi.end())
         ;
-
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
         }
@@ -81,21 +88,23 @@ framework.factory('ListRole', {
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/Admin/Role/InsertRole',
-            title: 'Insert Role',
+            url: '/Admin/BookBorrowHeader/InsertBookBorrowHeader',
+            title: 'Insert BookBorrowHeader',
             width: '700px'
         });
     },
     onbtnUpdateClickGrid: function () {
         var grid = this.findElement('grid');
         var id = grid.getSelection()[0];
+        console.log(id);
         if (!id) {
             //thong bao = noty
+            alert("vui long chon");
             return;
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/Role/UpdateRole/'+id,
+            url: '/Admin/BookBorrowHeader/UpdateBookBorrowHeader/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -106,8 +115,8 @@ framework.factory('ListRole', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/Role/Deletes', { id: id }, function (result) {
-                if(result.success) {
+            $.post('/api/BookBorrowHeader/Deletes', { id: id }, function (result) {
+                if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
                 }
@@ -125,7 +134,13 @@ framework.factory('ListRole', {
         this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
-
+        var grid = this.findElement('grid');
+        this.searchParam = {
+            page:page,
+            size : 1
+        };
+        debugger;
+        this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
         var grid = this.findElement('grid');
@@ -138,18 +153,36 @@ framework.factory('ListRole', {
         //reload grid data
         this.reloadGridData();
     },
-    reloadGridData:function () {
+    reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/Role/Search',this.searchParam, function (result) {
+        $.post('/api/BookBorrowHeader/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
+                if (grid.pagination)
+                    grid.pagination.reset(result.currentPage, result.totalPage);
             }
             else{
 
             }
         });
     },
+    /*
+     onDblClickGrid: function (e) {
+     var self = this;
+     var grid = this.findElement('grid');
+     var record = grid.get(e.recid);
+     console.log(record);
+     var mess = {
+     type: 'popupListBookBorrowHeader',
+     data: record,
+     callback: function () {
+     self.close();
+     }
+     }
+     this.sendMessage(mess);
+     }
+     */
     onDblClickGrid: function (e) {
         var self = this;
         var grid = this.findElement('grid');
