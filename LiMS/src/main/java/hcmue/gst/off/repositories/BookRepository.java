@@ -25,5 +25,6 @@ public interface BookRepository extends CrudRepository<Book,Long> {
     Page<Book> search(@Param("model") Book model, Pageable page);
     @Query(searchQuery)
     Iterable<Book> search(@Param("model") Book model);
+    Book findByBookCode(String bookcode);
 
 }

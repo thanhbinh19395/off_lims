@@ -18,6 +18,14 @@ $.widget('widget.form', $.widget.base, {
         this.element.append(this._createFormElement());
         var form = this.element.w2form(this.options);
 
+        var clearFunc = form.clear;
+        form.clear = function(){
+            if(form.record && form.record.id){
+                var id = form.record.id;
+                clearFunc.call(form);
+                form.record = {id : id};
+            }
+        };
         $.extend(form, {
             findElement: function (element) {
                 var el = $(form.$el).find(element);
