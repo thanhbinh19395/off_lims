@@ -34,24 +34,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    private DataSource dataSource;
+    private  UserDetailsService userDetailsService;
 
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("select username,password, status from user where username=?")
-                .authoritiesByUsernameQuery(
-                        "select u.username, r.name from user u, role r where u.role_id = r.id and u.username=?");
+       auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/resources/**","/**").permitAll();
-                //.antMatchers("/Admin/**", "/Librarian/**", "/User/**").hasAuthority("ADMIN")
-                //.antMatchers("/Librarian/**", "/User/**").hasAuthority("LIBRARIAN")
-                //.antMatchers("/User/**").hasAuthority("USER");
+                .antMatchers("/resources/**").permitAll()
+                .antMatchers("/Admin/**", "/Librarian/**", "/User/**").hasAuthority("ADMIN")
+                .antMatchers("/Librarian/**", "/User/**").hasAuthority("LIBRARIAN")
+                .antMatchers("/User/**").hasAuthority("USER");
         http
                 .formLogin()
                 .loginPage("/login")
