@@ -23,10 +23,10 @@ public class RequestPurchaseController extends UserBaseController{
     @RequestMapping(value = "/RequestPurchase", method = RequestMethod.POST)
     public String RequestPurchase(@ModelAttribute("request") Request rq, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "redirect:/RequestPurchase?error";
+            return "redirect:/User/RequestPurchase?error";
         }
         requestService.save(rq);
-        return "redirect:/RequestPurchase?success";
+        return "redirect:/User/RequestPurchase?success";
     }
 
     @RequestMapping(value = "/RequestPurchase", method = RequestMethod.GET)
