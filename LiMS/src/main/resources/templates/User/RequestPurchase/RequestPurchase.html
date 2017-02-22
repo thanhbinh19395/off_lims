@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Request a purchase</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+</head>
+<body>
+    <div style="margin: 0 auto; width: 600px;" layout:fragment="content" >
+        <form  id="request_purchase_form" action="/RequestPurchase"
+              th:action="@{/User/RequestPurchase}" th:object="${request}" method="POST">
+            <h3>  Request a purchase </h3>
+            <div class="alert alert-info">
+                <p>
+                    Fill out the form below to request the purchase of an item.
+                    The more details you can supply, the easier we can process your request.
+                </p>
+            </div>
+            <div th:if="${param.success}">
+                <h3>
+                    <span class="label label-success"> Your request is submitted ! </span>
+                </h3>
+            </div>
+            <div th:if="${param.error}">
+                <h3>
+                    <span class="label label-danger"> Your request is invalid</span>
+                </h3>
+            </div>
+            <br/>
+            <div class="book">
+            <h4> <b>Book details</b></h4>
+                <p>Please provide as many details as possible.</p>
+                <div class="book-info">
+                    <label for="title" > Title <span style="color: red">*</span></label>
+                    <input class="form-control" type="text" name="title" id="title" alt="This field is required" required="true" placeholder="Book title" th:field="*{book_name}"/>
+                    <br/><br/>
+                    <label for="author" > Author <span style="color: red">*</span></label>
+                    <input class="form-control" type="text" name="author" id="author" required="true" placeholder="Author name" th:field="*{author}"/>
+                    <br/><br/>
+                    <label for="publisher" > Publisher </label>
+                    <input class="form-control" type="text" name="publisher" id="publisher" placeholder="Publisher name" th:field="*{publisher}"/>
+                    <br/><br/>
+                    <label for="publication_year" > Publication year </label>
+                    <input class="form-control" type="number" name="publication_year" id="publication_year" placeholder="Publication year" th:field="*{published_year}"/>
+                    <br/><br/>
+                    <label for="additionalInformation" > Additional information </label>
+                    <textarea class="form-control" rows="4" type="text" name="additionalInformation" id="additionalInformation" placeholder="More infomation if you need" th:field="*{note}"></textarea>
+                </div>
+            </div>
+            <br/>
+            <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm"  type="submit" value="Submit"/>
+            <input class="col-sm-2 col-sm-offset-2 button btn-info btn-sm" id="btnClear" type="reset" value="Clear"/>
+        </form>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/jquery.requestPurchase.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+</body>
+</html>

@@ -6,12 +6,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import java.sql.Driver;
 import java.util.List;
 
 /**
@@ -44,5 +48,25 @@ import java.util.List;
             super.addArgumentResolvers(argumentResolvers);
         }
 
+    @Bean(name = "dataSource")
+    public DriverManagerDataSource dataSource() {
+        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/lims?useUnicode=yes&characterEncoding=UTF-8");
+        driverManagerDataSource.setUsername("root");
+        driverManagerDataSource.setPassword("");
+        return driverManagerDataSource;
     }
+
+    @Bean(name = "userDetailsService")
+    public UserDetailsService userDetailsService() {
+        JdbcDaoImpl jdbcDao = new JdbcDaoImpl();
+        jdbcDao.setDataSource(dataSource());
+        jdbcDao.setUsersByUsernameQuery("select username,password, status from user where username=?");
+        jdbcDao.setAuthoritiesByUsernameQuery("select u.username, r.name from user u, role r where u.role_id = r.id and u.username=?");
+        return jdbcDao;
+    }
+
+
+}
 

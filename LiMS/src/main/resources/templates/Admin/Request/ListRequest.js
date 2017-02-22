@@ -1,11 +1,10 @@
 /**
  * Created by dylan on 2/18/2017.
  */
-
 framework.factory('ListRequest', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertRequest' || sender.pageName =='UpdateRequest'){
-            if(data.success){
+        if (sender.pageName == 'InsertRequest' || sender.pageName == 'UpdateRequest') {
+            if (data.success) {
                 this.onbtnReloadClick();
                 sender.close();
             }
@@ -19,8 +18,8 @@ framework.factory('ListRequest', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'book_name', type: 'text', required: false, caption: "Tên sách" },
-                { field: 'author', type: 'text', required: false, caption: "Tên tác giả" },
+                {field: 'book_name', type: 'text', required: false, caption: "Tên sách"},
+                {field: 'author', type: 'text', required: false, caption: "Tên tác giả"},
             ])
         ;
         header.setTitle('Danh sách yêu cầu')
@@ -60,17 +59,29 @@ framework.factory('ListRequest', {
         var self = this;
 
         var grid = widget.setting.grid();
+        var pagi = widget.setting.pagination();
+        pagi.setName('page')
+            .setTotalPages(this.ViewBag.listRequest.totalPage)
+            .setStartPage(this.ViewBag.listRequest.currentPage)
+            .setPageClickHandler(self.onPageClick.bind(this))
+        ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '10%', sortable: true, resizable: true },
-                { field: 'book_name', caption: 'Tên sách' , size: '45%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tên tác giả ', size: '45%', sortable: true, resizable: true },
-
+                {field: 'id', caption: 'Mã', size: '10%', sortable: true, resizable: true},
+                {field: 'book_name', caption: 'Tên sách', size: '45%', sortable: true, resizable: true},
+                {field: 'author', caption: 'Tên tác giả ', size: '45%', sortable: true, resizable: true},
+                {
+                    field: 'created_by.username',
+                    caption: 'Username Yêu Cầu ',
+                    size: '45%',
+                    sortable: true,
+                    resizable: true
+                }
             ])
             .addButton('btnApprove', 'Chấp nhận', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnReject', 'Bác bỏ', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listRequest.data)
+            .addRecords(self.ViewBag.listRequest.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -79,10 +90,33 @@ framework.factory('ListRequest', {
         content.addItem(grid.end());
     },
     onbtnInsertClickGrid: function () {
-       alert("approved");
+        var grid = this.findElement('grid');
+        var id = grid.getSelection()[0];
+        if (!id) {
+            //thong bao = noty
+            return;
+        }
+        this.openPopup({
+            name: 'updatePopup',
+            url: '/Admin/Request/Approve/'+id,
+            title: 'Update Role',
+            width: '700px'
+        });
+
     },
     onbtnUpdateClickGrid: function () {
-        alert("rejected");
+        var grid = this.findElement('grid');
+        var id = grid.getSelection()[0];
+        if (!id) {
+            //thong bao = noty
+            return;
+        }
+        this.openPopup({
+            name: 'updatePopup',
+            url: '/Admin/Request/Reject/'+id,
+            title: 'Update Role',
+            width: '700px'
+        });
 
     },
     onbtnDeleteClickGrid: function () {
@@ -90,8 +124,8 @@ framework.factory('ListRequest', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/Request/Deletes', { id: id }, function (result) {
-                if(result.success){
+            $.post('/api/Request/Deletes', {id: id}, function (result) {
+                if (result.success) {
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
                 }
@@ -101,24 +135,46 @@ framework.factory('ListRequest', {
         });
     },
     onbtnSearchClickSearchForm: function (evt) {
-
+        var form = this.findElement("searchForm");
+        var grid = this.findElement('grid');
+        var self = this;
+        this.searchParam = form.record;
+        this.reloadGridData();
+        this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
-
+        var grid = this.findElement('grid');
+        this.searchParam = {
+            page:page,
+            size : 1
+        };
+        debugger;
+        this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
         var grid = this.findElement('grid');
         var form = this.findElement('searchForm');
 
-        //reload grid data
-        $.post('/api/Request/GetList',null, function (result) {
-            grid.clear();
-            grid.add(result.data);
-        });
-
         //clear form search + param
         this.searchParam = {};
         form.clear();
+
+        //reload grid data
+        this.reloadGridData();
+    },
+    reloadGridData:function(){
+        var grid = this.findElement('grid');
+        $.post('/api/Request/GetList',this.searchParam, function (result) {
+            if(result.success){
+                grid.clear();
+                grid.add(result.data);
+                if (grid.pagination)
+                    grid.pagination.reset(result.currentPage, result.totalPage);
+            }
+            else{
+
+            }
+        });
     },
     /*
      onDblClickGrid: function (e) {

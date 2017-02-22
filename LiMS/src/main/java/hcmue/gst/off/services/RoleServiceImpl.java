@@ -54,6 +54,7 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
             role.setUpdate_date(new Date());
             role.setUpdate_by(user);
         }
+
         return Success(roleRepository.save(role));
     }
 
@@ -65,6 +66,6 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
     @Override
     public Result delete(Long id) {
         roleRepository.delete(id);
-        return Success();
+        return Success(id,"xóa thành công");
     }
 }

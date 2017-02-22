@@ -1,9 +1,13 @@
 package hcmue.gst.off.controllers.Admin;
 
+import hcmue.gst.off.entities.Request;
 import hcmue.gst.off.extensions.AdminBaseController;
+import hcmue.gst.off.extensions.Mail;
 import hcmue.gst.off.services.CountryService;
 import hcmue.gst.off.services.RequestService;
+import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +23,26 @@ public class RequestController extends AdminBaseController {
     private RequestService requestService;
 
     @RequestMapping("/ListRequest")
-    public String ListRequest(Model model) {
-        getViewBag(model).put("listRequest", requestService.findAll());
+    public String ListRequest(Model model, Pageable p) {
+        Request data = new Request();
+        data.setStatus("chờ");
+        getViewBag(model).put("listRequest", requestService.search(data,p));
+        return View();
+    }
+
+    @RequestMapping("/Approve/{RequestId}")
+    public String Approve(@PathVariable("RequestId") long requestId, Model model)
+    {
+        Mail mail = new Mail(requestId,"");
+        getViewBag(model).put("email",mail);
+        return View();
+    }
+
+    @RequestMapping("/Reject/{RequestId}")
+    public String Reject(@PathVariable("RequestId") long requestId, Model model)
+    {
+        Mail mail = new Mail(requestId,"");
+        getViewBag(model).put("email",mail);
         return View();
     }
 

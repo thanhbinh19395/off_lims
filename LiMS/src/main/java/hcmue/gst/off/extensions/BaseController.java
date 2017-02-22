@@ -10,7 +10,4 @@ public class BaseController {
     protected String View(String viewName){
         return this.getClass().getSimpleName().replace("Controller","") + "/" + viewName;
     }
-    protected String View(String viewName, String folderName) {
-        return "/" + folderName + "/" + viewName;
-    }
 }

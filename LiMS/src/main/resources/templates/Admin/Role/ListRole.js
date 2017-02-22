@@ -7,7 +7,11 @@ framework.factory('ListRole', {
             this.onbtnReloadClick();
 
             //close page con
-            sender.close();
+            if(message.success){
+                debugger;
+                sender.close();
+            }
+
         }
     },
     onInitHeader: function (header) {

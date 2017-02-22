@@ -2,11 +2,13 @@ package hcmue.gst.off.apicontrollers;
 
 import hcmue.gst.off.entities.BookStatus;
 import hcmue.gst.off.entities.Role;
+import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RoleRepository;
 import hcmue.gst.off.services.BookStatusService;
 import hcmue.gst.off.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,8 +33,8 @@ public class BookStatusApiController {
         return bookStatusService.delete(id);
     }
     @RequestMapping("/GetList")
-    Result<Iterable<BookStatus>> GetList(){
-        return bookStatusService.findAll();
+    PageableResult<BookStatus> GetList(BookStatus model, Pageable p){
+        return bookStatusService.search(model,p);
     }
     @RequestMapping("/FindByNameContaining")
     Result GetListByName(String description)

@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "bookborrowheader")
 public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
-    private int bookTransaction;
+    private Integer bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;
     private BookReservation bookReservation;
 
@@ -27,11 +27,11 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
         this.returnDate = returnDate;
     }
 
-    public int getBookTransaction() {
+    public Integer getBookTransaction() {
         return bookTransaction;
     }
 
-    public void setBookTransaction(int bookTransaction) {
+    public void setBookTransaction(Integer bookTransaction) {
         this.bookTransaction = bookTransaction;
     }
 

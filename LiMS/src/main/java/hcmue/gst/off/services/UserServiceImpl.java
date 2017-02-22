@@ -21,16 +21,22 @@ public class UserServiceImpl extends BaseCommand implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @Override
     public Result<User> save(User user) {
+        // valid username existinc
+        if (user.getId() == null) {
+            if (userRepository.findByUsername(user.getUsername()) != null) {
+                return Fail("Username đã tồn tại");
+            }
+            user.setStatus(Boolean.TRUE);// m muốn bật/tắt user thì nói tiếng để t kêu th B làm cái type choose trong edit
+        }
+
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return Success(userRepository.save(user));
+
     }
 
     @Override
