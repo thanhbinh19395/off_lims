@@ -27,15 +27,14 @@ public class UserServiceImpl extends BaseCommand implements UserService {
     @Override
     public Result<User> save(User user) {
         // valid username existinc
-        if(userRepository.findByUsername(user.getUsername()) != null )
-        {
-            return Fail("Username đã tồn tại");
+        if (user.getId() == null) {
+            if (userRepository.findByUsername(user.getUsername()) != null) {
+                return Fail("Username đã tồn tại");
+            }
         }
-        else {
-            user.setStatus(Boolean.TRUE);
-            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            return Success(userRepository.save(user),"Lưư thành công");
-        }
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        return Success(userRepository.save(user));
+
     }
 
     @Override
