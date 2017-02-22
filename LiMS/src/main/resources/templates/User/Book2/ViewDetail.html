@@ -12,7 +12,7 @@
             <img src="/images/Book_Net.jpg" th:width="300px" th:height="400px" style="float: right"/>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6" style="font-size: large">
-            <p th:text="'Name: '+ *{name}" > </p>
+            <p th:text=" *{name}" style="font-size: 50px" > </p>
             <p th:text="'Author: '+ *{author}" > </p>
             <p th:text="'Pushlish Year: '+ *{publish_year}" > </p>
             <p th:text="'Book Status: '+ *{bookStatus.getDescription()}" > </p>
