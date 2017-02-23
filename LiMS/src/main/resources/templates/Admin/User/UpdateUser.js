@@ -36,6 +36,7 @@ framework.factory('UpdateUser', {
     onBtnUpdateClick: function () {
         var self = this;
         var form = this.findElement('updateForm');
+        delete form.record.role;
         if (!form.validate().length) {
             $.post('/api/User/Save', form.record , function (result) {
                 if(result.success)
