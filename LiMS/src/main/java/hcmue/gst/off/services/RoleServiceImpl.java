@@ -22,12 +22,6 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
 
-    @Autowired
-    private SecurityService securityService;
-
-    @Autowired
-    private UserService userService;
-
     @Override
     public Result<Iterable<Role>> findAll() {
         return Success(roleRepository.findAll());
@@ -45,16 +39,7 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
 
     @Override
     public Result<Role> save(Role role) {
-        User user = userService.findByUsername(securityService.findLoggedInUsername());
-        if (role.getId() == null) {
-            role.setCreated_by(user);
-            role.setCreated_date(new Date());
-        }
-        else {
-            role.setUpdate_date(new Date());
-            role.setUpdate_by(user);
-        }
-
+        SaveHandler(role);
         return Success(roleRepository.save(role));
     }
 

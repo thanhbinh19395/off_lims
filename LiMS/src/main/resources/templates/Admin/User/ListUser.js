@@ -80,7 +80,7 @@ framework.factory('ListUser', {
                 { field: 'email', caption: 'Email', size: '50%', sortable: true, resizable: true },
                 { field: 'address', caption: 'Address', size: '50%', sortable: true, resizable: true },
                 { field: 'idcard', caption: 'ID Number', size: '50%', sortable: true, resizable: true },
-                { field: 'birthday', caption: 'Birthday', size: '50%', sortable: true, resizable: true },
+                { field: 'birthday', caption: 'Birthday', size: '50%', sortable: true, resizable: true, render:'date' },
                 { field: 'username', caption: 'Username', size: '50%', sortable: true, resizable: true },
                 { field: 'password', caption: 'Password', size: '50%', sortable: true, resizable: true },
                 { field: 'role.name', caption: 'Role', size: '50%', sortable: true, resizable: true },

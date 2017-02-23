@@ -38,8 +38,8 @@ public class BaseEntity {
         this.created_by = created_by;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",timezone = "PST")
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy",timezone = "PST")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     public Date getCreated_date() {
         return created_date;
     }
@@ -58,8 +58,8 @@ public class BaseEntity {
         this.update_by = update_by;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "MM-dd-yyyy",timezone = "PST")
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy",timezone = "PST")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     public Date getUpdate_date() {
         return update_date;
     }

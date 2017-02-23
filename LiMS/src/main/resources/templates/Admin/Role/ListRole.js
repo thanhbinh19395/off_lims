@@ -64,6 +64,7 @@ framework.factory('ListRole', {
             .addColumns([
                 { field: 'id', caption: 'Mã vai trò', size: '40%', sortable: true, resizable: true },
                 { field: 'name', caption: 'Tên vai trò', size: '50%', sortable: true, resizable: true },
+                { field: 'created_date', caption: 'created_date', size: '50%', sortable: true, resizable: true },
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
