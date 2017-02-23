@@ -1,6 +1,7 @@
 package hcmue.gst.off.entities;
 
 import com.fasterxml.jackson.annotation.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class User implements Serializable {
     private String address;
     private String idcard;
     private String email;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private String username;
     private String password;

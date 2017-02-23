@@ -10,9 +10,9 @@
 
 </head>
 <body>
-    <div layout:fragment="content" >
-        <form class="col-sm-6" id="request_purchase_form" action="/RequestPurchase"
-              th:action="@{/RequestPurchase}" th:object="${request}" method="POST">
+    <div style="margin: 0 auto; width: 600px;" layout:fragment="content" >
+        <form  id="request_purchase_form" action="/RequestPurchase"
+              th:action="@{/User/RequestPurchase}" th:object="${request}" method="POST">
             <h3>  Request a purchase </h3>
             <div class="alert alert-info">
                 <p>
@@ -52,8 +52,8 @@
                 </div>
             </div>
             <br/>
-            <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm"  type="submit" value="Yes"/>
-            <input class="col-sm-2 col-sm-offset-2 button btn-info btn-sm" id="btnClear" type="button" value="Clear"/>
+            <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm"  type="submit" value="Submit"/>
+            <input class="col-sm-2 col-sm-offset-2 button btn-info btn-sm" id="btnClear" type="reset" value="Clear"/>
         </form>
     </div>
 

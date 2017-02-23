@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -54,6 +56,15 @@ import java.util.List;
         driverManagerDataSource.setUsername("root");
         driverManagerDataSource.setPassword("");
         return driverManagerDataSource;
+    }
+
+    @Bean(name = "userDetailsService")
+    public UserDetailsService userDetailsService() {
+        JdbcDaoImpl jdbcDao = new JdbcDaoImpl();
+        jdbcDao.setDataSource(dataSource());
+        jdbcDao.setUsersByUsernameQuery("select username,password, status from user where username=?");
+        jdbcDao.setAuthoritiesByUsernameQuery("select u.username, r.name from user u, role r where u.role_id = r.id and u.username=?");
+        return jdbcDao;
     }
 
 

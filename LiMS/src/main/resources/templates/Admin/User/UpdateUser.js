@@ -20,8 +20,8 @@ framework.factory('UpdateUser', {
                 { field: 'email', caption: 'Email' , type: 'text'},
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'username', caption: 'Username' , type: 'text'},
                 { field: 'password', caption: 'Password', type: 'text' },
+                { field: 'status', caption: 'Status', type: 'text' },
                 { field: 'roleId', caption: 'Role', type: 'popupListRole', options:{caller:self, data: self.ViewBag.user.data.role} },
             ])
             .setRecord(this.ViewBag.user.data)

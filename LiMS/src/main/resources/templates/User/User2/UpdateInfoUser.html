@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="/Shared/User/layout">
+
+
+<div class="container " layout:fragment="content" th:object="${User}">
+    <h1 style="text-align: center; padding: 10px">Update information of user </h1>
+    <div class="row" style="margin-bottom: 10px; margin-left: 30%">
+        <form id="form" th:action="@{/User/SaveInfoUser}" method="post">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">UserName</label>
+                    <div class="col-10">
+                        <input class="form-control" th:type="text"  th:field="*{username}" readonly="readonly"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Name</label>
+                    <div class="col-10">
+                        <input class="form-control" th:type="text" th:field="*{name}"/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Phone number</label>
+                    <div class="col-10">
+                        <input class="form-control" th:type="text" onkeypress="validate(event)" th:field="*{phone}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Address</label>
+                    <div class="col-10">
+                        <input class="form-control" th:type="text" th:field="*{address}"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">ID Card</label>
+                    <div class="col-10">
+                        <input class="form-control" th:type="text" maxlength="9" minlength="9" onkeypress="validate(event)" th:field="*{idcard}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Email</label>
+                    <div class="col-10">
+                        <input class="form-control" th:type="email" th:field="*{email}" required="required"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">BirthDay</label>
+                    <div class="col-10" >
+                            <input class="form-control" th:type="date" th:field="*{birthday}"  />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
+<script src="/js/jquery.validate.min.js"></script>
+<script>
+    $('#form').validate();
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>

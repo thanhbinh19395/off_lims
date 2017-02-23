@@ -5,12 +5,12 @@
 $(document).ready(function () {
     $('#update_pass_form').validate({
         rules : {
-            new_password: {
+            newPassword: {
                 minlength : 6,
                 maxlength : 30
             },
             new_password_confirm: {
-                equalTo: "#new_password"
+                equalTo: "#newPassword"
             }
         },
         highlight: function (element) {
