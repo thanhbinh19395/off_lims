@@ -1,5 +1,6 @@
 package hcmue.gst.off.services;
 
+import hcmue.gst.off.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,12 +16,22 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SecurityServiceImpl implements SecurityService {
+    @Autowired
+    private UserService userService;
 
     @Override
     public String findLoggedInUsername() {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (userDetails instanceof UserDetails) {
             return ((UserDetails)userDetails).getUsername();
+        }
+        return null;
+    }
+
+    public User getUser() {
+        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (userDetails instanceof UserDetails) {
+            return userService.findByUsername(((UserDetails) userDetails).getUsername());
         }
         return null;
     }

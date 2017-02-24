@@ -20,12 +20,22 @@ framework.factory('InsertUser', {
                 { field: 'phone', caption: 'Phone', type: 'text'},
                 { field: 'address', caption: 'Address' , type: 'text'},
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
-                { field: 'birthday', caption: 'Birthday', type: 'date' },
+                { field: 'birthday', caption: 'Birthday', type: 'date', options:{  } },
                 { field: 'username', caption: 'Username' , type: 'text'},
                 { field: 'password', caption: 'Password', type: 'text' },
                 { field: 'email', caption: 'Email', type: 'text' },
                 { field: 'roleId', caption: 'Role', type: 'popupListRole', options:{caller:self} },
-            ]);
+                {
+                    field: 'status', type: 'list', required: true, caption: 'Status', options: {
+                    items: [
+                        { id: 0, text: 'Deactive' },
+                        { id: 1, text: 'Active' },
+                    ]
+                }
+                }
+            ])
+            .setRecord({status : 1})
+        ;
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
             .addItem({ id: 'btnInsert', type: 'button', caption: 'Lưu', icon: 'fa-floppy-o', onClick:self.onBtnInsertClick.bind(this) })
@@ -37,6 +47,7 @@ framework.factory('InsertUser', {
         var self = this;
         var form = this.findElement('insertForm');
         if (!form.validate().length) {
+            form.record.status = form.record.status.id;
             $.post('/api/User/Save', form.record , function (result) {
                 if(result.success)
                     alertSuccess(result.message);
