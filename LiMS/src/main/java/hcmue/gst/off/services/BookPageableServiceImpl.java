@@ -43,5 +43,4 @@ public class BookPageableServiceImpl implements BookPageableService {
         return bookPageableRepository.findByDate(beginDate,endDate,pageable);
     }
 
-
 }
