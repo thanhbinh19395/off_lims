@@ -23,44 +23,44 @@
 
         <div class="single-page-nav sticky-wrapper" id="tmNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="/" class="external">Homepage</a></li>
+                <li><a href="/" class="external" th:text="#{Homepage}"></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Service</a>
-                        <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
-                            <li><a style="line-height: 40px;" href="#" class="external" >for Student</a></li>
-                            <li><a style="line-height: 40px;" href="#" class="external" >for Lecturer</a></li>
-                            <li><a style="line-height: 40px;" href="#" class="external" >for Researcher</a></li>
-                            <li><a style="line-height: 40px;" href="#" class="external" >for Community</a></li>
-                        </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Borrow</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Service}"></a>
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
-                        <li><a style="line-height: 40px;" href="#" class="external" >How to Borrow</a></li>
-                        <li><a style="line-height: 40px;" href="#" class="external" >Overdue Items</a></li>
+                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forStudent}"></a></li>
+                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forLecturer}"></a></li>
+                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forResearcher}"></a></li>
+                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forCommunity}"></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Request</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Borrow}"></a>
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
-                        <li><a style="line-height: 40px;" href="" class="external" >How to Request</a></li>
-                        <li><a style="line-height: 40px;" href="/User/RequestPurchase" class="external" >Request a purchase</a></li>
-                        <li><a style="line-height: 40px;" href="" class="external" >Request document delivery</a></li>
+                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{HowtoBorrow}"></a></li>
+                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{OverdueItems}"></a></li>
                     </ul>
                 </li>
-                <li><a  class="external" href="/Contact">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Request}"></a>
+                    <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
+                        <li><a style="line-height: 40px;" href="" class="external" th:text="#{HowtoRequest}"></a></li>
+                        <li><a style="line-height: 40px;" href="/User/RequestPurchase" class="external" th:text="#{Requestapurchase}"></a></li>
+                        <li><a style="line-height: 40px;" href="" class="external" th:text="#{Requestdocumentdelivery}" ></a></li>
+                    </ul>
+                </li>
+                <li><a  class="external" href="/Contact" th:text="#{Contact}"></a></li>
                 <li class="dropdown" th:if="${#authorization.expression('isAuthenticated()')}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Account}"></a>
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
                         <li><a><b th:text="${#authentication.getName()}">user</b></a></li>
                         <li class="divider"></li>
-                        <li><a style="line-height: 40px;" href="/User/UpdateInfoUser"  class="external" >Setting Profile</a></li>
-                        <li><a style="line-height: 40px;" href="/User/UpdatePassword" class="external" >Change password</a></li>
+                        <li><a style="line-height: 40px;" href="/User/UpdateInfoUser"  class="external" th:text="#{SettingProfile}"></a></li>
+                        <li><a style="line-height: 40px;" href="/User/UpdatePassword" class="external" th:text="#{Changepassword}"></a></li>
                         <li class="divider"></li>
-                        <li><a style="line-height: 40px;" href="/logout"  class="external" >Log out</a></li>
+                        <li><a style="line-height: 40px;" href="/logout"  class="external" th:text="#{Logout}"></a></li>
                     </ul>
                 </li>
-                <li><a  class="external" th:href="${#authorization.expression('isAuthenticated()') ? '/':'/login'}" style="background-color: #0A96DE;">Login</a></li>
+                <li><a  class="external" th:href="${#authorization.expression('isAuthenticated()') ? '/':'/login'}" style="background-color: #0A96DE;" th:text="#{login}"></a></li>
             </ul>
         </div>
     </div>
@@ -72,10 +72,10 @@
             <div class="row">
                 <div class="col-sm-12 text-center inner">
                     <div class="contact-content" align="center">
-                        <h1>ONE FOR FIVE Library</h1>
+                        <h1 th:text="#{library}"></h1>
                         <div class="row">
                             <div class="col-lg-12">
-                                <p>Learning with your best</p>
+                                <p th:text="#{learning}"></p>
                             </div>
                         </div>
 

@@ -14,28 +14,28 @@
         <div class="container-fluid">
             <br/>
                     <form action="/book/searchHandle" th:action="@{/book/searchHandle}" method="post" class="contact-form">
-                        <div  style="width: 100%; ">
-                            <div style="display: inline-block; !important; width: 20%">
-                                <select class="form-control" name="searchType" id="searchType">
-                                    <option value="2">Name</option>
-                                    <option value="1">Code</option>
-                                    <option value="3">Author</option>
-                                    <option value="4">Published Year</option>
+                <div  style="width: 100%; ">
+                    <div style="display: inline-block; !important; width: 20%">
+                        <select class="form-control" name="searchType" id="searchType">
+                            <option value="2" th:text="#{Name}"></option>
+                            <option value="1" th:text="#{Code}"></option>
+                            <option value="3" th:text="#{Author}"></option>
+                            <option value="4" th:text="#{PublishedYear}"></option>
 
-                                </select>
-                            </div>
-                            <div style="display: inline-block !important; width: 60% ">
-                                <input name="search" type="text" class="form-control" style="display: table-cell; !important;" id="search" placeholder="Search for book, theory, comic,..."/>
-                            </div>
-                            <div style="display: inline-block !important;">
-                                <button type="submit" class="btn btn-danger" style="width: 100px">Search
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        </select>
+                    </div>
+                    <div style="display: inline-block !important; width: 60% ">
+                        <input name="search" type="text" class="form-control" style="display: table-cell; !important;" id="search"  th:placeholder="#{placeholder}"/>
+                    </div>
+                    <div style="display: inline-block !important;">
+                        <button type="submit" class="btn btn-danger" style="width: 100px" th:text="#{Search}">
+                        </button>
+                    </div>
+                </div>
+            </form>
             </div>
         <br/>
-            <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav">
                 <li><a href="/">All book</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories</a>
@@ -44,8 +44,7 @@
                     </ul>
                 </li>
                 <li><a href="/book/new">New!</a></li>
-                <li><a href="#">Most borrowed</a></li>
-            </ul>
+        </ul>
     </nav>
     <div class="page-header">
     <h1><b>${header}</b></h1>
