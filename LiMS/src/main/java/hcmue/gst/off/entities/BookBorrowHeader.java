@@ -18,6 +18,9 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Set<BookBorrowDetail> bookBorrowDetails;
     private BookReservation bookReservation;
 
+    private Long userId;
+    private User user;
+
 
     public Date getReturnDate() {
         return returnDate;
@@ -42,6 +45,27 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     public void setBookBorrowDetails(Set<BookBorrowDetail> bookBorrowDetails) {
         this.bookBorrowDetails = bookBorrowDetails;
     }
+
+    @Column(name = "user_id")
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    @ManyToOne
+    @JoinColumn(name = "user_id",insertable = false,updatable = false)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+
 
     @OneToOne(mappedBy = "bookBorrowHeader")
     public BookReservation getBookReservation() {

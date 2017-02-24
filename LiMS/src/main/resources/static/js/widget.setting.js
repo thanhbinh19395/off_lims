@@ -830,6 +830,10 @@ define(function () {
                         _addEventListener(_end, event, handler);
                         return this;
                     },
+                    createEvent: function (event, callback) {
+                        obj[event] = callback;
+                        return this;
+                    },
                     end: function () {
                         return obj;
                     }
