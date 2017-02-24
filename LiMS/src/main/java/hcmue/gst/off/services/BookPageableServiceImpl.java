@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 
 
 /**
@@ -31,4 +32,16 @@ public class BookPageableServiceImpl implements BookPageableService {
     public Page<Book> search(Book model, Pageable pageable) {
         return bookRepository.search(model, pageable);
     }
+
+    @Override
+    public Page<Book> findBybookCategoryId(Long id, Pageable pageable) {
+        return bookPageableRepository.findBybookCategoryId(id, pageable);
+    }
+
+    @Override
+    public Page<Book> findByDate(Date beginDate, Date endDate, Pageable pageable) {
+        return bookPageableRepository.findByDate(beginDate,endDate,pageable);
+    }
+
+
 }

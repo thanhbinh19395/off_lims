@@ -13,41 +13,46 @@
     <nav class="navbar navbar-inverse" style="border-radius: 0px !important; text-align: center !important;">
         <div class="container-fluid">
             <br/>
-                    <form action="/searchHandle" th:action="@{/searchHandle}" method="post" class="contact-form">
-                        <div  style="width: 100%; ">
-                            <div style="display: inline-block; !important; width: 20%">
-                                <select class="form-control" name="searchType" id="searchType">
-                                    <option value="2">Name</option>
-                                    <option value="1">Code</option>
-                                    <option value="3">Author</option>
-                                    <option value="4">Published Year</option>
+                    <form action="/book/searchHandle" th:action="@{/book/searchHandle}" method="post" class="contact-form">
+                <div  style="width: 100%; ">
+                    <div style="display: inline-block; !important; width: 20%">
+                        <select class="form-control" name="searchType" id="searchType">
+                            <option value="2" th:text="#{Name}"></option>
+                            <option value="1" th:text="#{Code}"></option>
+                            <option value="3" th:text="#{Author}"></option>
+                            <option value="4" th:text="#{PublishedYear}"></option>
 
-                                </select>
-                            </div>
-                            <div style="display: inline-block !important; width: 60% ">
-                                <input name="search" type="text" class="form-control" style="display: table-cell; !important;" id="search" placeholder="Search for book, theory, comic,..."/>
-                            </div>
-                            <div style="display: inline-block !important;">
-                                <button type="submit" class="btn btn-danger" style="width: 100px">Search
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        </select>
+                    </div>
+                    <div style="display: inline-block !important; width: 60% ">
+                        <input name="search" type="text" class="form-control" style="display: table-cell; !important;" id="search"  th:placeholder="#{placeholder}"/>
+                    </div>
+                    <div style="display: inline-block !important;">
+                        <button type="submit" class="btn btn-danger" style="width: 100px" th:text="#{Search}">
+                        </button>
+                    </div>
+                </div>
+            </form>
             </div>
         <br/>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">All book</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">New!</a></li>
-                <li><a href="#">Most borrowed</a></li>
-            </ul>
+        <ul class="nav navbar-nav">
+                <li><a href="/">All book</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories</a>
+                    <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
+                        <li><a style="line-height: 40px;" class="external" th:each="category : ${categories}" th:text="${category.category_name}" th:href="@{/bookCategory/}+${category.id}">for Student</a></li>
+                    </ul>
+                </li>
+                <li><a href="/book/new">New!</a></li>
+        </ul>
     </nav>
-    <h1><b>All Book</b></h1>
+    <h1><b></b></h1>
     <section>
-        <div class="container-item" th:each="book : ${books}">
+        <div align="center">
+            <div class="container-item" th:each="book : ${books}">
             <div class="item">
                 <div class="item-overlay" th:style="'background: url('+@{/images/1-1.jpg}+');'">
-                    <div class="sale-tag"><span></span></div>
+                    <div th:style="${book.bookStatusId} != 1 ? 'background: #ff3333' :'' " class="sale-tag"><span></span></div>
                 </div>
                 <div class="item-content">
 
@@ -73,7 +78,7 @@
                                 <p>40,41,42,43,44,45</p>
                             </div> -->
                             <div class="section">
-                                <a href="#" class="btn buy expand">Detail</a>
+                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +86,7 @@
             </div>
 
         </div>
-
+        </div>
     </section>
 
 
