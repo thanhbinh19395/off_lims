@@ -43,10 +43,12 @@ import java.util.List;
         @Override
         public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
             PageableHandlerMethodArgumentResolver resolver = new PageableHandlerMethodArgumentResolver();
-            resolver.setFallbackPageable(new PageRequest(0, 1));
+            resolver.setFallbackPageable(new PageRequest(0, 8));
             argumentResolvers.add(resolver);
             super.addArgumentResolvers(argumentResolvers);
         }
+
+
 
     @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {

@@ -3,7 +3,10 @@
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorator="/Shared/User/layout">
-
+<head>
+    <title>Book Detail</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
 <body layout:fragment="content" >
     <h1 style="text-align: center; padding: 10px">View book detail </h1>
     <form th:object="${Book}" >

@@ -13,7 +13,7 @@
     <nav class="navbar navbar-inverse" style="border-radius: 0px !important; text-align: center !important;">
         <div class="container-fluid">
             <br/>
-                    <form action="/searchHandle" th:action="@{/searchHandle}" method="post" class="contact-form">
+                    <form action="/book/searchHandle" th:action="@{/book/searchHandle}" method="post" class="contact-form">
                         <div  style="width: 100%; ">
                             <div style="display: inline-block; !important; width: 20%">
                                 <select class="form-control" name="searchType" id="searchType">
@@ -36,18 +36,24 @@
             </div>
         <br/>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">All book</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">New!</a></li>
+                <li><a href="/">All book</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories</a>
+                    <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
+                        <li><a style="line-height: 40px;" class="external" th:each="category : ${categories}" th:text="${category.category_name}" th:href="@{/bookCategory/}+${category.id}">for Student</a></li>
+                    </ul>
+                </li>
+                <li><a href="/book/new">New!</a></li>
                 <li><a href="#">Most borrowed</a></li>
             </ul>
     </nav>
-    <h1><b>All Book</b></h1>
+    <h1><b></b></h1>
     <section>
-        <div class="container-item" th:each="book : ${books}">
+        <div align="center">
+            <div class="container-item" th:each="book : ${books}">
             <div class="item">
                 <div class="item-overlay" th:style="'background: url('+@{/images/1-1.jpg}+');'">
-                    <div class="sale-tag"><span></span></div>
+                    <div th:style="${book.bookStatusId} != 1 ? 'background: #ff3333' :'' " class="sale-tag"><span></span></div>
                 </div>
                 <div class="item-content">
 
@@ -73,7 +79,7 @@
                                 <p>40,41,42,43,44,45</p>
                             </div> -->
                             <div class="section">
-                                <a href="#" class="btn buy expand">Detail</a>
+                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +87,7 @@
             </div>
 
         </div>
-
+        </div>
     </section>
 
 

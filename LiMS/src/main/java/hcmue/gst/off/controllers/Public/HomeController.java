@@ -15,10 +15,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 
 /**
  * Created by WIN8.1 on 09/02/2017.
@@ -43,16 +45,16 @@ public class HomeController extends PublicBaseController {
         return View("Index");
     }
 
-    @RequestMapping(value = "/searchQuery", method = RequestMethod.GET)
+    @RequestMapping(value = "/book/searchQuery", method = RequestMethod.GET)
     public String search(@RequestParam("searchResult") String searchResult, Pageable pageable, Model model) {
-        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.search(bookResult, pageable), "/searchQuery?searchResult="+searchResult);
+        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.search(bookResult, pageable), "/book/searchQuery?searchResult="+searchResult);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
         return View("Index");
     }
 
-    @RequestMapping(value = "/searchHandle", method = RequestMethod.POST)
+    @RequestMapping(value = "/book/searchHandle", method = RequestMethod.POST)
     public String searchHandle(@RequestParam("search") String searchResult,
                                @RequestParam(value = "searchType") int searchType) {
         bookResult = new Book();
@@ -62,7 +64,29 @@ public class HomeController extends PublicBaseController {
             case 3: bookResult.setAuthor(searchResult); break;
             case 4: bookResult.setPublish_year(Integer.parseInt(searchResult)); break;
         }
-        return "redirect:/searchQuery?searchResult="+searchResult;
+        return "redirect:/book/searchQuery?searchResult="+searchResult;
     }
 
+    @RequestMapping(value = "/bookCategory/{id}", method = RequestMethod.GET)
+    public String bookByCategory(@PathVariable("id") Long id, Pageable pageable, Model model) {
+        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findBybookCategoryId(id, pageable), "/bookCategory/"+id);
+        model.addAttribute("books", page.getContent());
+        model.addAttribute("page",page);
+        model.addAttribute("categories", bookCategoryRepository.findAll());
+        return View("Index");
+    }
+
+    @RequestMapping(value = "/book/new")
+    public String bookByNew(Pageable pageable, Model model) {
+        Date today = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(today);
+        c.add(Calendar.DATE,-7);
+        Date beginDate = c.getTime();
+        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findByDate(beginDate,today,pageable), "/book/new");
+        model.addAttribute("books", page.getContent());
+        model.addAttribute("page",page);
+        model.addAttribute("categories", bookCategoryRepository.findAll());
+        return View("Index");
+    }
 }
