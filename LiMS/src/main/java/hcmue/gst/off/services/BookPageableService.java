@@ -10,5 +10,5 @@ import org.springframework.data.domain.Pageable;
  */
 public interface BookPageableService {
     Page<Book> findAll(Pageable pageable);
-
+    Page<Book> search(Book model, Pageable pageable);
 }

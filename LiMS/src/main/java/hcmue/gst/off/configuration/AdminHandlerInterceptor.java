@@ -44,10 +44,10 @@ public class AdminHandlerInterceptor implements HandlerInterceptor {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        //mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         //date format
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        mapper.setDateFormat(df);
+        //DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        //mapper.setDateFormat(df);
         String viewbagStr = "<script> var ViewBag = %s;</script>";
 
         modelAndView.getModelMap().addAttribute("ViewBag", String.format(viewbagStr,mapper.writeValueAsString(modelAndView.getModelMap().get("ViewBagData"))));

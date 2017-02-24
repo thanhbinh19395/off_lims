@@ -1,6 +1,6 @@
 ﻿w2utils.settings = {
 	locale: "vi-vn",
-	dateFormat: "mm/dd/yyyy",
+	dateFormat: "yyyy-MM-dd",
 	timeFormat: "mi:hh pm",
 	currencyPrefix: "",
 	currencySuffix: "vnd",

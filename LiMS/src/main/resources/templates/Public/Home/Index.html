@@ -5,32 +5,87 @@
       layout:decorator="/Shared/User/layout">
 <head>
     <title>Home Page | OFF Library</title>
-
+    <link th:href='@{/index/index.css}' rel='stylesheet' type='text/css'/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div layout:fragment="content">
+    <nav class="navbar navbar-inverse" style="border-radius: 0px !important; text-align: center !important;">
+        <div class="container-fluid">
+            <br/>
+                    <form action="/searchHandle" th:action="@{/searchHandle}" method="post" class="contact-form">
+                        <div  style="width: 100%; ">
+                            <div style="display: inline-block; !important; width: 20%">
+                                <select class="form-control" name="searchType" id="searchType">
+                                    <option value="2">Name</option>
+                                    <option value="1">Code</option>
+                                    <option value="3">Author</option>
+                                    <option value="4">Published Year</option>
 
+                                </select>
+                            </div>
+                            <div style="display: inline-block !important; width: 60% ">
+                                <input name="search" type="text" class="form-control" style="display: table-cell; !important;" id="search" placeholder="Search for book, theory, comic,..."/>
+                            </div>
+                            <div style="display: inline-block !important;">
+                                <button type="submit" class="btn btn-danger" style="width: 100px">Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        <br/>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">All book</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">New!</a></li>
+                <li><a href="#">Most borrowed</a></li>
+            </ul>
+    </nav>
+    <h1><b>All Book</b></h1>
+    <section>
+        <div class="container-item" th:each="book : ${books}">
+            <div class="item">
+                <div class="item-overlay" th:style="'background: url('+@{/images/1-1.jpg}+');'">
+                    <div class="sale-tag"><span></span></div>
+                </div>
+                <div class="item-content">
 
-<section id="testimornial-area">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12" th:each="book: ${books}">
-                            <div class="testimonial-content">
-                                <img th:src="@{/images/showBookImage?bookId=} + ${book.id}" alt="Image" width="160px" height="160px"/>
-                                <h2 th:text="${book.name}"></h2>
-                                <h4  th:text="${book.author}"></h4>
-                                <a href="#" class="content-link">Details</a>
-                                <br/>
-                                <p id="dets"></p>
+                    <div class="item-top-content">
+
+                        <div class="item-top-content-inner">
+
+                            <div class="item-product">
+                                <div class="item-top-title">
+                                    <h2 th:text="${book.name}"></h2>
+                                    <p class="subdescription" th:text="${book.author}">
+                                        Low skateshoes - Grey
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item-add-content">
+                        <div class="item-add-content-inner">
+                            <!-- <div class="section">
+                                <h4>Sizes</h4>
+                                <p>40,41,42,43,44,45</p>
+                            </div> -->
+                            <div class="section">
+                                <a href="#" class="btn buy expand">Detail</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
-            </section>
+            </div>
+
+        </div>
+
+    </section>
 
 
-<div style="text-align: center" th:fragment='paginationbar'>
+<div style="text-align: center; clear: both" th:fragment='paginationbar'>
                 <div>
                     <ul class='pagination pagination-centered'>
                         <li th:class="${page.firstPage}?'disabled':''">
@@ -56,6 +111,8 @@
                     </ul>
                 </div>
             </div>
+
+
 </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package hcmue.gst.off.services;
 
 import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.repositories.BookPageableRepository;
+import hcmue.gst.off.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,9 +19,16 @@ public class BookPageableServiceImpl implements BookPageableService {
     @Autowired
     private BookPageableRepository bookPageableRepository;
 
+    @Autowired
+    private BookRepository bookRepository;
+
     @Override
     public Page<Book> findAll(Pageable pageable) {
-        Page<Book> bookList = bookPageableRepository.findAll(pageable);
-        return bookList;
+        return bookPageableRepository.findAll(pageable);
+
+    }
+    @Override
+    public Page<Book> search(Book model, Pageable pageable) {
+        return bookRepository.search(model, pageable);
     }
 }
