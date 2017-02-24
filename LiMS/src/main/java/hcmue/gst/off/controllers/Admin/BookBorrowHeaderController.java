@@ -26,4 +26,9 @@ public class BookBorrowHeaderController extends AdminBaseController{
         getViewBag(model).put("listBookBorrowHeader", bookBorrowHeaderService.search(data,p));
         return View();
     }
+    @RequestMapping("/CreateBookBorrowHeader")
+    public String CreateBookBorrowHeader(Model model, BookBorrowHeader data, Pageable p) {
+        getViewBag(model).put("listBookBorrowHeader", bookBorrowHeaderService.search(data,p));
+        return View();
+    }
 }
