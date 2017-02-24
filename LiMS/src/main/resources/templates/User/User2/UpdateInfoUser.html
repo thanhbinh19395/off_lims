@@ -4,66 +4,84 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorator="/Shared/User/layout">
 
-
-<div class="container " layout:fragment="content" th:object="${User}">
-    <h1 style="text-align: center; padding: 10px">Update information of user </h1>
-    <div class="row" style="margin-bottom: 10px; margin-left: 30%">
-        <form id="form" th:action="@{/User/SaveInfoUser}" method="post">
-            <div class="col-md-6">
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">UserName</label>
-                    <div class="col-10">
-                        <input class="form-control" th:type="text"  th:field="*{username}" readonly="readonly"/>
-                    </div>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Information</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div  layout:fragment="content" style="margin: 0 auto; width: 600px;">
+        <form id="form" th:action="@{/User/SaveInfoUser}" th:object="${User}" method="post">
+            <h1><b>User Information</b></h1>
+                <div class="alert alert-info">
+                    <p>
+                        Fill out the form below to update your information<br/>
+                        Please enter realistic info. We can contact to you easily.
+                    </p>
                 </div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">Name</label>
-                    <div class="col-10">
-                        <input class="form-control" th:type="text" th:field="*{name}"/>
-                    </div>
+                <div th:if="${param.success}">
+                    <h3>
+                        <span class="label label-success"> Your information has been updated ! </span>
+                    </h3>
                 </div>
-
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">Phone number</label>
-                    <div class="col-10">
-                        <input class="form-control" th:type="text" onkeypress="validate(event)" th:field="*{phone}" />
-                    </div>
+                <div th:if="${param.error}">
+                    <h3>
+                        <span class="label label-danger"> Your information is invalid. Try again!</span>
+                    </h3>
                 </div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">Address</label>
+                <br/>
+                <div class="form-group">
+                    <label for="username">Username</label>
                     <div class="col-10">
-                        <input class="form-control" th:type="text" th:field="*{address}"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">ID Card</label>
-                    <div class="col-10">
-                        <input class="form-control" th:type="text" maxlength="9" minlength="9" onkeypress="validate(event)" th:field="*{idcard}" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">Email</label>
-                    <div class="col-10">
-                        <input class="form-control" th:type="email" th:field="*{email}" required="required"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">BirthDay</label>
-                    <div class="col-10" >
-                            <input class="form-control" th:type="date" th:field="*{birthday}"  />
+                        <input class="form-control" id="username" th:type="text"  th:field="*{username}" readonly="readonly"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
+                    <label for="name">Name</label>
+                    <div class="col-10">
+                        <input class="form-control" id="name" th:type="text" th:field="*{name}" placeholder="Your name goes here..."/>
                     </div>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <div class="col-10">
+                        <input class="form-control" id="phone" th:type="text" onkeypress="validate(event)" th:field="*{phone}" placeholder="+84902444505"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <div class="col-10">
+                        <input class="form-control" id="address" th:type="text" th:field="*{address}" placeholder="Your address goes here..."/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idcard">ID Card</label>
+                    <div class="col-10">
+                        <input class="form-control" id="idcard" th:type="text" maxlength="9" minlength="9" onkeypress="validate(event)" th:field="*{idcard}" placeholder="Input exact 9 digits in your ID card..." />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="col-10">
+                        <input class="form-control" id="email" th:type="email" th:field="*{email}" required="required" placeholder="Your email goes here..."/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthday">BirthDay</label>
+                    <div class="col-10" >
+                            <input class="form-control" id="birthday" th:type="date" th:field="*{birthday}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div align="center">
+                        <button type="submit" class="button btn-success btn-sm">Save</button>
+                        <button type="reset" class="button btn-default btn-sm">Reset</button>
+                    </div>
+                </div>
         </form>
-    </div>
 </div>
-</html>
 <script src="/js/jquery.validate.min.js"></script>
 <script>
     $('#form').validate();
@@ -78,3 +96,6 @@
         }
     }
 </script>
+</body>
+</html>
+

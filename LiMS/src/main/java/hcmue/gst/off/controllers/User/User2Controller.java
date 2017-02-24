@@ -41,7 +41,6 @@ public class User2Controller extends UserBaseController{
     }
     @RequestMapping(value = "/SaveInfoUser", method = RequestMethod.POST)
     public String ProcessUpdateInfoUser (@ModelAttribute("User") User user,BindingResult bindingResult){
-
         if (bindingResult.hasErrors()) {
             return "redirect:/User/UpdateInfoUser?error";
         }
@@ -53,7 +52,7 @@ public class User2Controller extends UserBaseController{
         temp.setEmail(user.getEmail());
         temp.setBirthday(user.getBirthday());
         userRepository.save(temp);
-        return "redirect:/User/UpdateInfoUser";
+        return "redirect:/User/UpdateInfoUser?success";
     }
 
 }

@@ -30,6 +30,9 @@ public class LoginController extends PublicBaseController {
             model.addAttribute("error", "Your username and password is invalid");
         if (logout != null)
             model.addAttribute("logout", "You have been logged out");
+        if (securityService.findLoggedInUsername() != null) {
+            return "redirect:/";
+        }
         return View("Login");
     }
 
