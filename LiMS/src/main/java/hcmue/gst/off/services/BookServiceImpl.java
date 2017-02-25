@@ -34,13 +34,13 @@ public class BookServiceImpl extends BaseCommand implements BookService {
     public Result<Book> save(Book book) {
 
         User user = userService.findByUsername(securityService.findLoggedInUsername());
-
-        if (bookRepository.findByBookCode(book.getBookCode()) != null)
+        Book tmp = bookRepository.findByBookCode(book.getBookCode());
+        Long id = tmp.getId();
+        if (tmp != null && !tmp.getId().equals(book.getId()))
         {
             return Fail("book Code đã tồn tại");
         }
-        else {
-
+        else if((tmp!=null && tmp.getId().equals(book.getId()))|| tmp == null ){
             if (book.getId() == null) {
                 book.setCreated_by(user);
                 book.setCreated_date(new Date());
@@ -54,6 +54,10 @@ public class BookServiceImpl extends BaseCommand implements BookService {
             }
 
             return Success(bookRepository.save(book), "Lưu thành công");
+        }
+        else
+        {
+            return Fail("book Code đã tồn tại");
         }
     }
 
