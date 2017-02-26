@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <title>Overdue book</title>
     <!-- Bootstrap -->
+    <link href="/index/detail.css" rel="stylesheet"/>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 
 
@@ -27,7 +28,16 @@
     </style>
 </head>
 <body>
-    <div  layout:fragment="content" style="margin: 0 auto; width: 600px;">
+    <div  layout:fragment="content">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="arrows">
+                    <li><a href="/" th:text="#{Homepage}"></a></li>
+                    <li><a th:href="@{/Borrow/OverdueBook}" th:text="#{OverdueItems}"></a></li>
+                </ol>
+            </div>
+        </div>
+        <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
         <h2><b> Overdue book </b> </h2>
         <br/><br/>
         <h3><b> Handling overdue book </b> </h3>

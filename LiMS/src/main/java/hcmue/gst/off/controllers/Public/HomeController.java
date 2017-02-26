@@ -53,7 +53,7 @@ public class HomeController extends PublicBaseController {
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
-        model.addAttribute("header","Result");
+        model.addAttribute("result",searchResult);
         return View("Index");
     }
 
@@ -70,13 +70,14 @@ public class HomeController extends PublicBaseController {
         return "redirect:/book/searchQuery?searchResult="+searchResult;
     }
 
-    @RequestMapping(value = "/book/bookCategory/{id}", method = RequestMethod.GET)
-    public String bookByCategory(@PathVariable("id") Long id, Pageable pageable, Model model) {
+    @RequestMapping(value = "/book/bookCategory/{Id}", method = RequestMethod.GET)
+    public String bookByCategory(@PathVariable("Id") Long id, Pageable pageable, Model model) {
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findBybookCategoryId(id, pageable), "/book/bookCategory/"+id);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
-        model.addAttribute("header", bookCategoryRepository.findOne(id).getCategory_name());
+        BookCategory bookCategory = bookCategoryRepository.findOne(id);
+        model.addAttribute("bookCategory", bookCategory);
         return View("Index");
     }
 
@@ -91,7 +92,8 @@ public class HomeController extends PublicBaseController {
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
-        model.addAttribute("header","New!");
+        String newText = "New!";
+        model.addAttribute("newText",newText);
         return View("Index");
     }
 }

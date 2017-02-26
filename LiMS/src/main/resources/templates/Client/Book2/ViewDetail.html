@@ -4,26 +4,106 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorator="/Shared/User/layout">
 <head>
-    <title>Book Detail</title>
+    <title th:text="${Book.name}">Book Detail</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
+          type='text/css'/>
+    <link href="/index/detail.css" rel="stylesheet"/>
+
 </head>
 <body>
 <div layout:fragment="content">
-    <h1 style="text-align: center; padding: 10px">View book detail </h1>
-    <form th:object="${Book}" >
-    <div class="row" style="margin: 10px">
-        <div class="col-sm-6 col-md-6 col-lg-6">
-            <img src="/images/Book_Net.jpg" th:width="300px" th:height="400px" style="float: right"/>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6" style="font-size: large">
-            <p th:text=" *{name}" style="font-size: 50px" > </p>
-            <p th:text="'Author: '+ *{author}" > </p>
-            <p th:text="'Pushlish Year: '+ *{publish_year}" > </p>
-            <p th:text="'Book Status: '+ *{bookStatus.getDescription()}" > </p>
-            <button type="submit" class="btn btn-primary">Reserve</button>
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="arrows">
+                <li><a href="/" th:text="#{Homepage}"></a></li>
+                <li><a th:href="@{/book/bookCategory/}+${Book.bookCategory.id}" th:text="${Book.bookCategory.category_name}"></a></li>
+                <li><a th:href="@{/Book/ViewDetail/}+${Book.id}" th:text="${Book.name}"></a></li>
+            </ol>
         </div>
     </div>
-    </form>
+    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
+    <div class="row" style="margin: 10px" th:object="${Book}">
+        <div class="col-xs-5">
+            <div align="center" style="margin-top: 30px;">
+                <img src="/images/Book_Net.jpg" th:width="300px" th:height="400px"/>
+            </div>
+        </div>
+        <div class="col-xs-7">
+            <h3 class="book-name" th:text="*{name}"></h3>
+            <div class="book-box">
+                <div class="book-row">
+                    <div class="book-info">
+                        <div>
+                            <h5 class="book-author" th:text="#{author}"></h5>
+                            <p class="book-author"><a class="author" th:text="*{author}" href="#"></a></p>
+                        </div>
+                        <div>
+                            <span class="book-detail"><h5 th:text="#{publisher}"></h5></span>
+                            <span class="book-detail" th:text="*{publisher}"></span>
+                        </div>
+
+                        <div>
+                            <span class="book-detail"><h5 th:text="#{publishedYear}"></h5></span>
+                            <span class="book-detail" th:text="*{publish_year}"></span>
+                        </div>
+
+                        <div>
+                            <span class="book-detail"><h5 th:text="#{bookTransactionStatus}"></h5></span>
+                            <span class="book-detail"><h4><span class="label"
+                                                                th:classappend="*{bookStatus.id} == 1 ? 'label-success' : 'label-danger'"
+                                                                th:text="*{bookStatus.description}"></span></h4></span>
+                        </div>
+                        <div class="divider-vertical"></div>
+                    </div>
+                    <div class="divider-vertical"></div>
+                    <div class="item-other">
+                        <p>&diams; Xem thêm <a href="#" th:text="'sách của ' + *{author}"></a> tại OFF Library</p>
+                        <p>&diams; Hướng dẫn <a href="/Borrow/HowToBorrow">mượn</a> và <a href="#">đặt</a> sách</p>
+                        <p>&diams; Không tìm thấy sách? Hãy gửi yêu cầu cho chúng tôi <a
+                                href="/User/Request/RequestPurchase">tại đây</a></p>
+                    </div>
+                </div>
+                <form class="book-detail-form" role="form" style="clear: both">
+                    <div>
+                        <p th:text="*{bookStatus.id} == 1 ? #{likeThis} : #{someoneBorrowed}"></p>
+                        <button class="btn" th:classappend="*{bookStatus.id} == 1 ? 'btn-danger':'btn-primary' "><i
+                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
+                                th:text="*{bookStatus.id} == 1? #{borrowNow}: #{reserve}"></span></button>
+                    </div>
+                </form>
+                <div class="book-rule">
+                    <div class="book-rule-title">
+                        <h3 style="opacity: 0.5;" th:text="#{Rule}"></h3>
+                        <div class="hr"></div>
+                    </div>
+                    <div class="book-rule-list">
+                        <ul>
+                            <li th:text="#{rule5}"></li>
+                            <li th:text="#{rule1}"></li>
+                            <li th:text="#{rule2}"></li>
+                            <li th:text="#{rule3}"></li>
+                            <li th:text="#{rule4}"></li>
+                            <li><span th:text="#{viewMore}"></span>&nbsp;<a th:text="#{ruleList}"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="book-service">
+                    <div class="book-service-title">
+                        <h3 style="opacity: 0.5;" th:text="#{Service}"></h3>
+                        <div class="hr"></div>
+                    </div>
+                    <div class="book-service-list">
+                        <ul>
+                            <li><a th:text="#{delivery}" href="#"></a></li>
+                            <li><a th:text="#{attachEquipment}" href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8"/>
     <title>How to borrow</title>
     <!-- Bootstrap -->
+    <link href="/index/detail.css" rel="stylesheet"/>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 
     <style>
@@ -14,7 +15,16 @@
     </style>
 </head>
 <body>
-<div  layout:fragment="content" style="margin: 0 auto; width: 600px;">
+<div  layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="arrows">
+                <li><a href="/" th:text="#{Homepage}"></a></li>
+                <li><a th:href="@{/Borrow/HowToBorrow}" th:text="#{HowtoBorrow}"></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
     <div class="row">
         <h2><b> How to borrow </b> </h2>
         <br/><br/>

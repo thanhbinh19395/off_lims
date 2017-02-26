@@ -8,10 +8,20 @@
     <meta charset="UTF-8"/>
     <title>Information</title>
     <!-- Bootstrap -->
+    <link href="/index/detail.css" rel="stylesheet"/>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div  layout:fragment="content" style="margin: 0 auto; width: 600px;">
+<div  layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="arrows">
+                <li><a href="/" th:text="#{Homepage}"></a></li>
+                <li><a th:href="@{/User/UpdateInfoUser}" th:text="#{SettingProfile}"></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
         <form id="form" th:action="@{/User/SaveInfoUser}" th:object="${User}" method="post">
             <h1><b>User Information</b></h1>
                 <div class="alert alert-info">

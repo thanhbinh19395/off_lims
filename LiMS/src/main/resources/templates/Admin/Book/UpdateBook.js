@@ -18,6 +18,7 @@ framework.factory('UpdateBook', {
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
                 { field: 'image', type: 'text', required: false, caption: 'Hình' },
                 { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
+                { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
                 { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
                 { field: 'bookStatusId', required: true,type: 'popupListBookStatus',required: true, options:{caller:self}  }

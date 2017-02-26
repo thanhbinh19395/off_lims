@@ -6,6 +6,7 @@
 <head>
     <title>Home Page | OFF Library</title>
     <link th:href='@{/index/index.css}' rel='stylesheet' type='text/css'/>
+    <link href="/index/detail.css" rel="stylesheet"/>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
@@ -36,19 +37,29 @@
             </div>
         <br/>
         <ul class="nav navbar-nav">
-                <li><a href="/">All book</a></li>
+                <li><a href="/" th:text="#{Allbook}">All book</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Categories}">Categories</a>
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
                         <li><a style="line-height: 40px;" class="external" th:each="category : ${categories}" th:text="${category.category_name}" th:href="@{/book/bookCategory/}+${category.id}">for Student</a></li>
                     </ul>
                 </li>
-                <li><a href="/book/new">New!</a></li>
+                <li><a href="/book/new" th:text="#{New}">New!</a></li>
+                <li><a href="/book/new" th:text="#{Mostborrowed}">New!</a></li>
+
         </ul>
     </nav>
-    <div class="page-header">
-    <h1><b>${header}</b></h1>
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="arrows">
+                <li><a href="/" th:text="#{Homepage}"></a></li>
+                <li th:if="${bookCategory}" ><a th:href="@{/book/bookCategory/}+${bookCategory.id}" th:text="${bookCategory.category_name}"></a></li>
+                <li th:if="${newText}" ><a th:href="@{/book/new}" th:text="#{New}"></a></li>
+                <li th:if="${result}" ><a th:href="@{/book/searchQuery?searchResult=}+${result}" th:text="${result}"></a></li>
+            </ol>
+        </div>
     </div>
+    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
     <section>
         <div align="center">
             <div th:if="${#lists.isEmpty(books)}">
@@ -90,7 +101,7 @@
                                 <p>40,41,42,43,44,45</p>
                             </div> -->
                             <div class="section">
-                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand">Detail</a>
+                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand" th:text="#{Detail}">Detail</a>
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ public class UserBaseController extends BaseController {
 
     @Override
     protected String View(String viewName) {
-        return "/User/" + super.View(viewName);
+        return "/Client/" + super.View(viewName);
     }
 
 }

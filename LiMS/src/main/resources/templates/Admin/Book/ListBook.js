@@ -21,6 +21,7 @@ framework.factory('ListBook', {
                 { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
                 { field: 'author', type: 'text', required: false, caption: 'Tác Giả' },
+                { field: 'publisher', type: 'text', required: false, caption: 'Nhà xuất bản' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
                 { field: 'bookStatusId', caption: 'Trạng thái', type: 'text', required: true }
             ])

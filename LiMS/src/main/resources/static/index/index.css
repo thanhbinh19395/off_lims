@@ -143,7 +143,7 @@ section.row{
 .item-top-content-inner{
     position: absolute;
     bottom: 0;
-    padding:10px 15px 10px 15px;
+    /*padding:10px 15px 10px 15px;*/
     background: rgba(255,255,255,.85);
     width:100%;
 }
@@ -204,8 +204,9 @@ section.row{
 }
 .btn.buy{
     background-color: #40c781;
+    width: 60%;
     text-align:center;
-    line-height:42px;
+    line-height:22px;
     font-weight:700;
     color:#fff;
     border-radius:3px;
@@ -288,14 +289,15 @@ body{
 
 /*Prduct title*/
 h2{
-    font-size:1em;
+    font-size:1.6em !important;
     font-weight:400;
+    margin-top:15px !important;
     color:#222;
 }
 
 .subdescription{
     font-family: 'helvetica neue';
-    font-size:0.8em;
+    font-size:1em;
     font-weight:400;
     color:#7d7d7d;
 }
@@ -428,3 +430,7 @@ h2{
     text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }/* CSS Document */
 
+.item-top-title {
+    text-align: left;
+    margin-left: 20px;
+}
