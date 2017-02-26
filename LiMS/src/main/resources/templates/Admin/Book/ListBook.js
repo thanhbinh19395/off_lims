@@ -23,7 +23,8 @@ framework.factory('ListBook', {
                 { field: 'author', type: 'text', required: false, caption: 'Tác Giả' },
                 { field: 'publisher', type: 'text', required: false, caption: 'Nhà xuất bản' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
-                { field: 'bookStatusId', caption: 'Trạng thái', type: 'text', required: true }
+                { field: 'bookStatusId', caption: 'Tình trạng', type: 'text', required: true },
+                { field: 'state', caption: 'Trạng thái', type: 'text', required: true }
             ])
         ;
         header.setTitle('Danh sách Sách')
@@ -76,9 +77,10 @@ framework.factory('ListBook', {
                 { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
                 { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
                 { field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
+                { field: 'state', caption: 'Trạng thái', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
+                { field: 'bookStatus.description', caption: 'Tình trạng', size: '15%', sortable: true, resizable: true }
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))

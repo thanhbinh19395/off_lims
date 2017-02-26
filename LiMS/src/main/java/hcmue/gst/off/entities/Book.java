@@ -24,6 +24,7 @@ public class Book extends BaseEntity implements Serializable {
     private Long bookCategoryId;
     private Long bookStatusId;
     private String bookCode;
+    private String state;
 
 
     public Book(){
@@ -40,6 +41,13 @@ public class Book extends BaseEntity implements Serializable {
         this.bookCategory = bookCategory;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getName() {
         return name;

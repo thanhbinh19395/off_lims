@@ -26,37 +26,42 @@
     </div>
     <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
     <div class="row">
-        <h2><b> How to borrow </b> </h2>
+        <h1><b th:text="#{Howtoborrow}"> How to borrow </b> </h1>
         <br/><br/>
-        <h3><b> Borrowing book </b> </h3>
+        <h3><b th:text="#{Borrowingbook}"> Borrowing book </b> </h3>
         <div class="alert alert-danger">
-            <p>
+            <p th:text="#{BorrowingbookContent}">
                 By borrowing from the Library you agree to comply with our borrowing rules.
             </p>
         </div>
         <div class="howtoborrow">
-            <label for="step1" >Step 1</label>
-            <p id="step1"> At first you need contacts with librarian to register a account.
-                You can register at 222 Lê Văn Sỹ Q.3 TPHCM </p>
-            <div>Phone : 0123 456 789 - Mrs Cô</div>
-            <br/><br/>
-
-            <label for="step2" >Step 2</label>
-            <p id="step2">When you not have an account, you still can see the
-                <a href="http://localhost:8080/"> list book</a> are having in library.<br/>
-                You can click on the book to see the detail. But only when you login,
-                you can be reserve books.
-            </p>
+            <label for="step1" th:text="#{Step1}" >Step 1</label>
+            <p id="step1" th:text="#{BorrowStep1Content}"> At first you need contacts with librarian to register a account.
+                You can register at 222 Le Van Sy Dist.3 Ho Chi Minh city </p>
+            <div th:text="#{BorrowStep1Content2}">Phone : 0123 456 789 - Mrs Cô</div>
             <br/>
 
-            <label for="step3" >Step 3</label>
-            <p  id="step3">You can click Borrow button and fill your infomation to reserve that book.
+            <label for="step2" th:text="#{Step2}">Step 2</label>
+            <br/>
+            <span id="step2" th:text="#{BorrowStep2Content}">When you not have an account, you still can see the</span>
+                <a href="http://localhost:8080/" th:text="#{BorrowStep2Content2}" >list book </a>
+                <span th:text="#{BorrowStep2Content3}">are having in library. </span>
+                <p th:text="#{BorrowStep2Content4}">
+                You can click on the book to see the detail. But only when you login,
+                you can be reserve books.
+                </p>
+
+            <br/>
+
+
+            <label for="step3" th:text="#{Step3}">Step 3</label>
+            <p  id="step3" th:text="#{BorrowStep3Content}">You can click Borrow button and fill your infomation to reserve that book.
                 You will be received a code on email.
              </p>
             <br/>
 
-            <label for="step4" >Step 4</label>
-            <p  id="step4">You need take the code for the librarian and go to storage to get that book.
+            <label for="step4" th:text="#{Step4}">Step 4</label>
+            <p  id="step4" th:text="#{BorrowStep4Content}">You need take the code for the librarian and go to storage to get that book.
                 And take it to librarian to complete the book borrow process </p><br/>
             <br/>
         </div>
