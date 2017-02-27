@@ -176,7 +176,7 @@ framework.factory('ListBook', {
     },
     onDblClickGrid: function (e) {
         var self = this;
-        var grid = this.findElement('grid');tạo
+        var grid = this.findElement('grid');
         var record = grid.get(e.recid);
         var mess = {
             type: 'popupListBook',
