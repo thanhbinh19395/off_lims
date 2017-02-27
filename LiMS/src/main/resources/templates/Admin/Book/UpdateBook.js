@@ -18,9 +18,11 @@ framework.factory('UpdateBook', {
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
                 { field: 'image', type: 'text', required: false, caption: 'Hình' },
                 { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
+                { field: 'state', type: 'text', required: true, caption: 'Trạng thái' },
+                { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
                 { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
-                { field: 'bookStatusId', required: true,type: 'popupListBookStatus',required: true, options:{caller:self}  }
+                { field: 'bookStatusId',caption:'Tình trạng', required: true,type: 'popupListBookStatus', options:{caller:self}  }
             ])
             .setRecord(this.ViewBag.Book.data)
         ;
@@ -34,6 +36,7 @@ framework.factory('UpdateBook', {
     onBtnUpdateClick: function () {
         var self = this;
         var form = this.findElement('updateForm');
+        console.log(form.record);
         if (!form.validate().length) {
             delete form.record.bookStatus;
             delete form.record.bookCategory;

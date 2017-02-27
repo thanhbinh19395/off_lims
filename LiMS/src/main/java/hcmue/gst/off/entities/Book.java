@@ -16,6 +16,7 @@ public class Book extends BaseEntity implements Serializable {
     private String name;
     private String author;
     private Integer publish_year;
+    private String publisher;
     private byte[] image;
     private BookStatus bookStatus;
     private BookCategory bookCategory;
@@ -23,6 +24,7 @@ public class Book extends BaseEntity implements Serializable {
     private Long bookCategoryId;
     private Long bookStatusId;
     private String bookCode;
+    private String state;
 
 
     public Book(){
@@ -39,6 +41,13 @@ public class Book extends BaseEntity implements Serializable {
         this.bookCategory = bookCategory;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getName() {
         return name;
@@ -127,5 +136,13 @@ public class Book extends BaseEntity implements Serializable {
 
     public void setBookCode(String bookCode) {
         this.bookCode = bookCode;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 }

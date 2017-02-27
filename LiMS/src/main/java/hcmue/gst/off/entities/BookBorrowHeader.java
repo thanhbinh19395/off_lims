@@ -16,7 +16,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
     private Integer bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;
-    private BookReservation bookReservation;
+
 
     private Long userId;
     private User user;
@@ -67,11 +67,5 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
 
 
 
-    @OneToOne(mappedBy = "bookBorrowHeader")
-    public BookReservation getBookReservation() {
-        return bookReservation;
-    }
-    public void setBookReservation(BookReservation bookReservation) {
-        this.bookReservation = bookReservation;
-    }
+
 }

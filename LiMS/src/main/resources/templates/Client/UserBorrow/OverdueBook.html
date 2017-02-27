@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Overdue book</title>
+    <!-- Bootstrap -->
+    <link href="/index/detail.css" rel="stylesheet"/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+    <style>
+       table, th, td {
+           border: 1px solid lightgrey;
+           padding: 10px;
+       }
+       th {
+
+            height: 30px;
+            width: 200px;
+           color: #1e347b;
+        }
+       td {
+
+           height: 100px;
+           width: 200px;
+       }
+    </style>
+</head>
+<body>
+    <div  layout:fragment="content">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="arrows">
+                    <li><a href="/" th:text="#{Homepage}"></a></li>
+                    <li><a th:href="@{/Borrow/OverdueBook}" th:text="#{OverdueItems}"></a></li>
+                </ol>
+            </div>
+        </div>
+        <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
+        <h2><b th:text="#{OverdueItems}"> Overdue book </b> </h2>
+        <br/><br/>
+        <h3><b th:text="#{HandlingOverdueBook}"> Handling overdue book </b> </h3>
+        <ul>
+            <li th:text="#{HandlingOverdueBook1}">We send Library notices to help you keep track of loans</li>
+            <li th:text="#{HandlingOverdueBook2}">You can view and renew your loans online</li>
+            </ul>
+        <table>
+            <tr>
+                <th th:text="#{CustomerType}"> Customer Type</th>
+                <th th:text="#{Timeisallowedtoborrow}">Time is allowed to borrow</th>
+                <th th:text="#{HandlingOverdueBook}">Handling overdue book</th>
+            </tr>
+            <tr>
+                <th th:text="#{Student}">Student</th>
+                <td >7 <span th:text="#{days}"> days </span></td>
+                <td th:text="#{HandlingoverduebookType1}">Lock account corresponding to the number of late days </td>
+            </tr>
+            <tr>
+                <th th:text="#{Teacher}">Teacher</th>
+                <td >15 <span th:text="#{days}"> days </span></td>
+                <td th:text="#{HandlingoverduebookType2}">Remind and reprimand</td>
+            </tr>
+            <tr>
+                <th th:text="#{Orther}">Orther</th>
+                <td >3 <span th:text="#{days}"> days </span></td>
+                <td th:text="#{HandlingoverduebookType3}">Pay a fine when returning books. 5$/day late</td>
+            </tr>
+        </table>
+        <br/>
+        <h3><b th:text="#{FinesOverdue}"> Fines for very overdue items </b> </h3>
+        <p th:text="#{FinesOverdueContent}">We take the non-return of library items seriously and academic sanctions do apply. You will be prevented from re-enrolling
+            in OFF courses if within 14 days of receiving the bill for replacement:</p>
+        <ul>
+            <li th:text="#{FinesOverdueContent2}">You fail to return an item to the <a href="http://localhost:8080" th:text="#{libraryOFF}">library OFF</a></li>
+            <li th:text="#{FinesOverdueContent3}">You fail to pay its replacement cost</li>
+        </ul>
+        <br/>
+        <div th:text="#{FinesOverdueContent4}">OFF Library reserves the right to take further action if you leave the University with Library property. </div><br/>
+        <h3><b th:text="#{DisputeOverdue}"> Dispute overdue fines/extenuating circumstances </b> </h3>
+        <div>Email <a href="https://goo.gl/X2ppou">ththinh11396@gmail.com</a> <span th:text="#{DisputeOverdueContent}">to dispute a fine or explaining extenuating circumstances.</span></div>
+        <br/><br/>
+        <h4><b th:text="#{DisputeFine}"> Dispute a fine </b> </h4>
+        <ul>
+            <li th:text="#{DisputeFine1}">Contact us within 14 days of receiving the bill for replacement  </li>
+            <li th:text="#{DisputeFine2}"> Provide a valid explanation as to why library items have not been returned or renewed by the due date </li>
+        </ul>
+    </div>
+</body>
+</html>

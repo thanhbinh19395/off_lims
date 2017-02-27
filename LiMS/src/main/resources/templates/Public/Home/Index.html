@@ -6,6 +6,7 @@
 <head>
     <title>Home Page | OFF Library</title>
     <link th:href='@{/index/index.css}' rel='stylesheet' type='text/css'/>
+    <link href="/index/detail.css" rel="stylesheet"/>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
@@ -35,20 +36,44 @@
             </form>
             </div>
         <br/>
-        <ul class="nav navbar-nav">
-                <li><a href="/" th:text="#{Allbook}"></a></li>
+        <ul class="nav navbar-nav" style="float: left;">
+                <li><a href="/" th:text="#{Allbook}">All book</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Categories}"></a>
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
-                        <li><a style="line-height: 40px;" class="external" th:each="category : ${categories}" th:text="${category.category_name}" th:href="@{/bookCategory/}+${category.id}">for Student</a></li>
+                        <li><a style="line-height: 40px;" class="external" th:each="category : ${categories}" th:text="${category.category_name}" th:href="@{/book/bookCategory/}+${category.id}">for Student</a></li>
                     </ul>
                 </li>
-                <li><a href="/book/new" th:text="#{New}"></a></li>
+                <li><a href="/book/new" th:text="#{New}">New!</a></li>
+                <li><a href="/book/new" th:text="#{Mostborrowed}">New!</a></li>
+        </ul>
+        <ul class="nav navbar-nav" style="float: right;">
+            <li><a style="background: #d62643; color: #fff" href="/User/Borrow/RegistryBorrowForm"  class="external"><span  th:text="#{bookCart}"></span>&nbsp;<span class="badge">5</span></a></li>
         </ul>
     </nav>
-    <h1><b></b></h1>
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="arrows">
+                <li><a href="/" th:text="#{Homepage}"></a></li>
+                <li th:if="${bookCategory}" ><a th:href="@{/book/bookCategory/}+${bookCategory.id}" th:text="${bookCategory.category_name}"></a></li>
+                <li th:if="${newText}" ><a th:href="@{/book/new}" th:text="#{New}"></a></li>
+                <li th:if="${result}" ><a th:href="@{/book/searchQuery?searchResult=}+${result}" th:text="${result}"></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
     <section>
         <div align="center">
+            <div th:if="${#lists.isEmpty(books)}">
+                <br/>
+                <h3 style="font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif; opacity: 0.6;"><b>BOOK NOT FOUND!</b></h3>
+                <img style="opacity: 0.6; width: 300px" src="/images/missingbook.png"/>
+                <br/>
+                <br/>
+                <div style="width: 300px">
+                <button style="width: 100%" class="btn btn-danger" type="button" onclick="window.location.href='/'">Return to library</button>
+                </div>
+            </div>
             <div class="container-item" th:each="book : ${books}">
             <div class="item">
                 <div class="item-overlay" th:style="'background: url('+@{/images/1-1.jpg}+');'">
@@ -78,7 +103,7 @@
                                 <p>40,41,42,43,44,45</p>
                             </div> -->
                             <div class="section">
-                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand" th:text="#{Detail}"></a>
+                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand" th:text="#{Detail}">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -91,7 +116,7 @@
 
 
 <div style="text-align: center; clear: both" th:fragment='paginationbar'>
-                <div>
+                <div th:if="${not #lists.isEmpty(page.items)}">
                     <ul class='pagination pagination-centered'>
                         <li th:class="${page.firstPage}?'disabled':''">
                             <span th:if='${page.firstPage}'>← First</span>

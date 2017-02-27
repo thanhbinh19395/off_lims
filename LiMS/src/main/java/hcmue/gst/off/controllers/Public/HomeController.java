@@ -28,6 +28,7 @@ import java.util.Date;
 @Controller
 public class HomeController extends PublicBaseController {
 
+    private final int NUMBER_OF_DAY = -7;
     private Book bookResult = new Book();
 
     @Autowired
@@ -42,6 +43,7 @@ public class HomeController extends PublicBaseController {
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
+        model.addAttribute("header","All book");
         return View("Index");
     }
 
@@ -51,6 +53,7 @@ public class HomeController extends PublicBaseController {
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
+        model.addAttribute("result",searchResult);
         return View("Index");
     }
 
@@ -67,12 +70,14 @@ public class HomeController extends PublicBaseController {
         return "redirect:/book/searchQuery?searchResult="+searchResult;
     }
 
-    @RequestMapping(value = "/bookCategory/{id}", method = RequestMethod.GET)
-    public String bookByCategory(@PathVariable("id") Long id, Pageable pageable, Model model) {
-        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findBybookCategoryId(id, pageable), "/bookCategory/"+id);
+    @RequestMapping(value = "/book/bookCategory/{Id}", method = RequestMethod.GET)
+    public String bookByCategory(@PathVariable("Id") Long id, Pageable pageable, Model model) {
+        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findBybookCategoryId(id, pageable), "/book/bookCategory/"+id);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
+        BookCategory bookCategory = bookCategoryRepository.findOne(id);
+        model.addAttribute("bookCategory", bookCategory);
         return View("Index");
     }
 
@@ -81,12 +86,14 @@ public class HomeController extends PublicBaseController {
         Date today = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(today);
-        c.add(Calendar.DATE,-7);
+        c.add(Calendar.DATE,NUMBER_OF_DAY);
         Date beginDate = c.getTime();
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findByDate(beginDate,today,pageable), "/book/new");
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
+        String newText = "New!";
+        model.addAttribute("newText",newText);
         return View("Index");
     }
 }
