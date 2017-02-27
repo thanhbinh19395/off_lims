@@ -2,9 +2,9 @@
  * Created by dylan on 2/24/2017.
  */
 
-framework.factory('ListBookPayableHeader', {
+framework.factory('ListBookPayable', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookPayableHeader' || sender.pageName =='UpdateBookPayableHeader'){
+        if(sender.pageName =='InsertBookPayable' || sender.pageName =='UpdateBookPayable'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -64,8 +64,8 @@ framework.factory('ListBookPayableHeader', {
         var pagi = widget.setting.pagination();
         console.log(this.ViewBag);
         pagi.setName('page')
-            .setTotalPages(this.ViewBag.listBookPayableHeader.totalPage)
-            .setStartPage(this.ViewBag.listBookPayableHeader.currentPage)
+            .setTotalPages(this.ViewBag.listBookPayable.totalPage)
+            .setStartPage(this.ViewBag.listBookPayable.currentPage)
             .setPageClickHandler(self.onPageClick.bind(this))
         ;
         grid.setName('grid')
@@ -79,7 +79,7 @@ framework.factory('ListBookPayableHeader', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBookPayableHeader.data).setPaginateOptions(pagi.end())
+            .addRecords(self.ViewBag.listBookPayable.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -90,8 +90,8 @@ framework.factory('ListBookPayableHeader', {
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/Admin/BookPayableHeaderHeader/InsertBookPayableHeader',
-            title: 'Insert BookPayableHeaderHeader',
+            url: '/Admin/BookPayable/InsertBookPayable',
+            title: 'Insert BookPayable',
             width: '700px'
         });
     },
@@ -106,7 +106,7 @@ framework.factory('ListBookPayableHeader', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookPayableHeader/UpdateBookPayableHeader/'+id,
+            url: '/Admin/BookPayable/UpdateBookPayable/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -117,7 +117,7 @@ framework.factory('ListBookPayableHeader', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/BookPayableHeader/Deletes', { id: id }, function (result) {
+            $.post('/api/BookPayable/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -157,7 +157,7 @@ framework.factory('ListBookPayableHeader', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/BookPayableHeader/GetList',this.searchParam, function (result) {
+        $.post('/api/BookPayable/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
@@ -176,7 +176,7 @@ framework.factory('ListBookPayableHeader', {
      var record = grid.get(e.recid);
      console.log(record);
      var mess = {
-     type: 'popupListBookPayableHeader',
+     type: 'popupListBookPayable',
      data: record,
      callback: function () {
      self.close();

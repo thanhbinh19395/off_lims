@@ -30,47 +30,47 @@
 
             <div class="book-info">
                 <div class="alert alert-info">
-                    <p>
+                    <p th:text="#{CallSlipTitle}">
                         Fill out the form below to request the purchase of an item.
                         The more details you can supply, the easier we can process your request.
                     </p>
                 </div>
                 <div th:if="${param.success}">
                     <h3>
-                        <span class="label label-success"> Your request is submitted ! </span>
+                        <span class="label label-success" th:text="#{RequestSuccess}"> Your request is submitted ! </span>
                     </h3>
                 </div>
                 <div th:if="${param.error}">
                     <h3>
-                        <span class="label label-danger"> Your request is invalid</span>
+                        <span class="label label-danger" th:text="#{RequestValid}"> Your request is invalid</span>
                     </h3>
                 </div>
-                <h3><b>Book Details</b></h3>
-                <p>Please provide as many details as possible.</p>
-                <label for="title"> Title <span style="color: red">*</span></label>
+                <h3><b th:text="#{BookDetail}">Book Details</b></h3>
+                <p th:text="#{BookDetailContent}">Please provide as many details as possible.</p>
+                <label for="title" th:text="#{Title}"> Title <span style="color: red">*</span></label>
                 <input class="form-control" type="text" name="title" id="title" alt="This field is required"
-                       required="true" placeholder="Book title" th:field="*{book_name}"/>
+                       required="true" th:placeholder="#{Booktitle} " th:field="*{book_name}"/>
                 <br/>
-                <label for="author"> Author <span style="color: red">*</span></label>
+                <label for="author" th:text="#{Author}"> Author <span style="color: red">*</span></label>
                 <input class="form-control" type="text" name="author" id="author" required="true"
-                       placeholder="Author name" th:field="*{author}"/>
+                       th:placeholder="#{Authorname}" th:field="*{author}"/>
                 <br/>
-                <label for="publisher"> Publisher </label>
-                <input class="form-control" type="text" name="publisher" id="publisher" placeholder="Publisher name"
+                <label for="publisher" th:text="#{Publisher}"> Publisher </label>
+                <input class="form-control" type="text" name="publisher" id="publisher" th:placeholder="#{Publishername}" placeholder="Publisher name"
                        th:field="*{publisher}"/>
                 <br/>
-                <label for="publication_year"> Publication year </label>
+                <label for="publication_year" th:text="#{PublishedYear}"> Publication year </label>
                 <input class="form-control" type="number" name="publication_year" id="publication_year"
-                       placeholder="Publication year" th:field="*{published_year}"/>
+                      th:placeholder="#{publishedYear}" th:field="*{published_year}"/>
                 <br/>
-                <label for="additionalInformation"> Additional information </label>
+                <label for="additionalInformation" th:text="#{AdditionalInformation}"> Additional information </label>
                 <textarea class="form-control" rows="4" type="text" name="additionalInformation"
-                          id="additionalInformation" placeholder="More infomation if you need"
+                          id="additionalInformation"  th:placeholder="#{note}"
                           th:field="*{note}"></textarea>
                 <br/>
-                <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm" type="submit" value="Submit"/>
+                <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm" type="submit" th:value="#{Submit}"/>
                 <input class="col-sm-2 col-sm-offset-2 button btn-info btn-sm" id="btnClear" type="reset"
-                       value="Clear"/>
+                       th:value="#{Reset}"/>
             </div>
         </div>
 

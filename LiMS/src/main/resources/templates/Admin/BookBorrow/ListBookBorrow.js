@@ -1,9 +1,9 @@
 /**
  * Created by dylan on 2/21/2017.
  */
-framework.factory('ListBookBorrowHeader', {
+framework.factory('ListBookBorrow', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookBorrowHeader' || sender.pageName =='UpdateBookBorrowHeader'){
+        if(sender.pageName =='InsertBookBorrow' || sender.pageName =='UpdateBookBorrow'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -62,8 +62,8 @@ framework.factory('ListBookBorrowHeader', {
         var pagi = widget.setting.pagination();
         console.log(this.ViewBag);
         pagi.setName('page')
-            .setTotalPages(this.ViewBag.listBookBorrowHeader.totalPage)
-            .setStartPage(this.ViewBag.listBookBorrowHeader.currentPage)
+            .setTotalPages(this.ViewBag.listBookBorrow.totalPage)
+            .setStartPage(this.ViewBag.listBookBorrow.currentPage)
             .setPageClickHandler(self.onPageClick.bind(this))
         ;
         grid.setName('grid')
@@ -77,7 +77,7 @@ framework.factory('ListBookBorrowHeader', {
             //.addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBookBorrowHeader.data).setPaginateOptions(pagi.end())
+            .addRecords(self.ViewBag.listBookBorrow.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -88,8 +88,8 @@ framework.factory('ListBookBorrowHeader', {
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/Admin/BookBorrowHeader/InsertBookBorrowHeader',
-            title: 'Insert BookBorrowHeader',
+            url: '/Admin/BookBorrow/InsertBookBorrow',
+            title: 'Insert BookBorrow',
             width: '700px'
         });
     },
@@ -104,7 +104,7 @@ framework.factory('ListBookBorrowHeader', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookBorrowHeader/UpdateBookBorrowHeader/'+id,
+            url: '/Admin/BookBorrow/UpdateBookBorrow/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -115,7 +115,7 @@ framework.factory('ListBookBorrowHeader', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/BookBorrowHeader/Deletes', { id: id }, function (result) {
+            $.post('/api/BookBorrow/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -155,7 +155,7 @@ framework.factory('ListBookBorrowHeader', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/BookBorrowHeader/GetList',this.searchParam, function (result) {
+        $.post('/api/BookBorrow/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
@@ -174,7 +174,7 @@ framework.factory('ListBookBorrowHeader', {
      var record = grid.get(e.recid);
      console.log(record);
      var mess = {
-     type: 'popupListBookBorrowHeader',
+     type: 'popupListBookBorrow',
      data: record,
      callback: function () {
      self.close();

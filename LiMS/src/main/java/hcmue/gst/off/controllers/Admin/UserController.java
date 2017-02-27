@@ -20,7 +20,11 @@ public class UserController extends AdminBaseController {
 
     @Autowired
     private UserService userService;
-
+    @RequestMapping("/UploadImage")
+    public String UploadImage(Model model) {
+        //getViewBag(model).put("listUser",userService.search(data,page));
+        return View();
+    }
     @RequestMapping("/ListUser")
     public String ListUser(Model model, User data, Pageable page) {
         getViewBag(model).put("listUser",userService.search(data,page));
