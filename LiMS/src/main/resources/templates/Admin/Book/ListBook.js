@@ -76,7 +76,10 @@ framework.factory('ListBook', {
                 { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
                 { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
                 { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
+                { field: 'publisher', caption: 'Nhà xuất bản', size: '30%', sortable: true, resizable: true },
+
                 { field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
+
                 { field: 'state', caption: 'Trạng thái', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },

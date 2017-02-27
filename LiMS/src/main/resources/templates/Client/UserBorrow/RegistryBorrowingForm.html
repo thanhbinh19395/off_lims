@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Call card</title>
+    <!-- Bootstrap -->
+    <link href="/index/detail.css" rel="stylesheet"/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div  layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="arrows">
+                <li><a href="/" th:text="#{Homepage}"></a></li>
+                <li><a th:href="@{/User/Borrow/RegistryBorrowingForm}" th:text="#{callCard}"></a></li>
+            </ol>
+        </div>
+    </div>
+    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
+    <form>
+        <h2 th:text="#{callCard}"></h2>
+        <div class="alert alert-info">
+            <p>
+                Please check the information below. Press Borrow if all the infor are correct.
+            </p>
+        </div>
+        <h3><b th:text="#{Detail}+' '+#{callCard}"></b></h3>
+
+    </form>
+
+</div>
+</body>
+</html>

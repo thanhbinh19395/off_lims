@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserBorrowController extends UserBaseController{
 
     @RequestMapping(value = "/Borrow/HowToBorrow", method = RequestMethod.GET)
-    public String HowToBorrow(Model model) {
+    public String HowToBorrow() {
         return View("HowToBorrow");
     }
 
     @RequestMapping(value = "/Borrow/OverdueBook", method = RequestMethod.GET)
-    public String OverdueBook(Model model) {
+    public String OverdueBook() {
         return View("OverdueBook");
+    }
+
+    @RequestMapping(value ="/User/Borrow/")
+    public String Borrow(Model model) {
+
+        return View("RegistryBorrowingForm");
     }
 }
