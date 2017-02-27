@@ -5,6 +5,7 @@ import hcmue.gst.off.entities.Request;
 import hcmue.gst.off.extensions.AdminBaseController;
 import hcmue.gst.off.services.BookBorrowHeaderService;
 import hcmue.gst.off.services.RequestService;
+import hcmue.gst.off.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -15,20 +16,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by dylan on 2/21/2017.
  */
 @Controller
-@RequestMapping("/Admin/BookBorrowHeader")
-public class BookBorrowHeaderController extends AdminBaseController{
+@RequestMapping("/Admin/BookBorrow")
+public class BookBorrowController extends AdminBaseController{
 
     @Autowired
     private BookBorrowHeaderService bookBorrowHeaderService;
 
-    @RequestMapping("/ListBookBorrowHeader")
-    public String ListBookBorrowHeader(Model model, BookBorrowHeader data, Pageable p) {
-        getViewBag(model).put("listBookBorrowHeader", bookBorrowHeaderService.search(data,p));
+    @Autowired
+    private SecurityService securityService;
+
+    @RequestMapping("/ListBookBorrow")
+    public String ListBookBorrow(Model model, BookBorrowHeader data, Pageable p) {
+        getViewBag(model).put("listBookBorrow", bookBorrowHeaderService.search(data,p));
         return View();
     }
-    @RequestMapping("/CreateBookBorrowHeader")
-    public String CreateBookBorrowHeader(Model model, BookBorrowHeader data, Pageable p) {
-        getViewBag(model).put("listBookBorrowHeader", bookBorrowHeaderService.search(data,p));
+    @RequestMapping("/InsertBookBorrow")
+    public String InsertBookBorrow(Model model, BookBorrowHeader data, Pageable p) {
+        getViewBag(model).put("user", securityService.getUser());
         return View();
     }
 }
