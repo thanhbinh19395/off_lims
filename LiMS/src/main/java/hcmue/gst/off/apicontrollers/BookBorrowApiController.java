@@ -17,8 +17,8 @@ import java.util.List;
  * Created by dylan on 2/21/2017.
  */
 @RestController
-@RequestMapping("/api/BookBorrowHeader")
-public class BookBorrowHeaderApiController {
+@RequestMapping("/api/BookBorrow")
+public class BookBorrowApiController {
     @Autowired
     private BookBorrowHeaderService BookBorrowHeaderService;
     @Autowired

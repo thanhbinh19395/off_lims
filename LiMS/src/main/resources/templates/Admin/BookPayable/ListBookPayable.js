@@ -106,7 +106,7 @@ framework.factory('ListBookPayable', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookPayableHeader/UpdateBookPayableHeader/'+id,
+            url: '/Admin/BookPayable/UpdateBookPayable/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -117,7 +117,7 @@ framework.factory('ListBookPayable', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/BookPayableHeader/Deletes', { id: id }, function (result) {
+            $.post('/api/BookPayable/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -157,7 +157,7 @@ framework.factory('ListBookPayable', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/BookPayableHeader/GetList',this.searchParam, function (result) {
+        $.post('/api/BookPayable/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);

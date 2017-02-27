@@ -3,7 +3,7 @@
  */
 framework.factory('ListBookBorrow', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookBorrow' || sender.pageName =='UpdateBookBorrowHeader'){
+        if(sender.pageName =='InsertBookBorrow' || sender.pageName =='UpdateBookBorrow'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -88,8 +88,8 @@ framework.factory('ListBookBorrow', {
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/Admin/BookBorrowHeader/InsertBookBorrow',
-            title: 'Insert BookBorrowHeader',
+            url: '/Admin/BookBorrow/InsertBookBorrow',
+            title: 'Insert BookBorrow',
             width: '700px'
         });
     },
@@ -104,7 +104,7 @@ framework.factory('ListBookBorrow', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookBorrowHeader/UpdateBookBorrowHeader/'+id,
+            url: '/Admin/BookBorrow/UpdateBookBorrow/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -115,7 +115,7 @@ framework.factory('ListBookBorrow', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/BookBorrowHeader/Deletes', { id: id }, function (result) {
+            $.post('/api/BookBorrow/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -155,7 +155,7 @@ framework.factory('ListBookBorrow', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/BookBorrowHeader/GetList',this.searchParam, function (result) {
+        $.post('/api/BookBorrow/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
