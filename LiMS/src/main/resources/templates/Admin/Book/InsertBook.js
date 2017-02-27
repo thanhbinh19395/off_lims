@@ -19,9 +19,8 @@ framework.factory('InsertBook', {
                 { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
                 { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
                 { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
-                { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
-                { field: 'bookStatusId', caption: 'Trạng thái', type: 'popupListBookStatus',required: true, options:{caller:self} }
+                { field: 'bookStatusId', caption: 'Tình trạng', type: 'popupListBookStatus',required: true, options:{caller:self} }
             ]);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
@@ -33,6 +32,7 @@ framework.factory('InsertBook', {
     onBtnInsertClick: function () {
         var self = this;
         var form = this.findElement('insertForm');
+        console.log(form.record);
         //if (!form.validate().length) {
         $.post('/api/Book/Save', form.record , function (result) {
             if(result.success)

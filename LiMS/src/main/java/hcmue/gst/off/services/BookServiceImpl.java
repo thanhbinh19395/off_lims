@@ -35,30 +35,30 @@ public class BookServiceImpl extends BaseCommand implements BookService {
 
         User user = userService.findByUsername(securityService.findLoggedInUsername());
         Book tmp = bookRepository.findByBookCode(book.getBookCode());
-        Long id = tmp.getId();
-        if (tmp != null && !tmp.getId().equals(book.getId()))
-        {
-            return Fail("book Code đã tồn tại");
-        }
-        else if((tmp!=null && tmp.getId().equals(book.getId()))|| tmp == null ){
-            if (book.getId() == null) {
+        Long id = null;
+        if (book.getId() == null) {
+            if( tmp!=null)
+            {
+               return Fail("bookcode trùng");
+            }
+            else
+            {
                 book.setCreated_by(user);
                 book.setCreated_date(new Date());
-                BookStatus model = new BookStatus();
-                model.setDescription("Available");
-                book.setBookStatusId(bookStatusRepository.search(model).iterator().next().getId());
                 book.setBookBorrowDetail(new BookBorrowDetail());
-            } else {
+                book.setState("Available");
+                return Success(bookRepository.save(book), "Lưu thành công");
+            }
+        }
+        else{
+            if((tmp!=null && tmp.getId().equals(book.getId())) || tmp == null)
+            {
                 book.setUpdate_date(new Date());
                 book.setUpdate_by(user);
+                return Success(bookRepository.save(book), "Lưu thành công");
             }
-
-            return Success(bookRepository.save(book), "Lưu thành công");
         }
-        else
-        {
-            return Fail("book Code đã tồn tại");
-        }
+        return Fail("Trùng Book Code");
     }
 
     @Override

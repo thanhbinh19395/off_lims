@@ -1,9 +1,11 @@
 /**
- * Created by dylan on 2/17/2017.
+ * Created by dylan on 2/27/2017.
  */
-framework.factory('ListBook', {
+
+
+framework.factory('ListBookReservation', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBook' || sender.pageName =='UpdateBook'){
+        if(sender.pageName =='InsertBookReservation' || sender.pageName =='UpdateBookReservation'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -11,23 +13,20 @@ framework.factory('ListBook', {
         }
     },
     onInitHeader: function (header) {
-
+        console.log(this.ViewBag);
         header.setName('header');
         var self = this;
         var form = widget.setting.form();
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
-                { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'author', type: 'text', required: false, caption: 'Tác Giả' },
-                { field: 'publisher', type: 'text', required: false, caption: 'Nhà xuất bản' },
-                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
-                { field: 'bookStatusId', caption: 'Tình trạng', type: 'text', required: true },
-                { field: 'state', caption: 'Trạng thái', type: 'text', required: true }
+                { field: 'id', type: 'text', required: false, caption: "Mã phiếu mượn " },
+                { field: 'bookId', type: 'text', required: false, caption: "mã sách" },
+                { field: 'pickUpdate', type: 'date', required: false, caption: "ngày lấy" },
+                { field: 'status', type: 'date', required: false, caption: "Trạng thái" },
             ])
         ;
-        header.setTitle('Danh sách Sách')
+        header.setTitle('Danh sách Thể Loại')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -62,46 +61,39 @@ framework.factory('ListBook', {
     },
     onInitContent: function (content) {
         var self = this;
+
         var grid = widget.setting.grid();
         var pagi = widget.setting.pagination();
         console.log(this.ViewBag);
         pagi.setName('page')
-            .setTotalPages(this.ViewBag.listBook.totalPage)
-            .setStartPage(this.ViewBag.listBook.currentPage)
+            .setTotalPages(this.ViewBag.listBookReservation.totalPage)
+            .setStartPage(this.ViewBag.listBookReservation.currentPage)
             .setPageClickHandler(self.onPageClick.bind(this))
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '5%', sortable: true, resizable: true },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
-                { field: 'state', caption: 'Trạng thái', size: '15%', sortable: true, resizable: true },
-                { field: 'publisher', caption: 'Nhà xuất bản', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Tình trạng', size: '15%', sortable: true, resizable: true }
+                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
+                { field: 'bookId', caption: 'Mã sách', size: '50%', sortable: true, resizable: true },
+                { field: 'pickUpDate',type: 'date', caption: 'Ngày lấy sách', size: '50%', sortable: true, resizable: true },
+                { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true }
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
+            .addRecords(self.ViewBag.listBookReservation.data).setPaginateOptions(pagi.end())
         ;
-        //nếu đc mở kiểu popup thì có thêm sự kiện click grid
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
         }
 
         content.addItem(grid.end());
     },
-
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/Admin/Book/InsertBook',
-            title: 'Insert Book',
+            url: '/Admin/BookReservation/InsertBookReservation',
+            title: 'Insert BookReservation',
             width: '700px'
         });
     },
@@ -116,7 +108,7 @@ framework.factory('ListBook', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/Book/UpdateBook/'+id,
+            url: '/Admin/BookReservation/UpdateBookReservation/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -127,7 +119,7 @@ framework.factory('ListBook', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/Book/Deletes', { id: id }, function (result) {
+            $.post('/api/BookReservation/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -151,6 +143,7 @@ framework.factory('ListBook', {
             page:page,
             size : 1
         };
+        debugger;
         this.reloadGridData();
     },
     onbtnReloadClick: function (evt) {
@@ -166,7 +159,7 @@ framework.factory('ListBook', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/Book/GetList',this.searchParam, function (result) {
+        $.post('/api/BookReservation/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
@@ -178,17 +171,26 @@ framework.factory('ListBook', {
             }
         });
     },
+    /*
+     onDblClickGrid: function (e) {
+     var self = this;
+     var grid = this.findElement('grid');
+     var record = grid.get(e.recid);
+     console.log(record);
+     var mess = {
+     type: 'popupListBookReservation',
+     data: record,
+     callback: function () {
+     self.close();
+     }
+     }
+     this.sendMessage(mess);
+     }
+     */
     onDblClickGrid: function (e) {
         var self = this;
-        var grid = this.findElement('grid');tạo
+        var grid = this.findElement('grid');
         var record = grid.get(e.recid);
-        var mess = {
-            type: 'popupListBook',
-            data: record,
-            callback: function () {
-                self.close();
-            }
-        }
-        this.sendMessage(mess);
+        this.sendMessage(record);
     }
 });

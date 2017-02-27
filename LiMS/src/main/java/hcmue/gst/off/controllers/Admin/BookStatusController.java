@@ -1,9 +1,12 @@
 package hcmue.gst.off.controllers.Admin;
 
+import hcmue.gst.off.entities.BookStatus;
 import hcmue.gst.off.extensions.AdminBaseController;
 import hcmue.gst.off.services.BookStatusService;
 import hcmue.gst.off.services.BookStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +22,8 @@ public class BookStatusController extends AdminBaseController {
     private BookStatusService bookStatusService;
 
     @RequestMapping("/ListBookStatus")
-    public String ListBookStatus(Model model) {
-        getViewBag(model).put("listBookStatus", bookStatusService.findAll());
+    public String ListBookStatus(Model model, BookStatus bookStatus, Pageable p) {
+        getViewBag(model).put("listBookStatus", bookStatusService.search(bookStatus,p));
         return View();
     }
 
