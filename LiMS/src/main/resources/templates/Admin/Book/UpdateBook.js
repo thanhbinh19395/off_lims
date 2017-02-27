@@ -36,6 +36,7 @@ framework.factory('UpdateBook', {
     onBtnUpdateClick: function () {
         var self = this;
         var form = this.findElement('updateForm');
+        console.log(form.record);
         if (!form.validate().length) {
             delete form.record.bookStatus;
             delete form.record.bookCategory;
