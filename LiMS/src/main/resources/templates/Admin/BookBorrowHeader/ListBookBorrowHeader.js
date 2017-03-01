@@ -20,6 +20,7 @@ framework.factory('ListBookBorrowHeader', {
             .addFields([
                 { field: 'bookTransaction', type: 'text', required: false, caption: "Tình trạng" },
                 { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả sách" },
+                { field: 'status', type: 'date', required: false, caption: "Trạng thái" },
             ])
         ;
         header.setTitle('Danh sách Thể Loại')
@@ -69,7 +70,7 @@ framework.factory('ListBookBorrowHeader', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'bookTransaction', caption: 'Tình trạng', size: '50%', sortable: true, resizable: true },
+                { field: 'status', caption: 'Tình trạng', size: '50%', sortable: true, resizable: true },
                 { field: 'returnDate',render:'date', caption: 'Ngày trả', size: '50%', sortable: true, resizable: true },
 
             ])

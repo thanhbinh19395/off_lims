@@ -1,7 +1,6 @@
 package hcmue.gst.off.services;
 
-import hcmue.gst.off.entities.BookReservation;
-import hcmue.gst.off.entities.User;
+import hcmue.gst.off.entities.*;
 import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
@@ -28,15 +27,34 @@ public class BookReservationServiceImpl extends BaseCommand implements BookReser
     @Autowired
     private SecurityService securityService;
 
+    @Autowired
+    private BookBorrowDetailService bookBorrowDetailService;
 
+    @Autowired
+    private BookBorrowHeaderService bookBorrowHeaderService;
+
+    @Autowired
+    private BookService bookService;
 
     @Override
     public Result<BookReservation> save(BookReservation bookReservation) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
+        // khi nào có book detail rồi thì mở đoạn code này ra
+        /*
+        BookBorrowDetail bookBorrowDetail = new BookBorrowDetail();
+        bookBorrowDetail.setBookId(bookReservation.getBookId());
+        BookBorrowHeader bookBorrowHeader = bookBorrowDetailService.search(bookBorrowDetail).getData().iterator().next().getBookBorrowHeader();
+        bookBorrowHeader.setBookTransaction(2);
+        bookBorrowHeaderService.save(bookBorrowHeader);
+        */
         if (bookReservation.getId() == null) {
             bookReservation.setCreated_by(user);
             bookReservation.setCreated_date(new Date());
-            bookReservation.setStatus("Chờ xử lý");
+            bookReservation.setStatus(CommonStatus.PENDING.getValue());
+            Book book = bookService.findOne(bookReservation.getBookId()).getData();
+            book.setState(2);
+            bookService.save(book);
+
         }
         else {
             bookReservation.setUpdate_date(new Date());

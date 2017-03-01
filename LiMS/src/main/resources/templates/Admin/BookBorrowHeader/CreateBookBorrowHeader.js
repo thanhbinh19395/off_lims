@@ -47,11 +47,7 @@ framework.factory('CreateSO', {
             .setFieldPerRow(2)
             .addFields([
                 { field: 'userId', caption: 'UserId', type: 'popupListUser',options:{caller:self} },
-                { field: 'returnDate', caption: 'Ngày trả sách', type: 'date'},
-                {
-                    field: 'bookTransaction', type: 'text', required: true, caption: 'Tình Trạng'
-
-                }
+                { field: 'returnDate', caption: 'Ngày trả sách', type: 'date'}
             ])
             //.setRecord(self.ViewBag.listBookBorrowHeader.data)
             .createEvent('onChange', self.onChangeForm.bind(this))

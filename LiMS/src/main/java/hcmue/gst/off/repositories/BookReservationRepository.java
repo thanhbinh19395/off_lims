@@ -17,7 +17,7 @@ public interface BookReservationRepository extends CrudRepository<BookReservatio
 { String searchQuery = "SELECT m FROM  BookReservation m WHERE ( m.id = :#{#model.id} OR ISNULL(:#{#model.id}) = true) "
         + "AND ( m.bookId = :#{#model.bookId} OR ISNULL(:#{#model.bookId}) = true) "
         + "AND ( m.pickUpDate = :#{#model.pickUpDate} OR ISNULL(:#{#model.pickUpDate}) = true) "
-        + "AND ( m.status LIKE %:#{#model.status}% OR ISNULL(:#{#model.status}) = true)"
+        + "AND ( m.status = :#{#model.status} OR ISNULL(:#{#model.status}) = true) "
         ;
     @Query(searchQuery)
     Page<BookReservation> search(@Param("model") BookReservation model, Pageable page);

@@ -45,8 +45,8 @@ public class BookServiceImpl extends BaseCommand implements BookService {
             {
                 book.setCreated_by(user);
                 book.setCreated_date(new Date());
-                book.setBookBorrowDetail(new BookBorrowDetail());
-                book.setState("Available");
+                book.setBookBorrowDetail(null);
+                book.setState(BookTransactionStep.AVAILABLE.getValue());
                 return Success(bookRepository.save(book), "Lưu thành công");
             }
         }

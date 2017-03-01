@@ -24,7 +24,7 @@ public class Book extends BaseEntity implements Serializable {
     private Long bookCategoryId;
     private Long bookStatusId;
     private String bookCode;
-    private String state;
+    private int state;
 
 
     public Book(){
@@ -41,11 +41,11 @@ public class Book extends BaseEntity implements Serializable {
         this.bookCategory = bookCategory;
     }
 
-    public String getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(int state) {
         this.state = state;
     }
 
@@ -103,6 +103,7 @@ public class Book extends BaseEntity implements Serializable {
 
 
     @OneToOne(mappedBy = "book",cascade = {CascadeType.ALL})
+    @JsonIgnore
     public BookBorrowDetail getBookBorrowDetail() {
         return bookBorrowDetail;
     }
