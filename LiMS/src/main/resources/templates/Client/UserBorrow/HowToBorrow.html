@@ -65,13 +65,13 @@
                 And take it to librarian to complete the book borrow process </p><br/>
             <br/>
         </div>
-        <h3><b> Recalled loans </b> </h3>
-        <label for="recallloan" >Standard loans are subject to recall if required by another client:</label>
+        <h3><b th:text="#{Recalledloans}"> Recalled loans </b> </h3>
+        <label for="recallloan" th:text="#{RecalledloansTitle}">Standard loans are subject to recall if required by another client:</label>
         <ul id="recallloan">
-            <li>You are guaranteed a loan of at least 7 days on standard book</li>
-            <li>Teacher are guaranteed a loan of at least 14 days</li>
-            <li>We will request the return of the book by email</li>
-            <li>Return the item by the new due date to avoid <a href="http://localhost:8080/User/OverdueBook">overdue loans</a></li>
+            <li th:text="#{recallloan1}">You are guaranteed a loan of at least 7 days on standard book</li>
+            <li th:text="#{recallloan2}">Teacher are guaranteed a loan of at least 14 days</li>
+            <li th:text="#{recallloan3}">We will request the return of the book by email</li>
+            <li ><span th:text="#{recallloan4}">Return the item by the new due date to avoid </span><a href="http://localhost:8080/User/OverdueBook" th:text="' '+#{overdueloans}">overdue loans</a></li>
         </ul>
 
         <br/><br/>
