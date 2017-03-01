@@ -1,9 +1,10 @@
 /**
- * Created by dylan on 2/21/2017.
+ * Created by dylan on 2/24/2017.
  */
-framework.factory('ListBookBorrowHeader', {
+
+framework.factory('ListBookPayable', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookBorrowHeader' || sender.pageName =='UpdateBookBorrowHeader'){
+        if(sender.pageName =='InsertBookPayable' || sender.pageName =='UpdateBookPayable'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -18,9 +19,10 @@ framework.factory('ListBookBorrowHeader', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'bookTransaction', type: 'text', required: false, caption: "Tình trạng" },
-                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả sách" },
-                { field: 'status', type: 'date', required: false, caption: "Trạng thái" },
+                { field: 'bookBorrowId', type: 'text', required: false, caption: "Mã phiếu mượn " },
+                { field: 'actualReturnDate', type: 'date', required: false, caption: "Ngày trả thực tế" },
+                { field: 'overDue', type: 'text', required: false, caption: "Phí quá hạn" },
+                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
         header.setTitle('Danh sách Thể Loại')
@@ -63,22 +65,23 @@ framework.factory('ListBookBorrowHeader', {
         var pagi = widget.setting.pagination();
         console.log(this.ViewBag);
         pagi.setName('page')
-            .setTotalPages(this.ViewBag.listBookBorrowHeader.totalPage)
-            .setStartPage(this.ViewBag.listBookBorrowHeader.currentPage)
+            .setTotalPages(this.ViewBag.listBookPayable.totalPage)
+            .setStartPage(this.ViewBag.listBookPayable.currentPage)
             .setPageClickHandler(self.onPageClick.bind(this))
         ;
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'status', caption: 'Tình trạng', size: '50%', sortable: true, resizable: true },
-                { field: 'returnDate',render:'date', caption: 'Ngày trả', size: '50%', sortable: true, resizable: true },
-
+                { field: 'bookBorrowId', caption: 'Mã phiếu mượn', size: '50%', sortable: true, resizable: true },
+                { field: 'actualReturnDate',type: 'date', caption: 'Ngày trả thực tế', size: '50%', sortable: true, resizable: true },
+                { field: 'overDue', caption: 'Phí quá hạn', size: '50%', sortable: true, resizable: true },
+                { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true },
             ])
-            //.addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            //.addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBookBorrowHeader.data).setPaginateOptions(pagi.end())
+            .addRecords(self.ViewBag.listBookPayable.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -89,8 +92,8 @@ framework.factory('ListBookBorrowHeader', {
     onbtnInsertClickGrid: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/Admin/BookBorrowHeader/InsertBookBorrowHeader',
-            title: 'Insert BookBorrowHeader',
+            url: '/Admin/BookPayable/InsertBookPayable',
+            title: 'Insert BookPayable',
             width: '700px'
         });
     },
@@ -105,7 +108,7 @@ framework.factory('ListBookBorrowHeader', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookBorrowHeader/UpdateBookBorrowHeader/'+id,
+            url: '/Admin/BookPayable/UpdateBookPayable/'+id,
             title: 'Update Role',
             width: '700px'
         });
@@ -116,7 +119,7 @@ framework.factory('ListBookBorrowHeader', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/BookBorrowHeader/Deletes', { id: id }, function (result) {
+            $.post('/api/BookPayable/Deletes', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
@@ -156,7 +159,7 @@ framework.factory('ListBookBorrowHeader', {
     },
     reloadGridData:function(){
         var grid = this.findElement('grid');
-        $.post('/api/BookBorrowHeader/GetList',this.searchParam, function (result) {
+        $.post('/api/BookPayable/GetList',this.searchParam, function (result) {
             if(result.success){
                 grid.clear();
                 grid.add(result.data);
@@ -175,7 +178,7 @@ framework.factory('ListBookBorrowHeader', {
      var record = grid.get(e.recid);
      console.log(record);
      var mess = {
-     type: 'popupListBookBorrowHeader',
+     type: 'popupListBookPayable',
      data: record,
      callback: function () {
      self.close();

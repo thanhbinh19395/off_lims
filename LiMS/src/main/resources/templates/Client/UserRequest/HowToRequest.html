@@ -26,25 +26,25 @@
     </div>
     <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
     <div class="row">
-        <h2><b> How to request </b> </h2>
+        <h2><b th:text="#{HowtoRequest}"> How to request </b> </h2>
         <br/><br/>
-        <h3><b> Request a purchase process </b> </h3>
+        <h3><b th:text="#{RequestPurchase}"> Request a purchase process </b> </h3>
         <br/>
         <div class="howtorequest">
-            <label for="step1" >Step 1</label>
-            <p id="step1"> At first you click on the Request tab and choose Request purchase </p>
+            <label for="step1" th:text="#{Step1}">Step 1</label>
+            <p id="step1" th:text="#{RequestContent1}"> At first you click on the Request tab and choose Request purchase </p>
             <img src="/images/Request01.png"/><br/><br/>
 
-            <label for="step2">Step 2</label>
+            <label for="step2" th:text="#{Step2}">Step 2</label>
             <div id="step2">
                 <img src="/images/Request.PNG" height="557" width="493"/>
             </div>
             <br/><br/>
 
-        <h4> Just some step you had send a request to librarian to purchase a new book  </h4>
+        <h4 th:text="#{Justsomestep}"> Just some step you had send a request to librarian to purchase a new book  </h4>
         </div>
         <br/>
-        <h3><b>Thank you for your contribution</b></h3>
+        <h3><b th:text="#{contribution}">Thank you for your contribution</b></h3>
     </div>
 </div>
 </body>

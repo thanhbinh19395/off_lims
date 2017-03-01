@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by dylan on 2/24/2017.
  */
 @Controller
-@RequestMapping("/Admin/BookPayableHeader")
-public class BookPayableHeaderController extends AdminBaseController{
+@RequestMapping("/Admin/BookPayable")
+public class BookPayableController extends AdminBaseController{
     @Autowired
     private BookPayableHeaderService bookPayableHeaderService;
 
-    @RequestMapping("/ListBookPayableHeader")
-    public String ListBookPayableHeader(Model model, BookPayableHeader BookPayableHeader, Pageable p) {
-        getViewBag(model).put("listBookPayableHeader", bookPayableHeaderService.search(BookPayableHeader,p) );
+    @RequestMapping("/ListBookPayable")
+    public String ListBookPayable(Model model, BookPayableHeader BookPayableHeader, Pageable p) {
+        getViewBag(model).put("listBookPayable", bookPayableHeaderService.search(BookPayableHeader,p) );
         return View();
     }
 
-    @RequestMapping("/InsertBookPayableHeader")
-    public String InsertBookPayableHeader(Model model) {
+    @RequestMapping("/InsertBookPayable")
+    public String InsertBookPayable(Model model) {
         return View();
     }
 

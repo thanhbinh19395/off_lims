@@ -1,35 +1,31 @@
 /**
- * Created by dylan on 2/23/2017.
+ * Created by Thanh Binh on 2/27/2017.
  */
-/**
- * Created by dylan on 2/23/2017.
- */
-framework.factory('CreateSO', {
+framework.factory('InsertBookPayable', {
     onPopupHandler: function (data) {
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
-            form.record.returnDate = null;
-            form.record.bookTransaction = null;
+            form.record.name = null;
+            form.record.phone = null;
+            form.record.address = null;
+            form.record.email = null;
+            form.record.idcard = null;
+            form.record.birthday = null;
             form.refresh();
         }
     },
-    onMessageReceive: function (sender, data) {
+    onMessageReceive: function (sender, message) {
         if (sender.pageName == 'ListBook') {
-            this.insertSODetailHandler(sender, data.data);
+            this.insertBPDetailHandler(sender, message.data);
         }
-        else if (sender.pageName == 'insertProduct') {
-            data.data.ProductCode = data.data.Code;
-            data.data.ProductName = data.data.Name;
-            this.insertSODetailHandler(sender, data.data);
+        else if (sender.pageName == 'insertBook') {
+            data.data.BookCode = data.message.Code;
+            data.data.BookName = data.message.Name;
+            this.insertBPDetailHandler(sender, message.data);
         }
-        else if (sender.pageName == 'ListCustomer') {
+        else if (sender.pageName == 'ListUser') {
             var form = this.findElement('form');
-            form.record.DebitInShop = data.DebitInShop;
-            form.record.CustomerCode = data.Code;
-            form.record.CustomerName = data.Name;
-            form.record.CustomerPhone = data.Phone;
-            form.record.CustomerAddress = data.Address;
-            form.record.CustomerEmail = data.Email;
+            $.extend(form.record,message.data);
             form.refresh();
             sender.close && sender.close();
         }
@@ -42,14 +38,26 @@ framework.factory('CreateSO', {
         var self = this;
 
         var form = widget.setting.form();
-
+        var returnDate = new Date();
+        returnDate = returnDate.setDate(returnDate.getDate() + 3);
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'userId', caption: 'UserId', type: 'popupListUser',options:{caller:self} },
-                { field: 'returnDate', caption: 'Ngày trả sách', type: 'date'}
+                { field: 'createdUsername', caption: 'Người lập', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
+                { type: 'empty'},
+                { field: 'userId', caption: 'Người mượn', type: 'popupListUser',options:{caller:self}, span :1, required : true },
+                { type: 'empty'},
+                { field: 'name', caption: 'Name', type: 'text'},
+                { field: 'phone', caption: 'Phone', type: 'text'},
+                { field: 'address', caption: 'Address' , type: 'text'},
+                { field: 'email', caption: 'Email' , type: 'text'},
+                { field: 'idcard', caption: 'ID Number', type: 'text' },
+                { field: 'birthday', caption: 'Birthday', type: 'date' },
+                { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
             ])
-            //.setRecord(self.ViewBag.listBookBorrowHeader.data)
+            .setRecord({
+                returnDate : returnDate,
+            })
             .createEvent('onChange', self.onChangeForm.bind(this))
         ;
         var toolbar = widget.setting.toolbar();
@@ -76,8 +84,8 @@ framework.factory('CreateSO', {
                 html: function (item) {
                     var html =
                         '<div style="padding: 3px 10px;">' +
-                        ' Product:' +
-                        '    <input id="product" size="20" placeholder="Name, Code, Barcode" ' +
+                        ' Book:' +
+                        '    <input id="book" size="20" placeholder="Name, Code" ' +
                         '         style="padding: 3px; border-radius: 2px; border: 1px solid silver" />' +
                         '</div>';
                     return html;
@@ -85,23 +93,22 @@ framework.factory('CreateSO', {
             })
             .createEvent('onRender', function (event) {
                 event.done(function (e) {
-                    var inputProduct = $(e.box).find('#product');
-                    inputProduct.dblclick(function (dce) {
-                        self.onChooseProductClick();
+                    var inputBook = $(e.box).find('#book');
+                    inputBook.dblclick(function (dce) {
+                        self.onChooseBookClick();
                     });
-                    inputProduct.keypress(function (kpe) {
+                    inputBook.keypress(function (kpe) {
                         if (kpe.key == 'Enter') {
                             var val = $(kpe.target).val();
-                            $.post('/api/Book/GetList', {
+                            $.post('/api/Book/Search', {
                                 name: val,
                             }, function (result) {
-                                console.log(result);
-                                var data = JSON.parse(result.data.data);
+                                var data = result.data;
                                 if (data.length == 0) {
-                                    alert('Product Not found !');
+                                    alert('Book Not found !');
                                 }
                                 else if (data.length == 1) {
-                                    self.insertSODetailHandler(null, data[0]);
+                                    self.insertBPDetailHandler(null, data[0]);
                                 }
                                 else {
                                     self.openPopup({
@@ -133,9 +140,9 @@ framework.factory('CreateSO', {
                 { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
             ])
             .addButton('delete', 'Xóa', 'fa fa-times', self.onBtnDeleteClick.bind(self))
-            .addButton('product', 'Chọn', 'fa fa-check', self.onChooseProductClick.bind(self))
-            .addButton('insertProduct', 'Thêm mới', 'fa fa-plus', self.onInsertProductClick.bind(self))
-            .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchProductGrid.bind(self))
+            .addButton('product', 'Chọn', 'fa fa-check', self.onChooseBookClick.bind(self))
+            .addButton('insertBook', 'Thêm mới', 'fa fa-plus', self.onInsertBookClick.bind(self))
+            .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
         ;
 
 
@@ -143,26 +150,26 @@ framework.factory('CreateSO', {
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
-        window.location.replace("/Admin/BookBorrowHeader/ListBookBorrowHeader");
+        window.location.replace("/Admin/BookBorrow/ListBookBorrow");
     },
-    onSearchProductGrid: function (e) {
+    onSearchBookGrid: function (e) {
         console.log(e);
     },
     onBtnSaveInventoryClick: function () {
-        var curSO = this.getCurrentSO();
-        if (curSO) {
+        var curBP = this.getCurrentBP();
+        if (curBP) {
             $.post('/api/BookBorrowHeader/Save', {header: this.form.record, detail: this.w2ui.grid.record}, function (data) {
                 framework.common.cmdResultNoti(data);
             });
         }
     },
     onBtnSaveFinishClick: function () {
-        var curSO = this.getCurrentSO();
+        var curBP = this.getCurrentBP();
         var self = this;
         var form = this.findElement('form');
         var grid = this.findElement('grid');
         console.log({header: form.record, detail:  grid.records});
-        if (curSO) {
+        if (curBP) {
 
             $.post('/api/BookBorrowHeader/Save', {header: form.record, detail:  grid.records}, function (data) {
                 framework.common.cmdResultNoti(data);
@@ -170,8 +177,8 @@ framework.factory('CreateSO', {
         }
     },
     onBtnSaveClick: function () {
-        var curSO = this.getCurrentSO();
-        if (curSO) {
+        var curBP = this.getCurrentBP();
+        if (curBP) {
             $.post('/api/BookBorrowHeader/Save', {header: form.record, detail: w2ui.grid.records}, function (data) {
                 framework.common.cmdResultNoti(data);
             });
@@ -220,14 +227,14 @@ framework.factory('CreateSO', {
         var grid = this.findElement('grid');
         var total = 0;
         $.each(grid.records, function (k, v) {
-            total += v.ProductPrice * v.Quantity;
+            total += v.BookPrice * v.Quantity;
         });
         return total;
     },
-    insertSODetailHandler: function (sender, data) {
+    insertBPDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
-        var existBBDetail = grid.get(data.id);
-        if (existBBDetail) {
+        var existBPDetail = grid.get(data.id);
+        if (existBPDetail) {
             alert("ko dc trung sach");
         }
         else {
@@ -236,28 +243,28 @@ framework.factory('CreateSO', {
         this.updateTotal();
     },
 
-    onInsertProductClick: function () {
+    onInsertBookClick: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/  /ProductHandler/InsertProduct',
+            url: '/  /BookHandler/InsertBook',
             width: 600
         });
     },
-    onChooseProductClick: function () {
+    onChooseBookClick: function () {
         this.openPopup({
             name: 'insertPopup',
             url: '/Admin/Book/ListBook',
             width: 600
         });
     },
-    getCurrentSO: function () {
+    getCurrentBP: function () {
         var form = this.findElement('form');
         if (form.validate() != 0 || form.record.Total == 0)
             return;
 
         var grid = this.findElement('grid');
         return {
-            SOHeader: form.record,
+            BPHeader: form.record,
             SoDetails: grid.records
         }
     },
