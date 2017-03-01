@@ -20,6 +20,7 @@ framework.factory('ListRequest', {
             .addFields([
                 {field: 'book_name', type: 'text', required: false, caption: "Tên sách"},
                 {field: 'author', type: 'text', required: false, caption: "Tên tác giả"},
+                {field: 'status', type: 'text', required: false, caption: "Trạng thái"},
             ])
         ;
         header.setTitle('Danh sách yêu cầu')
@@ -76,7 +77,8 @@ framework.factory('ListRequest', {
                     size: '45%',
                     sortable: true,
                     resizable: true
-                }
+                },
+                {field: 'status', caption: 'Trạng thái', size: '45%', sortable: true, resizable: true},
             ])
             .addButton('btnApprove', 'Chấp nhận', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnReject', 'Bác bỏ', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))

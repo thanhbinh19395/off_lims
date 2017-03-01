@@ -16,11 +16,18 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
     private Integer bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;
-
+    private int status;
 
     private Long userId;
     private User user;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public Date getReturnDate() {
         return returnDate;

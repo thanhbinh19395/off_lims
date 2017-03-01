@@ -27,7 +27,7 @@
 
 <form action="/login" th:action="@{/login}" method="POST">
 
-    <h4> Login Information </h4>
+    <h4 th:text="#{LoginInformation}"> Login Information </h4>
     <div th:if="${param.logout}">
         <h3 class="label label-success" th:text="${logout}"></h3>
         <br/>
@@ -38,19 +38,19 @@
     </div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="form-group" th:classappend="${param.error} ? 'has-error' : ''">
-        <input class="form-control" type="text" placeholder="Enter Username" th:name="username" th:id="username"/>
+        <input class="form-control" type="text" th:placeholder="#{Enter}+' ' + #{Username}" th:name="#{Username}" th:id="username"/>
     </div>
 
     <div class="form-group" th:classappend="${param.error} ? 'has-error' : ''">
-        <input class="form-control" type="password" placeholder="Enter Password" th:name="password" th:id="password"/>
+        <input class="form-control" type="password" th:placeholder="#{Enter}+ ' ' + #{Password}" th:name="#{Password}" th:id="password"/>
     </div>
     <div class="form-group">
-        <button class="btn btn-lg btn-primary" type="submit">Login </button>
+        <button class="btn btn-lg btn-primary" type="submit" th:text="#{login}">Login </button>
 
     </div>
     <hr/>
     <div class="form-group">
-        <button class="btn btn-lg btn-danger" type="button" onclick="window.location.href='/'">Go to Library Homepage </button>
+        <button class="btn btn-lg btn-danger" type="button" onclick="window.location.href='/'" th:text="#{GotoHome}">Go to Library Homepage </button>
     </div>
 
 </form>

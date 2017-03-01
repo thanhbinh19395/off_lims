@@ -1,6 +1,7 @@
 package hcmue.gst.off.services;
 
 import hcmue.gst.off.entities.BookBorrowHeader;
+import hcmue.gst.off.entities.CommonStatus;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.PageableResult;
@@ -34,6 +35,7 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         if (bookBorrowHeader.getId() == null) {
             bookBorrowHeader.setCreated_by(user);
             bookBorrowHeader.setCreated_date(new Date());
+            bookBorrowHeader.setStatus(CommonStatus.PENDING.getValue());
         }
         else {
             bookBorrowHeader.setUpdate_date(new Date());

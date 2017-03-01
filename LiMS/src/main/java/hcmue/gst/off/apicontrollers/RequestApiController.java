@@ -2,6 +2,7 @@ package hcmue.gst.off.apicontrollers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hcmue.gst.off.entities.CommonStatus;
 import hcmue.gst.off.entities.Country;
 import hcmue.gst.off.entities.Request;
 import hcmue.gst.off.extensions.CustomException;
@@ -43,20 +44,20 @@ public class RequestApiController {
     }
     @RequestMapping("/GetList")
     Result GetList(Request request, Pageable p){
-        request.setStatus("chờ");
+        request.setStatus(CommonStatus.PENDING.getValue());
         return requestService.search(request,p);
     }
     @RequestMapping("/Approve")
     Result Approve(Mail mail){
         Request request = requestService.findOne(mail.getId()).getData();
-        request.setStatus("đã xử lý");
+        request.setStatus(CommonStatus.SOLVED.getValue());
         mailService.sendMail(request.getCreated_by().getEmail(),"Approved Your Request", mail.getMessage());
         return requestService.save(request);
     }
     @RequestMapping("/Reject")
     Result Reject(Mail mail){
         Request request = requestService.findOne(mail.getId()).getData();
-        request.setStatus("đã xử lý");
+        request.setStatus(CommonStatus.SOLVED.getValue());
         mailService.sendMail(request.getCreated_by().getEmail(),"Rejected Your Request", mail.getMessage());
         return requestService.save(request);
     }

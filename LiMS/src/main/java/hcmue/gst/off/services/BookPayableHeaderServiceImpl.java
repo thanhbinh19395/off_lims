@@ -1,6 +1,7 @@
 package hcmue.gst.off.services;
 
 import hcmue.gst.off.entities.BookPayableHeader;
+import hcmue.gst.off.entities.CommonStatus;
 import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
@@ -21,6 +22,11 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
 
     @Override
     public Result<BookPayableHeader> save(BookPayableHeader bookPayableHeader) {
+        SaveHandler(bookPayableHeader);
+        if(bookPayableHeader.getId()== null)
+        {
+            bookPayableHeader.setStatus(CommonStatus.PENDING.getValue());
+        }
         return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Lưu thành công");
     }
 

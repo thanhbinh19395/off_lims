@@ -36,5 +36,13 @@ public class BookApiController {
     PageableResult GetList(Book model, Pageable p) {
         return bookService.search(model,p);
     }
+    @RequestMapping("/Search")
+    Result<Iterable<Book>> Search(Book model){
+        return bookService.search(model);
+    }
 
+    @RequestMapping("/PageableSearch")
+    PageableResult<Book> PageableSearch(Book model, Pageable p){
+        return bookService.search(model,p);
+    }
 }
