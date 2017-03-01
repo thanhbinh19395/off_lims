@@ -45,15 +45,11 @@ framework.factory('UploadImage', {
         var self = this;
         $.each(listImage, function (k, v) {
             var data = new FormData();
-            data.append('file', v.content);
-            var name = framework.global.makeId(id);
-            var ext = v.name.split(".");
-            name += '.' + ext[ext.length - 1];
-            data.append('name', name);
-            debugger;
+            data.append('image', v.file);
             $.ajax({
-                url: '/api/ImageUpload/Store',
+                url: '/api/Image/Store',
                 type: "POST",
+                enctype: 'multipart/form-data',
                 processData: false,
                 contentType: false,
                 data: data,
