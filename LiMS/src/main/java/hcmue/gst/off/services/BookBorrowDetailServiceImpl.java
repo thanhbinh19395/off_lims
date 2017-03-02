@@ -1,6 +1,8 @@
 package hcmue.gst.off.services;
 
+import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.entities.BookBorrowDetail;
+import hcmue.gst.off.entities.BookTransactionStep;
 import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
@@ -21,18 +23,18 @@ public class BookBorrowDetailServiceImpl extends BaseCommand implements BookBorr
     @Autowired
     BookBorrowDetailRepository bookBorrowDetailRepository;
 
+    @Autowired
+    BookRepository bookRepository;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private SecurityService securityService;
-
-
+    BookService bookService;
 
     @Override
     public Result<BookBorrowDetail> save(BookBorrowDetail bookBorrowDetail) {
         SaveHandler(bookBorrowDetail);
+        Book book = bookRepository.findOne(bookBorrowDetail.getBookId());
+        book.setState(BookTransactionStep.BORROWED.getValue());
+        bookService.save(book);
         return Success(bookBorrowDetailRepository.save(bookBorrowDetail),"Lưu thành công");
     }
 

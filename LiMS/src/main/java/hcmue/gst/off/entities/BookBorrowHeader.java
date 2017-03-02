@@ -14,12 +14,21 @@ import java.util.Set;
 @Table(name = "bookborrowheader")
 public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
-    private Integer bookTransaction;
     private Set<BookBorrowDetail> bookBorrowDetails;
-    private int status;
+    private Integer  status;
 
     private Long userId;
     private User user;
+
+    public BookBorrowHeader() {
+
+    }
+
+    public BookBorrowHeader(Date returnDate, Long userId) {
+        this.returnDate = returnDate;
+        this.userId = userId;
+        status = CommonStatus.PENDING.getValue();
+    }
 
     public int getStatus() {
         return status;
@@ -36,14 +45,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
-
-    public Integer getBookTransaction() {
-        return bookTransaction;
-    }
-
-    public void setBookTransaction(Integer bookTransaction) {
-        this.bookTransaction = bookTransaction;
-    }
+    
 
     @OneToMany(mappedBy = "bookBorrowHeader",cascade = CascadeType.ALL)
     public Set<BookBorrowDetail> getBookBorrowDetails() {

@@ -1,10 +1,14 @@
 package hcmue.gst.off.controllers.Client;
 
 import hcmue.gst.off.entities.Book;
+import hcmue.gst.off.entities.BookBorrowDetail;
+import hcmue.gst.off.entities.BookBorrowHeader;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BookBorrowCart;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.BookRepository;
+import hcmue.gst.off.services.BookBorrowDetailService;
+import hcmue.gst.off.services.BookBorrowHeaderService;
 import hcmue.gst.off.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -14,10 +18,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Ho Phuong on 25/02/2017.
@@ -33,6 +36,12 @@ public class UserBorrowController extends UserBaseController{
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private BookBorrowHeaderService borrowBorrowHeaderService;
+
+    @Autowired
+    private BookBorrowDetailService bookBorrowDetailService;
+
     @RequestMapping(value = "/Borrow/HowToBorrow", method = RequestMethod.GET)
     public String HowToBorrow() {
         return View("HowToBorrow");
@@ -47,12 +56,14 @@ public class UserBorrowController extends UserBaseController{
     public String Borrow(Model model, HttpSession session, HttpServletRequest request) {
         User user = securityService.getUser();
         model.addAttribute("user", user);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date borrowDate = new Date();
-        model.addAttribute("borrowDate", borrowDate);
+
+        model.addAttribute("borrowDate", sdf.format(borrowDate));
         Calendar c = Calendar.getInstance();
         c.setTime(borrowDate);
         c.add(Calendar.DATE, MAX_BORROWING_DAYS);
-        model.addAttribute("returnDate", borrowDate);
+        model.addAttribute("returnDate", sdf.format(c.getTime()));
         List<Book> bookList = new ArrayList<>();
         session = request.getSession(false);
         for (int i = 1; i < 4; i++) {
@@ -70,14 +81,54 @@ public class UserBorrowController extends UserBaseController{
 
     @RequestMapping(value = "/User/Borrow/RegistryBorrowForm/Delete", method = RequestMethod.POST)
     public String delete(@RequestParam("ID") Long id, HttpServletRequest request, HttpSession session, Model model) {
-        String sessionItem = "";
         session = request.getSession(false);
         for (int i = 1; i < 4; i++) {
-            sessionItem = "item"+i;
-            if (id.equals((Long)session.getAttribute(sessionItem))) {
-                session.removeAttribute(sessionItem);
+            Long currId = (Long)session.getAttribute("item"+i);
+            if (currId != null && id.compareTo((Long)session.getAttribute("item"+i))==0) {
+                session.removeAttribute("item"+i);
             }
         }
+        return "redirect:/User/Borrow/RegistryBorrowForm";
+    }
+
+    @RequestMapping(value = "/User/Borrow/RegistryBorrowForm/handleSubmit", method = RequestMethod.POST)
+    public String handleBorrow(Model model, HttpSession session, HttpServletRequest request,
+                               @RequestParam("returnDate") String returnDate) {
+        User user = securityService.getUser();
+        //Lay thong tin cua cac sach co trong gio
+        List<Book> bookList = new ArrayList<>();
+        session = request.getSession(false);
+        for (int i = 1; i < 4; i++) {
+            Long id = (Long)session.getAttribute("item"+i);
+            if (id != null) {
+                bookList.add(bookRepository.findOne(id));
+            }
+        }
+        //Luu thong tin sach vao entity
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Set<BookBorrowDetail> bookBorrowDetails = new HashSet<>();
+        BookBorrowHeader bookBorrowHeader;
+        try {
+            Date dateConverted = sdf.parse(returnDate);
+            bookBorrowHeader = new BookBorrowHeader(dateConverted, user.getId());
+            borrowBorrowHeaderService.save(bookBorrowHeader);
+            for (int i = 0; i < bookList.size(); i++) {
+                BookBorrowDetail bookBorrowDetail = new BookBorrowDetail(bookBorrowHeader.getId(), bookList.get(i).getId());
+                bookBorrowDetailService.save(bookBorrowDetail);
+                bookBorrowDetails.add(bookBorrowDetail);
+            }
+            bookBorrowHeader.setBookBorrowDetails(bookBorrowDetails);
+            borrowBorrowHeaderService.save(bookBorrowHeader);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //Xoa session sau khi gui
+        for (int i = 1; i < 4; i++) {
+            Long id = (Long)session.getAttribute("item"+i);
+            if (id!=null) session.removeAttribute("item"+i);
+        }
+        //Thay doi trang thai cua sach
         return "redirect:/User/Borrow/RegistryBorrowForm";
     }
 }

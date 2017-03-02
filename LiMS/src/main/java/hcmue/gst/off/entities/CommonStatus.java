@@ -7,13 +7,13 @@ public enum CommonStatus {
     PENDING(0),
     SOLVED(1);
 
-    private final int value;
+    private final Integer value;
 
-    CommonStatus(final int value) {
+    CommonStatus(final Integer value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 }
