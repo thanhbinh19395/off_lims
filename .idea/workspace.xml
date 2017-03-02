@@ -3,28 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="13de4f63-edbf-4fbf-9f4f-951eab43071a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/configuration/WebSecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/Book2Controller.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/Book2Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/User2Controller.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/User2Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/UserBorrowController.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/UserBorrowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookBorrowDetail.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookBorrowDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookBorrowHeader.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookBorrowHeader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookTransactionStep.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookTransactionStep.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/CommonStatus.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/CommonStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookBorrowHeaderRepository.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookBorrowHeaderRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowHeaderServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowHeaderServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/messages_en.properties" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/messages_en.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/messages_vn.properties" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/messages_vn.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Client/Book2/ViewDetail.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Client/Book2/ViewDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Client/UserBorrow/RegistryBorrowingForm.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Client/UserBorrow/RegistryBorrowingForm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Login/Login.html" afterPath="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Login/Login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/LiMS/target/" />
     <ignored path="$PROJECT_DIR$/Example/assignmentfive/target/" />
@@ -46,52 +25,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BookBorrowHeaderServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowHeaderServiceImpl.java">
+      <file leaf-file-name="StorageServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserApiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/UserApiController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InsertUser.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="58" column="63" lean-forward="false" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-              <folding />
+            <state relative-caret-position="83">
+              <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookReservationHeader.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookReservation.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookReservationService.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookReservation/ListBookReservation.html" />
@@ -191,7 +131,6 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Login/Login.html" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookTransactionStep.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/repositories/BookBorrowHeaderRepository.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/messages_en.properties" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/messages_vn.properties" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html" />
@@ -209,6 +148,8 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/UserBorrowController.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowHeaderServiceImpl.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -382,159 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBorrow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="User2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Book2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Admin" />
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -680,40 +469,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LiMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apicontrollers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="off_lims" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -726,7 +481,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/LiMS" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1252,12 +1007,12 @@
       <workItem from="1488391776625" duration="369000" />
       <workItem from="1488416816823" duration="14337000" />
       <workItem from="1488434378598" duration="8413000" />
-      <workItem from="1488467095397" duration="4914000" />
+      <workItem from="1488467095397" duration="7482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340740000" />
+    <option name="totallyTimeSpent" value="343308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1269,7 +1024,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1290,7 +1045,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.84124386" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2405892" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38124055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1348,21 +1103,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookCategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookBorrowHeaderController.java" />
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/RequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookReservationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1522,6 +1262,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2890">
           <caret line="170" column="9" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1536,6 +1277,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1640,14 +1382,6 @@
             <element signature="e#247#248#0" expanded="false" />
             <element signature="e#279#280#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1782,11 +1516,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="58" column="63" lean-forward="false" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1798,11 +1551,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js">
+    <entry file="file://$PROJECT_DIR$/LiMS/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="58" column="63" lean-forward="false" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+        <state relative-caret-position="204">
+          <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/static/uploadedImages/8e7cedda-a4a0-4a80-a031-62641cbf45c9.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

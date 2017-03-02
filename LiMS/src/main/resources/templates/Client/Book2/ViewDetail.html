@@ -26,7 +26,7 @@
     <div class="row" style="margin: 10px" th:object="${Book}">
         <div class="col-xs-5">
             <div align="center" style="margin-top: 30px;">
-                <img src="/images/Book_Net.jpg" th:width="300px" th:height="400px"/>
+                <img th:src="*{imageUrl}" th:width="300px" th:height="400px"/>
             </div>
         </div>
         <div class="col-xs-7">
