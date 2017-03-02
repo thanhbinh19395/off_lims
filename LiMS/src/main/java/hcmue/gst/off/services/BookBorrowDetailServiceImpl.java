@@ -33,7 +33,7 @@ public class BookBorrowDetailServiceImpl extends BaseCommand implements BookBorr
     public Result<BookBorrowDetail> save(BookBorrowDetail bookBorrowDetail) {
         SaveHandler(bookBorrowDetail);
         Book book = bookRepository.findOne(bookBorrowDetail.getBookId());
-        book.setState(BookTransactionStep.BORROWED.getValue());
+        book.setState(BookTransactionStep.BORROWED);
         bookService.save(book);
         return Success(bookBorrowDetailRepository.save(bookBorrowDetail),"Lưu thành công");
     }

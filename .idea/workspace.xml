@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13de4f63-edbf-4fbf-9f4f-951eab43071a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/business/InsertBookBorrowBusiness.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/business/InsertBookBorrowBusiness.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java" afterPath="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/LiMS/target/" />
     <ignored path="$PROJECT_DIR$/Example/assignmentfive/target/" />
@@ -25,14 +25,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StorageServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StorageServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
+            <state relative-caret-position="-70">
               <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookBorrowDetailServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InsertBookBorrowBusiness.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/business/InsertBookBorrowBusiness.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,7 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/BookReservation.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookReservationService.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/BookReservation/ListBookReservation.html" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookReservationController.java" />
@@ -137,7 +156,6 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookBorrowDetail.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/BookBorrowHeader.java" />
-        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Client/User2Controller.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/CommonStatus.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/UpdateUser.js" />
@@ -150,6 +168,8 @@
         <option value="$PROJECT_DIR$/LiMS/src/main/resources/templates/Admin/User/InsertUser.js" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/entities/Book.java" />
         <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/business/InsertBookBorrowBusiness.java" />
       </list>
     </option>
   </component>
@@ -162,7 +182,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -183,8 +203,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -475,7 +496,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1008,11 +1028,12 @@
       <workItem from="1488416816823" duration="14337000" />
       <workItem from="1488434378598" duration="8413000" />
       <workItem from="1488467095397" duration="7482000" />
+      <workItem from="1488478666980" duration="90000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="343308000" />
+    <option name="totallyTimeSpent" value="343398000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1024,7 +1045,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1045,10 +1066,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2405892" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2405892" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38124055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38694993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1103,13 +1124,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/controllers/Admin/BookPayableHeaderController.java" />
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/apicontrollers/RequestApiController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1245,25 +1259,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/messages_en.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3009">
           <caret line="177" column="8" lean-forward="false" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/messages_vn.properties">
       <provider editor-type-id="ResourceBundle">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/messages_vn.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2890">
           <caret line="170" column="9" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="9" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Public/Home/Index.html">
@@ -1304,14 +1316,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/messages.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/application.properties">
@@ -1359,14 +1370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/resources/templates/Client/User2/UpdateInfoUser.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
@@ -1378,10 +1381,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding>
-            <element signature="e#247#248#0" expanded="false" />
-            <element signature="e#279#280#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1397,7 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1405,7 +1404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1413,42 +1411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
           <caret line="73" column="21" lean-forward="false" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1488470674279" expanded="true" signature="674:682" ph="Homepage" />
-            <marker date="1488470674279" expanded="true" signature="1617:1623" ph="Author:" />
-            <marker date="1488470674279" expanded="true" signature="1869:1878" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="2110:2123" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="2358:2379" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="2693:2702" ph="Available" />
-            <marker date="1488470674279" expanded="true" signature="2706:2714" ph="Occupied" />
-            <marker date="1488470674279" expanded="true" signature="3034:3041" ph="See more" />
-            <marker date="1488470674279" expanded="true" signature="3089:3094" ph="books" />
-            <marker date="1488470674279" expanded="true" signature="3103:3105" ph="of" />
-            <marker date="1488470674279" expanded="true" signature="3147:3159" ph="at OFF Library" />
-            <marker date="1488470674279" expanded="true" signature="3294:3302" ph="Tutorial" />
-            <marker date="1488470674279" expanded="true" signature="3363:3369" ph="Borrow" />
-            <marker date="1488470674279" expanded="true" signature="3400:3403" ph="8743" />
-            <marker date="1488470674279" expanded="true" signature="3440:3447" ph="Reserve" />
-            <marker date="1488470674279" expanded="true" signature="3479:3484" ph="books" />
-            <marker date="1488470674279" expanded="true" signature="3612:3626" ph="Can not find books? Send us a request" />
-            <marker date="1488470674279" expanded="true" signature="3754:3760" ph="at here" />
-            <marker date="1488470674279" expanded="true" signature="4384:4392" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="4398:4413" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="4770:4779" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="4784:4791" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5013:5017" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5221:5226" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5278:5283" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5335:5340" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5392:5397" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5449:5454" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5512:5520" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5550:5558" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="5808:5815" ph="Service" />
-            <marker date="1488470674279" expanded="true" signature="6025:6033" ph="&lt;empty&gt;" />
-            <marker date="1488470674279" expanded="true" signature="6101:6116" ph="&lt;empty&gt;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1456,7 +1418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="50" column="54" lean-forward="false" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1464,7 +1425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="65" column="63" lean-forward="false" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1472,31 +1432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-868">
           <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
-          <folding>
-            <marker date="1488471556511" expanded="true" signature="598:606" ph="Homepage" />
-            <marker date="1488471556511" expanded="true" signature="701:709" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="965:973" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="1047:1060" ph="Please check the information below. Press Borrow if all the infor are correct." />
-            <marker date="1488471556511" expanded="true" signature="1320:1328" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="1336:1342" ph="Detail" />
-            <marker date="1488471556511" expanded="true" signature="1451:1455" ph="Name" />
-            <marker date="1488471556511" expanded="true" signature="1733:1741" ph="BirthDay" />
-            <marker date="1488471556511" expanded="true" signature="2017:2028" ph="Phone number" />
-            <marker date="1488471556511" expanded="true" signature="2295:2300" ph="Email" />
-            <marker date="1488471556511" expanded="true" signature="2567:2573" ph="ID Card" />
-            <marker date="1488471556511" expanded="true" signature="2845:2852" ph="Address" />
-            <marker date="1488471556511" expanded="true" signature="3131:3141" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="3364:3374" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="3965:3969" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="3977:3981" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="4246:4254" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="4302:4310" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="4367:4373" ph="Author:" />
-            <marker date="1488471556511" expanded="true" signature="4421:4431" ph="Categories" />
-            <marker date="1488471556511" expanded="true" signature="4479:4488" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="4544:4554" ph="&lt;empty&gt;" />
-            <marker date="1488471556511" expanded="true" signature="5906:5912" ph="Borrow" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1512,7 +1447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1520,7 +1454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="58" column="63" lean-forward="false" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1566,11 +1499,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/StorageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
+        <state relative-caret-position="-70">
           <caret line="36" column="64" lean-forward="false" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/services/BookBorrowDetailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LiMS/src/main/java/hcmue/gst/off/business/InsertBookBorrowBusiness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>

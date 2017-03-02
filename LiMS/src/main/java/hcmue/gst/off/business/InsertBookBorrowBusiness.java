@@ -42,7 +42,7 @@ public class InsertBookBorrowBusiness extends BaseCommand {
     }
 
     public Result Execute(){
-        header.setStatus(CommonStatus.PENDING.getValue());
+        header.setStatus(CommonStatus.PENDING);
 
         bookBorrowHeaderService.save(header);
         Result<BookBorrowHeader> bookBorrowHeader = bookBorrowHeaderService.save(header);
