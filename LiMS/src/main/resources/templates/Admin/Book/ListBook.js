@@ -84,7 +84,10 @@ framework.factory('ListBook', {
                 { field: 'publisher', caption: 'Nhà xuất bản', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Tình trạng', size: '15%', sortable: true, resizable: true }
+                { field: 'bookStatus.description', caption: 'Tình trạng', size: '15%', sortable: true, resizable: true },
+                { field:'hinh', caption:'Hình', size:'15%', render: function(record){
+                    return "<img style=\"vertical-align:center;\" height=\"60\" src=\""+ record.imageUrl +"\"><\/img>";
+                }, style:'text-align:center'},
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))

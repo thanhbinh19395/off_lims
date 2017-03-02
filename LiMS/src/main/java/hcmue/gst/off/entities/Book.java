@@ -12,12 +12,13 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "book")
+
 public class Book extends BaseEntity implements Serializable {
     private String name;
     private String author;
     private Integer publish_year;
     private String publisher;
-    private byte[] image;
+    private String imageUrl;
     private BookStatus bookStatus;
     private BookCategory bookCategory;
     private BookBorrowDetail bookBorrowDetail;
@@ -33,11 +34,11 @@ public class Book extends BaseEntity implements Serializable {
     }
 
 
-    public Book(String name, String author ,Integer publish_year, byte[] image, BookCategory bookCategory) {
+    public Book(String name, String author ,Integer publish_year, String imageUrl, BookCategory bookCategory) {
         this.name = name;
         this.author = author;
         this.publish_year = publish_year;
-        this.image = image;
+        this.imageUrl = imageUrl;
         this.bookCategory = bookCategory;
     }
 
@@ -63,14 +64,6 @@ public class Book extends BaseEntity implements Serializable {
 
     public void setPublish_year(Integer publish_year) {
         this.publish_year = publish_year;
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
     }
 
     @Column(name = "bookcategory_id")
@@ -145,6 +138,14 @@ public class Book extends BaseEntity implements Serializable {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 

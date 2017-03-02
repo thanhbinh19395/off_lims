@@ -23,11 +23,11 @@ public class ImageController {
     @Autowired
     private BookPageableRepository bookPageableRepository;
 
-    @RequestMapping(value = "/showBookImage", method = RequestMethod.GET)
-    public void showImage(@RequestParam("bookId") long id, HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        Book book = bookPageableRepository.findOne(id);
-        response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-        response.getOutputStream().write(book.getImage());
-        response.getOutputStream().close();
-    }
+    //@RequestMapping(value = "/showBookImage", method = RequestMethod.GET)
+    //public void showImage(@RequestParam("bookId") long id, HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+       // Book book = bookPageableRepository.findOne(id);
+       /// response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+       // response.getOutputStream().write(book.getImage());
+       // response.getOutputStream().close();
+   // }
 }

@@ -163,5 +163,27 @@ $.extend(framework.common, {
         }
 
         $.gritter.add(opt);
+    },
+    requestUploadImages: function (options) {
+        var self = this;
+        $.each(options.listImages, function (k, v) {
+            var data = new FormData();
+            data.append('image', v.file);
+            $.ajax({
+                url: '/api/Image/Store',
+                type: "POST",
+                enctype: 'multipart/form-data',
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    console.log(response);
+                    options.successHandler && options.successHandler(response);
+                },
+                error: function (er) {
+                    console.log(er);
+                }
+            });
+        });
     }
 });

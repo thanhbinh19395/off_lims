@@ -15,7 +15,10 @@ framework.factory('InsertBook', {
             .addFields([
                 { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'image', type: 'text', required: false, caption: 'Hình' },
+                { field: 'image', type: 'file', required: false, caption: 'Hình',
+                    options:{
+                        max:1,
+                } },
                 { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
                 { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
                 { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
@@ -32,16 +35,34 @@ framework.factory('InsertBook', {
     onBtnInsertClick: function () {
         var self = this;
         var form = this.findElement('insertForm');
-        console.log(form.record);
-        //if (!form.validate().length) {
-        $.post('/api/Book/Save', form.record , function (result) {
-            if(result.success)
-                alertSuccess(result.message);
-            else
-                alert(result.message)
-            self.sendMessage(result);
-        });
-        //}
+        if (!form.validate().length) {
+            framework.common.requestUploadImages({
+                listImages: form.record.image,
+                successHandler:function(result){
+                    if(result.success){
+                        form.record.imageUrl = result.data;
+                        form.record.image = null;
+                        $.post('/api/Book/Save', form.record , function (result) {
+                            if(result.success)
+                                alertSuccess(result.message);
+                            else
+                                alert(result.message)
+                            self.sendMessage(result);
+                        });
+                    }
+                    else
+                        alert(result.message);
+                }.bind(self),
+
+            });
+        }
+
+    },
+    uploadImage:function(){
+        var self = this;
+        var form = this.findElement('insertForm');
+
+
     },
     onBtnClearClick: function () {
         var form = this.findElement('insertForm');
