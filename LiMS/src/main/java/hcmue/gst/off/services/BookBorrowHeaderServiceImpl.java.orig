@@ -35,8 +35,12 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         if (bookBorrowHeader.getId() == null) {
             bookBorrowHeader.setCreated_by(user);
             bookBorrowHeader.setCreated_date(new Date());
+<<<<<<< HEAD
             bookBorrowHeader.setStatus(CommonStatus.PENDING);
+=======
             user.setBorrowable(false); //Prevent user from continue borrowing
+            bookBorrowHeader.setStatus(CommonStatus.PENDING.getValue());
+>>>>>>> 07df8864ad00438040531e21dcb23a54bb73d333
         }
         else {
             bookBorrowHeader.setUpdate_date(new Date());

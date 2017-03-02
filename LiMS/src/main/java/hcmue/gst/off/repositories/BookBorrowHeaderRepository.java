@@ -18,7 +18,6 @@ import java.util.List;
 @Repository
 public interface BookBorrowHeaderRepository extends CrudRepository<BookBorrowHeader,Long>{
     String searchQuery = "SELECT m FROM  BookBorrowHeader m WHERE ( m.id = :#{#model.id} OR ISNULL(:#{#model.id}) = true) "
-            + "AND ( m.bookTransaction = :#{#model.bookTransaction} OR ISNULL(:#{#model.bookTransaction}) = true) "
             + "AND ( m.status = :#{#model.status} OR ISNULL(:#{#model.status}) = true) "
             ;
 

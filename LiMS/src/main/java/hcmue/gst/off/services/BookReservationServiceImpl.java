@@ -50,7 +50,7 @@ public class BookReservationServiceImpl extends BaseCommand implements BookReser
         if (bookReservation.getId() == null) {
             bookReservation.setCreated_by(user);
             bookReservation.setCreated_date(new Date());
-            bookReservation.setStatus(CommonStatus.PENDING.getValue());
+            bookReservation.setStatus(CommonStatus.PENDING);
             Book book = bookService.findOne(bookReservation.getBookId()).getData();
             book.setState(2);
             bookService.save(book);

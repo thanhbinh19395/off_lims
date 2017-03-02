@@ -44,20 +44,20 @@ public class RequestApiController {
     }
     @RequestMapping("/GetList")
     Result GetList(Request request, Pageable p){
-        request.setStatus(CommonStatus.PENDING.getValue());
+        request.setStatus(CommonStatus.PENDING);
         return requestService.search(request,p);
     }
     @RequestMapping("/Approve")
     Result Approve(Mail mail){
         Request request = requestService.findOne(mail.getId()).getData();
-        request.setStatus(CommonStatus.SOLVED.getValue());
+        request.setStatus(CommonStatus.SOLVED);
         mailService.sendMail(request.getCreated_by().getEmail(),"Approved Your Request", mail.getMessage());
         return requestService.save(request);
     }
     @RequestMapping("/Reject")
     Result Reject(Mail mail){
         Request request = requestService.findOne(mail.getId()).getData();
-        request.setStatus(CommonStatus.SOLVED.getValue());
+        request.setStatus(CommonStatus.SOLVED);
         mailService.sendMail(request.getCreated_by().getEmail(),"Rejected Your Request", mail.getMessage());
         return requestService.save(request);
     }

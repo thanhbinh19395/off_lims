@@ -33,50 +33,7 @@ public class ImageApiController {
 
     @RequestMapping("/Store")
     public Result Save(MultipartFile image){
-        MultipartFile f = new MultipartFile() {
-            @Override
-            public String getName() {
-                return image.getName();
-            }
-
-            @Override
-            public String getOriginalFilename() {
-                String name = UUID.randomUUID().toString();
-                String ext = image.getOriginalFilename().split("\\.")[1];
-                return name + "." + ext;
-            }
-
-            @Override
-            public String getContentType() {
-                return image.getContentType();
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return image.isEmpty();
-            }
-
-            @Override
-            public long getSize() {
-                return image.getSize();
-            }
-
-            @Override
-            public byte[] getBytes() throws IOException {
-                return image.getBytes();
-            }
-
-            @Override
-            public InputStream getInputStream() throws IOException {
-                return image.getInputStream();
-            }
-
-            @Override
-            public void transferTo(File file) throws IOException, IllegalStateException {
-                image.transferTo(file);
-            }
-        };
-        return storageService.store(f);
+        return storageService.store(image);
     }
     @RequestMapping("/Get/{filename:.+}")
     public ResponseEntity<Resource> Get(@PathVariable String filename) {

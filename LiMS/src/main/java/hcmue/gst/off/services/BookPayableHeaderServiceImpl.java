@@ -1,6 +1,5 @@
 package hcmue.gst.off.services;
 
-import hcmue.gst.off.entities.BookBorrowHeader;
 import hcmue.gst.off.entities.BookPayableHeader;
 import hcmue.gst.off.entities.CommonStatus;
 import hcmue.gst.off.extensions.BaseCommand;
@@ -21,17 +20,12 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
     @Autowired
     BookPayableHeaderRepository bookPayableHeaderRepository;
 
-    @Autowired
-    BookBorrowHeaderService bookBorrowHeaderService;
-
     @Override
     public Result<BookPayableHeader> save(BookPayableHeader bookPayableHeader) {
         SaveHandler(bookPayableHeader);
         if(bookPayableHeader.getId()== null)
         {
-           BookBorrowHeader bookBorrowHeader = bookBorrowHeaderService.findOne(bookPayableHeader.getBookBorrowId()).getData();
-           bookBorrowHeader.setStatus(CommonStatus.SOLVED.getValue());
-           bookBorrowHeaderService.save(bookBorrowHeader);
+            bookPayableHeader.setStatus(CommonStatus.PENDING);
         }
         return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Lưu thành công");
     }

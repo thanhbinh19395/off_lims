@@ -4,6 +4,7 @@ import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.extensions.BookBorrowCart;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.BookRepository;
+import hcmue.gst.off.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -30,15 +31,25 @@ public class Book2Controller extends UserBaseController {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private SecurityService securityService;
+
     @RequestMapping(value = "/Book/ViewDetail/{id}", method = RequestMethod.GET)
-    public String ViewBookDetail(@PathVariable("id") String id, Model model, HttpSession session, HttpServletRequest request){
-        Book book = bookRepository.findOne(Long.parseLong(id));
+    public String ViewBookDetail(@PathVariable("id") Long id, Model model, HttpSession session, HttpServletRequest request){
+        Book book = bookRepository.findOne(id);
         model.addAttribute("Book", book);
-        session = request.getSession();
+        //Check item already in book cart
+        session = request.getSession(false);
         for (int i = 1; i < 4 ; i++) {
-            if (id.equals((Long)session.getAttribute("item"+i))) {
+            Long compareId = (Long)session.getAttribute("item"+i);
+            if (compareId != null && compareId.compareTo(id)==0) {
                 model.addAttribute("existed", true);
+                break;
             }
+        }
+        //Check user able to borrow book
+        if (!securityService.getUser().getBorrowable()) {
+            model.addAttribute("forbiddenUser", true);
         }
         return View("ViewDetail");
     }
