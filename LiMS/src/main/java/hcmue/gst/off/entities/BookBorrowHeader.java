@@ -27,7 +27,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     public BookBorrowHeader(Date returnDate, Long userId) {
         this.returnDate = returnDate;
         this.userId = userId;
-        status = CommonStatus.PENDING.getValue();
+        status = CommonStatus.PENDING;
     }
 
     public int getStatus() {

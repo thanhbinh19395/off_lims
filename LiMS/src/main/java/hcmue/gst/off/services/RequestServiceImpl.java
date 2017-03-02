@@ -47,7 +47,7 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
         if (request.getId() == null) {
             request.setCreated_by(user);
             request.setCreated_date(new Date());
-            request.setStatus(CommonStatus.PENDING.getValue());
+            request.setStatus(CommonStatus.PENDING);
         }
         else {
             request.setUpdate_date(new Date());

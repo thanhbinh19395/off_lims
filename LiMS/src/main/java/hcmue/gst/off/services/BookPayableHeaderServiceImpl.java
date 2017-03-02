@@ -25,7 +25,7 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
         SaveHandler(bookPayableHeader);
         if(bookPayableHeader.getId()== null)
         {
-            bookPayableHeader.setStatus(CommonStatus.PENDING.getValue());
+            bookPayableHeader.setStatus(CommonStatus.PENDING);
         }
         return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Lưu thành công");
     }
