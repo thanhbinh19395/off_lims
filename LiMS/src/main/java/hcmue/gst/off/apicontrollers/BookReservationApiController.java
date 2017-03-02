@@ -1,6 +1,8 @@
 package hcmue.gst.off.apicontrollers;
 
+import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.entities.BookReservation;
+import hcmue.gst.off.entities.CommonStatus;
 import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.services.BookReservationService;
@@ -16,20 +18,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/BookReservation")
 public class BookReservationApiController {
     @Autowired
-    private BookReservationService BookReservationService;
+    private BookReservationService bookReservationService;
 
     @RequestMapping("/Save")
     Result Save(BookReservation model) {
-        return BookReservationService.save(model);
+        return bookReservationService.save(model);
     }
 
     @RequestMapping("/Deletes")
     Result Deletes(Long id) {
-        return BookReservationService.delete(id);
+        return bookReservationService.delete(id);
     }
 
     @RequestMapping("/GetList")
     PageableResult GetList(BookReservation model, Pageable p) {
-        return BookReservationService.search(model,p);
+        return bookReservationService.search(model,p);
+    }
+    @RequestMapping("/Handle")
+    Result Handle(Long id) {
+        BookReservation model = bookReservationService.findOne(id).getData();
+        model.setStatus(CommonStatus.SOLVED.getValue());
+        return bookReservationService.save(model);
     }
 }

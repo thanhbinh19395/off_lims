@@ -16,7 +16,7 @@ public class Request extends BaseEntity implements Serializable{
     private String publisher;
     private int published_year;
     private String note;
-    private String status;
+    private int status;
 
     public String getBook_name() {
         return book_name;
@@ -34,11 +34,11 @@ public class Request extends BaseEntity implements Serializable{
         this.author = author;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

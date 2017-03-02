@@ -71,12 +71,12 @@
                         </p>
                     </div>
                 </div>
-                <form class="book-detail-form" role="form" style="clear: both">
+                <form th:action="@{/User/Book/ViewDetail/addToBookCart/}" style="clear: both" method="POST">
                     <div>
                         <p th:text="*{bookStatus.id} == 1 ? #{likeThis} : #{someoneBorrowed}"></p>
-                        <button class="btn" th:classappend="*{bookStatus.id} == 1 ? 'btn-danger':'btn-primary' "><i
-                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
-                                th:text="*{bookStatus.id} == 1? #{borrowNow}: #{reserve}"></span></button>
+                        <input type="hidden" name="ID" th:value="*{id}"/>
+                        <button th:disabled="${existed} ? 'disabled' : 'false'" class="btn" th:classappend="*{bookStatus.id} == 1 ? 'btn-danger':'btn-primary' "><i
+                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="*{bookStatus.id} == 1? #{borrowNow}: #{reserve}"></span></button>
                     </div>
                 </form>
                 <div class="book-rule">

@@ -1,5 +1,6 @@
 package hcmue.gst.off.services;
 
+import hcmue.gst.off.entities.CommonStatus;
 import hcmue.gst.off.entities.Request;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
@@ -46,7 +47,7 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
         if (request.getId() == null) {
             request.setCreated_by(user);
             request.setCreated_date(new Date());
-            request.setStatus("Pending");
+            request.setStatus(CommonStatus.PENDING.getValue());
         }
         else {
             request.setUpdate_date(new Date());

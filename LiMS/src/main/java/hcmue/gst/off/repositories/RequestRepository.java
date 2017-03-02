@@ -17,7 +17,7 @@ public interface RequestRepository extends CrudRepository<Request, Long> {
     String searchQuery = "SELECT m FROM Request m WHERE ( m.id = :#{#model.id} OR ISNULL(:#{#model.id}) = true) "
             + "AND ( m.book_name LIKE %:#{#model.book_name}% OR ISNULL(:#{#model.book_name}) = true) "
             + "AND ( m.author LIKE %:#{#model.author}% OR ISNULL(:#{#model.author}) = true) "
-            + "AND ( m.status LIKE %:#{#model.status}% OR ISNULL(:#{#model.status}) = true) "
+            + "AND ( m.status = :#{#model.status} OR ISNULL(:#{#model.status}) = true) "
             ;
     Iterable<Request> findByStatusContaining(String status);
     @Query(searchQuery)

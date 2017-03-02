@@ -23,7 +23,7 @@ framework.factory('ListBookReservation', {
                 { field: 'id', type: 'text', required: false, caption: "Mã phiếu mượn " },
                 { field: 'bookId', type: 'text', required: false, caption: "mã sách" },
                 { field: 'pickUpdate', type: 'date', required: false, caption: "ngày lấy" },
-                { field: 'status', type: 'date', required: false, caption: "Trạng thái" },
+                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
         header.setTitle('Danh sách Thể Loại')
@@ -77,8 +77,7 @@ framework.factory('ListBookReservation', {
                 { field: 'pickUpDate',type: 'date', caption: 'Ngày lấy sách', size: '50%', sortable: true, resizable: true },
                 { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true }
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnUpdate', 'Đánh dấu đã xử lý', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .addRecords(self.ViewBag.listBookReservation.data).setPaginateOptions(pagi.end())
@@ -90,12 +89,7 @@ framework.factory('ListBookReservation', {
         content.addItem(grid.end());
     },
     onbtnInsertClickGrid: function () {
-        this.openPopup({
-            name: 'insertPopup',
-            url: '/Admin/BookReservation/InsertBookReservation',
-            title: 'Insert BookReservation',
-            width: '700px'
-        });
+
     },
     onbtnUpdateClickGrid: function () {
         var grid = this.findElement('grid');
@@ -106,12 +100,17 @@ framework.factory('ListBookReservation', {
             alert("vui long chon");
             return;
         }
-        this.openPopup({
-            name: 'updatePopup',
-            url: '/Admin/BookReservation/UpdateBookReservation/'+id,
-            title: 'Update Role',
-            width: '700px'
+        w2confirm('Bạn có chắc chắn đánh dấu đã xử lý không ?').yes(function () {
+            $.post('/api/BookReservation/Handle', { id: id }, function (result) {
+                if(result.success){
+                    alertSuccess(result.message);
+                    self.onbtnReloadClick();
+                }
+                else
+                    alert(result.message)
+            });
         });
+        this.reloadGridData();
 
     },
     onbtnDeleteClickGrid: function () {

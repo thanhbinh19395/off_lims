@@ -17,6 +17,7 @@ public interface BookPayableHeaderRepository extends CrudRepository<BookPayableH
             + "AND ( m.overDue = :#{#model.overDue} OR ISNULL(:#{#model.overDue}) = true) "
             + "AND ( m.bookBorrowId = :#{#model.bookBorrowId} OR ISNULL(:#{#model.bookBorrowId}) = true) "
             + "AND ( m.actualReturnDate = :#{#model.actualReturnDate} OR ISNULL(:#{#model.actualReturnDate}) = true) "
+            + "AND ( m.status = :#{#model.status} OR ISNULL(:#{#model.status}) = true) "
             ;
     @Query(searchQuery)
     Page<BookPayableHeader> search(@Param("model") BookPayableHeader model, Pageable page);

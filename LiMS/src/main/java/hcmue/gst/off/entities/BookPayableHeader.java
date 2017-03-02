@@ -16,7 +16,15 @@ public class BookPayableHeader extends BaseEntity {
     private Long bookBorrowId;
     private Date actualReturnDate;
     private Float overDue;
+    private int status;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     private BookBorrowHeader bookBorrowHeader;
 

@@ -15,7 +15,7 @@ public class BookReservation extends BaseEntity implements Serializable {
     private Long bookId;
     private Book book;
     private Date pickUpDate;
-    private String status;
+    private int status;
 
     @Column(name = "book_id")
     public Long getBookId() {
@@ -44,11 +44,11 @@ public class BookReservation extends BaseEntity implements Serializable {
         this.pickUpDate = pickUpDate;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }

@@ -48,7 +48,7 @@
                 <li><a href="/book/new" th:text="#{Mostborrowed}">New!</a></li>
         </ul>
         <ul class="nav navbar-nav" style="float: right;">
-            <li><a style="background: #d62643; color: #fff" href="/User/Borrow/RegistryBorrowForm"  class="external"><span  th:text="#{bookCart}"></span>&nbsp;<span class="badge">5</span></a></li>
+            <li><a style="background: #d62643; color: #fff" href="/User/Borrow/RegistryBorrowForm"  class="external"><span  th:text="#{bookCart}"></span>&nbsp;<span th:if="${#authorization.expression('isAuthenticated()')}" class="badge" th:text="${total}"></span></a></li>
         </ul>
     </nav>
     <div class="row">

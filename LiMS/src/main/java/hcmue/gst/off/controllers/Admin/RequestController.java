@@ -23,9 +23,7 @@ public class RequestController extends AdminBaseController {
     private RequestService requestService;
 
     @RequestMapping("/ListRequest")
-    public String ListRequest(Model model, Pageable p) {
-        Request data = new Request();
-        data.setStatus("chờ");
+    public String ListRequest(Model model,Request data, Pageable p) {
         getViewBag(model).put("listRequest", requestService.search(data,p));
         return View();
     }

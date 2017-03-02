@@ -6,10 +6,11 @@
     <title>Call card</title>
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
+    <link href="/index/borrowingform.css" rel="stylesheet"/>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div  layout:fragment="content">
+<div layout:fragment="content">
     <div class="row">
         <div class="col-md-12">
             <ol class="arrows">
@@ -19,17 +20,100 @@
         </div>
     </div>
     <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <form>
+    <form th:action="@{/}" method="post">
         <h2 th:text="#{callCard}"></h2>
         <div class="alert alert-info">
             <p th:text="#{CallCardTitle}">
                 Please check the information below. Press Borrow if all the infor are correct.
             </p>
         </div>
-        <h3><b th:text="#{Detail}+' '+#{callCard}"></b></h3>
+        <div style="overflow: hidden">
+            <div class="user-info" th:object="${user}">
+                <h3><b th:text="#{callCard}+' '+#{Detail}"></b></h3>
+                <div class="form-group">
+                    <label for="readerName" th:text="#{Name}"></label>
+                    <input class="form-control" id="readerName" name="readerName" th:field="*{name}"
+                           readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                    <label for="birthday" th:text="#{BirthDay}"></label>
+                    <input class="form-control" id="birthday" name="birthday" th:field="*{birthday}"
+                           readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                    <label for="phone" th:text="#{Phonenumber}"></label>
+                    <input class="form-control" id="phone" name="phone" th:field="*{phone}" readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                    <label for="email" th:text="#{Email}"></label>
+                    <input class="form-control" id="email" name="email" th:field="*{email}" readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                    <label for="idcard" th:text="#{IDCard}"></label>
+                    <input class="form-control" id="idcard" name="idcard" th:field="*{idcard}" readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                    <label for="address" th:text="#{Address}"></label>
+                    <input class="form-control" id="address" name="address" th:field="*{address}" readonly="readonly"/>
+                </div>
+                <div class="form-group">
+                    <label for="borrowDate" th:text="#{BorrowDate}"></label>
+                    <input class="form-control" id="borrowDate" name="borrowDate" th:value="${borrowDate}"
+                           readonly="readonly"/>
+                    <label for="returnDate" th:text="#{ReturnDate}"></label>
+                    <input class="form-control" id="returnDate" name="returnDate" th:value="${returnDate}"
+                           readonly="readonly"/>
+                </div>
+            </div>
 
+            <div class="borrowing-book" th:if="${#lists.isEmpty(bookList)}">
+                <p style="opacity: 0.5;"><b>No book have been borrowed</b></p>
+                <a href="/" class="btn btn-danger">Come to library and find you book</a>
+            </div>
+            <div class="borrowing-book" th:if="${not #lists.isEmpty(bookList)}">
+
+                <h3><b th:text="#{List}+' '+#{Book}"></b></h3>
+                <p>This is the list of book you want to borrow. Please check carefully!</p>
+
+                <table class="table table-bordered table-inverse">
+                    <thead>
+                    <tr>
+                        <th th:text="#{BookCode}"></th>
+                        <th th:text="#{BookName}">Last Name</th>
+                        <th th:text="#{author}"></th>
+                        <th th:text="#{Categories}"></th>
+                        <th th:text="#{publisher}">Username</th>
+                        <th th:text="#{bookStatus}"></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="book : ${bookList}">
+                        <th scope="row" th:text="${book.bookCode}"></th>
+                        <td><a th:text="${book.name}" th:href="@{/Book/ViewDetail/}+${book.id}"></a></td>
+                        <td th:text="${book.author}">Otto</td>
+                        <td th:text="${book.bookCategory.category_name}">Otto</td>
+                        <td th:text="${book.publisher}">Otto</td>
+                        <td th:text="${book.state}">Otto</td>
+                        <td>
+                            <input type="hidden" name="ID" th:value="${book.id}" form="delete"/>
+                            <input class="btn btn-danger" type="submit" th:value="submit" form="delete"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div align="center">
+                    <p>You only borrow maximum 3 books at time. Your account will be lock for borrowing until book was returned to library</p>
+                </div>
+                <div class="form-group" align="center">
+                    <button class="btn btn-primary" type="submit" th:text="#{Borrow}"></button>
+                    <button type="button" class="btn btn-success" th:if="${notEnough}" onclick="window.location.href='/'">Keep borrowing</button>
+                </div>
+            </div>
+        </div>
     </form>
-
+    <form id="delete" th:action="@{/User/Borrow/RegistryBorrowForm/Delete}" method="POST"></form>
 </div>
+
 </body>
 </html>

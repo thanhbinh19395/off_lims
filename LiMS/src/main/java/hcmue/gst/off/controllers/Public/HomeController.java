@@ -17,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,12 +40,20 @@ public class HomeController extends PublicBaseController {
     private BookCategoryRepository bookCategoryRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String Index(Model model, Pageable pageable) {
+    public String Index(Model model, Pageable pageable, HttpSession session, HttpServletRequest request) {
+        session = request.getSession();
+        int count = 0;
+        for (int i = 1; i < 4; i++) {
+            if ((Long)session.getAttribute("item"+i) !=null) {
+                count++;
+            }
+        }
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findAll(pageable),"/");
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
         model.addAttribute("header","All book");
+        model.addAttribute("total", count);
         return View("Index");
     }
 

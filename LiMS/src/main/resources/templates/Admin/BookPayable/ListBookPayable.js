@@ -22,6 +22,7 @@ framework.factory('ListBookPayable', {
                 { field: 'bookBorrowId', type: 'text', required: false, caption: "Mã phiếu mượn " },
                 { field: 'actualReturnDate', type: 'date', required: false, caption: "Ngày trả thực tế" },
                 { field: 'overDue', type: 'text', required: false, caption: "Phí quá hạn" },
+                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
         header.setTitle('Danh sách Thể Loại')
@@ -74,6 +75,7 @@ framework.factory('ListBookPayable', {
                 { field: 'bookBorrowId', caption: 'Mã phiếu mượn', size: '50%', sortable: true, resizable: true },
                 { field: 'actualReturnDate',type: 'date', caption: 'Ngày trả thực tế', size: '50%', sortable: true, resizable: true },
                 { field: 'overDue', caption: 'Phí quá hạn', size: '50%', sortable: true, resizable: true },
+                { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true },
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
