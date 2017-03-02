@@ -6,7 +6,6 @@ package hcmue.gst.off.services;
 import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.ImageHandler;
 import hcmue.gst.off.extensions.Result;
-import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
