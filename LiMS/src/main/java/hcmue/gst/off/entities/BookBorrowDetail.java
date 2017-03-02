@@ -12,13 +12,22 @@ import javax.persistence.*;
 public class BookBorrowDetail extends BaseEntity {
 
     private String note;
-    private Book book;
-
-
-    private BookBorrowHeader bookBorrowHeader;
 
     private Long bookId;
+    private Book book;
+
     private Long bookBorrowHeaderId;
+    private BookBorrowHeader bookBorrowHeader;
+
+
+
+
+    public BookBorrowDetail(){}
+
+    public BookBorrowDetail(Long bookBorrowHeaderId, Long bookId) {
+        this.bookBorrowHeaderId = bookBorrowHeaderId;
+        this.bookId = bookId;
+    }
 
     public String getNote() {
         return note;
@@ -57,8 +66,8 @@ public class BookBorrowDetail extends BaseEntity {
         this.bookId = bookId;
     }
 
-    @ManyToOne
-    @JoinColumn(name =  "bookborrowheader_id",insertable = false,updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bookborrowheader_id",insertable = false,updatable = false)
     public BookBorrowHeader getBookBorrowHeader() {
         return bookBorrowHeader;
     }

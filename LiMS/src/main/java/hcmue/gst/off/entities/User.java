@@ -26,6 +26,7 @@ public class User implements Serializable {
     private String password;
     private String confirmPassword;
     private Boolean status;
+    private Boolean borrowable;
 
 
 
@@ -225,5 +226,11 @@ public class User implements Serializable {
         this.bookCategories = bookCategories;
     }
 
+    public Boolean getBorrowable() {
+        return borrowable;
+    }
 
+    public void setBorrowable(Boolean borrowable) {
+        this.borrowable = borrowable;
+    }
 }

@@ -28,13 +28,21 @@ framework.factory('InsertUser', {
                 {
                     field: 'status', type: 'list', required: true, caption: 'Status', options: {
                     items: [
-                        { id: 0, text: 'Deactive' },
-                        { id: 1, text: 'Active' },
+                        {id: 0, text: 'Deactive'},
+                        {id: 1, text: 'Active'},
+                    ]
+                }
+                },
+                {
+                    field: 'borrowable', type: 'list', required: true, caption: 'Borrowable', options: {
+                    items: [
+                        {id: 0, text: 'Disable'},
+                        {id: 1, text: 'Enable'},
                     ]
                 }
                 }
             ])
-            .setRecord({status : 1})
+            .setRecord({status : 1, borrowable: 1})
         ;
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
@@ -48,6 +56,7 @@ framework.factory('InsertUser', {
         var form = this.findElement('insertForm');
         if (!form.validate().length) {
             form.record.status = form.record.status.id;
+            form.record.borrowable = form.record.borrowable.id;
             $.post('/api/User/Save', form.record , function (result) {
                 if(result.success)
                     alertSuccess(result.message);

@@ -22,6 +22,7 @@ framework.factory('UpdateUser', {
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
                 { field: 'password', caption: 'Password', type: 'text' },
                 { field: 'status', caption: 'Status', type: 'text' },
+                { field: 'borrowable', caption: 'Borrowable', type: 'text' },
                 { field: 'roleId', caption: 'Role', type: 'popupListRole', options:{caller:self, data: self.ViewBag.user.data.role} },
             ])
             .setRecord(this.ViewBag.user.data)

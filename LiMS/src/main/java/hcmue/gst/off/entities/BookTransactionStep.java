@@ -7,11 +7,11 @@ public enum BookTransactionStep {
     BORROWED(0),
     AVAILABLE(1),
     RESERVATED(2);
-    private final int value;
+    private final Integer value;
 
-    BookTransactionStep(final int newValue) {
+    BookTransactionStep(final Integer newValue) {
         value = newValue;
     }
 
-    public int getValue() { return value; }
+    public Integer getValue() { return value; }
 }

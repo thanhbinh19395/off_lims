@@ -51,8 +51,8 @@
                         <div>
                             <span class="book-detail"><h5 th:text="#{bookTransactionStatus}"></h5></span>
                             <span class="book-detail"><h4><span class="label"
-                                                                th:classappend="*{bookStatus.id} == 1 ? 'label-success' : 'label-danger'"
-                                                                th:text="*{bookStatus.description}"></span></h4></span>
+                                                                th:classappend="*{state} == 1 ? 'label-success' : 'label-danger'"
+                                                                th:text="*{state} == 1? #{Available}:#{Occupied}"></span></h4></span>
                         </div>
                         <div class="divider-vertical"></div>
                     </div>
@@ -71,12 +71,18 @@
                         </p>
                     </div>
                 </div>
-                <form th:action="@{/User/Book/ViewDetail/addToBookCart/}" style="clear: both" method="POST">
+                <br/>
+                <div th:if="${forbiddenUser}">
+                    <p>
+                        <h4><span class="label label-danger">You no longer borrow or reserve book. Please return book back to library before borrow a new one.</span></h4>
+                    </p>
+                </div>
+                <form th:unless="${forbiddenUser}" th:action="@{/User/Book/ViewDetail/addToBookCart/}" style="clear: both" method="POST">
                     <div>
-                        <p th:text="*{bookStatus.id} == 1 ? #{likeThis} : #{someoneBorrowed}"></p>
+                        <p th:text="*{state} == 1 ? #{likeThis} : #{someoneBorrowed}"></p>
                         <input type="hidden" name="ID" th:value="*{id}"/>
-                        <button th:disabled="${existed} ? 'disabled' : 'false'" class="btn" th:classappend="*{bookStatus.id} == 1 ? 'btn-danger':'btn-primary' "><i
-                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="*{bookStatus.id} == 1? #{borrowNow}: #{reserve}"></span></button>
+                        <button th:disabled="${existed} ? 'disabled' : 'false'" class="btn" th:classappend="*{state} == 1 ? 'btn-danger':'btn-primary' "><i
+                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="*{state} == 1? #{borrowNow}: #{reserve}"></span></button>
                     </div>
                 </form>
                 <div class="book-rule">

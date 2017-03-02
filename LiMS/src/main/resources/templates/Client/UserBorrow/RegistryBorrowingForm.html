@@ -20,7 +20,7 @@
         </div>
     </div>
     <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <form th:action="@{/}" method="post">
+    <form th:action="@{/User/Borrow/RegistryBorrowForm/handleSubmit}" method="post" id="submitBorrow">
         <h2 th:text="#{callCard}"></h2>
         <div class="alert alert-info">
             <p th:text="#{CallCardTitle}">
@@ -33,28 +33,32 @@
                 <div class="form-group">
                     <label for="readerName" th:text="#{Name}"></label>
                     <input class="form-control" id="readerName" name="readerName" th:field="*{name}"
-                           readonly="readonly"/>
+                          required="required"/>
                 </div>
                 <div class="form-group">
                     <label for="birthday" th:text="#{BirthDay}"></label>
                     <input class="form-control" id="birthday" name="birthday" th:field="*{birthday}"
-                           readonly="readonly"/>
+                        required="required"   />
                 </div>
                 <div class="form-group">
                     <label for="phone" th:text="#{Phonenumber}"></label>
-                    <input class="form-control" id="phone" name="phone" th:field="*{phone}" readonly="readonly"/>
+                    <input class="form-control" id="phone" name="phone" th:field="*{phone}"
+                          required="required" />
                 </div>
                 <div class="form-group">
                     <label for="email" th:text="#{Email}"></label>
-                    <input class="form-control" id="email" name="email" th:field="*{email}" readonly="readonly"/>
+                    <input class="form-control" id="email" name="email" th:field="*{email}"
+                          required="required"/>
                 </div>
                 <div class="form-group">
                     <label for="idcard" th:text="#{IDCard}"></label>
-                    <input class="form-control" id="idcard" name="idcard" th:field="*{idcard}" readonly="readonly"/>
+                    <input class="form-control" id="idcard" name="idcard" th:field="*{idcard}"
+                           required="required"/>
                 </div>
                 <div class="form-group">
                     <label for="address" th:text="#{Address}"></label>
-                    <input class="form-control" id="address" name="address" th:field="*{address}" readonly="readonly"/>
+                    <input class="form-control" id="address" name="address" th:field="*{address}"
+                           required="required" />
                 </div>
                 <div class="form-group">
                     <label for="borrowDate" th:text="#{BorrowDate}"></label>
@@ -90,14 +94,14 @@
                     <tbody>
                     <tr th:each="book : ${bookList}">
                         <th scope="row" th:text="${book.bookCode}"></th>
-                        <td><a th:text="${book.name}" th:href="@{/Book/ViewDetail/}+${book.id}"></a></td>
+                        <td><a th:text="${book.name}" th:field="*{book.name}" th:href="@{/Book/ViewDetail/}+${book.id}"></a></td>
                         <td th:text="${book.author}">Otto</td>
                         <td th:text="${book.bookCategory.category_name}">Otto</td>
                         <td th:text="${book.publisher}">Otto</td>
-                        <td th:text="${book.state}">Otto</td>
+                        <td th:text="${book.bookStatus.description}">Otto</td>
                         <td>
                             <input type="hidden" name="ID" th:value="${book.id}" form="delete"/>
-                            <input class="btn btn-danger" type="submit" th:value="submit" form="delete"/>
+                            <input class="btn btn-danger" type="submit" th:value="Delete" form="delete"/>
                         </td>
                     </tr>
                     </tbody>
@@ -106,7 +110,7 @@
                     <p>You only borrow maximum 3 books at time. Your account will be lock for borrowing until book was returned to library</p>
                 </div>
                 <div class="form-group" align="center">
-                    <button class="btn btn-primary" type="submit" th:text="#{Borrow}"></button>
+                    <button class="btn btn-primary" type="submit" th:text="#{Borrow}" form="submitBorrow"></button>
                     <button type="button" class="btn btn-success" th:if="${notEnough}" onclick="window.location.href='/'">Keep borrowing</button>
                 </div>
             </div>
