@@ -1,7 +1,6 @@
 package hcmue.gst.off.services;
 
-import hcmue.gst.off.entities.BookPayableHeader;
-import hcmue.gst.off.entities.CommonStatus;
+import hcmue.gst.off.entities.*;
 import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
@@ -11,6 +10,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by dylan on 2/24/2017.
  */
@@ -19,14 +22,39 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
 
     @Autowired
     BookPayableHeaderRepository bookPayableHeaderRepository;
+    @Autowired
+    BookBorrowHeaderService bookBorrowHeaderService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    BookService bookService;
 
     @Override
     public Result<BookPayableHeader> save(BookPayableHeader bookPayableHeader) {
         SaveHandler(bookPayableHeader);
-        if(bookPayableHeader.getId()== null)
+        BookBorrowHeader curBB = bookPayableHeader.getBookBorrowHeader();
+        // calc duedate
+        Date dateBB = curBB.getReturnDate();
+        bookPayableHeader.setOverDue(bookPayableHeader.getActualReturnDate().getTime() -dateBB.getTime());
+        //, bbheader.status = solved;
+
+        curBB.setStatus(CommonStatus.SOLVED);
+        bookBorrowHeaderService.save(curBB);
+
+        //  user.borrowable = true
+        User curUser = curBB.getUser();
+        curUser.setBorrowable(Boolean.TRUE);
+        userService.save(curUser);
+
+        // book state borrowed-> available
+        Set<BookBorrowDetail> details= curBB.getBookBorrowDetails();
+        for (BookBorrowDetail detail: details)
         {
-            bookPayableHeader.setStatus(CommonStatus.PENDING);
+            Book curBook = detail.getBook();
+            curBook.setState(BookTransactionStep.AVAILABLE);
+            bookService.save(curBook);
         }
+
         return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Lưu thành công");
     }
 

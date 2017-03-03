@@ -6,6 +6,7 @@ import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.services.BookBorrowDetailService;
 import hcmue.gst.off.services.BookBorrowHeaderService;
 import hcmue.gst.off.services.BookService;
+import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class InsertBookBorrowBusiness extends BaseCommand {
 
     @Autowired
     BookService bookService;
+    @Autowired
+    UserService userService;
 
     public BookBorrowHeader getHeader() {
         return header;
@@ -66,6 +69,9 @@ public class InsertBookBorrowBusiness extends BaseCommand {
             }
         }
         // khóa phiếu mượn lại
+        User curUser = header.getUser();
+        curUser.setBorrowable(Boolean.FALSE);
+        userService.save(curUser);
         return Success(header.getId(),"Lưu thành công");
     }
 }
