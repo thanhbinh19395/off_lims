@@ -1,5 +1,6 @@
 package hcmue.gst.off.apicontrollers;
 
+import hcmue.gst.off.business.InsertBookBorrowBusiness;
 import hcmue.gst.off.entities.BookBorrowDetail;
 import hcmue.gst.off.entities.BookBorrowHeader;
 import hcmue.gst.off.extensions.PageableResult;
@@ -43,5 +44,11 @@ public class BookBorrowApiController {
     @RequestMapping("/Search")
     PageableResult<BookBorrowHeader> Search(BookBorrowHeader model, Pageable p){
         return BookBorrowHeaderService.search(model,p);
+    }
+
+
+    @RequestMapping("/Insert")
+    Result Insert(InsertBookBorrowBusiness bus) {
+        return bus.Execute();
     }
 }

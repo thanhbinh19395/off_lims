@@ -51,7 +51,7 @@ public class InsertBookBorrowBusiness extends BaseCommand {
         Result<BookBorrowHeader> bookBorrowHeader = bookBorrowHeaderService.save(header);
         if(!bookBorrowHeader.isSuccess())
         {
-            return Fail("Lưu thất bại");
+            return Fail(bookBorrowHeader.getMessage());
         }
 
 
@@ -62,10 +62,10 @@ public class InsertBookBorrowBusiness extends BaseCommand {
             bookService.save(tmp);
             detail.setBookBorrowHeader(bookBorrowHeader.getData());
             detail.setBookBorrowHeaderId(bookBorrowHeader.getData().getId());
-            bookBorrowDetailService.save(detail);
-            if(!bookBorrowDetailService.save(detail).isSuccess())
+            Result bbdResult = bookBorrowDetailService.save(detail);
+            if(!bbdResult.isSuccess())
             {
-                return Fail("Lưu thất bại");
+                return Fail(bbdResult.getMessage());
             }
         }
         // khóa phiếu mượn lại
