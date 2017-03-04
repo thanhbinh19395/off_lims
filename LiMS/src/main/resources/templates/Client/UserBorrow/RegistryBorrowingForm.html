@@ -30,6 +30,7 @@
         <div style="overflow: hidden">
             <div class="user-info" th:object="${user}">
                 <h3><b th:text="#{callCard}+' '+#{Detail}"></b></h3>
+                <input type="hidden" th:field="*{id}"/>
                 <div class="form-group">
                     <label for="readerName" th:text="#{Name}"></label>
                     <input class="form-control" id="readerName" name="readerName" th:field="*{name}"

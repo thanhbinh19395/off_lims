@@ -15,7 +15,7 @@ import java.util.Set;
 public class BookBorrowHeader extends BaseEntity implements Serializable{
     private Date returnDate;
     private Set<BookBorrowDetail> bookBorrowDetails;
-    private Integer  status;
+    private Integer status;
 
     private Long userId;
     private User user;
@@ -30,11 +30,11 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
         status = CommonStatus.PENDING;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

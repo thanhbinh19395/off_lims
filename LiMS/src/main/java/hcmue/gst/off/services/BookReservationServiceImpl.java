@@ -39,14 +39,7 @@ public class BookReservationServiceImpl extends BaseCommand implements BookReser
     @Override
     public Result<BookReservation> save(BookReservation bookReservation) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
-        // khi nào có book detail rồi thì mở đoạn code này ra
-        /*
-        BookBorrowDetail bookBorrowDetail = new BookBorrowDetail();
-        bookBorrowDetail.setBookId(bookReservation.getBookId());
-        BookBorrowHeader bookBorrowHeader = bookBorrowDetailService.search(bookBorrowDetail).getData().iterator().next().getBookBorrowHeader();
-        bookBorrowHeader.setBookTransaction(2);
-        bookBorrowHeaderService.save(bookBorrowHeader);
-        */
+
         if (bookReservation.getId() == null) {
             bookReservation.setCreated_by(user);
             bookReservation.setCreated_date(new Date());

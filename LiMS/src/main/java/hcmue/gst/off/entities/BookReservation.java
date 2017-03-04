@@ -1,6 +1,7 @@
 package hcmue.gst.off.entities;
 
 import hcmue.gst.off.extensions.BaseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,8 +15,10 @@ import java.util.Date;
 public class BookReservation extends BaseEntity implements Serializable {
     private Long bookId;
     private Book book;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date pickUpDate;
-    private int status;
+    private Integer status;
 
     @Column(name = "book_id")
     public Long getBookId() {
@@ -44,11 +47,11 @@ public class BookReservation extends BaseEntity implements Serializable {
         this.pickUpDate = pickUpDate;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

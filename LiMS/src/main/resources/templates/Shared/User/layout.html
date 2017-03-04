@@ -54,6 +54,7 @@
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
                         <li><a><b th:text="${#authentication.getName()}">user</b></a></li>
                         <li class="divider"></li>
+                        <li><a style="line-height: 40px;" href="/User/ViewLog"  class="external" th:text="#{ViewLog}"></a></li>
                         <li><a style="line-height: 40px;" href="/User/UpdateInfoUser"  class="external" th:text="#{SettingProfile}"></a></li>
                         <li><a style="line-height: 40px;" href="/User/UpdatePassword" class="external" th:text="#{Changepassword}"></a></li>
                         <li class="divider"></li>

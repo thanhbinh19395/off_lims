@@ -23,4 +23,5 @@ public interface BookBorrowDetailRepository extends CrudRepository<BookBorrowDet
     Page<BookBorrowDetail> search(@Param("model") BookBorrowDetail model, Pageable page);
     @Query(searchQuery)
     Iterable<BookBorrowDetail> search(@Param("model") BookBorrowDetail model);
+
 }

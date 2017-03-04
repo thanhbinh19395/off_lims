@@ -9,6 +9,9 @@
     <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
           type='text/css'/>
     <link href="/index/detail.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 </head>
 <body>
@@ -17,7 +20,8 @@
         <div class="col-md-12">
             <ol class="arrows">
                 <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/book/bookCategory/}+${Book.bookCategory.id}" th:text="${Book.bookCategory.category_name}"></a></li>
+                <li><a th:href="@{/book/bookCategory/}+${Book.bookCategory.id}"
+                       th:text="${Book.bookCategory.category_name}"></a></li>
                 <li><a th:href="@{/Book/ViewDetail/}+${Book.id}" th:text="${Book.name}"></a></li>
             </ol>
         </div>
@@ -26,7 +30,7 @@
     <div class="row" style="margin: 10px" th:object="${Book}">
         <div class="col-xs-5">
             <div align="center" style="margin-top: 30px;">
-                <img th:src="*{imageUrl}" th:width="300px" th:height="400px"/>
+                <img th:src="${Book.imageUrl}" th:width="300px" th:height="400px"/>
             </div>
         </div>
         <div class="col-xs-7">
@@ -59,10 +63,15 @@
                     <div class="divider-vertical"></div>
                     <div class="item-other">
                         <p>&diams;
-                        <span th:text="#{Seemore}"> See more </span><a href="#" th:text=" ' '+#{books}+' '+ #{of} +' ' + *{author}"></a> <span th:text="#{atOffLibrary}"> at OFF Library</span>
+                            <span th:text="#{Seemore}"> See more </span><a href="#"
+                                                                           th:text=" ' '+#{books}+' '+ #{of} +' ' + *{author}"></a>
+                            <span th:text="#{atOffLibrary}"> at OFF Library</span>
                         </p>
                         <p>&diams;
-                            <span th:text="#{Tutorial}"> Tutorial</span> <a href="/Borrow/HowToBorrow" th:text="#{Borrow}">borrow</a> <span th:text="#{and}">and</span> <a href="#" th:text="#{Reserve}">reserve</a> <span th:text="#{books}"> books </span>
+                            <span th:text="#{Tutorial}"> Tutorial</span> <a href="/Borrow/HowToBorrow"
+                                                                            th:text="#{Borrow}">borrow</a> <span
+                                    th:text="#{and}">and</span> <a href="#" th:text="#{Reserve}">reserve</a> <span
+                                    th:text="#{books}"> books </span>
                         </p>
 
                         <p>&diams;
@@ -72,19 +81,90 @@
                     </div>
                 </div>
                 <br/>
+
                 <div th:if="${forbiddenUser}">
                     <p>
-                        <h4><span class="label label-danger">You no longer borrow or reserve book. Please return book back to library before borrow a new one.</span></h4>
+                    <h4><span class="label label-danger">You no longer borrow or reserve book. Please return book back to library before borrow a new one.</span>
+                    </h4>
                     </p>
                 </div>
-                <form th:unless="${forbiddenUser}" th:action="@{/User/Book/ViewDetail/addToBookCart/}" style="clear: both" method="POST">
+                <form th:unless="${forbiddenUser}" action="/User/Book/ViewDetail/addToBookCart"
+                      style="clear: both" method="POST">
                     <div>
                         <p th:text="*{state} == 1 ? #{likeThis} : #{someoneBorrowed}"></p>
                         <input type="hidden" name="ID" th:value="*{id}"/>
-                        <button th:disabled="${existed} ? 'disabled' : 'false'" class="btn" th:classappend="*{state} == 1 ? 'btn-danger':'btn-primary' "><i
-                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="*{state} == 1? #{borrowNow}: #{reserve}"></span></button>
+                        <button th:if="*{state}==1" th:disabled="${existed} ? 'disabled' : 'false'"
+                                class="btn btn-danger"><i
+                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
+                                th:text="#{borrowNow}"></span></button>
                     </div>
                 </form>
+                <div th:unless="${forbiddenUser}" th:if="*{state}==0">
+                    <button type="button" th:disabled="${existed} ? 'disabled' : 'false'" class="btn btn-primary"
+                            data-toggle="modal" data-target="#myModal"><i
+                            class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="#{reserve}"></span>
+                    </button>
+                </div>
+                <div th:unless="${forbiddenUser}" th:if="*{state}==2">
+                    <p>
+                    <h4><span class="label label-danger">This book have been borrowed and reserved.
+                    You will be able to reserve this book on <span th:text="${returnDate}"></span></span>
+                    </h4>
+                    </p>
+                </div>
+                <div th:if="${returnDate}" class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="/User/Book/ViewDetail/reserveBook" id="reserveForm" method="post" th:object="${reservationBook}">
+                                <div class="modal-header" style="background: #d62643; color: #fff; font-weight: bold;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Reserve <span th:text="${Book.name}"></span></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div style="float: left; width: 40%;">
+                                        <div align="center" style="margin-top:20px;">
+                                            <img th:src="${Book.imageUrl}" th:width="200px"
+                                                 th:height="300px"/>
+                                        </div>
+                                    </div>
+                                    <div style="float: right; width: 55%;">
+                                        <div>
+                                            <input type="hidden" id="bookId" name="bookId" th:value="${Book.id}"/>
+                                            <input type="hidden" id="pickUpDate" name="pickUpDate" th:value="${returnDate}"/>
+                                            <label for="name">Book name</label>
+                                            <input class="form-control" id="name" type="text" th:value="${Book.name}"
+                                                   readonly="readonly"/>
+                                            <br/>
+                                            <label for="author">Author</label>
+                                            <input class="form-control" id="author" type="text" th:value="${Book.author}"
+                                                   readonly="readonly"/><br/>
+
+                                            <label for="publisher">Publisher</label>
+                                            <input class="form-control" id="publisher" type="text"
+                                                   th:value="${Book.publisher}"
+                                                   readonly="readonly"/>
+                                        </div>
+                                    </div>
+
+                                    <div style="clear: both; padding-top: 10px" align="center">
+                                        <div style="margin-top: 20px;">
+                                            <h3>
+                                            <span class="label label-danger">This book will be returned to library on <span
+                                                    th:text="${returnDate}"></span></span>
+                                            </h3>
+                                            <p>Do you want to reserve it?</p>
+                                            <button type="submit" form="reserveForm" class="btn btn-danger">Yes
+                                            </button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="book-rule">
                     <div class="book-rule-title">
                         <h3 style="opacity: 0.5;" th:text="#{Rule}"></h3>
