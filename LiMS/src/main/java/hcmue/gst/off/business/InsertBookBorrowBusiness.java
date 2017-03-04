@@ -8,12 +8,14 @@ import hcmue.gst.off.services.BookBorrowHeaderService;
 import hcmue.gst.off.services.BookService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by Thanh Binh on 2/25/2017.
  */
+@Component
 public class InsertBookBorrowBusiness extends BaseCommand {
     private BookBorrowHeader header;
     private List<BookBorrowDetail> details;

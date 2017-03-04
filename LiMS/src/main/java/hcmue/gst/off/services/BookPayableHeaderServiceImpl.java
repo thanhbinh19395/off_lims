@@ -32,28 +32,6 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
     @Override
     public Result<BookPayableHeader> save(BookPayableHeader bookPayableHeader) {
         SaveHandler(bookPayableHeader);
-        BookBorrowHeader curBB = bookPayableHeader.getBookBorrowHeader();
-        // calc duedate
-        Date dateBB = curBB.getReturnDate();
-        bookPayableHeader.setOverDue(bookPayableHeader.getActualReturnDate().getTime() -dateBB.getTime());
-        //, bbheader.status = solved;
-
-        curBB.setStatus(CommonStatus.SOLVED);
-        bookBorrowHeaderService.save(curBB);
-
-        //  user.borrowable = true
-        User curUser = curBB.getUser();
-        curUser.setBorrowable(Boolean.TRUE);
-        userService.save(curUser);
-
-        // book state borrowed-> available
-        Set<BookBorrowDetail> details= curBB.getBookBorrowDetails();
-        for (BookBorrowDetail detail: details)
-        {
-            Book curBook = detail.getBook();
-            curBook.setState(BookTransactionStep.AVAILABLE);
-            bookService.save(curBook);
-        }
 
         return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Lưu thành công");
     }

@@ -24,6 +24,8 @@ public class BookBorrowApiController {
     private BookBorrowHeaderService BookBorrowHeaderService;
     @Autowired
     private BookBorrowDetailService bookBorrowDetailService;
+    @Autowired
+    private InsertBookBorrowBusiness insertBookBorrowBusiness;
 
     @RequestMapping("/Save")
     Result Save(BookBorrowHeader header,List<BookBorrowDetail> detail) {
@@ -48,7 +50,11 @@ public class BookBorrowApiController {
 
 
     @RequestMapping("/Insert")
-    Result Insert(InsertBookBorrowBusiness bus) {
-        return bus.Execute();
+    Result Insert() {
+        // Dữ liệu giả
+
+
+
+        return insertBookBorrowBusiness.Execute();
     }
 }
