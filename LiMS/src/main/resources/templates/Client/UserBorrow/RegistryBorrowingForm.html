@@ -72,13 +72,13 @@
             </div>
 
             <div class="borrowing-book" th:if="${#lists.isEmpty(bookList)}">
-                <p style="opacity: 0.5;"><b>No book have been borrowed</b></p>
-                <a href="/" class="btn btn-danger">Come to library and find you book</a>
+                <p style="opacity: 0.5;"><b th:text="#{NobookHave}">No book have been borrowed</b></p>
+                <a href="/" class="btn btn-danger" th:text="#{Cometolibrary}">Come to library and find you book</a>
             </div>
             <div class="borrowing-book" th:if="${not #lists.isEmpty(bookList)}">
 
                 <h3><b th:text="#{List}+' '+#{Book}"></b></h3>
-                <p>This is the list of book you want to borrow. Please check carefully!</p>
+                <p th:text="#{Thisisthe}">This is the list of book you want to borrow. Please check carefully!</p>
 
                 <table class="table table-bordered table-inverse">
                     <thead>
@@ -102,17 +102,17 @@
                         <td th:text="${book.bookStatus.description}">Otto</td>
                         <td>
                             <input type="hidden" name="ID" th:value="${book.id}" form="delete"/>
-                            <input class="btn btn-danger" type="submit" th:value="Delete" form="delete"/>
+                            <input class="btn btn-danger" type="submit" th:value="#{Delete}" form="delete"/>
                         </td>
                     </tr>
                     </tbody>
                 </table>
                 <div align="center">
-                    <p>You only borrow maximum 3 books at time. Your account will be lock for borrowing until book was returned to library</p>
+                    <p th:text="#{BorrowFormNoti}">You only borrow maximum 3 books at time. Your account will be lock for borrowing until book was returned to library</p>
                 </div>
                 <div class="form-group" align="center">
                     <button class="btn btn-primary" type="submit" th:text="#{Borrow}" form="submitBorrow"></button>
-                    <button type="button" class="btn btn-success" th:if="${notEnough}" onclick="window.location.href='/'">Keep borrowing</button>
+                    <button type="button" class="btn btn-success" th:if="${notEnough}" onclick="window.location.href='/'" th:text="#{Keepborrowing}">Keep borrowing</button>
                 </div>
             </div>
         </div>

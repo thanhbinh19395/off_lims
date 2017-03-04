@@ -3,15 +3,8 @@ package hcmue.gst.off.entities;
 /**
  * Created by WIN8.1 on 08/02/2017.
  */
-public enum BookTransactionStep {
-    BORROWED(0),
-    AVAILABLE(1),
-    RESERVATED(2);
-    private final Integer value;
-
-    BookTransactionStep(final Integer newValue) {
-        value = newValue;
-    }
-
-    public Integer getValue() { return value; }
+public final class BookTransactionStep {
+   public static final Integer AVAILABLE = 0;
+    public static final Integer BORROWED = 1;
+    public static final Integer RESERVATED = 2;
 }

@@ -18,40 +18,40 @@ public class BaseCommand {
     @Autowired
     protected SecurityService securityService;
 
-    public final <T> Result<T> Success(T data, String message) {
+    protected final <T> Result<T> Success(T data, String message) {
         return new Result<T>(data,message,true);
     }
-    public final <T> Result<T> Success(T data) {
+    protected final <T> Result<T> Success(T data) {
         return this.Success(data,"success");
     }
-    public final <T> Result<T> Success(String message) {
+    protected final <T> Result<T> Success(String message) {
         return new Result<T>(null,message,true);
     }
-    public final <T> Result<T> Success() {
+    protected final <T> Result<T> Success() {
         return new Result<T>(null,"success",true);
     }
 
 
-    public final <T> Result<T> Fail(String message, T data) {
+    protected final <T> Result<T> Fail(String message, T data) {
         return new Result<T>(data,message,false);
     }
-    public final <T> Result<T> Fail(T data) {
+    protected final <T> Result<T> Fail(T data) {
         return this.Fail("fail",data);
     }
-    public final <T> Result<T> Fail(String message) {
+    protected final <T> Result<T> Fail(String message) {
         return this.Fail(message,null);
     }
-    public final <T> Result<T> Fail() {
+    protected final <T> Result<T> Fail() {
         return this.Fail("fail",null);
     }
-    public final <T> PageableResult<T> Success(Page<T> data, String message) {
+    protected final <T> PageableResult<T> Success(Page<T> data, String message) {
         return new PageableResult<T>(data,message,true);
     }
-    public final <T> PageableResult<T> Success(Page<T> data) {
+    protected final <T> PageableResult<T> Success(Page<T> data) {
         return this.Success(data,"success");
     }
 
-    public void SaveHandler(BaseEntity entity){
+    protected void SaveHandler(BaseEntity entity){
         User user = securityService.getUser();
         if (entity.getId() == null) {
             entity.setCreated_by(user);

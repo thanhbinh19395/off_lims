@@ -1,6 +1,8 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import hcmue.gst.off.extensions.BaseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +15,9 @@ import java.util.Set;
 @Entity
 @Table(name = "bookborrowheader")
 public class BookBorrowHeader extends BaseEntity implements Serializable{
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "PST")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date returnDate;
     private Set<BookBorrowDetail> bookBorrowDetails;
     private Integer status;
@@ -37,6 +42,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     public void setStatus(Integer status) {
         this.status = status;
     }
+
 
     public Date getReturnDate() {
         return returnDate;
