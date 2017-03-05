@@ -77,7 +77,7 @@
             <div class="container-item" th:each="book : ${books}">
             <div class="item">
                 <div class="item-overlay" th:style="'background:url(' + ${book.imageUrl} + ');'">
-                    <div th:style="${book.state} != 1 ? 'background: #ff3333' :'' " class="sale-tag"><span></span></div>
+                    <div th:style="${book.state} != 0 ? 'background: #ff3333' :'' " class="sale-tag"><span></span></div>
                 </div>
                 <div class="item-content">
 
