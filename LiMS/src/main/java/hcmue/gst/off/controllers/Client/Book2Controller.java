@@ -70,7 +70,7 @@ public class Book2Controller extends UserBaseController {
                 model.addAttribute("forbiddenUser", true);
             }
         }
-        if (book.getState() == BookTransactionStep.BORROWED.getValue() || book.getState() == BookTransactionStep.RESERVATED.getValue()) {
+        if (book.getState() == BookTransactionStep.BORROWED || book.getState() == BookTransactionStep.RESERVATED) {
             BookBorrowDetail bookBorrowDetail = new BookBorrowDetail();
             bookBorrowDetail.setBookId(id);
             BookBorrowDetail bookBorrowDetailSearchModel = bookBorrowDetailRepository.search(bookBorrowDetail).iterator().next();
@@ -80,7 +80,7 @@ public class Book2Controller extends UserBaseController {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             model.addAttribute("returnDate", sdf.format(returnDate));
             model.addAttribute("reservationBook", new BookReservation());
-            if (book.getState() == BookTransactionStep.RESERVATED.getValue()) {
+            if (book.getState() == BookTransactionStep.RESERVATED) {
                 Calendar c = Calendar.getInstance();
                 c.setTime(returnDate);
                 c.add(Calendar.DATE, 1);
