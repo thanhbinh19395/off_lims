@@ -29,11 +29,7 @@ public class SecurityServiceImpl implements SecurityService {
     }
 
     public User getUser() {
-        Object userDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (userDetails instanceof UserDetails) {
-            return userService.findByUsername(((UserDetails) userDetails).getUsername());
-        }
-        return null;
+        return userService.findByUsername(this.findLoggedInUsername());
     }
 
 }

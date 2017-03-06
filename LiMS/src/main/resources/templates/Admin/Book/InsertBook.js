@@ -15,7 +15,7 @@ framework.factory('InsertBook', {
             .addFields([
                 { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'image', type: 'file', required: false, caption: 'Hình',
+                { field: 'image', type: 'file', required: true, caption: 'Hình',
                     options:{
                         max:1,
                 } },
@@ -39,19 +39,15 @@ framework.factory('InsertBook', {
             framework.common.requestUploadImages({
                 listImages: form.record.image,
                 successHandler:function(result){
+                    framework.common.cmdResultNoti(result);
                     if(result.success){
                         form.record.imageUrl = result.data;
                         form.record.image = null;
-                        $.post('/api/Book/Save', form.record , function (result) {
-                            if(result.success)
-                                alertSuccess(result.message);
-                            else
-                                alert(result.message)
-                            self.sendMessage(result);
+                        $.post('/api/Book/Save', form.record , function (r) {
+                            framework.common.cmdResultNoti(r);
+                            self.sendMessage(r);
                         });
                     }
-                    else
-                        alert(result.message);
                 }.bind(self),
 
             });
