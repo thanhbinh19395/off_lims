@@ -4,7 +4,7 @@
 /**
  * Created by dylan on 2/23/2017.
  */
-framework.factory('CreateBB', {
+framework.factory('InsertBookBorrow', {
     onPopupHandler: function (data) {
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
@@ -153,6 +153,7 @@ framework.factory('CreateBB', {
         console.log(e);
     },
     onBtnSaveClick: function () {
+        var self = this;
         var curBB = this.getCurrentBB();
         if (curBB) {
             $.ajax({
@@ -161,6 +162,11 @@ framework.factory('CreateBB', {
                     data: JSON.stringify( curBB ),
                     success: function(r){
                         framework.common.cmdResultNoti(r);
+                        if(r.success){
+                            self.toInitState();
+                            if(self.parentId)
+                                self.sendMessage(r);
+                        }
                     },
                     dataType: "json",
                     contentType: "application/json"

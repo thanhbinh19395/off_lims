@@ -543,7 +543,7 @@ define(function () {
                         return this;
 
                     },
-                    addRecords: function (records) {
+                    setRecords: function (records) {
                         if (!obj.data)
                             obj.data = [];
                         $.extend(obj.data, records);

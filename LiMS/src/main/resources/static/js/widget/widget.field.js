@@ -206,6 +206,15 @@ $().w2field('addType', 'popupListBookCategory', function (options) {
             var records = result.data;
             if (records.length == 0) {
                 alert("BookCategory Not found !");
+                options.caller.openPopup({
+                    name: self.type,
+                    //page list ấy
+                    url: '/Admin/BookCategory/ListBookCategory',
+                    width: data.width || (options.width || 600),
+                    height: data.height || (options.height || 'auto'),
+                    resizable: true
+
+                }, data.param);
                 return;
             }
             if (records.length == 1) {
@@ -330,6 +339,15 @@ $().w2field('addType', 'popupListBookStatus', function (options) {
             var records = result.data;
             if (records.length == 0) {
                 alert("ListBookStatus Not found !");
+                options.caller.openPopup({
+                    name: self.type,
+                    //page list ấy
+                    url: '/Admin/BookStatus/ListBookStatus',
+                    width: data.width || (options.width || 600),
+                    height: data.height || (options.height || 'auto'),
+                    resizable: true
+
+                }, data.param);
                 return;
             }
             if (records.length == 1) {
@@ -401,12 +419,11 @@ $().w2field('addType', 'popupListUser', function (options) {
             //3
             if (sender.pageName == 'ListUser')
             {
-                console.log(message.data.id);
-                $(self.el).val(message.data.id);
+                $(self.el).val(message.id);
                 $(self.el).change();
-                $(input).val(message.data.name)
-                $(self.el).data('data', message.data.name);
-                sender.close();
+                $(input).val(message.name)
+                $(self.el).data('data', message);
+                sender.close || sender.close();
             }
         }
     });
@@ -455,6 +472,15 @@ $().w2field('addType', 'popupListUser', function (options) {
             var records = result.data;
             if (records.length == 0) {
                 alert("User Not found !");
+                options.caller.openPopup({
+                    name: self.type,
+                    //page list ấy
+                    url: '/Admin/User/ListUser',
+                    width: data.width || (options.width || 600),
+                    height: data.height || (options.height || 'auto'),
+                    resizable: true
+
+                }, data.param);
                 return;
             }
             if (records.length == 1) {

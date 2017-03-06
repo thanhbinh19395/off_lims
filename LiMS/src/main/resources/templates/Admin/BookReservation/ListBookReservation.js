@@ -80,7 +80,7 @@ framework.factory('ListBookReservation', {
             .addButton('btnUpdate', 'Đánh dấu đã xử lý', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBookReservation.data).setPaginateOptions(pagi.end())
+            .setRecords(self.ViewBag.listBookReservation.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));

@@ -83,7 +83,7 @@ framework.factory('ListRequest', {
             .addButton('btnApprove', 'Chấp nhận', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnReject', 'Bác bỏ', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listRequest.data).setPaginateOptions(pagi.end())
+            .setRecords(self.ViewBag.listRequest.data).setPaginateOptions(pagi.end())
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));

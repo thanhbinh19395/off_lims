@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -33,6 +34,11 @@ public class BookBorrowController extends AdminBaseController{
     @RequestMapping("/InsertBookBorrow")
     public String InsertBookBorrow(Model model, BookBorrowHeader data, Pageable p) {
         getViewBag(model).put("user", securityService.getUser());
+        return View();
+    }
+    @RequestMapping("/ViewBookBorrow/{BookBorrowHeaderId}")
+    public String ViewBookBorrow(@PathVariable("BookBorrowHeaderId") long BookBorrowHeaderId, Model model) {
+        getViewBag(model).put("bookBorrow",bookBorrowHeaderService.findOne(BookBorrowHeaderId));
         return View();
     }
 }
