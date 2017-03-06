@@ -1,6 +1,7 @@
 package hcmue.gst.off.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import hcmue.gst.off.extensions.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -43,7 +44,8 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
         this.status = status;
     }
 
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "PST")
     public Date getReturnDate() {
         return returnDate;
     }
@@ -53,7 +55,8 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     }
     
 
-    @OneToMany(mappedBy = "bookBorrowHeader",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bookBorrowHeader",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonManagedReference
     public Set<BookBorrowDetail> getBookBorrowDetails() {
         return bookBorrowDetails;
     }

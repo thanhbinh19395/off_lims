@@ -1,5 +1,6 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -68,6 +69,7 @@ public class BookBorrowDetail extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookborrowheader_id",insertable = false,updatable = false)
+    @JsonBackReference
     public BookBorrowHeader getBookBorrowHeader() {
         return bookBorrowHeader;
     }
