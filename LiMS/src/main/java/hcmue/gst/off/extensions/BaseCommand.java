@@ -7,13 +7,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 /**
  * Created by Thanh Binh on 2/12/2017.
  */
-public class BaseCommand {
+public abstract class BaseCommand {
     protected final int PAGESIZE = 20;
     @Autowired
     protected SecurityService securityService;

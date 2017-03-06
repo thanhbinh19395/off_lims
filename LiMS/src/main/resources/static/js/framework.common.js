@@ -142,12 +142,12 @@ $.extend(framework.common, {
         }
     },
     cmdResultNoti: function (data, options) {
-        if (data.IsSuccess)
+        if (data.success)
         {
-            this.noti(data.Message || 'Thực hiện thành công', options);
+            alertSuccess(data.message || 'Thực hiện thành công');
         }
         else {
-            this.noti(data.Message || 'Lỗi không xác định', { title: 'Lỗi' });
+            alert(data.message || 'Lỗi không xác định');
         }
     },
     noti: function (message,options) {

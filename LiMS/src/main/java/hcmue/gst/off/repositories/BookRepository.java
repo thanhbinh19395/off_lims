@@ -22,7 +22,6 @@ public interface BookRepository extends CrudRepository<Book,Long> {
             + "AND ( m.bookStatusId = :#{#model.bookStatusId} OR ISNULL(:#{#model.bookStatusId}) = true) "
             + "AND ( m.bookCode LIKE %:#{#model.bookCode}% OR ISNULL(:#{#model.bookCode}) = true)"
             + "AND ( m.state = :#{#model.state} OR ISNULL(:#{#model.state}) = true) "
-
             ;
     @Query(searchQuery)
     Page<Book> search(@Param("model") Book model, Pageable page);

@@ -9,7 +9,9 @@ import hcmue.gst.off.services.BookService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +32,15 @@ public class InsertBookBorrowBusiness extends BaseCommand {
     @Autowired
     UserService userService;
 
+    public InsertBookBorrowBusiness(BookBorrowHeader header, List<BookBorrowDetail> details) {
+        this.header = header;
+        this.details = details;
+    }
+
+    public InsertBookBorrowBusiness() {
+        //this.header= new BookBorrowHeader(new Date(),(long)1);
+    }
+
     public BookBorrowHeader getHeader() {
         return header;
     }
@@ -47,9 +58,11 @@ public class InsertBookBorrowBusiness extends BaseCommand {
     }
 
     public Result Execute(){
-        header.setStatus(CommonStatus.PENDING);
+        User curUser = userService.findOne(header.getUserId()).getData();
+        if(!curUser.getBorrowable())
+            return Fail("User " + curUser.getUsername() + " không được mượn sách");
 
-        bookBorrowHeaderService.save(header);
+        header.setStatus(CommonStatus.PENDING);
         Result<BookBorrowHeader> bookBorrowHeader = bookBorrowHeaderService.save(header);
         if(!bookBorrowHeader.isSuccess())
         {
@@ -59,10 +72,10 @@ public class InsertBookBorrowBusiness extends BaseCommand {
 
         for (BookBorrowDetail detail: details)
         {
-            Book tmp = detail.getBook();
+            Book tmp = bookService.findOne(detail.getBookId()).getData();
             tmp.setState(BookTransactionStep.BORROWED);
             bookService.save(tmp);
-            detail.setBookBorrowHeader(bookBorrowHeader.getData());
+            //detail.setBookBorrowHeader(bookBorrowHeader.getData());
             detail.setBookBorrowHeaderId(bookBorrowHeader.getData().getId());
             Result bbdResult = bookBorrowDetailService.save(detail);
             if(!bbdResult.isSuccess())
@@ -71,7 +84,7 @@ public class InsertBookBorrowBusiness extends BaseCommand {
             }
         }
         // khóa phiếu mượn lại
-        User curUser = header.getUser();
+
         curUser.setBorrowable(Boolean.FALSE);
         userService.save(curUser);
         return Success(header.getId(),"Lưu thành công");

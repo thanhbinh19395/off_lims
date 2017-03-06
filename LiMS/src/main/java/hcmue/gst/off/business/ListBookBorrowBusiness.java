@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Ho Phuong on 04/03/2017.
  */
 @Component
-public class ListBookBorrow extends BaseCommand {
+public class ListBookBorrowBusiness extends BaseCommand {
     private List<BookBorrowItem> borrowItemList;
 
     @Autowired

@@ -20,13 +20,13 @@ public class UserRequestController extends UserBaseController {
     @Autowired
     private RequestService requestService;
 
-    @RequestMapping(value = "/RequestPurchase", method = RequestMethod.POST)
+    @RequestMapping(value = "/User/RequestPurchase", method = RequestMethod.POST)
     public String RequestPurchase(@ModelAttribute("request") Request rq, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "redirect:/Client/RequestPurchase?error";
+            return "redirect:/User/Request/RequestPurchase?error";
         }
         requestService.save(rq);
-        return "redirect:/Client/RequestPurchase?success";
+        return "redirect:/User/Request/RequestPurchase?success";
     }
 
     @RequestMapping(value = "/User/Request/RequestPurchase", method = RequestMethod.GET)

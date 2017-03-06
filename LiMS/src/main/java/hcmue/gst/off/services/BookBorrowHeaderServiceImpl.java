@@ -32,15 +32,10 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
     @Override
     public Result<BookBorrowHeader> save(BookBorrowHeader bookBorrowHeader) {
         User user = userService.findByUsername(securityService.findLoggedInUsername());
+        SaveHandler(bookBorrowHeader);
         if (bookBorrowHeader.getId() == null) {
-            bookBorrowHeader.setCreated_by(user);
-            bookBorrowHeader.setCreated_date(new Date());
             bookBorrowHeader.setStatus(CommonStatus.PENDING);
             user.setBorrowable(false); //Prevent user from continue borrowing
-        }
-        else {
-            bookBorrowHeader.setUpdate_date(new Date());
-            bookBorrowHeader.setUpdate_by(user);
         }
         return Success(bookBorrowHeaderRepository.save(bookBorrowHeader),"Lưu thành công");
     }

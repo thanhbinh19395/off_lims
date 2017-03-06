@@ -1,16 +1,10 @@
 package hcmue.gst.off.controllers.Client;
 
-import hcmue.gst.off.entities.Book;
-import hcmue.gst.off.entities.BookBorrowDetail;
-import hcmue.gst.off.entities.BookBorrowHeader;
-import hcmue.gst.off.entities.User;
+import hcmue.gst.off.entities.*;
 import hcmue.gst.off.extensions.BookBorrowCart;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.BookRepository;
-import hcmue.gst.off.services.BookBorrowDetailService;
-import hcmue.gst.off.services.BookBorrowHeaderService;
-import hcmue.gst.off.services.SecurityService;
-import hcmue.gst.off.services.UserService;
+import hcmue.gst.off.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -40,6 +34,9 @@ public class UserBorrowController extends UserBaseController{
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private BookService bookService;
 
     @Autowired
     private BookBorrowHeaderService bookBorrowHeaderService;
@@ -91,6 +88,9 @@ public class UserBorrowController extends UserBaseController{
             Long currId = (Long)session.getAttribute("item"+i);
             if (currId != null && id.compareTo((Long)session.getAttribute("item"+i))==0) {
                 session.removeAttribute("item"+i);
+                Book book = bookRepository.findOne(id);
+                book.setState(BookTransactionStep.AVAILABLE);
+                bookService.save(book);
             }
         }
         return "redirect:/User/Borrow/RegistryBorrowForm";
