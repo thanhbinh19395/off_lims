@@ -39,7 +39,7 @@ public class BookBorrowDetail extends BaseEntity {
     }
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id",insertable = false,updatable = false)
     public Book getBook() {
         return book;
