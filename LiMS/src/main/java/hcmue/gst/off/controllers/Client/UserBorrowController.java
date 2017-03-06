@@ -110,7 +110,7 @@ public class UserBorrowController extends UserBaseController{
         //Lay thong tin cua cac sach co trong gio
         List<Book> bookList = new ArrayList<>();
         session = request.getSession(false);
-        for (int i = 1; i < MAX_BORROWING_BOOK; i++) {
+        for (int i = 1; i <= MAX_BORROWING_BOOK; i++) {
             Long id = (Long)session.getAttribute("item"+i);
             if (id != null) {
                 bookList.add(bookRepository.findOne(id));

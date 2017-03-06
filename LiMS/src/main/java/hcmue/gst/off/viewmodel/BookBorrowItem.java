@@ -20,10 +20,14 @@ public class BookBorrowItem extends BaseCommand {
     private BookBorrowHeader header;
     private List<BookBorrowDetail> details;
 
+    public BookBorrowItem() {
+    }
+
     public BookBorrowItem(BookBorrowHeader header, List<BookBorrowDetail> details) {
         this.header = header;
         this.details = details;
     }
+
 
     public BookBorrowHeader getHeader() {
         return header;

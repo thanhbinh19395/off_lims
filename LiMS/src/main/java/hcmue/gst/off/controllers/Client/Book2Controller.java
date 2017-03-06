@@ -76,15 +76,18 @@ public class Book2Controller extends UserBaseController {
             BookBorrowDetail bookBorrowDetailSearchModel = bookBorrowDetailRepository.search(bookBorrowDetail).iterator().next();
             BookBorrowHeader bookBorrowHeader = new BookBorrowHeader();
             bookBorrowHeader.setId(bookBorrowDetailSearchModel.getBookBorrowHeaderId());
-            Date returnDate = bookBorrowHeaderRepository.search(bookBorrowHeader).iterator().next().getReturnDate();
+            BookBorrowHeader bookBorrowHeaderModel = bookBorrowHeaderRepository.search(bookBorrowHeader).iterator().next();
+            Date returnDate = bookBorrowHeaderModel.getReturnDate();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             model.addAttribute("returnDate", sdf.format(returnDate));
             model.addAttribute("reservationBook", new BookReservation());
+            model.addAttribute("bookBorrowHeader", bookBorrowHeaderModel);
             if (book.getState() == BookTransactionStep.RESERVATED) {
                 Calendar c = Calendar.getInstance();
                 c.setTime(returnDate);
                 c.add(Calendar.DATE, 1);
                 model.addAttribute("returnDate", sdf.format(returnDate));
+
             }
         }
 

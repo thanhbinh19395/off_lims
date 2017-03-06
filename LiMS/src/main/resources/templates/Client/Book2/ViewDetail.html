@@ -53,8 +53,8 @@
                         <div>
                             <span class="book-detail"><h5 th:text="#{bookTransactionStatus}"></h5></span>
                             <span class="book-detail"><h4><span class="label"
-                                                                th:classappend="*{state} == 0 ? 'label-success' : 'label-danger'"
-                                                                th:text="*{state} == 0? #{Available}:#{Occupied}"></span></h4></span>
+                                                                th:classappend="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? 'label-success' : 'label-danger'"
+                                                                th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}? #{Available}:#{Occupied}"></span></h4></span>
                         </div>
                         <div class="divider-vertical"></div>
                     </div>
@@ -89,29 +89,28 @@
                 <form th:unless="${forbiddenUser}" action="/User/Book/ViewDetail/addToBookCart"
                       style="clear: both" method="POST">
                     <div>
-                        <p th:text="*{state} == 0 ? #{likeThis} : #{someoneBorrowed}"></p>
+                        <p th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? #{likeThis} : #{someoneBorrowed}"></p>
                         <input type="hidden" name="ID" th:value="*{id}"/>
-                        <button th:if="*{state} == 0" th:disabled="${existed} ? 'disabled' : 'false'"
+                        <button th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}" th:disabled="${existed} ? 'disabled' : 'false'"
                                 class="btn btn-danger"><i
                                 class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
                                 th:text="#{borrowNow}"></span></button>
                     </div>
                 </form>
-                <div th:unless="${forbiddenUser}" th:if="*{state}==1">
+                <div th:unless="${forbiddenUser}" th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED} and ${bookBorrowHeader.status} eq ${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}">
                     <a type="button" th:disabled="${existed} ? 'disabled' : 'false'" class="btn btn-primary"
                        href="#popup1"><i
                             class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="#{reserve}"></span>
                     </a>
                 </div>
-                <div th:unless="${forbiddenUser}" th:if="*{state}==2">
+                <div th:unless="${forbiddenUser}" th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}">
                     <p>
-                    <h4><span class="label label-danger" th:text="#{Thisbookhave}">This book have been borrowed and reserved.
-                    You will be able to reserve this book on <span th:text="${returnDate}"></span></span>
+                    <h4><span class="label label-danger" th:text="#{Thisbookhave}+' '+${returnDate}"></span>
                     </h4>
                     </p>
                 </div>
 
-                <div th:if="*{state}==1" id="popup1" class="overlay">
+                <div th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED}" id="popup1" class="overlay">
                     <div class="popup">
                         <h2 th:text="${Book.name}">Here i am</h2>
                         <a class="close" href="#">&times;</a>
@@ -162,60 +161,6 @@
                         </div>
                     </div>
                 </div>
-                <!--
-                <div th:if="*{state}==1" class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form action="/User/Book/ViewDetail/reserveBook" id="reserveForm" method="post" th:object="${reservationBook}">
-                                <div class="modal-header" style="background: #d62643; color: #fff; font-weight: bold;">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title" th:text="#{reserve}">Reserve <span th:text="${Book.name}"></span></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div style="float: left; width: 40%;">
-                                        <div align="center" style="margin-top:20px;">
-                                            <img th:src="${Book.imageUrl}" th:width="200px"
-                                                 th:height="300px"/>
-                                        </div>
-                                    </div>
-                                    <div style="float: right; width: 55%;">
-                                        <div>
-                                            <input type="hidden" id="bookId" name="bookId" th:value="${Book.id}"/>
-                                            <input type="hidden" id="pickUpDate" name="pickUpDate" th:value="${returnDate}"/>
-                                            <label for="name" th:text="#{BookName}">Book name</label>
-                                            <input class="form-control" id="name" type="text" th:value="${Book.name}"
-                                                   readonly="readonly"/>
-                                            <br/>
-                                            <label for="author" th:text="#{Author}">Author</label>
-                                            <input class="form-control" id="author" type="text" th:value="${Book.author}"
-                                                   readonly="readonly"/><br/>
-
-                                            <label for="publisher" th:text="#{Publisher}">Publisher</label>
-                                            <input class="form-control" id="publisher" type="text"
-                                                   th:value="${Book.publisher}"
-                                                   readonly="readonly"/>
-                                        </div>
-                                    </div>
-
-                                    <div style="clear: both; padding-top: 10px" align="center">
-                                        <div style="margin-top: 20px;">
-                                            <h3>
-                                            <span class="label label-danger" th:text="#{Thisbookwillbe}">This book will be returned to library on <span
-                                                    th:text="${returnDate}"></span></span>
-                                            </h3>
-                                            <p th:text="#{Doyouwant}">Do you want to reserve it?</p>
-                                            <button type="submit" form="reserveForm" class="btn btn-danger" th:text="#{Yes}">Yes
-                                            </button>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal" th:text="#{No}">No
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>-->
                 <div class="book-rule">
                     <div class="book-rule-title">
                         <h3 style="opacity: 0.5;" th:text="#{Rule}"></h3>
