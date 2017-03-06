@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <ol class="arrows">
                     <li><a href="/" th:text="#{Homepage}"></a></li>
-                    <li><a th:href="@{/User/ViewLog}">View Log</a></li>
+                    <li><a th:href="@{/User/ViewLog}" th:text="#{ViewLog}">View Log</a></li>
                 </ol>
             </div>
         </div>
@@ -28,23 +28,23 @@
         <br/>
         <div class="tabs">
             <ul class="tab-links">
-                <li class="active"><a href="#tab1">Borrowed Book</a></li>
-                <li><a href="#tab2">Reservated Book</a></li>
-                <li><a href="#tab3">Requested Book</a></li>
+                <li class="active"><a href="#tab1" th:text="#{BorrowedBook}">Borrowed Book</a></li>
+                <li><a href="#tab2" th:text="#{ReservatedBook}">Reservated Book</a></li>
+                <li><a href="#tab3" th:text="#{RequestedBook}">Requested Book</a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="tab1" class="tab active">
-                    <h3>Borrowed Log</h3>
-                    <p th:if="${#lists.isEmpty(bookBorrowList)}">You have not borrowed any book yet? <a style="font-weight: bold" href="/">Go to library</a></p>
+                    <h3 th:text="#{BorrowedLog}">Borrowed Log</h3>
+                    <p th:if="${#lists.isEmpty(bookBorrowList)}"><span th:text="#{Youhavenot}">You have not </span> <span th:text="#{Borrowed}"> borrowed </span> <span th:text="#{anybookyet}"> any book yet? </span> <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
                     <table class="table table-bordered" th:if="${not #lists.isEmpty(bookBorrowList)}">
                         <thead>
                         <tr>
-                            <th>Borrow ID</th>
-                            <th>Book</th>
-                            <th>Borrowed date</th>
-                            <th>Return date</th>
-                            <th>Status</th>
+                            <th th:text="#{BorrowID}">Borrow ID</th>
+                            <th th:text="#{Book}">Book</th>
+                            <th th:text="#{BorrowedDate}">Borrowed date</th>
+                            <th th:text="#{ReturnDate}">Return date</th>
+                            <th th:text="#{Status}">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -66,16 +66,16 @@
                 </div>
 
                 <div id="tab2" class="tab">
-                    <h3>Reserved Log</h3>
-                    <p th:if="${#lists.isEmpty(bookReservationList)}">You have not borrowed any book yet? <a style="font-weight: bold" href="/">Go to library</a></p>
+                    <h3 th:text="#{ReservedLog}">Reserved Log</h3>
+                    <p th:if="${#lists.isEmpty(bookReservationList)}" ><span th:text="#{Youhavenot}">You have not </span> <span th:text="#{Reserved}"> reserved </span> <span th:text="#{anybookyet}"> any book yet? </span> <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
                     <table class="table table-bordered" th:if="${not #lists.isEmpty(bookReservationList)}">
                         <thead>
                         <tr>
-                            <th>Reservation ID</th>
-                            <th>Book</th>
-                            <th>Reserve Date</th>
-                            <th>Pick Up Date</th>
-                            <th>Status</th>
+                            <th th:text="#{ReservationID}">Reservation ID</th>
+                            <th th:text="#{Book}">Book</th>
+                            <th th:text="#{ReserveDate}">Reserve Date</th>
+                            <th th:text="#{PickUpDate}">Pick Up Date</th>
+                            <th th:text="#{Status}">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -93,20 +93,20 @@
                 </div>
 
                 <div id="tab3" class="tab">
-                    <h3>Requested Log</h3>
-                    <p th:if="${#lists.isEmpty(bookRequestList)}">You have not borrowed any book yet? <a style="font-weight: bold" href="/">Go to library</a></p>
+                    <h3 th:text="#{RequestedLog}">Requested Log</h3>
+                    <p th:if="${#lists.isEmpty(bookRequestList)}" ><span th:text="#{Youhavenot}">You have not </span> <span th:text="#{Requested}"> requested </span> <span th:text="#{anybookyet}"> any book yet? </span> <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
                     <table class="table table-bordered" th:if="${not #lists.isEmpty(bookRequestList)}">
                         <thead>
                         <tr>
-                            <th>Requested ID</th>
-                            <th>Book name</th>
-                            <th>Author</th>
-                            <th>Publisher</th>
-                            <th>Published year</th>
-                            <th>Note</th>
-                            <th>Requested Date</th>
+                            <th th:text="#{RequestedID}">Requested ID</th>
+                            <th th:text="#{BookName}">Book name</th>
+                            <th th:text="#{Author}">Author</th>
+                            <th th:text="#{Publisher}">Publisher</th>
+                            <th th:text="#{PublishedYear}">Published year</th>
+                            <th th:text="#{note}">Note</th>
+                            <th th:text="#{RequestedDate}">Requested Date</th>
 
-                            <th>Status</th>
+                            <th th:text="#{Status}">Status</th>
                         </tr>
                         </thead>
                         <tbody>
