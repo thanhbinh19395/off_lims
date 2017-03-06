@@ -1,5 +1,7 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -17,6 +19,7 @@ public class BookBorrowDetail extends BaseEntity {
     private Book book;
 
     private Long bookBorrowHeaderId;
+    @JsonIgnore
     private BookBorrowHeader bookBorrowHeader;
 
 

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>View Log</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
     <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
           type='text/css'/>
     <link href="/index/detail.css" rel="stylesheet"/>
@@ -15,12 +15,12 @@
 
 </head>
 <body>
-    <div layout:fragment="content">
+    <div layout:fragment="content" style="min-height: 600px;">
         <div class="row">
             <div class="col-md-12">
                 <ol class="arrows">
                     <li><a href="/" th:text="#{Homepage}"></a></li>
-                    <li><a th:href="@{/User/ViewLog}">View Log</a></li>
+                    <li><a th:href="@{/User/ViewLog}" th:text="#{ViewLog}">View Log</a></li>
                 </ol>
             </div>
         </div>
@@ -28,31 +28,31 @@
         <br/>
         <div class="tabs">
             <ul class="tab-links">
-                <li class="active"><a href="#tab1">Borrowed Book</a></li>
-                <li><a href="#tab2">Reservated Book</a></li>
-                <li><a href="#tab2">Requested Book</a></li>
+                <li class="active"><a href="#tab1" th:text="#{BorrowedBook}">Borrowed Book</a></li>
+                <li><a href="#tab2" th:text="#{ReservatedBook}">Reservated Book</a></li>
+                <li><a href="#tab3" th:text="#{RequestedBook}">Requested Book</a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="tab1" class="tab active">
-                    <h3>Borrowed Log</h3>
-                    <p th:if="${#lists.isEmpty(bookBorrowList)}">You have not borrowed any book yet? <a style="font-weight: bold" href="/">Go to library</a></p>
+                    <h3 th:text="#{BorrowedLog}">Borrowed Log</h3>
+                    <p th:if="${#lists.isEmpty(bookBorrowList)}"><span th:text="#{Youhavenot}">You have not </span> <span th:text="#{Borrowed}"> borrowed </span> <span th:text="#{anybookyet}"> any book yet? </span> <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
                     <table class="table table-bordered" th:if="${not #lists.isEmpty(bookBorrowList)}">
                         <thead>
                         <tr>
-                            <th>Borrow ID</th>
-                            <th>Book</th>
-                            <th>Borrowed date</th>
-                            <th>Return date</th>
-                            <th>Status</th>
+                            <th th:text="#{BorrowID}">Borrow ID</th>
+                            <th th:text="#{Book}">Book</th>
+                            <th th:text="#{BorrowedDate}">Borrowed date</th>
+                            <th th:text="#{ReturnDate}">Return date</th>
+                            <th th:text="#{Status}">Status</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="item : ${bookBorrowList}">
                             <th scope="row" th:text="${item.header.id}"></th>
                             <td>
-                                <ul th:each="detail : ${item.details}">
-                                    <li><a th:href="@{/Book/ViewDetail/}+${detail.book.id}" th:text="${detail.book.name}"></a></li>
+                                <ul th:each="detail : ${item.details}" style="margin: 0; text-align: left !important; list-style: none;">
+                                    <li class="borrowedBook"><a th:href="@{/Book/ViewDetail/}+${detail.book.id}" th:text="${detail.book.name}"></a></li>
                                 </ul>
                             </td>
                             <td th:text="${item.header.created_date}"></td>
@@ -66,22 +66,61 @@
                 </div>
 
                 <div id="tab2" class="tab">
-                    <h3>Reserved Log</h3>
-                    <table class="table table-bordered">
+                    <h3 th:text="#{ReservedLog}">Reserved Log</h3>
+                    <p th:if="${#lists.isEmpty(bookReservationList)}" ><span th:text="#{Youhavenot}">You have not </span> <span th:text="#{Reserved}"> reserved </span> <span th:text="#{anybookyet}"> any book yet? </span> <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
+                    <table class="table table-bordered" th:if="${not #lists.isEmpty(bookReservationList)}">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th th:text="#{ReservationID}">Reservation ID</th>
+                            <th th:text="#{Book}">Book</th>
+                            <th th:text="#{ReserveDate}">Reserve Date</th>
+                            <th th:text="#{PickUpDate}">Pick Up Date</th>
+                            <th th:text="#{Status}">Status</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <tr th:each="item2 : ${bookReservationList}">
+                            <th scope="row" th:text="${item2.id}"></th>
+                            <td style="text-align: left"><a th:href="@{/Book/ViewDetail/}+${item2.book.id}" th:text="${item2.book.name}"></a></td>
+                            <td th:text="${item2.created_date}"></td>
+                            <td th:text="${item2.pickUpDate}"></td>
+                            <td>
+                                <h4><span th:class="${item2.status} == 1? 'label label-success':'label label-danger'" th:text="${item2.status} == 1 ? 'Solved':'Pending'"></span></h4>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tab3" class="tab">
+                    <h3 th:text="#{RequestedLog}">Requested Log</h3>
+                    <p th:if="${#lists.isEmpty(bookRequestList)}" ><span th:text="#{Youhavenot}">You have not </span> <span th:text="#{Requested}"> requested </span> <span th:text="#{anybookyet}"> any book yet? </span> <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
+                    <table class="table table-bordered" th:if="${not #lists.isEmpty(bookRequestList)}">
+                        <thead>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th th:text="#{RequestedID}">Requested ID</th>
+                            <th th:text="#{BookName}">Book name</th>
+                            <th th:text="#{Author}">Author</th>
+                            <th th:text="#{Publisher}">Publisher</th>
+                            <th th:text="#{PublishedYear}">Published year</th>
+                            <th th:text="#{note}">Note</th>
+                            <th th:text="#{RequestedDate}">Requested Date</th>
+
+                            <th th:text="#{Status}">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="item : ${bookRequestList}">
+                            <th scope="row" th:text="${item.id}"></th>
+                            <td style="text-align: left"  th:text="${item.book_name}"></td>
+                            <td style="text-align: left"  th:text="${item.author}"></td>
+                            <td style="text-align: left"  th:text="${item.publisher}"></td>
+                            <td style="text-align: left"  th:text="${item.published_year}"></td>
+                            <td style="text-align: left"  th:text="${item.note}"></td>
+                            <td th:text="${item.created_date}"></td>
+                            <td>
+                                <h4><span th:class="${item.status} == 1? 'label label-success':'label label-danger'" th:text="${item.status} == 1 ? 'Solved':'Pending'"></span></h4>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

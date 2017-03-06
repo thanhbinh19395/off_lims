@@ -1,16 +1,13 @@
 package hcmue.gst.off.controllers.Client;
 
-import hcmue.gst.off.business.ListBookBorrow;
-import hcmue.gst.off.entities.BookBorrowDetail;
-import hcmue.gst.off.entities.BookBorrowHeader;
+import hcmue.gst.off.business.ListBookBorrowBusiness;
+import hcmue.gst.off.business.ListBookRequestBusiness;
+import hcmue.gst.off.business.ListBookReservationBusiness;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.UserRepository;
-import hcmue.gst.off.services.BookBorrowDetailService;
-import hcmue.gst.off.services.BookBorrowHeaderService;
 import hcmue.gst.off.services.SecurityService;
 import hcmue.gst.off.services.UserService;
-import hcmue.gst.off.viewmodel.BookBorrowItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -22,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by tranv on 19/02/2017.
@@ -38,7 +33,11 @@ public class User2Controller extends UserBaseController{
     @Autowired
     private SecurityService securityService;
     @Autowired
-    private ListBookBorrow listBookBorrow;
+    private ListBookBorrowBusiness listBookBorrowBusiness;
+    @Autowired
+    private ListBookReservationBusiness listBookReservationBusiness;
+    @Autowired
+    private ListBookRequestBusiness listBookRequestBusiness;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -83,9 +82,14 @@ public class User2Controller extends UserBaseController{
 
     @RequestMapping(value = "/ViewLog", method = RequestMethod.GET)
     public String viewLog(Model model) {
-        listBookBorrow.Execute();
-        model.addAttribute("bookBorrowList",  listBookBorrow.getBorrowItemList());
+        listBookBorrowBusiness.Execute();
+        listBookReservationBusiness.Execute();
+        listBookRequestBusiness.Execute();
+        model.addAttribute("bookBorrowList",  listBookBorrowBusiness.getBorrowItemList());
+        model.addAttribute("bookReservationList", listBookReservationBusiness.getBookReservationList());
+        model.addAttribute("bookRequestList", listBookRequestBusiness.getRequestList());
         return View("ViewLog");
     }
+
 
 }
