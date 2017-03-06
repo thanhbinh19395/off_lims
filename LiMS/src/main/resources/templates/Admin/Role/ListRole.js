@@ -70,7 +70,7 @@ framework.factory('ListRole', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listRole.data)
+            .setRecords(self.ViewBag.listRole.data)
         ;
 
         if (this.parentId) {

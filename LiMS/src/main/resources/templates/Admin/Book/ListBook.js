@@ -90,7 +90,7 @@ framework.factory('ListBook', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
+            .setRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
         ;
         //nếu đc mở kiểu popup thì có thêm sự kiện click grid
         if (this.parentId) {
@@ -185,13 +185,7 @@ framework.factory('ListBook', {
         var self = this;
         var grid = this.findElement('grid');
         var record = grid.get(e.recid);
-        var mess = {
-            type: 'popupListBook',
-            data: record,
-            callback: function () {
-                self.close();
-            }
-        }
-        this.sendMessage(mess);
+
+        this.sendMessage(record);
     }
 });

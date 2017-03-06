@@ -3,7 +3,7 @@
  */
 framework.factory('ListBookBorrow', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookBorrow' || sender.pageName =='UpdateBookBorrow'){
+        if(sender.pageName =='InsertBookBorrow'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -11,19 +11,20 @@ framework.factory('ListBookBorrow', {
         }
     },
     onInitHeader: function (header) {
-        console.log(this.ViewBag);
         header.setName('header');
         var self = this;
         var form = widget.setting.form();
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'bookTransaction', type: 'text', required: false, caption: "Tình trạng" },
-                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả sách" },
-                { field: 'status', type: 'date', required: false, caption: "Trạng thái" },
+                { field: 'username', type: 'text', required: false, caption: "Người mượn", render: function(r){
+                    return '['+r.user.username +'] ' + r.user.name;
+                } },
+                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả" },
+                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
-        header.setTitle('Danh sách Thể Loại')
+        header.setTitle('Danh sách Phiếu mượn')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -70,15 +71,47 @@ framework.factory('ListBookBorrow', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'status', caption: 'Tình trạng', size: '50%', sortable: true, resizable: true },
-                { field: 'returnDate',render:'date', caption: 'Ngày trả', size: '50%', sortable: true, resizable: true },
+                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Người mượn", render: function(r){
+                    return '['+r.user.username +']' + r.user.name;
+                } },
+                { field: 'created_date',render:'date', caption: 'Ngày lập', size: '50%', sortable: true, resizable: true },
+                { field: 'returnDate',render:'date', caption: 'Hạn trả', size: '50%', sortable: true, resizable: true },
+                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Người lập", render: function(r){
+                    return '['+r.created_by.username +']' + r.created_by.name;
+                } },
+                { field: 'status', size: '40%', sortable: true, resizable: true, caption: "Trạng thái",render:function (r) {
+                    switch (r.status){
+                        case 0:
+                            return 'Status ne';
+                            break;
+                        case 1:
+                            return 'Status ne';
+                            break;
+                        case 2:
+                            return 'Status ne';
+                            break;
+                        case 3:
+                            return 'Status ne';
+                            break;
+                    }
 
+                } },
+                {
+                    field: 'details', caption: 'Xem chi tiết', size: '30%', sortable: true, resizable: true, render: function (r) {
+                    var a = $("<a>");
+                    a.attr('href', '#');
+                    a.attr('type', 'click');
+                    a.html('Xem chi tiết');
+                    return a[0].outerHTML;
+                }
+                }
             ])
-            //.addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            //.addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'Xem chi tiết', 'fa fa-pencil', self.onbtnViewClickGrid.bind(this))
+            //.addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBookBorrow.data).setPaginateOptions(pagi.end())
+            .setRecords(self.ViewBag.listBookBorrow.data).setPaginateOptions(pagi.end())
+            .createEvent('onClick', this.onGridClick.bind(this))
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -94,10 +127,9 @@ framework.factory('ListBookBorrow', {
             width: '700px'
         });
     },
-    onbtnUpdateClickGrid: function () {
+    onbtnViewClickGrid: function () {
         var grid = this.findElement('grid');
         var id = grid.getSelection()[0];
-        console.log(id);
         if (!id) {
             //thong bao = noty
             alert("vui long chon");
@@ -105,8 +137,8 @@ framework.factory('ListBookBorrow', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookBorrow/UpdateBookBorrow/'+id,
-            title: 'Update Role',
+            url: '/Admin/BookBorrow/ViewBookBorrow/'+id,
+            title: 'View BookBorrow',
             width: '700px'
         });
 
@@ -189,5 +221,21 @@ framework.factory('ListBookBorrow', {
         var grid = this.findElement('grid');
         var record = grid.get(e.recid);
         this.sendMessage(record);
+    },
+    onGridClick: function (e) {
+        if (e.column == 6) {
+            var self = this;
+            e.onComplete = function (data) {
+                if ($(data.originalEvent.srcElement).attr('type') == 'click') {
+                    self.openPopup({
+                        name: 'ViewPopup',
+                        url: '/Admin/BookBorrow/ViewBookBorrow/'+e.recid,
+                        title: 'View BookBorrow',
+                        width: '700px'
+                    });
+                }
+
+            }
+        }
     }
 });

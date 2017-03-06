@@ -8,9 +8,9 @@ import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.services.BookBorrowDetailService;
 import hcmue.gst.off.services.BookBorrowHeaderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +24,9 @@ public class BookBorrowApiController {
     private BookBorrowHeaderService BookBorrowHeaderService;
     @Autowired
     private BookBorrowDetailService bookBorrowDetailService;
-    @Autowired
-    private InsertBookBorrowBusiness insertBookBorrowBusiness;
 
+    @Autowired
+    InsertBookBorrowBusiness insertBookBorrowBusiness;
     @RequestMapping("/Save")
     Result Save(BookBorrowHeader header,List<BookBorrowDetail> detail) {
         BookBorrowDetail bookBorrowDetail = new BookBorrowDetail();
@@ -49,12 +49,10 @@ public class BookBorrowApiController {
     }
 
 
-    @RequestMapping("/Insert")
-    Result Insert() {
-        // Dữ liệu giả
-
-
-
+    @PostMapping("/Insert")
+    Result Insert(@RequestBody InsertBookBorrowBusiness data) {
+        insertBookBorrowBusiness.setHeader(data.getHeader());
+        insertBookBorrowBusiness.setDetails(data.getDetails());
         return insertBookBorrowBusiness.Execute();
     }
 }

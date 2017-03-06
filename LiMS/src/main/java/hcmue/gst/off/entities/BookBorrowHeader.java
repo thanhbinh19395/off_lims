@@ -1,6 +1,8 @@
 package hcmue.gst.off.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import hcmue.gst.off.extensions.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,10 +18,10 @@ import java.util.Set;
 @Table(name = "bookborrowheader")
 public class BookBorrowHeader extends BaseEntity implements Serializable{
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "PST")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
     private Date returnDate;
     private Set<BookBorrowDetail> bookBorrowDetails;
+        // Init : 0 , Pending : 1, Solved : 2
     private Integer status;
 
     private Long userId;
@@ -32,7 +34,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     public BookBorrowHeader(Date returnDate, Long userId) {
         this.returnDate = returnDate;
         this.userId = userId;
-        status = CommonStatus.PENDING;
+        status = CommonStatus.INIT;
     }
 
     public Integer getStatus() {
@@ -53,7 +55,7 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
     }
     
 
-    @OneToMany(mappedBy = "bookBorrowHeader",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bookBorrowHeader",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     public Set<BookBorrowDetail> getBookBorrowDetails() {
         return bookBorrowDetails;
     }

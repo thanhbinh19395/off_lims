@@ -4,7 +4,7 @@
 /**
  * Created by dylan on 2/23/2017.
  */
-framework.factory('CreateBB', {
+framework.factory('InsertBookBorrow', {
     onPopupHandler: function (data) {
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
@@ -18,13 +18,14 @@ framework.factory('CreateBB', {
         }
     },
     onMessageReceive: function (sender, message) {
-        if (sender.pageName == 'ListBook') {
-            this.insertBBDetailHandler(sender, message.data);
+        if (sender.pageName == 'ListBook' ) {
+            this.insertBBDetailHandler(sender, message);
         }
-        else if (sender.pageName == 'insertBook') {
-            data.data.BookCode = data.message.Code;
-            data.data.BookName = data.message.Name;
+        else if (sender.pageName == 'InsertBook'){
+            message.data.recid = message.data.id;
             this.insertBBDetailHandler(sender, message.data);
+            if(message.success)
+                sender.close();
         }
         else if (sender.pageName == 'ListUser') {
             var form = this.findElement('form');
@@ -61,7 +62,6 @@ framework.factory('CreateBB', {
             .setRecord({
                 returnDate : returnDate,
             })
-            .createEvent('onChange', self.onChangeForm.bind(this))
         ;
         var toolbar = widget.setting.toolbar();
         toolbar.setName('toolbar')
@@ -72,14 +72,6 @@ framework.factory('CreateBB', {
             .addItem({
                 type: 'button', id: 'save', caption: 'Lưu', icon: 'glyphicon glyphicon-floppy-saved',
                 onClick: self.onBtnSaveClick.bind(this)
-            })
-            .addItem({
-                type: 'button', id: 'saveInventory', caption: 'Kho', icon: 'glyphicon glyphicon-log-in',
-                onClick: self.onBtnSaveInventoryClick.bind(this)
-            })
-            .addItem({
-                type: 'button', id: 'saveFinish', caption: 'Thanh toán', icon: 'glyphicon glyphicon-ok',
-                onClick: self.onBtnSaveFinishClick.bind(this)
             })
             .addItem({ type: 'spacer' })
             .addItem({
@@ -133,12 +125,14 @@ framework.factory('CreateBB', {
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
-                { field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true },
+                //{ field: 'id', caption: 'Mã Sách', size: '10%', resizable: true, sortable: true },
+                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true, render:function(record){
+                    record.bookId = record.id;
+                    return record.bookCode;
+                } },
                 { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
                 { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
                 { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
                 { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
             ])
@@ -158,44 +152,28 @@ framework.factory('CreateBB', {
     onSearchBookGrid: function (e) {
         console.log(e);
     },
-    onBtnSaveInventoryClick: function () {
-        var curBB = this.getCurrentBB();
-        if (curBB) {
-            $.post('/api/BookBorrowHeader/Save', {header: this.form.record, detail: this.w2ui.grid.record}, function (data) {
-                framework.common.cmdResultNoti(data);
-            });
-        }
-    },
-    onBtnSaveFinishClick: function () {
-        var curBB = this.getCurrentBB();
-        var self = this;
-        var form = this.findElement('form');
-        var grid = this.findElement('grid');
-        console.log({header: form.record, detail:  grid.records});
-        if (curBB) {
-
-            $.post('/api/BookBorrowHeader/Save', {header: form.record, detail:  grid.records}, function (data) {
-                framework.common.cmdResultNoti(data);
-            });
-        }
-    },
     onBtnSaveClick: function () {
+        var self = this;
         var curBB = this.getCurrentBB();
         if (curBB) {
-            $.post('/api/BookBorrowHeader/Save', {header: form.record, detail: w2ui.grid.records}, function (data) {
-                framework.common.cmdResultNoti(data);
-            });
+            $.ajax({
+                    url:"/api/BookBorrow/Insert",
+                    type: "POST",
+                    data: JSON.stringify( curBB ),
+                    success: function(r){
+                        framework.common.cmdResultNoti(r);
+                        if(r.success){
+                            self.toInitState();
+                            if(self.parentId)
+                                self.sendMessage(r);
+                        }
+                    },
+                    dataType: "json",
+                    contentType: "application/json"
+                });
         }
     },
-    onChangeForm: function (e) {
-        if (e.target == 'CustomerPaid') {
-            var self = this;
-            e.done(function () {
-                self.updateCharge(e.value_new);
-            });
 
-        }
-    },
     onBtnDeleteClick: function (e) {
         var grid = this.findElement('grid');
         grid.delete(true);
@@ -227,12 +205,8 @@ framework.factory('CreateBB', {
         form.refresh();
     },
     calculateTotal: function () {
-        var grid = this.findElement('grid');
-        var total = 0;
-        $.each(grid.records, function (k, v) {
-            total += v.BookPrice * v.Quantity;
-        });
-        return total;
+
+        return 1;
     },
     insertBBDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
@@ -249,7 +223,7 @@ framework.factory('CreateBB', {
     onInsertBookClick: function () {
         this.openPopup({
             name: 'insertPopup',
-            url: '/  /BookHandler/InsertBook',
+            url: '/Admin/Book/InsertBook',
             width: 600
         });
     },
@@ -262,13 +236,24 @@ framework.factory('CreateBB', {
     },
     getCurrentBB: function () {
         var form = this.findElement('form');
-        if (form.validate() != 0 || form.record.Total == 0)
+        var grid = this.findElement('grid');
+        if (form.validate() != 0)
             return;
 
-        var grid = this.findElement('grid');
+
+        var header = {
+            returnDate : form.record.returnDate,
+            userId : form.record.userId
+        };
+        var details = $.map(grid.records,function(v){
+            return {
+                bookId:v.bookId,
+                note:"hello"
+            }
+        });
         return {
-            BBHeader: form.record,
-            SoDetails: grid.records
+            header: header,
+            details: details
         }
     },
     toInitState: function () {
