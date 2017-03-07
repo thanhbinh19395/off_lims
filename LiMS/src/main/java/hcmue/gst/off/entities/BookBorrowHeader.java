@@ -21,7 +21,10 @@ public class BookBorrowHeader extends BaseEntity implements Serializable{
 
     private Date returnDate;
     private Set<BookBorrowDetail> bookBorrowDetails;
-        // Init : 0 , Pending : 1, Solved : 2
+    // Pending - Đang chờ xử lý
+    // In Progress - Thủ thư đã xác nhận , user vào quá trình mượn sách
+    // Solved - Sau khi trả sách, lập phiếu trả sẽ có trạng thái này
+    // Cancel - Khi phiếu mượn bị hủy. 1. Hủy bởi chính user 2. Hủy bởi hệ thống do user không thực hiện mượn
     private Integer status;
 
     private Long userId;
