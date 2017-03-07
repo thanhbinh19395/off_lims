@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.*;
+import org.thymeleaf.util.StringUtils;
 
 /**
  * Created by WIN8.1 on 09/02/2017.
@@ -31,6 +32,13 @@ public class UserServiceImpl extends BaseCommand implements UserService {
             if (userRepository.findByUsername(user.getUsername()) != null) {
                 return Fail("Username đã tồn tại");
             }
+        }
+        if(StringUtils.isEmptyOrWhitespace(user.getUsername()) || user.getUsername() == null){
+
+            return Fail("Vui lòng nhập Username");
+        }
+        if(StringUtils.isEmptyOrWhitespace(user.getPassword()) || user.getPassword() == null){
+            return Fail("Vui lòng nhập Password");
         }
         //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return Success(userRepository.save(user));

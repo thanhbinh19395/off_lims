@@ -3,11 +3,12 @@
  */
 framework.factory('ListUser', {
     onMessageReceive: function (sender, message) {
-        if(sender.pageName =='InsertUser' || sender.pageName =='UpdateUser'){
+        if (sender.pageName == 'InsertUser' || sender.pageName == 'UpdateUser') {
             this.onbtnReloadClick();
 
             //close page con
-            sender.close();
+            if (message.success)
+                sender.close();
         }
 
     },
@@ -18,14 +19,14 @@ framework.factory('ListUser', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', caption: 'Name', type: 'text'},
-                { field: 'phone', caption: 'Phone', type: 'text'},
-                { field: 'address', caption: 'Address' , type: 'text'},
-                { field: 'idcard', caption: 'ID Number', type: 'text' },
-                { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'username', caption: 'Username' , type: 'text'},
-                { field: 'password', caption: 'Password', type: 'text' },
-                { field: 'roleId', caption: 'Role', type: 'popupListRole', options:{caller:self} },
+                {field: 'name', caption: 'Name', type: 'text'},
+                {field: 'phone', caption: 'Phone', type: 'text'},
+                {field: 'address', caption: 'Address', type: 'text'},
+                {field: 'idcard', caption: 'ID Number', type: 'text'},
+                {field: 'birthday', caption: 'Birthday', type: 'date'},
+                {field: 'username', caption: 'Username', type: 'text'},
+                {field: 'password', caption: 'Password', type: 'text'},
+                {field: 'roleId', caption: 'Role', type: 'popupListRole', options: {caller: self}},
             ])
         ;
         header.setTitle('Danh sách User')
@@ -74,16 +75,16 @@ framework.factory('ListUser', {
         var grid = widget.setting.grid();
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã vai trò', size: '40%', sortable: true, resizable: true },
-                { field: 'name', caption: 'Name', size: '50%', sortable: true, resizable: true },
-                { field: 'phone', caption: 'Phone', size: '50%', sortable: true, resizable: true },
-                { field: 'email', caption: 'Email', size: '50%', sortable: true, resizable: true },
-                { field: 'address', caption: 'Address', size: '50%', sortable: true, resizable: true },
-                { field: 'idcard', caption: 'ID Number', size: '50%', sortable: true, resizable: true },
-                { field: 'birthday', caption: 'Birthday', size: '50%', sortable: true, resizable: true, render:'date' },
-                { field: 'username', caption: 'Username', size: '50%', sortable: true, resizable: true },
-                { field: 'password', caption: 'Password', size: '50%', sortable: true, resizable: true },
-                { field: 'role.name', caption: 'Role', size: '50%', sortable: true, resizable: true },
+                {field: 'id', caption: 'Mã vai trò', size: '40%', sortable: true, resizable: true},
+                {field: 'name', caption: 'Name', size: '50%', sortable: true, resizable: true},
+                {field: 'phone', caption: 'Phone', size: '50%', sortable: true, resizable: true},
+                {field: 'email', caption: 'Email', size: '50%', sortable: true, resizable: true},
+                {field: 'address', caption: 'Address', size: '50%', sortable: true, resizable: true},
+                {field: 'idcard', caption: 'ID Number', size: '50%', sortable: true, resizable: true},
+                {field: 'birthday', caption: 'Birthday', size: '50%', sortable: true, resizable: true, render: 'date'},
+                {field: 'username', caption: 'Username', size: '50%', sortable: true, resizable: true},
+                {field: 'password', caption: 'Password', size: '50%', sortable: true, resizable: true},
+                {field: 'role.name', caption: 'Role', size: '50%', sortable: true, resizable: true},
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
@@ -115,7 +116,7 @@ framework.factory('ListUser', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/User/UpdateUser/'+id,
+            url: '/Admin/User/UpdateUser/' + id,
             title: 'Update User',
             width: '700px'
         });
@@ -126,11 +127,10 @@ framework.factory('ListUser', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/User/Deletes', { id: id }, function (result) {
-                if(result.success)
-                    alertSuccess(result.message);
-                else
-                    alert(result.message)
+            $.post('/api/User/Deletes', {id: id}, function (result) {
+                framework.common.cmdResultNoti(result);
+                if (result.success)
+                    self.onbtnReloadClick();
             });
         });
     },
@@ -141,13 +141,12 @@ framework.factory('ListUser', {
         this.searchParam = form.record;
         this.reloadGridData();
         this.findElement("headerContent").toggle();
-
     },
     onPageClick: function (event, page) {
         var grid = this.findElement('grid');
         this.searchParam = {
-            page:page,
-            size : 1
+            page: page,
+            size: 1
         };
         debugger;
         this.reloadGridData();
@@ -163,16 +162,16 @@ framework.factory('ListUser', {
         //reload grid data
         this.reloadGridData();
     },
-    reloadGridData:function(){
+    reloadGridData: function () {
         var grid = this.findElement('grid');
-        $.post('/api/User/PageableSearch',this.searchParam, function (result) {
-            if(result.success){
+        $.post('/api/User/PageableSearch', this.searchParam, function (result) {
+            if (result.success) {
                 grid.clear();
                 grid.add(result.data);
                 if (grid.pagination)
                     grid.pagination.reset(result.currentPage, result.totalPage);
             }
-            else{
+            else {
 
             }
         });
