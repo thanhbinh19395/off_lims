@@ -49,27 +49,32 @@ public class InsertBookPayableBusiness extends BaseCommand {
     }
 
     public Result Execute() {
-        BookBorrowHeader curBB = header.getBookBorrowHeader();
+        BookBorrowHeader curBB = bookBorrowHeaderService.findOne(header.getBookBorrowId()).getData();
+        if(curBB.getStatus() == CommonStatus.SOLVED)
+            return Fail("Phiếu mượn này đã được xử lý");
+
         // calc duedate
-        Date dateBB = curBB.getReturnDate();
-        header.setOverDue(header.getActualReturnDate().getTime() - dateBB.getTime());
+        if(header.getActualReturnDate().compareTo(curBB.getReturnDate()) > 0){
+            Date dateBB = curBB.getReturnDate();
+            header.setOverDue(header.getActualReturnDate().getTime() - dateBB.getTime());
+        }
+
 
 
 
         Result<BookPayableHeader> bpd = bookPayableHeaderService.save(header);
         // book state borrowed -> available
         if (!bpd.isSuccess()) {
-            Fail(bpd.getMessage());
+            return Fail(bpd.getMessage());
         }
         for (BookPayableDetail detail : details) {
-            Book tmp = detail.getBook();
+            Book tmp = bookService.findOne(detail.getBookId()).getData();
             tmp.setState(BookTransactionStep.AVAILABLE);
             bookService.save(tmp);
-            detail.setBookPayableHeader(bpd.getData());
             detail.setBookPayableHeaderId(bpd.getData().getId());
             Result bp = bookPayableDetailService.save(detail);
             if (!bp.isSuccess()) {
-                Fail(bp.getMessage());
+                return Fail(bp.getMessage());
             }
 
         }
