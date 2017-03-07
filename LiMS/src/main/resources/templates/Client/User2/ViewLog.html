@@ -68,23 +68,23 @@
                         <td>
                             <h4 th:switch="${item.header.status}">
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                                          class="label label-primary">Pending</span>
+                                          class="label label-primary" th:text="#{Pending}">Pending</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
-                                      class="label label-warning">In Progress</span>
+                                      class="label label-warning" th:text="#{InProgress}">In Progress</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).SOLVED}"
-                                      class="label label-success">Solved</span>
+                                      class="label label-success" th:text="#{Solved}">Solved</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
-                                      class="label label-danger">Cancelled</span>
+                                      class="label label-danger" th:text="#{Cancelled}">Cancelled</span>
                             </h4>
                         </td>
                         <td>
                             <a type="button" class="btn btn-danger"
                                th:if="${item.header.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:href="@{/User/ViewLog/BookBorrow/cancel/}+${item.header.id}">
+                               th:href="@{/User/ViewLog/BookBorrow/cancel/}+${item.header.id}" th:text="#{Cancel}">
                                 Cancel
                             </a>
                             <p style="vertical-align: middle; margin: 0"
-                               th:if="${item.header.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}">Cancel
+                               th:if="${item.header.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
                                 not available</p>
                         </td>
                     </tr>
@@ -118,23 +118,23 @@
                         <td>
                             <h4 th:switch="${item2.status}">
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                                          class="label label-primary">Pending</span>
+                                          class="label label-primary" th:text="#{Pending}">Pending</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
-                                      class="label label-warning">In Progress</span>
+                                      class="label label-warning" th:text="#{InProgress}">In Progress</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).SOLVED}"
-                                      class="label label-success">Solved</span>
+                                      class="label label-success" th:text="#{Solved}">Solved</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
-                                      class="label label-danger">Cancelled</span>
+                                      class="label label-danger" th:text="#{Cancelled}">Cancelled</span>
                             </h4>
                         </td>
                         <td>
                             <a type="button" class="btn btn-danger"
                                th:if="${item2.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:href="@{/User/ViewLog/BookReservation/cancel/}+${item2.id}">
+                               th:href="@{/User/ViewLog/BookReservation/cancel/}+${item2.id}" th:text="#{Cancel}">
                                 Cancel
                             </a>
                             <p style="vertical-align: middle; margin: 0"
-                               th:if="${item2.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}">Cancel
+                               th:if="${item2.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
                                 not available</p>
                         </td>
                     </tr>
@@ -173,23 +173,23 @@
                         <td>
                             <h4 th:switch="${item.status}">
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                                          class="label label-primary">Pending</span>
+                                          class="label label-primary" th:text="#{Pending}">Pending</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
-                                      class="label label-warning">In Progress</span>
+                                      class="label label-warning" th:text="#{InProgress}">In Progress</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).SOLVED}"
-                                      class="label label-success">Solved</span>
+                                      class="label label-success" th:text="#{Solved}">Solved</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
-                                      class="label label-danger">Cancelled</span>
+                                      class="label label-danger" th:text="#{Cancelled}">Cancelled</span>
                             </h4>
                         </td>
                         <td>
                             <a type="button" class="btn btn-danger"
                                th:if="${item.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:href="@{/User/ViewLog/BookRequest/cancel/}+${item.id}">
+                               th:href="@{/User/ViewLog/BookRequest/cancel/}+${item.id}" th:text="#{Cancel}">
                                 Cancel
                             </a>
                             <p style="vertical-align: middle; margin: 0"
-                               th:if="${item.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}">Cancel
+                               th:if="${item.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
                                 not available</p>
                         </td>
                     </tr>
