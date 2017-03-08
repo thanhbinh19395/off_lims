@@ -43,17 +43,12 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
 
     @Override
     public Result<Request> save(Request request) {
-        User user = userService.findByUsername(securityService.findLoggedInUsername());
+        SaveHandler(request);
         if (request.getId() == null) {
-            request.setCreated_by(user);
-            request.setCreated_date(new Date());
             request.setStatus(CommonStatus.PENDING);
         }
-        else {
-            request.setUpdate_date(new Date());
-            request.setUpdate_by(user);
-        }
-        return Success(requestRepository.save(request), "Lưu thành công");
+        Request r = requestRepository.save(request);
+        return Success(r, "Lưu thành công");
     }
 
     @Override
@@ -69,6 +64,12 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
 
     @Override
     public PageableResult<Request> search(Request model, Pageable p) {
+        if(model.getCreated_by() == null){
+            model.setCreated_by(new User());
+        }
+        if(model.getUpdate_by() == null){
+            model.setUpdate_by(new User());
+        }
         return Success(requestRepository.search(model,new PageRequest(p.getPageNumber(),PAGESIZE,p.getSort())));
     }
 

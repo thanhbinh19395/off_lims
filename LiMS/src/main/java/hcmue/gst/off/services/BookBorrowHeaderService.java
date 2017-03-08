@@ -6,6 +6,8 @@ import hcmue.gst.off.extensions.PageableResult;
 import hcmue.gst.off.extensions.Result;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Created by dylan on 2/21/2017.
  */
@@ -16,4 +18,6 @@ public interface BookBorrowHeaderService {
     Result delete(Long id);
     PageableResult<BookBorrowHeader> search(BookBorrowHeader model, Pageable p) ;
     Result<Iterable<BookBorrowHeader>> search(BookBorrowHeader model);
+    Result<List<BookBorrowHeader>> findDeadlineBBHeader();
+
 }
