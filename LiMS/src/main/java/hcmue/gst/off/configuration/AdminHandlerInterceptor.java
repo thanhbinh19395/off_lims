@@ -54,6 +54,8 @@ public class AdminHandlerInterceptor implements HandlerInterceptor {
         String uuid = UUID.randomUUID().toString();
         httpServletRequest.getSession().setAttribute(uuid,"/templates" + modelAndView.getViewName()+".js");
         modelAndView.getModelMap().addAttribute("PageModule",uuid);
+        String[] tmp = modelAndView.getViewName().split("\\/");
+        modelAndView.addObject("viewName", tmp[tmp.length-1] );
     }
 
     @Override

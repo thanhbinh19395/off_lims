@@ -71,10 +71,4 @@ framework.factory('ViewBookBorrow', {
             window.location.replace("/Admin/BookBorrowHeader/ListBookBorrowHeader");
         }
     },
-    toInitState: function () {
-        var form = this.findElement('form');
-        var grid = this.findElement('grid');
-        grid.clear();
-        form.clear();
-    },
 });

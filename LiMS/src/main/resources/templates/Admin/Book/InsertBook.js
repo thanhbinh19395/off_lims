@@ -13,22 +13,48 @@ framework.factory('InsertBook', {
         var form = widget.setting.form();
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
-                { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'image', type: 'file', required: true, caption: 'Hình',
-                    options:{
-                        max:1,
-                } },
-                { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
-                { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
-                { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
-                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
-                { field: 'bookStatusId', caption: 'Tình trạng', type: 'popupListBookStatus',required: true, options:{caller:self} }
+                {field: 'name', type: 'text', required: true, caption: 'Tên sách'},
+                {field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản'},
+                {
+                    field: 'image', type: 'file', required: false, caption: 'Hình',
+                    options: {
+                        max: 1,
+                    }
+                },
+                {field: 'author', type: 'text', required: true, caption: 'Tác giả'},
+                {field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản'},
+                {field: 'bookCode', type: 'text', required: true, caption: 'Book Code'},
+                {
+                    field: 'bookCategoryId',
+                    caption: 'Thể Loại',
+                    type: 'popupListBookCategory',
+                    required: true,
+                    options: {caller: self}
+                },
+                {
+                    field: 'bookStatusId',
+                    caption: 'Tình trạng',
+                    type: 'popupListBookStatus',
+                    required: true,
+                    options: {caller: self}
+                }
             ]);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
-            .addItem({ id: 'btnInsert', type: 'button', caption: 'Lưu', icon: 'fa-floppy-o', onClick:self.onBtnInsertClick.bind(this) })
-            .addItem({ id: 'btnClear', type: 'button', caption:'Nhập lại', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
+            .addItem({
+                id: 'btnInsert',
+                type: 'button',
+                caption: 'Lưu',
+                icon: 'fa-floppy-o',
+                onClick: self.onBtnInsertClick.bind(this)
+            })
+            .addItem({
+                id: 'btnClear',
+                type: 'button',
+                caption: 'Nhập lại',
+                icon: 'fa-refresh',
+                onClick: self.onBtnClearClick.bind(this)
+            })
         ;
         content.setName('content1').addItem(form.end()).addItem(formFooter.end());
     },
@@ -36,25 +62,33 @@ framework.factory('InsertBook', {
         var self = this;
         var form = this.findElement('insertForm');
         if (!form.validate().length) {
-            framework.common.requestUploadImages({
-                listImages: form.record.image,
-                successHandler:function(result){
-                    framework.common.cmdResultNoti(result);
-                    if(result.success){
-                        form.record.imageUrl = result.data;
-                        form.record.image = null;
-                        $.post('/api/Book/Save', form.record , function (r) {
-                            framework.common.cmdResultNoti(r);
-                            self.sendMessage(r);
-                        });
-                    }
-                }.bind(self),
-
-            });
+            if (form.record.image) {
+                framework.common.requestUploadImages({
+                    listImages: form.record.image,
+                    successHandler: function (result) {
+                        framework.common.cmdResultNoti(result);
+                        if (result.success) {
+                            form.record.imageUrl = result.data;
+                            form.record.image = null;
+                            $.post('/api/Book/Save', form.record, function (r) {
+                                framework.common.cmdResultNoti(r);
+                                self.sendMessage(r);
+                            });
+                        }
+                    }.bind(self)
+                });
+            }
+            else {
+                form.record.image = null; //link anh mac dinh
+                $.post('/api/Book/Save', form.record, function (r) {
+                    framework.common.cmdResultNoti(r);
+                    self.sendMessage(r);
+                });
+            }
         }
 
     },
-    uploadImage:function(){
+    uploadImage: function () {
         var self = this;
         var form = this.findElement('insertForm');
 

@@ -33,15 +33,7 @@ public class BookStatusServiceImpl extends BaseCommand implements BookStatusServ
 
     @Override
     public Result<BookStatus> save(BookStatus bookStatus) {
-        User user = userService.findByUsername(securityService.findLoggedInUsername());
-        if (bookStatus.getId() == null) {
-            bookStatus.setCreated_by(user);
-            bookStatus.setCreated_date(new Date());
-        }
-        else {
-            bookStatus.setUpdate_date(new Date());
-            bookStatus.setUpdate_by(user);
-        }
+        SaveHandler(bookStatus);
         return Success(bookStatusRepository.save(bookStatus),"Lưu thành công");
     }
 

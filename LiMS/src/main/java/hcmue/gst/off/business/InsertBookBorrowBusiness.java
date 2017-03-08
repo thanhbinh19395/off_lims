@@ -62,7 +62,7 @@ public class InsertBookBorrowBusiness extends BaseCommand {
         if(!curUser.getBorrowable())
             return Fail("User " + curUser.getUsername() + " không được mượn sách");
 
-        header.setStatus(CommonStatus.PENDING);
+        header.setStatus(CommonStatus.INPROGRESS);
         Result<BookBorrowHeader> bookBorrowHeader = bookBorrowHeaderService.save(header);
         if(!bookBorrowHeader.isSuccess())
         {
