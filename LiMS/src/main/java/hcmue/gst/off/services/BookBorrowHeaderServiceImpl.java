@@ -74,7 +74,7 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         model.setStatus(CommonStatus.PENDING);
 
         Iterable<BookBorrowHeader> list  = bookBorrowHeaderRepository.search(model);
-        List<BookBorrowHeader> rs  ;
+        List<BookBorrowHeader> rs =new ArrayList<>();
         // get due date
         Calendar cal = Calendar.getInstance();
 

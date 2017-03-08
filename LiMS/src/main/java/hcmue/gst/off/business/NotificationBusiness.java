@@ -29,7 +29,7 @@ public class NotificationBusiness {
     @Autowired
     MailService mailService;
 
-    @Scheduled(initialDelay=3000, fixedDelay=oneDay )
+    @Scheduled(cron = "0 50 20 * * ?" )
     public void Notify()
     {
         logger.info("Cron job begins");
