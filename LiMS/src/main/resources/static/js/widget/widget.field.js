@@ -419,9 +419,9 @@ $().w2field('addType', 'popupListUser', function (options) {
             //3
             if (sender.pageName == 'ListUser')
             {
-                $(self.el).val(message.id);
+                $(self.el).val(message.data.id);
                 $(self.el).change();
-                $(input).val(message.name)
+                $(input).val(message.data.name)
                 $(self.el).data('data', message);
                 sender.close || sender.close();
             }
