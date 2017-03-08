@@ -1,15 +1,12 @@
 package hcmue.gst.off.controllers.Client;
 
+import hcmue.gst.off.business.FindBookBorrowBusiness;
 import hcmue.gst.off.entities.*;
-import hcmue.gst.off.extensions.BookBorrowCart;
 import hcmue.gst.off.extensions.UserBaseController;
-import hcmue.gst.off.repositories.BookBorrowDetailRepository;
-import hcmue.gst.off.repositories.BookBorrowHeaderRepository;
 import hcmue.gst.off.repositories.BookRepository;
-import hcmue.gst.off.services.BookBorrowDetailService;
 import hcmue.gst.off.services.SecurityService;
+import hcmue.gst.off.model.BookBorrowItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,16 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by tranv on 20/02/2017.
@@ -34,7 +26,7 @@ import java.util.List;
 @Controller
 public class Book2Controller extends UserBaseController {
 
-    private final int MAX_BORROWING_BOOK = 3;
+    private final Integer MAX_BORROWING_BOOK = 3;
 
     @Autowired
     private BookRepository bookRepository;
@@ -43,16 +35,14 @@ public class Book2Controller extends UserBaseController {
     private SecurityService securityService;
 
     @Autowired
-    private BookBorrowDetailRepository bookBorrowDetailRepository;
-
-    @Autowired
-    private BookBorrowHeaderRepository bookBorrowHeaderRepository;
+    private FindBookBorrowBusiness findBookBorrowBusiness;
 
     @RequestMapping(value = "/Book/ViewDetail/{id}", method = RequestMethod.GET)
     public String ViewBookDetail(@PathVariable("id") Long id, Model model, HttpSession session, HttpServletRequest request){
         Book book = bookRepository.findOne(id);
         model.addAttribute("Book", book);
         //Check item already in book cart
+
         session = request.getSession(false);
         if (session != null) {
             for (int i = 1; i < 4; i++) {
@@ -71,15 +61,13 @@ public class Book2Controller extends UserBaseController {
             }
         }
         if (book.getState() == BookTransactionStep.BORROWED || book.getState() == BookTransactionStep.RESERVATED) {
-            BookBorrowDetail bookBorrowDetail = new BookBorrowDetail();
-            bookBorrowDetail.setBookId(id);
-            BookBorrowDetail bookBorrowDetailSearchModel = bookBorrowDetailRepository.search(bookBorrowDetail).iterator().next();
-            BookBorrowHeader bookBorrowHeader = new BookBorrowHeader();
-            bookBorrowHeader.setId(bookBorrowDetailSearchModel.getBookBorrowHeaderId());
-            Date returnDate = bookBorrowHeaderRepository.search(bookBorrowHeader).iterator().next().getReturnDate();
+            findBookBorrowBusiness.ExecuteWithBookId(id);
+            BookBorrowItem item = findBookBorrowBusiness.getBookBorrowItem();
+            Date returnDate = item.getHeader().getReturnDate();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             model.addAttribute("returnDate", sdf.format(returnDate));
             model.addAttribute("reservationBook", new BookReservation());
+            model.addAttribute("bookBorrowHeader", item.getHeader());
             if (book.getState() == BookTransactionStep.RESERVATED) {
                 Calendar c = Calendar.getInstance();
                 c.setTime(returnDate);

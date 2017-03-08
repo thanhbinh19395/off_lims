@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/Admin/emptylayout">
 
-<script layout:fragment="scripts" ></script>
+<script layout:fragment="scripts"></script>
 <div th:remove="tag" layout:fragment="styles"></div>
 
-<div layout:fragment="content" >
+<div layout:fragment="content">
     <!-- BEGIN Navbar -->
     <div id="navbar" class="navbar">
         <button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
@@ -13,13 +13,13 @@
         <a class="navbar-brand" href="/">
             <small>
                 <i style="font-size:1.5em" class="fa fa-rocket"></i>
-                Hệ thống bán lẻ
+                LiMS
             </small>
         </a>
-        <ul class="nav flaty-nav navbar-collapse collapse" >
+        <ul class="nav flaty-nav navbar-collapse collapse">
             <li class="user-profile pull-right">
                 <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
-                    <img class="nav-user-photo" src="~/Content/flaty/img/demo/avatar/avatar2.jpg" alt="Penny's Photo" />
+                    <img class="nav-user-photo" src="~/Content/flaty/img/demo/avatar/avatar2.jpg" alt="Penny's Photo"/>
                     <span class="hhh" id="user_info">
                         Xin chào!
                     </span>
@@ -90,18 +90,98 @@
                             <button type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
-                            <input type="text" name="search" placeholder="Search ..." autocomplete="off" />
+                            <input type="text" name="search" placeholder="Search ..." autocomplete="off"/>
                         </span>
                     </form>
                 </li>
                 <!-- END Search Form -->
 
-                <li class="active"><a href="#" class="dropdown-toggle"><i class="fa fa-shopping-cart"></i>&nbsp;<span>Bán hàng</span><b class="arrow fa fa-angle-down"></b></a><ul class="submenu" style="display: block;"><li class="active"><a href="/RetailSaleOrder/SaleOrderManagement/DashboardSO"><i class="fa fa-dashboard"></i>&nbsp;<span>Dashboard</span></a></li><li><a href="/RetailPOS/SaleManagement/CreateSO"><i class="fa fa-plus"></i>&nbsp;<span>Thêm đơn hàng</span></a></li><li><a href="/RetailSaleOrder/SaleOrderManagement/ListSO"><i class="fa fa-list"></i>&nbsp;<span>Danh sách</span></a></li><li><a href="#"><i class="fa fa-signal"></i>&nbsp;<span>Báo cáo</span></a><ul><li><a href="/RetailSaleOrder/SaleOrderManagement/ReportBySaleOrder"><span>Phiếu bán hàng</span></a></li><li><a href="/RetailSaleOrder/SaleOrderManagement/ChartSOByTime"><span>Theo thời điểm</span></a></li><li><a href="/RetailSaleOrder/SaleOrderManagement/ChartSOByProductCategory"><span>Theo nhóm hàng hoá</span></a></li><li><a href="/RetailSaleOrder/SaleOrderManagement/ChartSOByCustomer"><span>Theo khách hàng</span></a></li><li><a href="/RetailSaleOrder/SaleOrderManagement/ChartSOByTransactionStep"><span>Theo trạng thái</span></a></li></ul></li></ul></li>
-            <!-- END Navlist -->
-            <!-- BEGIN Sidebar Collapse Button -->
-            <div id="sidebar-collapse" class="visible-lg">
-                <i class="fa fa-angle-double-left"></i>
-            </div>
+                <!-- BEGIN Book Mgt -->
+                <li th:class="${#strings.equals(viewName,'ListBook') || #strings.equals(viewName,'ListBookCategory') || #strings.equals(viewName,'ListBookStatus')} ? active : ''">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Management</span><b
+                            class="arrow fa fa-angle-right"></b></a>
+                    <ul class="submenu">
+                        <li th:class="${#strings.equals(viewName,'ListBook')} ? active : ''">
+                            <a href="/Admin/Book/ListBook">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'ListBookCategory')} ? active : ''">
+                            <a href="/Admin/BookCategory/ListBookCategory">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Category</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'ListBookStatus')} ? active : ''">
+                            <a href="/Admin/BookStatus/ListBookStatus">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Status</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END Book Mgt -->
+
+                <!-- BEGIN Book Borrow Mgt -->
+                <li th:class="${#strings.equals(viewName,'ListBookBorrow') || #strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Borrow Mgt</span><b
+                            class="arrow fa fa-angle-right"></b></a>
+                    <ul class="submenu">
+                        <li th:class="${#strings.equals(viewName,'ListBookBorrow')} ? active : ''">
+                            <a href="/Admin/BookBorrow/ListBookBorrow">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Borrow</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
+                            <a href="/Admin/BookBorrow/InsertBookBorrow">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Create Book Borrow</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- END Book Borrow Mgt -->
+
+                <!-- BEGIN Book Payable Mgt -->
+                <li th:class="${#strings.equals(viewName,'ListBookPayable') || #strings.equals(viewName,'InsertBookPayable')} ? active : ''">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Payable Mgt</span><b
+                            class="arrow fa fa-angle-right"></b></a>
+                    <ul class="submenu">
+                        <li th:class="${#strings.equals(viewName,'ListBookPayable')} ? active : ''">
+                            <a href="/Admin/BookPayable/ListBookPayable">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Payable</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'InsertBookPayable')} ? active : ''">
+                            <a href="/Admin/BookPayable/InsertBookPayable">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Create Book Payable</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- END Book Payable Mgt -->
+
+                <li th:class="${#strings.equals(viewName,'ListRequest')} ? active : ''">
+                    <a href="/Admin/Request/ListRequest">
+                        <i class="fa-shopping-bag"></i>
+                        <span>Request</span>
+                    </a>
+                </li>
+
+                <li th:class="${#strings.equals(viewName,'ListUser')} ? active : ''">
+                    <a href="/Admin/User/ListUser">
+                        <i class="fa-shopping-bag"></i>
+                        <span>List User</span>
+                    </a>
+                </li>
+
+                <!-- END Navlist -->
+                <!-- BEGIN Sidebar Collapse Button -->
+                <div id="sidebar-collapse" class="visible-lg">
+                    <i class="fa fa-angle-double-left"></i>
+                </div>
             </ul>
             <!-- END Sidebar Collapse Button -->
         </div>

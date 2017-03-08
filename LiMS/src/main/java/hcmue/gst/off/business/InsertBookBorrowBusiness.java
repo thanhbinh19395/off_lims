@@ -62,7 +62,7 @@ public class InsertBookBorrowBusiness extends BaseCommand {
         if(!curUser.getBorrowable())
             return Fail("User " + curUser.getUsername() + " không được mượn sách");
 
-        header.setStatus(CommonStatus.PENDING);
+        header.setStatus(CommonStatus.INPROGRESS);
         Result<BookBorrowHeader> bookBorrowHeader = bookBorrowHeaderService.save(header);
         if(!bookBorrowHeader.isSuccess())
         {
@@ -73,6 +73,8 @@ public class InsertBookBorrowBusiness extends BaseCommand {
         for (BookBorrowDetail detail: details)
         {
             Book tmp = bookService.findOne(detail.getBookId()).getData();
+            if(tmp.getState() == BookTransactionStep.BORROWED)
+                return Fail("Sách [" + tmp.getBookCode() +"]" + tmp.getName() + " đã có người mượn");
             tmp.setState(BookTransactionStep.BORROWED);
             bookService.save(tmp);
             //detail.setBookBorrowHeader(bookBorrowHeader.getData());

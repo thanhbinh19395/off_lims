@@ -11,6 +11,7 @@ import hcmue.gst.off.services.BookBorrowHeaderService;
 import hcmue.gst.off.services.BookPayableHeaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,9 +55,10 @@ public class BookPayableApiController {
         return bookPayableHeaderService.search(model,p);
     }
     @RequestMapping("/Insert")
-    Result InsertBookPayable()
+    Result InsertBookPayable(@RequestBody InsertBookPayableBusiness data)
     {
-
+        insertBookPayableBusiness.setHeader(data.getHeader());
+        insertBookPayableBusiness.setDetails(data.getDetails());
         // Dữ liệu giả
         /*
         BookPayableHeader header = new BookPayableHeader();

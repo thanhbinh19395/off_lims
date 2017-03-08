@@ -3,20 +3,38 @@
  */
 framework.factory('InsertBookPayable', {
     onPopupHandler: function (data) {
+        debugger;
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
-            form.record.name = null;
-            form.record.phone = null;
-            form.record.address = null;
-            form.record.email = null;
-            form.record.idcard = null;
-            form.record.birthday = null;
-            form.refresh();
+            form.clear();
+        }
+        else if(data.eventType == ''){
+
         }
     },
     onMessageReceive: function (sender, message) {
-        if (sender.pageName == 'ListBook') {
-            this.insertBPDetailHandler(sender, message.data);
+        if (sender.pageName == 'ListBookBorrow') {
+            var form = this.findElement('form');
+            var grid = this.findElement('grid');
+
+            //form handler
+            var formData = message.user;
+            formData.name = '[' + message.user.username + ']' + message.user.name;
+            formData.returnDate = message.returnDate;
+            var actualReturnDate = new Date();
+            actualReturnDate = actualReturnDate.setDate(actualReturnDate.getDate());
+            formData.actualReturnDate = actualReturnDate;
+            console.log(formData);
+            $.extend(form.record, formData);
+            form.refresh();
+
+            //grid handler
+            grid.clear();
+            grid.add($.map(message.bookBorrowDetails,function(v){
+                return v.book;
+            }));
+
+            console.log(message);
         }
         else if (sender.pageName == 'insertBook') {
             data.data.BookCode = data.message.Code;
@@ -43,22 +61,17 @@ framework.factory('InsertBookPayable', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'createdUsername', caption: 'Người lập', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
+                { field: 'bookBorrowId', caption: 'Mã phiếu lập', type: 'popupListBookBorrow', span : 1, options:{caller:self}},
                 { type: 'empty'},
-                { field: 'userId', caption: 'Người mượn', type: 'popupListUser',options:{caller:self}, span :1, required : true },
-                { type: 'empty'},
-                { field: 'name', caption: 'Name', type: 'text'},
+                { field: 'name', caption: 'Tên người mượn', type: 'text'},
                 { field: 'phone', caption: 'Phone', type: 'text'},
                 { field: 'address', caption: 'Address' , type: 'text'},
                 { field: 'email', caption: 'Email' , type: 'text'},
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
                 { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
+                { field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span : 2, required : true},
             ])
-            .setRecord({
-                returnDate : returnDate,
-            })
-            .createEvent('onChange', self.onChangeForm.bind(this))
         ;
         var toolbar = widget.setting.toolbar();
         toolbar.setName('toolbar')
@@ -70,63 +83,10 @@ framework.factory('InsertBookPayable', {
                 type: 'button', id: 'save', caption: 'Lưu', icon: 'glyphicon glyphicon-floppy-saved',
                 onClick: self.onBtnSaveClick.bind(this)
             })
-            .addItem({
-                type: 'button', id: 'saveInventory', caption: 'Kho', icon: 'glyphicon glyphicon-log-in',
-                onClick: self.onBtnSaveInventoryClick.bind(this)
-            })
-            .addItem({
-                type: 'button', id: 'saveFinish', caption: 'Thanh toán', icon: 'glyphicon glyphicon-ok',
-                onClick: self.onBtnSaveFinishClick.bind(this)
-            })
-            .addItem({ type: 'spacer' })
-            .addItem({
-                type: 'html', id: 'item5',
-                html: function (item) {
-                    var html =
-                        '<div style="padding: 3px 10px;">' +
-                        ' Book:' +
-                        '    <input id="book" size="20" placeholder="Name, Code" ' +
-                        '         style="padding: 3px; border-radius: 2px; border: 1px solid silver" />' +
-                        '</div>';
-                    return html;
-                }
-            })
-            .createEvent('onRender', function (event) {
-                event.done(function (e) {
-                    var inputBook = $(e.box).find('#book');
-                    inputBook.dblclick(function (dce) {
-                        self.onChooseBookClick();
-                    });
-                    inputBook.keypress(function (kpe) {
-                        if (kpe.key == 'Enter') {
-                            var val = $(kpe.target).val();
-                            $.post('/api/Book/Search', {
-                                name: val,
-                            }, function (result) {
-                                var data = result.data;
-                                if (data.length == 0) {
-                                    alert('Book Not found !');
-                                }
-                                else if (data.length == 1) {
-                                    self.insertBPDetailHandler(null, data[0]);
-                                }
-                                else {
-                                    self.openPopup({
-                                        name: 'insertPopup',
-                                        url: '/Admin/Book/ListBook',
-                                        width: 600
-                                    }, {   name: val,}  );
-                                }
-                            });
-                            $(kpe.target).val(null);
-                        }
-                    });
-                });
-            });
         ;
         var grid = widget.setting.grid();
 
-        grid.setName('grid').setProperty({ show: {} })
+        grid.setName('grid')
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
@@ -134,7 +94,7 @@ framework.factory('InsertBookPayable', {
                 { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
                 { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
                 { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
+                //{ field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
                 { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
@@ -177,10 +137,23 @@ framework.factory('InsertBookPayable', {
         }
     },
     onBtnSaveClick: function () {
+        var self = this;
         var curBP = this.getCurrentBP();
         if (curBP) {
-            $.post('/api/BookBorrowHeader/Save', {header: form.record, detail: w2ui.grid.records}, function (data) {
-                framework.common.cmdResultNoti(data);
+            $.ajax({
+                url:"/api/BookPayable/Insert",
+                type: "POST",
+                data: JSON.stringify( curBP ),
+                success: function(r){
+                    framework.common.cmdResultNoti(r);
+                    if(r.success){
+                        self.toInitState();
+                        if(self.parentId)
+                            self.sendMessage(r);
+                    }
+                },
+                dataType: "json",
+                contentType: "application/json"
             });
         }
     },
@@ -259,13 +232,25 @@ framework.factory('InsertBookPayable', {
     },
     getCurrentBP: function () {
         var form = this.findElement('form');
-        if (form.validate() != 0 || form.record.Total == 0)
+        var grid = this.findElement('grid');
+        if (form.validate() != 0)
             return;
 
-        var grid = this.findElement('grid');
+
+        var header = {
+            returnDate : form.record.returnDate,
+            actualReturnDate : form.record.actualReturnDate,
+            bookBorrowId : form.record.bookBorrowId
+        };
+        var details = $.map(grid.records, function(v){
+            return {
+                bookId:v.id,
+                note:"hello"
+            }
+        });
         return {
-            BPHeader: form.record,
-            SoDetails: grid.records
+            header: header,
+            details: details
         }
     },
     toInitState: function () {

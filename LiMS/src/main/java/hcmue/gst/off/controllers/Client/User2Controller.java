@@ -1,11 +1,8 @@
 package hcmue.gst.off.controllers.Client;
 
-import hcmue.gst.off.business.ListBookBorrowBusiness;
-import hcmue.gst.off.business.ListBookRequestBusiness;
-import hcmue.gst.off.business.ListBookReservationBusiness;
+import hcmue.gst.off.business.*;
 import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.UserBaseController;
-import hcmue.gst.off.repositories.UserRepository;
 import hcmue.gst.off.services.SecurityService;
 import hcmue.gst.off.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,8 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/User")
 public class User2Controller extends UserBaseController{
-    @Autowired
-    private UserRepository userRepository;
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -38,6 +31,12 @@ public class User2Controller extends UserBaseController{
     private ListBookReservationBusiness listBookReservationBusiness;
     @Autowired
     private ListBookRequestBusiness listBookRequestBusiness;
+    @Autowired
+    private CancelBookBorrowBusiness cancelBookBorrowBusiness;
+    @Autowired
+    private CancelBookReservationBusiness cancelBookReservationBusiness;
+    @Autowired
+    private CancelBookRequestBusiness cancelBookRequestBusiness;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -76,7 +75,7 @@ public class User2Controller extends UserBaseController{
         temp.setIdcard(user.getIdcard());
         temp.setEmail(user.getEmail());
         temp.setBirthday(user.getBirthday());
-        userRepository.save(temp);
+        userService.save(temp);
         return "redirect:/User/UpdateInfoUser?success";
     }
 
@@ -89,6 +88,27 @@ public class User2Controller extends UserBaseController{
         model.addAttribute("bookReservationList", listBookReservationBusiness.getBookReservationList());
         model.addAttribute("bookRequestList", listBookRequestBusiness.getRequestList());
         return View("ViewLog");
+    }
+
+    @RequestMapping(value = "/ViewLog/BookBorrow/cancel/{id}")
+    public String cancelBookBorrow(@PathVariable("id") Long id) {
+        cancelBookBorrowBusiness.setId(id);
+        cancelBookBorrowBusiness.Execute();
+        return "redirect:/User/ViewLog";
+    }
+
+    @RequestMapping(value = "/ViewLog/BookReservation/cancel/{id}")
+    public String cancelBookReservation(@PathVariable("id") Long id) {
+        cancelBookReservationBusiness.setId(id);
+        cancelBookReservationBusiness.Execute();
+        return "redirect:/User/ViewLog";
+    }
+
+    @RequestMapping(value = "/ViewLog/BookRequest/cancel/{id}")
+    public String cancelBookRequest(@PathVariable("id") Long id) {
+        cancelBookRequestBusiness.setId(id);
+        cancelBookRequestBusiness.Execute();
+        return "redirect:/User/ViewLog";
     }
 
 

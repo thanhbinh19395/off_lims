@@ -90,7 +90,7 @@ framework.factory('ListBook', {
             .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
-            .addRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
+            .setRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
         ;
         //nếu đc mở kiểu popup thì có thêm sự kiện click grid
         if (this.parentId) {
