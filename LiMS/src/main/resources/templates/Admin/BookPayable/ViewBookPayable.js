@@ -1,21 +1,23 @@
 /**
- * Created by Thanh Binh on 3/6/2017.
+ * Created by Thanh Binh on 3/9/2017.
  */
-
-framework.factory('ViewBookBorrow', {
+framework.factory('ViewBookPayable', {
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Xem phiếu mượn sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('Xem phiếu trả sách').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {
         var self = this;
         console.log(this.ViewBag);
-        var bb = this.ViewBag.bookBorrow.data;
-        var formData = bb.user;
-        formData.createdUsername = '[' + bb.created_by.username + ']' + bb.created_by.name;
-        formData.returnDate = bb.returnDate
+        var bp = this.ViewBag.bookPayable.data;
+        var formData = bp.bookBorrowHeader.user;
+        formData.username =  '[' + bp.bookBorrowHeader.user.username + ']' + bp.bookBorrowHeader.user.name;
+        formData.actualReturnDate = bp.actualReturnDate;
+        formData.returnDate = bp.bookBorrowHeader.returnDate;
+        formData.createdUsername = '[' + bp.created_by.username + ']' + bp.created_by.name;
+        //formData.returnDate = bp.returnDate
 
-
+debugger
 
         var form = widget.setting.form();
         form.setName('form')
@@ -32,6 +34,7 @@ framework.factory('ViewBookBorrow', {
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
                 { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
+                { field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span : 2, required : true},
             ])
             .setRecord(formData)
         ;
@@ -58,9 +61,9 @@ framework.factory('ViewBookBorrow', {
                 { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
                 { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
             ])
-            .setRecords($.map(this.ViewBag.bookBorrow.data.bookBorrowDetails,function(v){return v.book;}))
+            .setRecords($.map(this.ViewBag.bookPayable.data.bookPayableDetails,function(v){return v.book;}))
         ;
-        console.log(this.ViewBag.bookBorrow.data.bookBorrowDetails);
+        console.log(this.ViewBag.bookPayable.data.bookPayableDetails);
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
@@ -68,7 +71,7 @@ framework.factory('ViewBookBorrow', {
             this.close();
         }
         else{
-            window.location.replace("/Admin/BookBorrow/ListBookBorrow");
+            window.location.replace("/Admin/BookPayable/ListBookPayable");
         }
     },
 });

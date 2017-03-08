@@ -1,10 +1,9 @@
 /**
- * Created by dylan on 2/24/2017.
+ * Created by dylan on 2/21/2017.
  */
-
 framework.factory('ListBookPayable', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookPayable' || sender.pageName =='UpdateBookPayable'){
+        if(sender.pageName =='InsertBookPayable'){
             if(data.success){
                 this.onbtnReloadClick();
                 sender.close();
@@ -12,20 +11,20 @@ framework.factory('ListBookPayable', {
         }
     },
     onInitHeader: function (header) {
-        console.log(this.ViewBag);
         header.setName('header');
         var self = this;
         var form = widget.setting.form();
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'bookBorrowId', type: 'text', required: false, caption: "Mã phiếu mượn " },
-                { field: 'actualReturnDate', type: 'date', required: false, caption: "Ngày trả thực tế" },
-                { field: 'overDue', type: 'text', required: false, caption: "Phí quá hạn" },
+                { field: 'username', type: 'text', required: false, caption: "Người mượn", render: function(r){
+                    return '['+r.user.username +'] ' + r.user.name;
+                } },
+                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả" },
                 { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
-        header.setTitle('Danh sách Thể Loại')
+        header.setTitle('Danh sách Phiếu trả')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -72,16 +71,30 @@ framework.factory('ListBookPayable', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'bookBorrowId', caption: 'Mã phiếu mượn', size: '50%', sortable: true, resizable: true },
-                { field: 'actualReturnDate',type: 'date', caption: 'Ngày trả thực tế', size: '50%', sortable: true, resizable: true },
-                { field: 'overDue', caption: 'Phí quá hạn', size: '50%', sortable: true, resizable: true },
-                { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true },
+                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Người mượn", render: function(r){
+                    return '['+r.bookBorrowHeader.user.username +']' + r.bookBorrowHeader.user.name;
+                } },
+                { field: 'created_date',render:'date', caption: 'Ngày lập', size: '50%', sortable: true, resizable: true },
+                //{ field: 'returnDate',render:'date', caption: 'Hạn trả', size: '50%', sortable: true, resizable: true },
+                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Người lập", render: function(r){
+                    return '['+r.created_by.username +']' + r.created_by.name;
+                } },
+                {
+                    field: 'details', caption: 'Xem chi tiết', size: '30%', sortable: true, resizable: true, render: function (r) {
+                    var a = $("<a>");
+                    a.attr('href', '#');
+                    a.attr('type', 'click');
+                    a.html('Xem chi tiết');
+                    return a[0].outerHTML;
+                }
+                }
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnUpdate', 'Xem chi tiết', 'fa fa-pencil', self.onbtnViewClickGrid.bind(this))
+            //.addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBookPayable.data).setPaginateOptions(pagi.end())
+            .createEvent('onClick', this.onGridClick.bind(this))
         ;
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
@@ -97,10 +110,9 @@ framework.factory('ListBookPayable', {
             width: '700px'
         });
     },
-    onbtnUpdateClickGrid: function () {
+    onbtnViewClickGrid: function () {
         var grid = this.findElement('grid');
         var id = grid.getSelection()[0];
-        console.log(id);
         if (!id) {
             //thong bao = noty
             alert("vui long chon");
@@ -108,8 +120,8 @@ framework.factory('ListBookPayable', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookPayable/UpdateBookPayable/'+id,
-            title: 'Update Role',
+            url: '/Admin/BookPayable/ViewBookPayable/'+id,
+            title: 'View BookPayable',
             width: '700px'
         });
 
@@ -192,5 +204,21 @@ framework.factory('ListBookPayable', {
         var grid = this.findElement('grid');
         var record = grid.get(e.recid);
         this.sendMessage(record);
+    },
+    onGridClick: function (e) {
+        if (e.column == 4) {
+            var self = this;
+            e.onComplete = function (data) {
+                if ($(data.originalEvent.srcElement).attr('type') == 'click') {
+                    self.openPopup({
+                        name: 'ViewPopup',
+                        url: '/Admin/BookPayable/ViewBookPayable/'+e.recid,
+                        title: 'View BookPayable',
+                        width: '700px'
+                    });
+                }
+
+            }
+        }
     }
 });

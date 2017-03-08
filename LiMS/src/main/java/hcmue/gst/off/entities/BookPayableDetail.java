@@ -1,5 +1,6 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 public class BookPayableDetail extends BaseEntity{
     private Long bookPayableHeaderId;
     private Long bookId;
+    @JsonIgnore
     private BookPayableHeader bookPayableHeader;
     private Book book;
     private Boolean isPaid;

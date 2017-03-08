@@ -147,7 +147,12 @@ framework.factory('InsertBookBorrow', {
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
-        window.location.replace("/Admin/BookBorrowHeader/ListBookBorrowHeader");
+        if(this.parentId){
+            this.close();
+        }
+        else{
+            window.location.replace("/Admin/BookBorrow/ListBookBorrow");
+        }
     },
     onSearchBookGrid: function (e) {
         console.log(e);
