@@ -1,8 +1,13 @@
 package hcmue.gst.off.controllers.Client;
 
+import hcmue.gst.off.business.FindBookBorrowBusiness;
+import hcmue.gst.off.business.SendEmailBusiness;
 import hcmue.gst.off.entities.BookReservation;
 import hcmue.gst.off.extensions.UserBaseController;
+import hcmue.gst.off.model.BookBorrowItem;
 import hcmue.gst.off.services.BookReservationService;
+import hcmue.gst.off.services.BookService;
+import hcmue.gst.off.services.MailService;
 import hcmue.gst.off.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +26,16 @@ public class UserReserveController extends UserBaseController {
     private BookReservationService bookReservationService;
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    private SendEmailBusiness sendEmailBusiness;
 
     @RequestMapping(value = "/User/Book/ViewDetail/reserveBook", method = RequestMethod.POST)
     public String reserve(@ModelAttribute("reservationBook") BookReservation bookReservation,Model model) {
         if (securityService.getUser().getBorrowable() == true) {
             bookReservationService.save(bookReservation);
         }
+        sendEmailBusiness.toBorrowUser(bookReservation.getBookId());
+        sendEmailBusiness.toReservationUser(bookReservation.getBookId());
         return "redirect:/Book/ViewDetail/"+bookReservation.getBookId();
     }
 }

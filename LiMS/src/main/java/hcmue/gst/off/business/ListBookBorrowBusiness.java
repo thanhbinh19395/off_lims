@@ -7,9 +7,7 @@ import hcmue.gst.off.extensions.BaseCommand;
 import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.BookBorrowDetailRepository;
 import hcmue.gst.off.repositories.BookBorrowHeaderRepository;
-import hcmue.gst.off.services.BookBorrowDetailService;
-import hcmue.gst.off.services.BookBorrowHeaderService;
-import hcmue.gst.off.viewmodel.BookBorrowItem;
+import hcmue.gst.off.model.BookBorrowItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

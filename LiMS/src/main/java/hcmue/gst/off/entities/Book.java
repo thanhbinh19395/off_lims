@@ -6,6 +6,7 @@ import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by WIN8.1 on 07/02/2017.
@@ -21,7 +22,7 @@ public class Book extends BaseEntity implements Serializable {
     private String imageUrl;
     private BookStatus bookStatus;
     private BookCategory bookCategory;
-    private BookBorrowDetail bookBorrowDetail;
+    private Set<BookBorrowDetail> bookBorrowDetails;
     private Long bookCategoryId;
     private Long bookStatusId;
     private String bookCode;
@@ -95,14 +96,14 @@ public class Book extends BaseEntity implements Serializable {
     }
 
 
-    @OneToOne(mappedBy = "book",cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "book",cascade = {CascadeType.ALL})
     @JsonIgnore
-    public BookBorrowDetail getBookBorrowDetail() {
-        return bookBorrowDetail;
+    public Set<BookBorrowDetail> getBookBorrowDetail() {
+        return bookBorrowDetails;
     }
 
-    public void setBookBorrowDetail(BookBorrowDetail bookBorrowDetail) {
-        this.bookBorrowDetail = bookBorrowDetail;
+    public void setBookBorrowDetail(Set<BookBorrowDetail> bookBorrowDetail) {
+        this.bookBorrowDetails = bookBorrowDetail;
     }
 
 

@@ -1,12 +1,10 @@
 package hcmue.gst.off.controllers.Client;
 
 import hcmue.gst.off.entities.*;
-import hcmue.gst.off.extensions.BookBorrowCart;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.BookRepository;
 import hcmue.gst.off.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +65,7 @@ public class UserBorrowController extends UserBaseController{
         c.add(Calendar.DATE, MAX_BORROWING_DAYS);
         model.addAttribute("returnDate", sdf.format(c.getTime()));
         List<Book> bookList = new ArrayList<>();
+
         session = request.getSession(false);
         for (int i = 1; i <= MAX_BORROWING_BOOK; i++) {
             Long id = (Long)session.getAttribute("item"+i);

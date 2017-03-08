@@ -1,16 +1,9 @@
-package hcmue.gst.off.viewmodel;
+package hcmue.gst.off.model;
 
 import hcmue.gst.off.entities.BookBorrowDetail;
 import hcmue.gst.off.entities.BookBorrowHeader;
-import hcmue.gst.off.entities.User;
 import hcmue.gst.off.extensions.BaseCommand;
-import hcmue.gst.off.extensions.Result;
-import hcmue.gst.off.services.BookBorrowDetailService;
-import hcmue.gst.off.services.BookBorrowHeaderService;
-import hcmue.gst.off.services.SecurityService;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
