@@ -64,7 +64,7 @@ public class NotificationBusiness {
         {
             String to = bb.getUser().getEmail();
             String subject = "[NOTIFY] YOUR BORROWED BOOK IS COMING DUE";
-            String body = "Acccount" + bb.getCreated_by().getUsername()+"có phiếu mượn sách còn 3 ngày hết hạn";
+            String body = "Acccount" + bb.getCreated_by().getUsername()+" have a Book Borrow Header is coming due (4 days)!";
             mailService.sendMail(to,subject,body);
         }
         logger.info("Cron job finish");

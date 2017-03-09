@@ -48,7 +48,7 @@ framework.factory('InsertBookPayable', {
         }
     },
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Lập phiếu trả sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('Create BookPayable header').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {
@@ -61,31 +61,31 @@ framework.factory('InsertBookPayable', {
             .addFields([
                 {
                     field: 'bookBorrowId',
-                    caption: 'Mã phiếu mượn',
+                    caption: 'BB Header Id',
                     type: 'popupListBookBorrow',
                     span: 1,
                     options: {caller: self},
                     required: true
                 },
                 {type: 'empty'},
-                {field: 'name', caption: 'Tên người mượn', type: 'text'},
+                {field: 'name', caption: 'User Name', type: 'text'},
                 {field: 'phone', caption: 'Phone', type: 'text'},
                 {field: 'address', caption: 'Address', type: 'text'},
                 {field: 'email', caption: 'Email', type: 'text'},
                 {field: 'idcard', caption: 'ID Number', type: 'text'},
                 {field: 'birthday', caption: 'Birthday', type: 'date'},
-                {field: 'returnDate', caption: 'Hạn trả', type: 'date', span: 2, required: true},
-                {field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span: 2, required: true},
+                {field: 'returnDate', caption: 'Returned Date', type: 'date', span: 2, required: true},
+                {field: 'actualReturnDate', caption: 'Actual Returned Date', type: 'date', span: 2, required: true},
             ])
         ;
         var toolbar = widget.setting.toolbar();
         toolbar.setName('toolbar')
             .addItem({
-                type: 'button', id: 'back', caption: 'Trở lại danh sách', icon: 'fa-list',
+                type: 'button', id: 'back', caption: 'Back', icon: 'fa-list',
                 onClick: self.onBtnBackClick.bind(this)
             })
             .addItem({
-                type: 'button', id: 'save', caption: 'Lưu', icon: 'glyphicon glyphicon-floppy-saved',
+                type: 'button', id: 'save', caption: 'Save', icon: 'glyphicon glyphicon-floppy-saved',
                 onClick: self.onBtnSaveClick.bind(this)
             })
         ;
@@ -95,24 +95,24 @@ framework.factory('InsertBookPayable', {
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
-                {field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true},
-                {field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true},
-                {field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true},
-                {field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true},
+                {field: 'id', caption: 'Id', size: '10%', resizable: true, sortable: true},
+                {field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true},
+                {field: 'publish_year', caption: 'Publishing Year', size: '10%', sortable: true, resizable: true},
+                {field: 'author', caption: 'Author', size: '10%', sortable: true, resizable: true},
                 //{ field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
                 {field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true},
                 {
                     field: 'bookCategory.category_name',
-                    caption: 'Thể loại',
+                    caption: 'Category',
                     size: '15%',
                     sortable: true,
                     resizable: true
                 },
-                {field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true}
+                {field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true}
             ])
-            .addButton('delete', 'Xóa', 'fa fa-times', self.onBtnDeleteClick.bind(self))
-            .addButton('product', 'Chọn', 'fa fa-check', self.onChooseBookClick.bind(self))
-            .addButton('insertBook', 'Thêm mới', 'fa fa-plus', self.onInsertBookClick.bind(self))
+            .addButton('delete', 'Delete', 'fa fa-times', self.onBtnDeleteClick.bind(self))
+            .addButton('product', 'Choose', 'fa fa-check', self.onChooseBookClick.bind(self))
+            .addButton('insertBook', 'Add New', 'fa fa-plus', self.onInsertBookClick.bind(self))
             .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
         ;
 
@@ -226,7 +226,7 @@ framework.factory('InsertBookPayable', {
         var grid = this.findElement('grid');
         var existBPDetail = grid.get(data.id);
         if (existBPDetail) {
-            alert("ko dc trung sach");
+            alert("");
         }
         else {
             grid.add(data);

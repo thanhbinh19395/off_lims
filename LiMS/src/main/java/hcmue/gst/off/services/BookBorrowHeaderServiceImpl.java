@@ -81,7 +81,7 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         // get due date
         Calendar cal = Calendar.getInstance();
 
-        cal.add(Calendar.DATE, +3);
+        cal.add(Calendar.DATE, +4);
 
         Date dueDate = cal.getTime();
 

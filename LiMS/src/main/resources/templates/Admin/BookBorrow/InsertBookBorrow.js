@@ -222,7 +222,7 @@ framework.factory('InsertBookBorrow', {
         var grid = this.findElement('grid');
         var existBBDetail = grid.get(data.id);
         if (existBBDetail) {
-            alert("ko dc trung sach");
+            alert("Do not choose Duplicated Book");
         }
         else {
             grid.add(data);
