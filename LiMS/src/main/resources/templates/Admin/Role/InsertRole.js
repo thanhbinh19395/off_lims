@@ -13,7 +13,7 @@ framework.factory('InsertRole', {
         var form = widget.setting.form();
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Tên vai trò' }
+                { field: 'name', type: 'text', required: true, caption: 'Role Name' }
             ]);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')

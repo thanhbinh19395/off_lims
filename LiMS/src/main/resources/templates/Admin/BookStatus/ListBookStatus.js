@@ -68,7 +68,7 @@ framework.factory('ListBookStatus', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Id', size: '40%', sortable: true, resizable: true },
-                { field: 'description', caption: 'Tên trạng thái', size: '50%', sortable: true, resizable: true },
+                { field: 'description', caption: 'Status Name', size: '50%', sortable: true, resizable: true },
             ])
             .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Edit', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))

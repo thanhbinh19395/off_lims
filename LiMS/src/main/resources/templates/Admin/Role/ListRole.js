@@ -21,7 +21,7 @@ framework.factory('ListRole', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: false, caption: "Tên vai trò" },
+                { field: 'name', type: 'text', required: false, caption: "Role Name" },
             ])
         ;
         header.setTitle('Status List')
@@ -63,7 +63,7 @@ framework.factory('ListRole', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Id vai trò', size: '40%', sortable: true, resizable: true },
-                { field: 'name', caption: 'Tên vai trò', size: '50%', sortable: true, resizable: true },
+                { field: 'name', caption: 'Role Name', size: '50%', sortable: true, resizable: true },
                 { field: 'created_date', caption: 'created_date', size: '50%', sortable: true, resizable: true },
             ])
             .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))

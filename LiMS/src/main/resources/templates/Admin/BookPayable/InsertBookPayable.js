@@ -49,7 +49,7 @@ framework.factory('InsertBookPayable', {
         }
     },
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Lập phiếu trả sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('Create BP Header').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {
@@ -60,16 +60,16 @@ framework.factory('InsertBookPayable', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'bookBorrowId', caption: 'Mã phiếu mượn', type: 'popupListBookBorrow', span : 1, options:{caller:self}},
+                { field: 'bookBorrowId', caption: 'id', type: 'popupListBookBorrow', span : 1, options:{caller:self}},
                 { type: 'empty'},
-                { field: 'name', caption: 'Tên người mượn', type: 'text'},
+                { field: 'name', caption: 'Borrowed By', type: 'text'},
                 { field: 'phone', caption: 'Phone', type: 'text'},
                 { field: 'address', caption: 'Address' , type: 'text'},
                 { field: 'email', caption: 'Email' , type: 'text'},
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
-                { field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span : 2, required : true},
+                { field: 'returnDate', caption: 'Returned Date', type: 'date', span : 2, required : true},
+                { field: 'actualReturnDate', caption: 'Returned Date', type: 'date', span : 2, required : true},
             ])
         ;
         var toolbar = widget.setting.toolbar();
@@ -90,7 +90,7 @@ framework.factory('InsertBookPayable', {
             .setIdColumn('id')
             .addColumns([
                 { field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
+                { field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true },
                 { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
                 { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
                 //{ field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },

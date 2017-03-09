@@ -13,7 +13,7 @@ framework.factory('InsertBookCategory', {
         var form = widget.setting.form();
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
-                { field: 'category_name', type: 'text', required: true, caption: 'Tên thể loại' }
+                { field: 'category_name', type: 'text', required: true, caption: 'Category Name' }
             ]);
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
