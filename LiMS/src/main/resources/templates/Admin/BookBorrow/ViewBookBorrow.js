@@ -68,7 +68,7 @@ framework.factory('ViewBookBorrow', {
             this.close();
         }
         else{
-            window.location.replace("/Admin/BookBorrowHeader/ListBookBorrowHeader");
+            window.location.replace("/Admin/BookBorrow/ListBookBorrow");
         }
     },
 });

@@ -41,4 +41,9 @@ public class BookBorrowController extends AdminBaseController{
         getViewBag(model).put("bookBorrow",bookBorrowHeaderService.findOne(BookBorrowHeaderId));
         return View();
     }
+    @RequestMapping("/HandlePendingBookBorrow")
+    public String HandlePendingBookBorrow() {
+        return View();
+    }
+
 }
