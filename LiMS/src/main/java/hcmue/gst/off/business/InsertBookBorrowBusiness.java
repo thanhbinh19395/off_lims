@@ -59,9 +59,9 @@ public class InsertBookBorrowBusiness extends BaseCommand {
 
     public Result Execute(){
         User curUser = userService.findOne(header.getUserId()).getData();
-        if(!curUser.getBorrowable())
+        if(!curUser.getBorrowable()) {
             return Fail("User " + curUser.getUsername() + " không được mượn sách");
-
+        }
         header.setStatus(CommonStatus.INPROGRESS);
         Result<BookBorrowHeader> bookBorrowHeader = bookBorrowHeaderService.save(header);
         if(!bookBorrowHeader.isSuccess())
@@ -89,6 +89,6 @@ public class InsertBookBorrowBusiness extends BaseCommand {
 
         curUser.setBorrowable(Boolean.FALSE);
         userService.save(curUser);
-        return Success(header.getId(),"Lưu thành công");
+        return Success(header.getId(),"Successfully Saved ");
     }
 }

@@ -43,7 +43,7 @@ public class BookCategoryServiceImpl extends BaseCommand implements BookCategory
             bookCategory.setUpdate_date(new Date());
             bookCategory.setUpdate_by(user);
         }
-        return Success(bookCategoryRepository.save(bookCategory),"Lưu thành công");
+        return Success(bookCategoryRepository.save(bookCategory),"Successfully Saved ");
     }
 
     @Override
@@ -59,7 +59,7 @@ public class BookCategoryServiceImpl extends BaseCommand implements BookCategory
     @Override
     public Result delete(Long id) {
         bookCategoryRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override

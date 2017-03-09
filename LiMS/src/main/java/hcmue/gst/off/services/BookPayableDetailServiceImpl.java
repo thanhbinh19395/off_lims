@@ -21,7 +21,7 @@ public class BookPayableDetailServiceImpl extends BaseCommand implements BookPay
     @Override
     public Result<BookPayableDetail> save(BookPayableDetail bookPayableDetail) {
         SaveHandler(bookPayableDetail);
-        return Success(bookPayableDetailRepository.save(bookPayableDetail), "Lưu thành công");
+        return Success(bookPayableDetailRepository.save(bookPayableDetail), "Successfully Saved ");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class BookPayableDetailServiceImpl extends BaseCommand implements BookPay
     @Override
     public Result delete(Long id) {
         bookPayableDetailRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override

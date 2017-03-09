@@ -1,8 +1,7 @@
 package hcmue.gst.off.business;
 
-import hcmue.gst.off.entities.BookBorrowHeader;
-import hcmue.gst.off.services.BookBorrowHeaderService;
-import hcmue.gst.off.services.MailService;
+import hcmue.gst.off.entities.*;
+import hcmue.gst.off.services.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dylan on 3/6/2017.
@@ -24,16 +24,41 @@ public class NotificationBusiness {
     private final int oneDay = 864000000;
 
     @Autowired
-    BookBorrowHeaderService bookBorrowHeaderService;
+    private BookBorrowHeaderService bookBorrowHeaderService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
-    MailService mailService;
+    private MailService mailService;
+    @Autowired
+    private BookBorrowDetailService bookBorrowDetailService;
+    @Autowired
+    private UserService userService;
 
-    @Scheduled(cron = "0 50 20 * * ?" )
+    @Autowired
+    private BookService bookService;
+    @Scheduled(cron = "0 50 14 * * ?" )
     public void Notify()
     {
         logger.info("Cron job begins");
+        // delete bb header pending overdue
+        List<BookBorrowHeader> listCancledBBHeader = bookBorrowHeaderService.findCancledBBHeader().getData();
 
+
+        for(BookBorrowHeader bb: listCancledBBHeader)
+        {
+            bb.setStatus(CommonStatus.CANCELLED);
+            Set<BookBorrowDetail> details = bb.getBookBorrowDetails();
+            for(BookBorrowDetail detail : details)
+            {
+                Book tmp = detail.getBook();
+                tmp.setState(BookTransactionStep.AVAILABLE);
+                bookService.save(tmp);
+            }
+            User user= bb.getUser();
+            user.setBorrowable(Boolean.TRUE);
+            userService.save(user);
+        }
+
+        // mail to due day bb header
         List<BookBorrowHeader> listDueDateBBHeader = bookBorrowHeaderService.findDeadlineBBHeader().getData();
         for(BookBorrowHeader bb : listDueDateBBHeader)
         {
@@ -45,4 +70,5 @@ public class NotificationBusiness {
         logger.info("Cron job finish");
 
     }
+
 }
