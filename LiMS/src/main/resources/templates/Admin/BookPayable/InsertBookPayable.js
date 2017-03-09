@@ -3,13 +3,12 @@
  */
 framework.factory('InsertBookPayable', {
     onPopupHandler: function (data) {
-        debugger;
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
             form.clear();
         }
-        else if(data.eventType == ''){
-
+        else if (data.eventType == 'open') {
+            $.extend(data.param, {status: 1});
         }
     },
     onMessageReceive: function (sender, message) {
@@ -30,7 +29,7 @@ framework.factory('InsertBookPayable', {
 
             //grid handler
             grid.clear();
-            grid.add($.map(message.bookBorrowDetails,function(v){
+            grid.add($.map(message.bookBorrowDetails, function (v) {
                 return v.book;
             }));
 
@@ -43,7 +42,7 @@ framework.factory('InsertBookPayable', {
         }
         else if (sender.pageName == 'ListUser') {
             var form = this.findElement('form');
-            $.extend(form.record,message.data);
+            $.extend(form.record, message.data);
             form.refresh();
             sender.close && sender.close();
         }
@@ -60,16 +59,23 @@ framework.factory('InsertBookPayable', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'bookBorrowId', caption: 'Mã phiếu mượn', type: 'popupListBookBorrow', span : 1, options:{caller:self}},
-                { type: 'empty'},
-                { field: 'name', caption: 'Tên người mượn', type: 'text'},
-                { field: 'phone', caption: 'Phone', type: 'text'},
-                { field: 'address', caption: 'Address' , type: 'text'},
-                { field: 'email', caption: 'Email' , type: 'text'},
-                { field: 'idcard', caption: 'ID Number', type: 'text' },
-                { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
-                { field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span : 2, required : true},
+                {
+                    field: 'bookBorrowId',
+                    caption: 'Mã phiếu mượn',
+                    type: 'popupListBookBorrow',
+                    span: 1,
+                    options: {caller: self},
+                    required: true
+                },
+                {type: 'empty'},
+                {field: 'name', caption: 'Tên người mượn', type: 'text'},
+                {field: 'phone', caption: 'Phone', type: 'text'},
+                {field: 'address', caption: 'Address', type: 'text'},
+                {field: 'email', caption: 'Email', type: 'text'},
+                {field: 'idcard', caption: 'ID Number', type: 'text'},
+                {field: 'birthday', caption: 'Birthday', type: 'date'},
+                {field: 'returnDate', caption: 'Hạn trả', type: 'date', span: 2, required: true},
+                {field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span: 2, required: true},
             ])
         ;
         var toolbar = widget.setting.toolbar();
@@ -89,14 +95,20 @@ framework.factory('InsertBookPayable', {
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
-                { field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
+                {field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true},
+                {field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true},
+                {field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true},
+                {field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true},
                 //{ field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
+                {field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true},
+                {
+                    field: 'bookCategory.category_name',
+                    caption: 'Thể loại',
+                    size: '15%',
+                    sortable: true,
+                    resizable: true
+                },
+                {field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true}
             ])
             .addButton('delete', 'Xóa', 'fa fa-times', self.onBtnDeleteClick.bind(self))
             .addButton('product', 'Chọn', 'fa fa-check', self.onChooseBookClick.bind(self))
@@ -105,14 +117,13 @@ framework.factory('InsertBookPayable', {
         ;
 
 
-
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
-        if(this.parentId){
+        if (this.parentId) {
             this.close();
         }
-        else{
+        else {
             window.location.replace("/Admin/BookPayable/ListBookPayable");
         }
     },
@@ -122,7 +133,10 @@ framework.factory('InsertBookPayable', {
     onBtnSaveInventoryClick: function () {
         var curBP = this.getCurrentBP();
         if (curBP) {
-            $.post('/api/BookBorrowHeader/Save', {header: this.form.record, detail: this.w2ui.grid.record}, function (data) {
+            $.post('/api/BookBorrowHeader/Save', {
+                header: this.form.record,
+                detail: this.w2ui.grid.record
+            }, function (data) {
                 framework.common.cmdResultNoti(data);
             });
         }
@@ -132,10 +146,10 @@ framework.factory('InsertBookPayable', {
         var self = this;
         var form = this.findElement('form');
         var grid = this.findElement('grid');
-        console.log({header: form.record, detail:  grid.records});
+        console.log({header: form.record, detail: grid.records});
         if (curBP) {
 
-            $.post('/api/BookBorrowHeader/Save', {header: form.record, detail:  grid.records}, function (data) {
+            $.post('/api/BookBorrowHeader/Save', {header: form.record, detail: grid.records}, function (data) {
                 framework.common.cmdResultNoti(data);
             });
         }
@@ -145,14 +159,14 @@ framework.factory('InsertBookPayable', {
         var curBP = this.getCurrentBP();
         if (curBP) {
             $.ajax({
-                url:"/api/BookPayable/Insert",
+                url: "/api/BookPayable/Insert",
                 type: "POST",
-                data: JSON.stringify( curBP ),
-                success: function(r){
+                data: JSON.stringify(curBP),
+                success: function (r) {
                     framework.common.cmdResultNoti(r);
-                    if(r.success){
+                    if (r.success) {
                         self.toInitState();
-                        if(self.parentId)
+                        if (self.parentId)
                             self.sendMessage(r);
                     }
                 },
@@ -242,14 +256,14 @@ framework.factory('InsertBookPayable', {
 
 
         var header = {
-            returnDate : form.record.returnDate,
-            actualReturnDate : form.record.actualReturnDate,
-            bookBorrowId : form.record.bookBorrowId
+            returnDate: form.record.returnDate,
+            actualReturnDate: form.record.actualReturnDate,
+            bookBorrowId: form.record.bookBorrowId
         };
-        var details = $.map(grid.records, function(v){
+        var details = $.map(grid.records, function (v) {
             return {
-                bookId:v.id,
-                note:"hello"
+                bookId: v.id,
+                note: "hello"
             }
         });
         return {

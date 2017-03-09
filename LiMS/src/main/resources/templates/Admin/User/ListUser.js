@@ -180,13 +180,6 @@ framework.factory('ListUser', {
         var self = this;
         var grid = this.findElement('grid');
         var record = grid.get(e.recid);
-        var mess = {
-            type: 'popupListUser',
-            data: record,
-            callback: function () {
-                self.close();
-            }
-        }
-        this.sendMessage(mess);
+        this.sendMessage(record);
     }
 });

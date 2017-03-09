@@ -3,8 +3,8 @@
  */
 framework.factory('ListBookBorrow', {
     onMessageReceive: function (sender, data) {
-        if(sender.pageName =='InsertBookBorrow'){
-            if(data.success){
+        if (sender.pageName == 'InsertBookBorrow') {
+            if (data.success) {
                 this.onbtnReloadClick();
                 sender.close();
             }
@@ -17,11 +17,25 @@ framework.factory('ListBookBorrow', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'username', type: 'text', required: false, caption: "Người mượn", render: function(r){
-                    return '['+r.user.username +'] ' + r.user.name;
-                } },
-                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả" },
-                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
+                {
+                    field: 'userId',
+                    type: 'popupListUser',
+                    required: false,
+                    caption: "Người mượn",
+                    options: {caller: self}
+                },
+                //{field: 'returnDate', type: 'date', required: false, caption: "Ngày trả"},
+                {
+                    field: 'statusName', type: 'list', required: true, caption: 'Status', options: {
+                    items: [
+                        {id: -2, text: 'ALL'},
+                        {id: 0, text: 'PENDING'},
+                        {id: 1, text: 'INPROGRESS'},
+                        {id: 2, text: 'SOLVED'},
+                        {id: -1, text: 'CANCELLED'},
+                    ], selected: {id: -2},
+                }
+                }
             ])
         ;
         header.setTitle('Danh sách Phiếu mượn')
@@ -70,40 +84,73 @@ framework.factory('ListBookBorrow', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Người mượn", render: function(r){
-                    return '['+r.user.username +']' + r.user.name;
-                } },
-                { field: 'created_date',render:'date', caption: 'Ngày lập', size: '50%', sortable: true, resizable: true },
-                { field: 'returnDate',render:'date', caption: 'Hạn trả', size: '50%', sortable: true, resizable: true },
-                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Người lập", render: function(r){
-                    return '['+r.created_by.username +']' + r.created_by.name;
-                } },
-                { field: 'status', size: '40%', sortable: true, resizable: true, caption: "Trạng thái",render:function (r) {
-                    switch (r.status){
-                        case 0:
-                            return 'Status ne';
-                            break;
-                        case 1:
-                            return 'Status ne';
-                            break;
-                        case 2:
-                            return 'Status ne';
-                            break;
-                        case 3:
-                            return 'Status ne';
-                            break;
-                    }
-
-                } },
+                {field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true},
                 {
-                    field: 'details', caption: 'Xem chi tiết', size: '30%', sortable: true, resizable: true, render: function (r) {
-                    var a = $("<a>");
-                    a.attr('href', '#');
-                    a.attr('type', 'click');
-                    a.html('Xem chi tiết');
-                    return a[0].outerHTML;
-                }
+                    field: 'username',
+                    size: '50%',
+                    sortable: true,
+                    resizable: true,
+                    caption: "Người mượn",
+                    render: function (r) {
+                        return '[' + r.user.username + ']' + r.user.name;
+                    }
+                },
+                {
+                    field: 'created_date',
+                    render: 'date',
+                    caption: 'Ngày lập',
+                    size: '50%',
+                    sortable: true,
+                    resizable: true
+                },
+                {field: 'returnDate', render: 'date', caption: 'Hạn trả', size: '50%', sortable: true, resizable: true},
+                {
+                    field: 'createdUser',
+                    size: '40%',
+                    sortable: true,
+                    resizable: true,
+                    caption: "Người lập",
+                    render: function (r) {
+                        return '[' + r.created_by.username + ']' + r.created_by.name;
+                    }
+                },
+                {
+                    field: 'status',
+                    size: '40%',
+                    sortable: true,
+                    resizable: true,
+                    caption: "Trạng thái",
+                    render: function (r) {
+                        switch (r.status) {
+                            case 0:
+                                return 'PENDING';
+                                break;
+                            case 1:
+                                return 'INPROGRESS';
+                                break;
+                            case 2:
+                                return 'SOLVED';
+                                break;
+                            case -1:
+                                return 'CANCELLED';
+                                break;
+                        }
+
+                    }
+                },
+                {
+                    field: 'details',
+                    caption: 'Xem chi tiết',
+                    size: '30%',
+                    sortable: true,
+                    resizable: true,
+                    render: function (r) {
+                        var a = $("<a>");
+                        a.attr('href', '#');
+                        a.attr('type', 'click');
+                        a.html('Xem chi tiết');
+                        return a[0].outerHTML;
+                    }
                 }
             ])
             .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
@@ -137,7 +184,7 @@ framework.factory('ListBookBorrow', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/BookBorrow/ViewBookBorrow/'+id,
+            url: '/Admin/BookBorrow/ViewBookBorrow/' + id,
             title: 'View BookBorrow',
             width: '700px'
         });
@@ -148,8 +195,8 @@ framework.factory('ListBookBorrow', {
         w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
-            $.post('/api/BookBorrow/Deletes', { id: id }, function (result) {
-                if(result.success){
+            $.post('/api/BookBorrow/Deletes', {id: id}, function (result) {
+                if (result.success) {
                     alertSuccess(result.message);
                     self.onbtnReloadClick();
                 }
@@ -163,14 +210,18 @@ framework.factory('ListBookBorrow', {
         var grid = this.findElement('grid');
         var self = this;
         this.searchParam = form.record;
+        if(form.record.statusName.id != -2 )
+            this.searchParam.status = form.record.statusName.id;
+        else
+            this.searchParam.status = null;
         this.reloadGridData();
         this.findElement("headerContent").toggle();
     },
     onPageClick: function (event, page) {
         var grid = this.findElement('grid');
         this.searchParam = {
-            page:page,
-            size : 1
+            page: page,
+            size: 1
         };
         debugger;
         this.reloadGridData();
@@ -186,16 +237,16 @@ framework.factory('ListBookBorrow', {
         //reload grid data
         this.reloadGridData();
     },
-    reloadGridData:function(){
+    reloadGridData: function () {
         var grid = this.findElement('grid');
-        $.post('/api/BookBorrow/GetList',this.searchParam, function (result) {
-            if(result.success){
+        $.post('/api/BookBorrow/GetList', this.searchParam, function (result) {
+            if (result.success) {
                 grid.clear();
                 grid.add(result.data);
                 if (grid.pagination)
                     grid.pagination.reset(result.currentPage, result.totalPage);
             }
-            else{
+            else {
 
             }
         });
@@ -229,7 +280,7 @@ framework.factory('ListBookBorrow', {
                 if ($(data.originalEvent.srcElement).attr('type') == 'click') {
                     self.openPopup({
                         name: 'ViewPopup',
-                        url: '/Admin/BookBorrow/ViewBookBorrow/'+e.recid,
+                        url: '/Admin/BookBorrow/ViewBookBorrow/' + e.recid,
                         title: 'View BookBorrow',
                         width: '700px'
                     });

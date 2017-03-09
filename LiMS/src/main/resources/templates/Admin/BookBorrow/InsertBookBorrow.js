@@ -16,21 +16,31 @@ framework.factory('InsertBookBorrow', {
             form.record.birthday = null;
             form.refresh();
         }
+        else if(data.eventType == 'received'){
+            if(!data.message.borrowable)
+                data.buttonRemove.click();
+        }
     },
     onMessageReceive: function (sender, message) {
-        if (sender.pageName == 'ListBook' ) {
+        if (sender.pageName == 'ListBook') {
             this.insertBBDetailHandler(sender, message);
         }
-        else if (sender.pageName == 'InsertBook'){
+        else if (sender.pageName == 'InsertBook') {
             message.data.recid = message.data.id;
             this.insertBBDetailHandler(sender, message.data);
-            if(message.success)
+            if (message.success)
                 sender.close();
         }
         else if (sender.pageName == 'ListUser') {
             var form = this.findElement('form');
-            $.extend(form.record,message.data);
+            if(message.borrowable == false){
+                alert("[" +message.username +"]" + message.name + " is not borrowable");
+                form.clear();
+                return 3;
+            }
+            $.extend(form.record, message);
             form.refresh();
+            debugger
             sender.close && sender.close();
         }
     },
@@ -47,20 +57,33 @@ framework.factory('InsertBookBorrow', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'createdUsername', caption: 'Người lập', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
-                { type: 'empty'},
-                { field: 'userId', caption: 'Người mượn', type: 'popupListUser',options:{caller:self}, span :1, required : true },
-                { type: 'empty'},
-                { field: 'name', caption: 'Name', type: 'text'},
-                { field: 'phone', caption: 'Phone', type: 'text'},
-                { field: 'address', caption: 'Address' , type: 'text'},
-                { field: 'email', caption: 'Email' , type: 'text'},
-                { field: 'idcard', caption: 'ID Number', type: 'text' },
-                { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
+                {
+                    field: 'createdUsername',
+                    caption: 'Người lập',
+                    type: 'text',
+                    html: {attr: {disabled: 'disabled'}},
+                    span: 1,
+                },
+                {type: 'empty'},
+                {
+                    field: 'userId',
+                    caption: 'Người mượn',
+                    type: 'popupListUser',
+                    options: {caller: self},
+                    span: 1,
+                    required: true
+                },
+                {type: 'empty'},
+                {field: 'name', caption: 'Name', type: 'text'},
+                {field: 'phone', caption: 'Phone', type: 'text'},
+                {field: 'address', caption: 'Address', type: 'text'},
+                {field: 'email', caption: 'Email', type: 'text'},
+                {field: 'idcard', caption: 'ID Number', type: 'text'},
+                {field: 'birthday', caption: 'Birthday', type: 'date'},
+                {field: 'returnDate', caption: 'Hạn trả', type: 'date', span: 2, required: true},
             ])
             .setRecord({
-                returnDate : returnDate,
+                returnDate: returnDate,
             })
         ;
         var toolbar = widget.setting.toolbar();
@@ -73,7 +96,7 @@ framework.factory('InsertBookBorrow', {
                 type: 'button', id: 'save', caption: 'Lưu', icon: 'glyphicon glyphicon-floppy-saved',
                 onClick: self.onBtnSaveClick.bind(this)
             })
-            .addItem({ type: 'spacer' })
+            .addItem({type: 'spacer'})
             .addItem({
                 type: 'html', id: 'item5',
                 html: function (item) {
@@ -110,7 +133,7 @@ framework.factory('InsertBookBorrow', {
                                         name: 'insertPopup',
                                         url: '/Admin/Book/ListBook',
                                         width: 600
-                                    }, {   name: val,}  );
+                                    }, {name: val,});
                                 }
                             });
                             $(kpe.target).val(null);
@@ -121,61 +144,69 @@ framework.factory('InsertBookBorrow', {
         ;
         var grid = widget.setting.grid();
 
-        grid.setName('grid').setProperty({ show: {} })
+        grid.setName('grid').setProperty({show: {}})
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
                 //{ field: 'id', caption: 'Mã Sách', size: '10%', resizable: true, sortable: true },
-                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true, render:function(record){
-                    record.bookId = record.id;
-                    return record.bookCode;
-                } },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
+                {
+                    field: 'bookCode',
+                    caption: 'Book Code',
+                    size: '15%',
+                    sortable: true,
+                    resizable: true,
+                    render: function (record) {
+                        record.bookId = record.id;
+                        return record.bookCode;
+                    }
+                },
+                {field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true},
+                {field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true},
+                {field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true},
+                {
+                    field: 'bookCategory.category_name',
+                    caption: 'Thể loại',
+                    size: '15%',
+                    sortable: true,
+                    resizable: true
+                },
+                {field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true}
             ])
             .addButton('delete', 'Xóa', 'fa fa-times', self.onBtnDeleteClick.bind(self))
             .addButton('product', 'Chọn', 'fa fa-check', self.onChooseBookClick.bind(self))
             .addButton('insertBook', 'Thêm mới', 'fa fa-plus', self.onInsertBookClick.bind(self))
-            .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
         ;
-
 
 
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
-        if(this.parentId){
+        if (this.parentId) {
             this.close();
         }
-        else{
+        else {
             window.location.replace("/Admin/BookBorrow/ListBookBorrow");
         }
-    },
-    onSearchBookGrid: function (e) {
-        console.log(e);
     },
     onBtnSaveClick: function () {
         var self = this;
         var curBB = this.getCurrentBB();
         if (curBB) {
             $.ajax({
-                    url:"/api/BookBorrow/Insert",
-                    type: "POST",
-                    data: JSON.stringify( curBB ),
-                    success: function(r){
-                        framework.common.cmdResultNoti(r);
-                        if(r.success){
-                            self.toInitState();
-                            if(self.parentId)
-                                self.sendMessage(r);
-                        }
-                    },
-                    dataType: "json",
-                    contentType: "application/json"
-                });
+                url: "/api/BookBorrow/Insert",
+                type: "POST",
+                data: JSON.stringify(curBB),
+                success: function (r) {
+                    framework.common.cmdResultNoti(r);
+                    if (r.success) {
+                        self.toInitState();
+                        if (self.parentId)
+                            self.sendMessage(r);
+                    }
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
         }
     },
 
@@ -247,13 +278,13 @@ framework.factory('InsertBookBorrow', {
 
 
         var header = {
-            returnDate : form.record.returnDate,
-            userId : form.record.userId
+            returnDate: form.record.returnDate,
+            userId: form.record.userId
         };
-        var details = $.map(grid.records,function(v){
+        var details = $.map(grid.records, function (v) {
             return {
-                bookId:v.bookId,
-                note:"hello"
+                bookId: v.bookId,
+                note: "hello"
             }
         });
         return {
