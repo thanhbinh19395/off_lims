@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -32,5 +33,9 @@ public class BookPayableController extends AdminBaseController{
         return View();
     }
 
-
+    @RequestMapping("/ViewBookPayable/{BookPayableHeaderId}")
+    public String ViewBookPayable(@PathVariable("BookPayableHeaderId") long BookPayableHeaderId, Model model) {
+        getViewBag(model).put("bookPayable",bookPayableHeaderService.findOne(BookPayableHeaderId));
+        return View();
+    }
 }

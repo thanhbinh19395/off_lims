@@ -49,7 +49,7 @@ framework.factory('InsertBookPayable', {
         }
     },
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Tạo mới phiếu mượn sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('Lập phiếu trả sách').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {
@@ -57,11 +57,10 @@ framework.factory('InsertBookPayable', {
 
         var form = widget.setting.form();
         var returnDate = new Date();
-        returnDate = returnDate.setDate(returnDate.getDate() + 3);
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'bookBorrowId', caption: 'Mã phiếu lập', type: 'popupListBookBorrow', span : 1, options:{caller:self}},
+                { field: 'bookBorrowId', caption: 'Mã phiếu mượn', type: 'popupListBookBorrow', span : 1, options:{caller:self}},
                 { type: 'empty'},
                 { field: 'name', caption: 'Tên người mượn', type: 'text'},
                 { field: 'phone', caption: 'Phone', type: 'text'},
@@ -110,7 +109,12 @@ framework.factory('InsertBookPayable', {
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
-        window.location.replace("/Admin/BookBorrow/ListBookBorrow");
+        if(this.parentId){
+            this.close();
+        }
+        else{
+            window.location.replace("/Admin/BookPayable/ListBookPayable");
+        }
     },
     onSearchBookGrid: function (e) {
         console.log(e);

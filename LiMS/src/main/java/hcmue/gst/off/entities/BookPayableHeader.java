@@ -5,6 +5,7 @@ import hcmue.gst.off.extensions.BaseEntity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by dylan on 2/24/2017.
@@ -17,6 +18,7 @@ public class BookPayableHeader extends BaseEntity {
     private Date actualReturnDate;
     private long overDue;
     private int status;
+    private Set<BookPayableDetail> bookPayableDetails;
 
     public int getStatus() {
         return status;
@@ -31,6 +33,14 @@ public class BookPayableHeader extends BaseEntity {
     @Column(name = "bookborrowheader_id")
     public Long getBookBorrowId() {
         return bookBorrowId;
+    }
+
+    @OneToMany(mappedBy = "bookPayableHeader",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    public Set<BookPayableDetail> getBookPayableDetails() {
+        return bookPayableDetails;
+    }
+    public void setBookPayableDetails(Set<BookPayableDetail> bookPayableDetails) {
+        this.bookPayableDetails = bookPayableDetails;
     }
 
     public void setBookBorrowId(Long bookBorrowId) {
