@@ -1,5 +1,6 @@
 package hcmue.gst.off.apicontrollers;
 
+import hcmue.gst.off.business.HandlePendingBookBorrowBusiness;
 import hcmue.gst.off.business.InsertBookBorrowBusiness;
 import hcmue.gst.off.entities.BookBorrowDetail;
 import hcmue.gst.off.entities.BookBorrowHeader;
@@ -24,9 +25,10 @@ public class BookBorrowApiController {
     private BookBorrowHeaderService BookBorrowHeaderService;
     @Autowired
     private BookBorrowDetailService bookBorrowDetailService;
-
     @Autowired
     InsertBookBorrowBusiness insertBookBorrowBusiness;
+    @Autowired
+    HandlePendingBookBorrowBusiness handlePendingBookBorrowBusiness;
     @RequestMapping("/Save")
     Result Save(BookBorrowHeader header,List<BookBorrowDetail> detail) {
         BookBorrowDetail bookBorrowDetail = new BookBorrowDetail();
@@ -55,4 +57,11 @@ public class BookBorrowApiController {
         insertBookBorrowBusiness.setDetails(data.getDetails());
         return insertBookBorrowBusiness.Execute();
     }
+
+    @PostMapping("/HandlePendingBookBorrow")
+    Result HandlePendingBookBorrow(HandlePendingBookBorrowBusiness data) {
+        handlePendingBookBorrowBusiness.setBookBorrowHeaderId(data.getBookBorrowHeaderId());
+        return handlePendingBookBorrowBusiness.Execute();
+    }
+
 }

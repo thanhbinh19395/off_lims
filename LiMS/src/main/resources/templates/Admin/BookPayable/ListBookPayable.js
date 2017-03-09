@@ -183,22 +183,7 @@ framework.factory('ListBookPayable', {
             }
         });
     },
-    /*
-     onDblClickGrid: function (e) {
-     var self = this;
-     var grid = this.findElement('grid');
-     var record = grid.get(e.recid);
-     console.log(record);
-     var mess = {
-     type: 'popupListBookPayable',
-     data: record,
-     callback: function () {
-     self.close();
-     }
-     }
-     this.sendMessage(mess);
-     }
-     */
+
     onDblClickGrid: function (e) {
         var self = this;
         var grid = this.findElement('grid');
