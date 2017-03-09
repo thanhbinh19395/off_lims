@@ -86,7 +86,7 @@ public class InsertBookPayableBusiness extends BaseCommand {
         User curUser = curBB.getUser();
         curUser.setBorrowable(Boolean.TRUE);
         userService.save(curUser);
-        return Success(header.getId(), "Lưu thành công");
+        return Success(header.getId(), "Successfully Saved ");
 
     }
 }

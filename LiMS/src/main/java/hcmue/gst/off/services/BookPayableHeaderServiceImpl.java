@@ -33,7 +33,7 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
     public Result<BookPayableHeader> save(BookPayableHeader bookPayableHeader) {
         SaveHandler(bookPayableHeader);
 
-        return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Lưu thành công");
+        return Success(bookPayableHeaderRepository.save(bookPayableHeader),"Successfully Saved ");
     }
 
     @Override
@@ -49,7 +49,7 @@ public class BookPayableHeaderServiceImpl extends BaseCommand implements BookPay
     @Override
     public Result delete(Long id) {
         bookPayableHeaderRepository.delete(id);
-        return Success(id, "Xóa thành công");
+        return Success(id, "Successfully Deleted ");
     }
 
     @Override

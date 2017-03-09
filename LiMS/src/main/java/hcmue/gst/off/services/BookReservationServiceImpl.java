@@ -53,7 +53,7 @@ public class BookReservationServiceImpl extends BaseCommand implements BookReser
             bookReservation.setUpdate_date(new Date());
             bookReservation.setUpdate_by(user);
         }
-        return Success(bookReservationRepository.save(bookReservation),"Lưu thành công");
+        return Success(bookReservationRepository.save(bookReservation),"Successfully Saved ");
     }
 
     @Override
@@ -69,7 +69,7 @@ public class BookReservationServiceImpl extends BaseCommand implements BookReser
     @Override
     public Result delete(Long id) {
         bookReservationRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override

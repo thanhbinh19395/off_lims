@@ -47,9 +47,9 @@ framework.factory('InsertBookBorrow', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'createdUsername', caption: 'Người lập', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
+                { field: 'createdUsername', caption: 'Created By', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
                 { type: 'empty'},
-                { field: 'userId', caption: 'Người mượn', type: 'popupListUser',options:{caller:self}, span :1, required : true },
+                { field: 'userId', caption: 'Borrowed By', type: 'popupListUser',options:{caller:self}, span :1, required : true },
                 { type: 'empty'},
                 { field: 'name', caption: 'Name', type: 'text'},
                 { field: 'phone', caption: 'Phone', type: 'text'},
@@ -57,7 +57,7 @@ framework.factory('InsertBookBorrow', {
                 { field: 'email', caption: 'Email' , type: 'text'},
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
+                { field: 'returnDate', caption: 'Returned Date', type: 'date', span : 2, required : true},
             ])
             .setRecord({
                 returnDate : returnDate,
@@ -66,11 +66,11 @@ framework.factory('InsertBookBorrow', {
         var toolbar = widget.setting.toolbar();
         toolbar.setName('toolbar')
             .addItem({
-                type: 'button', id: 'back', caption: 'Trở lại danh sách', icon: 'fa-list',
+                type: 'button', id: 'back', caption: 'Back', icon: 'fa-list',
                 onClick: self.onBtnBackClick.bind(this)
             })
             .addItem({
-                type: 'button', id: 'save', caption: 'Lưu', icon: 'glyphicon glyphicon-floppy-saved',
+                type: 'button', id: 'save', caption: 'Save', icon: 'glyphicon glyphicon-floppy-saved',
                 onClick: self.onBtnSaveClick.bind(this)
             })
             .addItem({ type: 'spacer' })
@@ -125,20 +125,20 @@ framework.factory('InsertBookBorrow', {
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
-                //{ field: 'id', caption: 'Mã Sách', size: '10%', resizable: true, sortable: true },
+                //{ field: 'id', caption: 'Id Sách', size: '10%', resizable: true, sortable: true },
                 { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true, render:function(record){
                     record.bookId = record.id;
                     return record.bookCode;
                 } },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
+                { field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true },
+                { field: 'publish_year', caption: 'Publishing Year', size: '10%', sortable: true, resizable: true },
+                { field: 'author', caption: 'Author', size: '10%', sortable: true, resizable: true },
+                { field: 'bookCategory.category_name', caption: 'Category', size: '15%', sortable: true, resizable: true },
+                { field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true }
             ])
-            .addButton('delete', 'Xóa', 'fa fa-times', self.onBtnDeleteClick.bind(self))
-            .addButton('product', 'Chọn', 'fa fa-check', self.onChooseBookClick.bind(self))
-            .addButton('insertBook', 'Thêm mới', 'fa fa-plus', self.onInsertBookClick.bind(self))
+            .addButton('delete', 'Delete', 'fa fa-times', self.onBtnDeleteClick.bind(self))
+            .addButton('product', 'Choose', 'fa fa-check', self.onChooseBookClick.bind(self))
+            .addButton('insertBook', 'Add new', 'fa fa-plus', self.onInsertBookClick.bind(self))
             .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
         ;
 

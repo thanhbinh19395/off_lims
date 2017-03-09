@@ -28,12 +28,12 @@ public class CountryServiceImpl extends BaseCommand implements CountryService {
 
     @Override
     public Result<Country> save(Country contact) {
-        return Success(countryRepository.save(contact), "Lưu thành công");
+        return Success(countryRepository.save(contact), "Successfully Saved ");
     }
 
     @Override
     public Result<Long> delete(Long id) {
         countryRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 }

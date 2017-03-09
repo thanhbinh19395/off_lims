@@ -29,12 +29,12 @@ framework.factory('ListUser', {
                 {field: 'roleId', caption: 'Role', type: 'popupListRole', options: {caller: self}},
             ])
         ;
-        header.setTitle('Danh sách User')
+        header.setTitle('User List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -48,11 +48,11 @@ framework.factory('ListUser', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -75,7 +75,7 @@ framework.factory('ListUser', {
         var grid = widget.setting.grid();
         grid.setName('grid')
             .addColumns([
-                {field: 'id', caption: 'Mã vai trò', size: '40%', sortable: true, resizable: true},
+                {field: 'id', caption: 'Id ', size: '40%', sortable: true, resizable: true},
                 {field: 'name', caption: 'Name', size: '50%', sortable: true, resizable: true},
                 {field: 'phone', caption: 'Phone', size: '50%', sortable: true, resizable: true},
                 {field: 'email', caption: 'Email', size: '50%', sortable: true, resizable: true},
@@ -86,9 +86,9 @@ framework.factory('ListUser', {
                 {field: 'password', caption: 'Password', size: '50%', sortable: true, resizable: true},
                 {field: 'role.name', caption: 'Role', size: '50%', sortable: true, resizable: true},
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'Edit', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listUser.data).setPaginateOptions(pagi.end())
         ;
@@ -124,7 +124,7 @@ framework.factory('ListUser', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ??').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/User/Deletes', {id: id}, function (result) {

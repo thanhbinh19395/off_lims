@@ -17,19 +17,19 @@ framework.factory('ListBookBorrow', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'username', type: 'text', required: false, caption: "Người mượn", render: function(r){
+                { field: 'username', type: 'text', required: false, caption: "Borrowed By", render: function(r){
                     return '['+r.user.username +'] ' + r.user.name;
                 } },
-                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả" },
-                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
+                { field: 'returnDate', type: 'date', required: false, caption: "Return Date" },
+                { field: 'status', type: 'text', required: false, caption: "Status" },
             ])
         ;
-        header.setTitle('Danh sách Phiếu mượn')
+        header.setTitle('BB Header List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -43,11 +43,11 @@ framework.factory('ListBookBorrow', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -70,16 +70,16 @@ framework.factory('ListBookBorrow', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Người mượn", render: function(r){
+                { field: 'id', caption: 'Id', size: '40%', sortable: true, resizable: true },
+                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Borrowed By", render: function(r){
                     return '['+r.user.username +']' + r.user.name;
                 } },
-                { field: 'created_date',render:'date', caption: 'Ngày lập', size: '50%', sortable: true, resizable: true },
-                { field: 'returnDate',render:'date', caption: 'Hạn trả', size: '50%', sortable: true, resizable: true },
-                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Người lập", render: function(r){
+                { field: 'created_date',render:'date', caption: 'Created Date', size: '50%', sortable: true, resizable: true },
+                { field: 'returnDate',render:'date', caption: 'Returned Date', size: '50%', sortable: true, resizable: true },
+                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Created By", render: function(r){
                     return '['+r.created_by.username +']' + r.created_by.name;
                 } },
-                { field: 'status', size: '40%', sortable: true, resizable: true, caption: "Trạng thái",render:function (r) {
+                { field: 'status', size: '40%', sortable: true, resizable: true, caption: "Status",render:function (r) {
                     switch (r.status){
                         case 0:
                             return 'Status ne';
@@ -106,9 +106,9 @@ framework.factory('ListBookBorrow', {
                 }
                 }
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
             .addButton('btnUpdate', 'Xem chi tiết', 'fa fa-pencil', self.onbtnViewClickGrid.bind(this))
-            //.addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            //.addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBookBorrow.data).setPaginateOptions(pagi.end())
             .createEvent('onClick', this.onGridClick.bind(this))
@@ -132,7 +132,7 @@ framework.factory('ListBookBorrow', {
         var id = grid.getSelection()[0];
         if (!id) {
             //thong bao = noty
-            alert("vui long chon");
+            alert("Please select a row !");
             return;
         }
         this.openPopup({
@@ -145,7 +145,7 @@ framework.factory('ListBookBorrow', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ??').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/BookBorrow/Deletes', { id: id }, function (result) {

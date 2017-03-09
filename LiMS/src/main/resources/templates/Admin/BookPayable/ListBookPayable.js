@@ -19,18 +19,18 @@ framework.factory('ListBookPayable', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'bookBorrowId', type: 'text', required: false, caption: "Mã phiếu mượn " },
-                { field: 'actualReturnDate', type: 'date', required: false, caption: "Ngày trả thực tế" },
+                { field: 'bookBorrowId', type: 'text', required: false, caption: "Id phiếu mượn " },
+                { field: 'actualReturnDate', type: 'date', required: false, caption: "Actual Return Date" },
                 { field: 'overDue', type: 'text', required: false, caption: "Phí quá hạn" },
-                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
+                { field: 'status', type: 'text', required: false, caption: "Status" },
             ])
         ;
-        header.setTitle('Danh sách Thể Loại')
+        header.setTitle('Category List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -44,11 +44,11 @@ framework.factory('ListBookPayable', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -71,15 +71,15 @@ framework.factory('ListBookPayable', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'bookBorrowId', caption: 'Mã phiếu mượn', size: '50%', sortable: true, resizable: true },
-                { field: 'actualReturnDate',type: 'date', caption: 'Ngày trả thực tế', size: '50%', sortable: true, resizable: true },
+                { field: 'id', caption: 'Id', size: '40%', sortable: true, resizable: true },
+                { field: 'bookBorrowId', caption: 'Id phiếu mượn', size: '50%', sortable: true, resizable: true },
+                { field: 'actualReturnDate',type: 'date', caption: 'Actual Return Date', size: '50%', sortable: true, resizable: true },
                 { field: 'overDue', caption: 'Phí quá hạn', size: '50%', sortable: true, resizable: true },
-                { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true },
+                { field: 'status', caption: 'Status', size: '50%', sortable: true, resizable: true },
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'Edit', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBookPayable.data).setPaginateOptions(pagi.end())
         ;
@@ -103,7 +103,7 @@ framework.factory('ListBookPayable', {
         console.log(id);
         if (!id) {
             //thong bao = noty
-            alert("vui long chon");
+            alert("Please select a row !");
             return;
         }
         this.openPopup({
@@ -116,7 +116,7 @@ framework.factory('ListBookPayable', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ??').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/BookPayable/Deletes', { id: id }, function (result) {

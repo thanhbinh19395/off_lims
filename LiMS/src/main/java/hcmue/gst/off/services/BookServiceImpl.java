@@ -47,7 +47,7 @@ public class BookServiceImpl extends BaseCommand implements BookService {
                 book.setCreated_date(new Date());
                 book.setBookBorrowDetail(null);
                 book.setState(BookTransactionStep.AVAILABLE);
-                return Success(bookRepository.save(book), "Lưu thành công");
+                return Success(bookRepository.save(book), "Successfully Saved ");
             }
         }
         else{
@@ -55,7 +55,7 @@ public class BookServiceImpl extends BaseCommand implements BookService {
             {
                 book.setUpdate_date(new Date());
                 book.setUpdate_by(user);
-                return Success(bookRepository.save(book), "Lưu thành công");
+                return Success(bookRepository.save(book), "Successfully Saved ");
             }
         }
         return Fail("Trùng Book Code");
@@ -74,7 +74,7 @@ public class BookServiceImpl extends BaseCommand implements BookService {
     @Override
     public Result delete(Long id) {
         bookRepository.delete(id);
-        return Success(id, "Xóa thành công");
+        return Success(id, "Successfully Deleted ");
     }
 
     @Override

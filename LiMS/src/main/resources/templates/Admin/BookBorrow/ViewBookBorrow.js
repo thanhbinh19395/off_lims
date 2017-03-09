@@ -21,9 +21,9 @@ framework.factory('ViewBookBorrow', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'createdUsername', caption: 'Người lập', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
+                { field: 'createdUsername', caption: 'Created By', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
                 { type: 'empty'},
-                { field: 'username', caption: 'Người mượn', type: 'text',span :1, required : true },
+                { field: 'username', caption: 'Borrowed By', type: 'text',span :1, required : true },
                 { type: 'empty'},
                 { field: 'name', caption: 'Name', type: 'text'},
                 { field: 'phone', caption: 'Phone', type: 'text'},
@@ -31,14 +31,14 @@ framework.factory('ViewBookBorrow', {
                 { field: 'email', caption: 'Email' , type: 'text'},
                 { field: 'idcard', caption: 'ID Number', type: 'text' },
                 { field: 'birthday', caption: 'Birthday', type: 'date' },
-                { field: 'returnDate', caption: 'Hạn trả', type: 'date', span : 2, required : true},
+                { field: 'returnDate', caption: 'Returned Date', type: 'date', span : 2, required : true},
             ])
             .setRecord(formData)
         ;
         var toolbar = widget.setting.toolbar();
         toolbar.setName('toolbar')
             .addItem({
-                type: 'button', id: 'back', caption: 'Trở lại danh sách', icon: 'fa-list',
+                type: 'button', id: 'back', caption: 'Back', icon: 'fa-list',
                 onClick: self.onBtnBackClick.bind(this)
             })
         ;
@@ -52,11 +52,11 @@ framework.factory('ViewBookBorrow', {
                     record.bookId = record.id;
                     return record.bookCode;
                 } },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true }
+                { field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true },
+                { field: 'publish_year', caption: 'Publishing Year', size: '10%', sortable: true, resizable: true },
+                { field: 'author', caption: 'Author', size: '10%', sortable: true, resizable: true },
+                { field: 'bookCategory.category_name', caption: 'Category', size: '15%', sortable: true, resizable: true },
+                { field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true }
             ])
             .setRecords($.map(this.ViewBag.bookBorrow.data.bookBorrowDetails,function(v){return v.book;}))
         ;
