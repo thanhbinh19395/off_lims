@@ -8,8 +8,8 @@ framework.factory('HandlePendingBookBorrow', {
             var form = this.findElement('form');
             form.clear();
         }
-        else if (data.eventType == '') {
-
+        else if (data.eventType == 'open') {
+            $.extend(data.param, {status: 0});
         }
     },
     onMessageReceive: function (sender, message) {
@@ -68,14 +68,14 @@ framework.factory('HandlePendingBookBorrow', {
                     options: {caller: self}
                 },
                 {type: 'empty'},
-                {field: 'name', caption: 'Tên người mượn', type: 'text'},
+                {field: 'name', caption: 'Borrowed By', type: 'text'},
                 {field: 'phone', caption: 'Phone', type: 'text'},
                 {field: 'address', caption: 'Address', type: 'text'},
                 {field: 'email', caption: 'Email', type: 'text'},
                 {field: 'idcard', caption: 'ID Number', type: 'text'},
                 {field: 'birthday', caption: 'Birthday', type: 'date'},
-                {field: 'returnDate', caption: 'Hạn trả', type: 'date', span: 2, required: true},
-                {field: 'actualReturnDate', caption: 'Ngày trả', type: 'date', span: 2, required: true},
+                {field: 'returnDate', caption: 'Returned Date', type: 'date', span: 2, required: true},
+                {field: 'actualReturnDate', caption: 'Actual Returned Date', type: 'date', span: 2, required: true},
             ])
         ;
         var toolbar = widget.setting.toolbar();
@@ -96,7 +96,7 @@ framework.factory('HandlePendingBookBorrow', {
             .setIdColumn('id')
             .addColumns([
                 {field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true},
-                {field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true},
+                {field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true},
                 {field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true},
                 {field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true},
                 //{ field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
@@ -192,7 +192,7 @@ framework.factory('HandlePendingBookBorrow', {
         var grid = this.findElement('grid');
         var existBBDetail = grid.get(data.id);
         if (existBBDetail) {
-            alert("ko dc trung sach");
+            alert("Do not choose Duplicated Book");
         }
         else {
             grid.add(data);

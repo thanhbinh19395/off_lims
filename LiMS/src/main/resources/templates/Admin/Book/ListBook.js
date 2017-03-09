@@ -18,21 +18,21 @@ framework.factory('ListBook', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Tên sách' },
-                { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'author', type: 'text', required: false, caption: 'Tác Giả' },
-                { field: 'publisher', type: 'text', required: false, caption: 'Nhà xuất bản' },
-                { field: 'bookCategoryId', caption: 'Thể Loại', type: 'text', required: true },
-                { field: 'bookStatusId', caption: 'Tình trạng', type: 'text', required: true },
-                { field: 'state', caption: 'Trạng thái', type: 'text', required: true }
+                { field: 'name', type: 'text', required: true, caption: 'Book Name' },
+                { field: 'publish_year', type: 'text', required: true, caption: 'Publishing year' },
+                { field: 'author', type: 'text', required: false, caption: 'Author' },
+                { field: 'publisher', type: 'text', required: false, caption: 'Publisher' },
+                { field: 'bookCategoryId', caption: 'Category', type: 'text', required: true },
+                { field: 'bookStatusId', caption: 'Status', type: 'text', required: true },
+                { field: 'state', caption: 'Status', type: 'text', required: true }
             ])
         ;
-        header.setTitle('Danh sách Sách')
+        header.setTitle('Book List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -46,11 +46,11 @@ framework.factory('ListBook', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -72,27 +72,26 @@ framework.factory('ListBook', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '5%', sortable: true, resizable: true },
-                { field: 'name', caption: 'Tên Sách', size: '30%', sortable: true, resizable: true },
-                { field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true },
-                { field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true },
-                { field: 'publisher', caption: 'Nhà xuất bản', size: '30%', sortable: true, resizable: true },
-                { field: 'state', caption: 'Trạng thái', size: '15%', sortable: true, resizable: true },
-                { field: 'publisher', caption: 'Nhà xuất bản', size: '15%', sortable: true, resizable: true },
+                { field: 'id', caption: 'Id', size: '5%', sortable: true, resizable: true },
+                { field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true },
+                { field: 'publish_year', caption: 'Publishing Year', size: '10%', sortable: true, resizable: true },
+                { field: 'author', caption: 'Author', size: '10%', sortable: true, resizable: true },
+                { field: 'publisher', caption: 'Publisher', size: '30%', sortable: true, resizable: true },
+                { field: 'state', caption: 'Status', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCategory.category_name', caption: 'Thể loại', size: '15%', sortable: true, resizable: true },
-                { field: 'bookStatus.description', caption: 'Tình trạng', size: '15%', sortable: true, resizable: true },
-                { field:'hinh', caption:'Hình', size:'15%', render: function(record){
+                { field: 'bookCategory.category_name', caption: 'Category', size: '15%', sortable: true, resizable: true },
+                { field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true },
+                { field:'hinh', caption:'Image', size:'15%', render: function(record){
                     return "<img style=\"vertical-align:center;\" height=\"60\" src=\""+ record.imageUrl +"\"><\/img>";
                 }, style:'text-align:center'},
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'Edit', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBook.data).setPaginateOptions(pagi.end())
         ;
-        //nếu đc mở kiểu popup thì có thêm sự kiện click grid
+        //nếu đc mở kiểu popup thì có Add sự kiện click grid
         if (this.parentId) {
             grid.createEvent('onDblClick', self.onDblClickGrid.bind(this));
         }
@@ -114,7 +113,7 @@ framework.factory('ListBook', {
         console.log(id);
         if (!id) {
             //thong bao = noty
-            alert("vui long chon");
+            alert("please choose a row !");
             return;
         }
         this.openPopup({
@@ -127,7 +126,7 @@ framework.factory('ListBook', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/Book/Deletes', { id: id }, function (result) {

@@ -19,5 +19,6 @@ public interface BookBorrowHeaderService {
     PageableResult<BookBorrowHeader> search(BookBorrowHeader model, Pageable p) ;
     Result<Iterable<BookBorrowHeader>> search(BookBorrowHeader model);
     Result<List<BookBorrowHeader>> findDeadlineBBHeader();
+    Result<List<BookBorrowHeader>> findCancledBBHeader();
 
 }

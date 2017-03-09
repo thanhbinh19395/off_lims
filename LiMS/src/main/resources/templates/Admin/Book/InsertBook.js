@@ -13,27 +13,27 @@ framework.factory('InsertBook', {
         var form = widget.setting.form();
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
-                {field: 'name', type: 'text', required: true, caption: 'Tên sách'},
-                {field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản'},
+                {field: 'name', type: 'text', required: true, caption: 'Book Name'},
+                {field: 'publish_year', type: 'text', required: true, caption: 'Publishing year'},
                 {
-                    field: 'image', type: 'file', required: false, caption: 'Hình',
+                    field: 'image', type: 'file', required: false, caption: 'Image',
                     options: {
                         max: 1,
                     }
                 },
-                {field: 'author', type: 'text', required: true, caption: 'Tác giả'},
-                {field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản'},
+                {field: 'author', type: 'text', required: true, caption: 'Author'},
+                {field: 'publisher', type: 'text', required: true, caption: 'Publisher'},
                 {field: 'bookCode', type: 'text', required: true, caption: 'Book Code'},
                 {
                     field: 'bookCategoryId',
-                    caption: 'Thể Loại',
+                    caption: 'Category',
                     type: 'popupListBookCategory',
                     required: true,
                     options: {caller: self}
                 },
                 {
                     field: 'bookStatusId',
-                    caption: 'Tình trạng',
+                    caption: 'Status',
                     type: 'popupListBookStatus',
                     required: true,
                     options: {caller: self}
@@ -44,14 +44,14 @@ framework.factory('InsertBook', {
             .addItem({
                 id: 'btnInsert',
                 type: 'button',
-                caption: 'Lưu',
+                caption: 'Save',
                 icon: 'fa-floppy-o',
                 onClick: self.onBtnInsertClick.bind(this)
             })
             .addItem({
                 id: 'btnClear',
                 type: 'button',
-                caption: 'Nhập lại',
+                caption: 'Re-type',
                 icon: 'fa-refresh',
                 onClick: self.onBtnClearClick.bind(this)
             })

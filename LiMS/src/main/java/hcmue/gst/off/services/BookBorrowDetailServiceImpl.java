@@ -35,7 +35,7 @@ public class BookBorrowDetailServiceImpl extends BaseCommand implements BookBorr
         Book book = bookRepository.findOne(bookBorrowDetail.getBookId());
         book.setState(BookTransactionStep.BORROWED);
         bookService.save(book);
-        return Success(bookBorrowDetailRepository.save(bookBorrowDetail),"Lưu thành công");
+        return Success(bookBorrowDetailRepository.save(bookBorrowDetail),"Successfully Saved ");
     }
 
     @Override
@@ -51,7 +51,7 @@ public class BookBorrowDetailServiceImpl extends BaseCommand implements BookBorr
     @Override
     public Result delete(Long id) {
         bookBorrowDetailRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override

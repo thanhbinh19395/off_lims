@@ -19,7 +19,7 @@ framework.factory('Reject', {
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
             .addItem({ id: 'btnInsert', type: 'button', caption: 'Gửi', icon: 'fa-floppy-o', onClick:self.onBtnUpdateClick.bind(this) })
-            .addItem({ id: 'btnClear', type: 'button', caption:'Nhập lại', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
+            .addItem({ id: 'btnClear', type: 'button', caption:'Re-type', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
         ;
         content.setName('content1').addItem(form.end()).addItem(formFooter.end());
     },

@@ -51,7 +51,7 @@ public class InsertBookPayableBusiness extends BaseCommand {
     public Result Execute() {
         BookBorrowHeader curBB = bookBorrowHeaderService.findOne(header.getBookBorrowId()).getData();
         if(curBB.getStatus() == CommonStatus.SOLVED)
-            return Fail("Phiếu mượn này đã được xử lý");
+            return Fail("This Book Borrow Header was solved");
 
         // calc duedate
         if(header.getActualReturnDate().compareTo(curBB.getReturnDate()) > 0){
@@ -86,7 +86,7 @@ public class InsertBookPayableBusiness extends BaseCommand {
         User curUser = curBB.getUser();
         curUser.setBorrowable(Boolean.TRUE);
         userService.save(curUser);
-        return Success(header.getId(), "Lưu thành công");
+        return Success(header.getId(), "Successfully Saved ");
 
     }
 }

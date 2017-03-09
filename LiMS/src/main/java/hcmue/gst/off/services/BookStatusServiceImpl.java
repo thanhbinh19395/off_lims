@@ -34,7 +34,7 @@ public class BookStatusServiceImpl extends BaseCommand implements BookStatusServ
     @Override
     public Result<BookStatus> save(BookStatus bookStatus) {
         SaveHandler(bookStatus);
-        return Success(bookStatusRepository.save(bookStatus),"Lưu thành công");
+        return Success(bookStatusRepository.save(bookStatus),"Successfully Saved ");
     }
 
     @Override
@@ -50,7 +50,7 @@ public class BookStatusServiceImpl extends BaseCommand implements BookStatusServ
     @Override
     public Result delete(Long id) {
         bookStatusRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override
