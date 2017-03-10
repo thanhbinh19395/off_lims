@@ -3,12 +3,13 @@
  */
 framework.factory('HandlePendingBookBorrow', {
     onPopupHandler: function (data) {
-        debugger;
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
             form.clear();
         }
         else if (data.eventType == 'open') {
+            if(!data.param)
+                data.param={};
             $.extend(data.param, {status: 0});
         }
     },
@@ -24,7 +25,6 @@ framework.factory('HandlePendingBookBorrow', {
             var actualReturnDate = new Date();
             actualReturnDate = actualReturnDate.setDate(actualReturnDate.getDate());
             formData.actualReturnDate = actualReturnDate;
-            console.log(formData);
             $.extend(form.record, formData);
             form.refresh();
 
@@ -34,7 +34,6 @@ framework.factory('HandlePendingBookBorrow', {
                 return v.book;
             }));
 
-            console.log(message);
         }
         else if (sender.pageName == 'insertBook') {
             data.data.BookCode = data.message.Code;

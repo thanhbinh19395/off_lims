@@ -97,33 +97,10 @@
                 </li>
                 <!-- END Search Form -->
 
-                <!-- BEGIN Book Mgt -->
-                <li th:class="${#strings.equals(viewName,'ListBook') || #strings.equals(viewName,'ListBookCategory') || #strings.equals(viewName,'ListBookStatus')} ? active : ''">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Management</span><b
-                            class="arrow fa fa-angle-right"></b></a>
-                    <ul class="submenu">
-                        <li th:class="${#strings.equals(viewName,'ListBook')} ? active : ''">
-                            <a href="/Admin/Book/ListBook">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book</span>
-                            </a>
-                        </li>
-                        <li th:class="${#strings.equals(viewName,'ListBookCategory')} ? active : ''">
-                            <a href="/Admin/BookCategory/ListBookCategory">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Category</span>
-                            </a>
-                        </li>
-                        <li th:class="${#strings.equals(viewName,'ListBookStatus')} ? active : ''">
-                            <a href="/Admin/BookStatus/ListBookStatus">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Status</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- END Book Mgt -->
+
 
                 <!-- BEGIN Book Borrow Mgt -->
-                <li th:class="${#strings.equals(viewName,'ListBookBorrow') || #strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
+                <li th:class="${#strings.equals(viewName,'HandlePendingBookBorrow') || #strings.equals(viewName,'ListBookBorrow') || #strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
                     <a href="#" class="dropdown-toggle">
                         <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Borrow Mgt</span><b
                             class="arrow fa fa-angle-right"></b></a>
@@ -136,6 +113,11 @@
                         <li th:class="${#strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
                             <a href="/Admin/BookBorrow/InsertBookBorrow">
                                 <i class="fa fa-dashboard"></i>&nbsp;<span>Create Book Borrow</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'HandlePendingBookBorrow')} ? active : ''">
+                            <a href="/Admin/BookBorrow/HandlePendingBookBorrow">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Handle Pending Book Borrow</span>
                             </a>
                         </li>
 
@@ -170,6 +152,31 @@
                         <span>Request</span>
                     </a>
                 </li>
+
+                <!-- BEGIN Book Mgt -->
+                <li th:class="${#strings.equals(viewName,'ListBook') || #strings.equals(viewName,'ListBookCategory') || #strings.equals(viewName,'ListBookStatus')} ? active : ''">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Management</span><b
+                            class="arrow fa fa-angle-right"></b></a>
+                    <ul class="submenu">
+                        <li th:class="${#strings.equals(viewName,'ListBook')} ? active : ''">
+                            <a href="/Admin/Book/ListBook">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'ListBookCategory')} ? active : ''">
+                            <a href="/Admin/BookCategory/ListBookCategory">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Category</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'ListBookStatus')} ? active : ''">
+                            <a href="/Admin/BookStatus/ListBookStatus">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Status</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END Book Mgt -->
 
                 <li th:class="${#strings.equals(viewName,'ListUser')} ? active : ''">
                     <a href="/Admin/User/ListUser">
