@@ -36,10 +36,13 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         User user = userService.findByUsername(securityService.findLoggedInUsername());
         SaveHandler(bookBorrowHeader);
         if (bookBorrowHeader.getId() == null) {
-            bookBorrowHeader.setStatus(CommonStatus.PENDING);
+            if(bookBorrowHeader.getStatus()==null)
+            {
+                bookBorrowHeader.setStatus(CommonStatus.PENDING);
+            }
             user.setBorrowable(false); //Prevent user from continue borrowing
         }
-        return Success(bookBorrowHeaderRepository.save(bookBorrowHeader),"Lưu thành công");
+        return Success(bookBorrowHeaderRepository.save(bookBorrowHeader),"Successfully Saved ");
     }
 
     @Override
@@ -55,7 +58,7 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
     @Override
     public Result delete(Long id) {
         bookBorrowHeaderRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override
@@ -71,14 +74,14 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
     @Override
     public Result<List<BookBorrowHeader>> findDeadlineBBHeader() {
         BookBorrowHeader model = new BookBorrowHeader();
-        model.setStatus(CommonStatus.PENDING);
+        model.setStatus(CommonStatus.INPROGRESS);
 
         Iterable<BookBorrowHeader> list  = bookBorrowHeaderRepository.search(model);
         List<BookBorrowHeader> rs =new ArrayList<>();
         // get due date
         Calendar cal = Calendar.getInstance();
 
-        cal.add(Calendar.DATE, +3);
+        cal.add(Calendar.DATE, +4);
 
         Date dueDate = cal.getTime();
 
@@ -92,6 +95,28 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         }
         return Success(rs);
     }
+
+    @Override
+    public Result<List<BookBorrowHeader>> findCancledBBHeader() {
+        BookBorrowHeader model = new BookBorrowHeader();
+        model.setStatus(CommonStatus.PENDING);
+        Iterable<BookBorrowHeader> list  = bookBorrowHeaderRepository.search(model);
+        List<BookBorrowHeader> rs =new ArrayList<>();
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+        Date dueDate = cal.getTime();
+        for(BookBorrowHeader bb : list)
+        {
+            // compare return date =  due date
+            if(getZeroTimeDate(bb.getReturnDate()).compareTo(getZeroTimeDate(dueDate)) == 0)
+            {
+                rs.add(bb);
+            }
+        }
+        return Success(rs);
+    }
+
+
     public static Date getZeroTimeDate(Date fecha) {
         Date res = fecha;
         Calendar calendar = Calendar.getInstance();

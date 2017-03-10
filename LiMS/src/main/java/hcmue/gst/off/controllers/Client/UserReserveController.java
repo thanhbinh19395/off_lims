@@ -38,4 +38,8 @@ public class UserReserveController extends UserBaseController {
         sendEmailBusiness.toReservationUser(bookReservation.getBookId());
         return "redirect:/Book/ViewDetail/"+bookReservation.getBookId();
     }
+    @RequestMapping(value = "/Borrow/HowToReserve", method = RequestMethod.GET)
+    public String HowToReserve() {
+        return View("HowToReserve");
+    }
 }

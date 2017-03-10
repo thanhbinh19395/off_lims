@@ -18,17 +18,17 @@ framework.factory('ListRequest', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                {field: 'book_name', type: 'text', required: false, caption: "Tên sách"},
-                {field: 'author', type: 'text', required: false, caption: "Tên tác giả"},
-                {field: 'status', type: 'text', required: false, caption: "Trạng thái"},
+                {field: 'book_name', type: 'text', required: false, caption: "Book Name"},
+                {field: 'author', type: 'text', required: false, caption: "Author"},
+                {field: 'status', type: 'text', required: false, caption: "Status"},
             ])
         ;
-        header.setTitle('Danh sách yêu cầu')
+        header.setTitle('Request List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -42,11 +42,11 @@ framework.factory('ListRequest', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -68,20 +68,20 @@ framework.factory('ListRequest', {
         ;
         grid.setName('grid')
             .addColumns([
-                {field: 'id', caption: 'Mã', size: '10%', sortable: true, resizable: true},
-                {field: 'book_name', caption: 'Tên sách', size: '45%', sortable: true, resizable: true},
-                {field: 'author', caption: 'Tên tác giả ', size: '45%', sortable: true, resizable: true},
+                {field: 'id', caption: 'Id', size: '10%', sortable: true, resizable: true},
+                {field: 'book_name', caption: 'Book Name', size: '45%', sortable: true, resizable: true},
+                {field: 'author', caption: 'Author ', size: '45%', sortable: true, resizable: true},
                 {
                     field: 'created_by.username',
-                    caption: 'Username Yêu Cầu ',
+                    caption: 'Username',
                     size: '45%',
                     sortable: true,
                     resizable: true
                 },
-                {field: 'status', caption: 'Trạng thái', size: '45%', sortable: true, resizable: true},
+                {field: 'status', caption: 'Status', size: '45%', sortable: true, resizable: true},
             ])
-            .addButton('btnApprove', 'Chấp nhận', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnReject', 'Bác bỏ', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnApprove', 'Approve', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnReject', 'Reject', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listRequest.data).setPaginateOptions(pagi.end())
         ;
@@ -123,7 +123,7 @@ framework.factory('ListRequest', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ??').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/Request/Deletes', {id: id}, function (result) {

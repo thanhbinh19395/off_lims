@@ -403,7 +403,7 @@ $().w2field('addType', 'popupListUser', function (options) {
             width: '65%',
             border: '0px'
             //1
-        }).attr('placeholder', 'Tìm theo tên người dùng').addClass('inputSearch');
+        }).attr('placeholder', 'Find by username').addClass('inputSearch');
         $(this.el).parent().append(input);
     }
     if (options.data) {
@@ -419,11 +419,16 @@ $().w2field('addType', 'popupListUser', function (options) {
             //3
             if (sender.pageName == 'ListUser')
             {
-                $(self.el).val(message.data.id);
+                data.message = message;
+                $(self.el).val(message.id);
                 $(self.el).change();
-                $(input).val(message.data.name)
+                $(input).val(message.username)
                 $(self.el).data('data', message);
-                sender.close || sender.close();
+                sender.close && sender.close();
+                if (options.caller) {
+                    data.eventType = 'received';
+                    options.caller.onPopupHandler && options.caller.onPopupHandler(data);
+                }
             }
         }
     });
@@ -436,37 +441,37 @@ $().w2field('addType', 'popupListUser', function (options) {
         id: $(self.el).attr('id'),
         $el: self.el,
         field: self,
-        eventType: ''
+        eventType: '',
     }
 
-    var buttonSearch, buttonRemove;
+    //var buttonSearch, buttonRemove;
     if ($(self.el).parent().find('.buttonSearch').length) {
-        buttonSearch = $(self.el).parent().find('.buttonSearch');
+        data.buttonSearch = $(self.el).parent().find('.buttonSearch');
     }
     else {
-        buttonSearch = $('<button>')
+        data.buttonSearch = $('<button>')
             .attr('style', 'margin-left:auto !important; font-size:small;')
             .addClass('input-icon buttonSearch')
             .append($('<span>').addClass('fa fa-search'));
-        buttonSearch.insertAfter(self.el);
+        data.buttonSearch.insertAfter(self.el);
     }
     if ($(self.el).parent().find('.buttonRemove').length) {
-        buttonRemove = $(self.el).parent().find('.buttonRemove');
+        data.buttonRemove = $(self.el).parent().find('.buttonRemove');
     }
     else {
-        buttonRemove = $('<button>')
+        data.buttonRemove = $('<button>')
             .attr('style', 'font-size:small;')
             .addClass('input-icon buttonRemove')
             .append($('<span>').addClass('fa fa-times'));
-        buttonRemove.appendTo($(self.el).parent());
+        data.buttonRemove.appendTo($(self.el).parent());
     }
 
-    buttonSearch.click(function () {
+    data.buttonSearch.click(function () {
         if (options.caller) {
             data.eventType = 'open';
             options.caller.onPopupHandler && options.caller.onPopupHandler(data);
         }
-        $.extend(data.param, {description : input.val()});
+        $.extend(data.param, {username : input.val()});
         //5
         $.post('/api/User/Search', data.param, function (result) {
             var records = result.data;
@@ -484,8 +489,9 @@ $().w2field('addType', 'popupListUser', function (options) {
                 return;
             }
             if (records.length == 1) {
-                self.onMessageReceive(data, records[0]);
                 options.caller.onMessageReceive(data, records[0]);
+                self.onMessageReceive(data, records[0]);
+
                 return;
             }
             else {
@@ -499,10 +505,14 @@ $().w2field('addType', 'popupListUser', function (options) {
 
                 }, data.param);
             }
+            if (options.caller) {
+                data.eventType = 'remove';
+                options.caller.onPopupHandler && options.caller.onPopupHandler(data);
+            }
         });
 
     });
-    buttonRemove.click(function () {
+    data.buttonRemove.click(function () {
         self.set(null);
         input.val('');
         $(self.el).change();
@@ -514,11 +524,11 @@ $().w2field('addType', 'popupListUser', function (options) {
     });
     input.on('keydown', function (e) {
         if (e.which == 13) {
-            buttonSearch.click();
+            data.buttonSearch.click();
         }
     })
-    buttonRemove.appendTo($(self.el).parent());
-    buttonSearch.insertAfter(self.el);
+    data.buttonRemove.appendTo($(self.el).parent());
+    data.buttonSearch.insertAfter(self.el);
 });
 /* popUp ListBookBorrow*/
 $().w2field('addType', 'popupListBookBorrow', function (options) {
@@ -596,10 +606,7 @@ $().w2field('addType', 'popupListBookBorrow', function (options) {
 
     buttonSearch.click(function () {
         data.param = {};
-        if (options.caller) {
-            data.eventType = 'open';
-            options.caller.onPopupHandler && options.caller.onPopupHandler(data);
-        }
+
         var inputVal = input.val();
 
         if($.isNumeric(inputVal)){
@@ -615,6 +622,10 @@ $().w2field('addType', 'popupListBookBorrow', function (options) {
 
         if($.isEmptyObject(input.val()))
             data.param = null;
+        if (options.caller) {
+            data.eventType = 'open';
+            options.caller.onPopupHandler && options.caller.onPopupHandler(data);
+        }
         $.post('/api/BookBorrow/Search',data.param, function (result) {
             var records = result.data;
             if (records.length == 0) {

@@ -14,11 +14,11 @@ framework.factory('UpdateBook', {
         console.log(this.ViewBag.Book.data);
         form.setName('updateForm').setFieldPerRow(1)
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Tên Sách' },
-                { field: 'publish_year', type: 'text', required: true, caption: 'Năm xuất bản' },
-                { field: 'image', type: 'text', required: false, caption: 'Hình' },
-                { field: 'author', type: 'text', required: true, caption: 'Tác giả' },
-                { field: 'state', type: 'text', required: true, caption: 'Trạng thái' },
+                { field: 'name', type: 'text', required: true, caption: 'Book Name' },
+                { field: 'publish_year', type: 'text', required: true, caption: 'Publishing Year' },
+                { field: 'image', type: 'text', required: false, caption: 'Image' },
+                { field: 'author', type: 'text', required: true, caption: 'Author' },
+                { field: 'state', type: 'text', required: true, caption: 'Status' },
                 { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
                 { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
@@ -28,8 +28,8 @@ framework.factory('UpdateBook', {
         ;
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
-            .addItem({ id: 'btnInsert', type: 'button', caption: 'Lưu', icon: 'fa-floppy-o', onClick:self.onBtnUpdateClick.bind(this) })
-            .addItem({ id: 'btnClear', type: 'button', caption:'Nhập lại', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
+            .addItem({ id: 'btnInsert', type: 'button', caption: 'Save', icon: 'fa-floppy-o', onClick:self.onBtnUpdateClick.bind(this) })
+            .addItem({ id: 'btnClear', type: 'button', caption:'Re-type', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
         ;
         content.setName('content1').addItem(form.end()).addItem(formFooter.end());
     },

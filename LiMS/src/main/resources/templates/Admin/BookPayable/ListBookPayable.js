@@ -17,10 +17,10 @@ framework.factory('ListBookPayable', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'username', type: 'text', required: false, caption: "Người mượn", render: function(r){
+                { field: 'username', type: 'text', required: false, caption: "Borrowed By", render: function(r){
                     return '['+r.user.username +'] ' + r.user.name;
                 } },
-                { field: 'returnDate', type: 'date', required: false, caption: "Ngày trả" },
+                { field: 'returnDate', type: 'date', required: false, caption: "Returned Date" },
                 { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
@@ -71,12 +71,12 @@ framework.factory('ListBookPayable', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Người mượn", render: function(r){
+                { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Borrowed By", render: function(r){
                     return '['+r.bookBorrowHeader.user.username +']' + r.bookBorrowHeader.user.name;
                 } },
                 { field: 'created_date',render:'date', caption: 'Ngày lập', size: '50%', sortable: true, resizable: true },
-                //{ field: 'returnDate',render:'date', caption: 'Hạn trả', size: '50%', sortable: true, resizable: true },
-                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Người lập", render: function(r){
+                //{ field: 'returnDate',render:'date', caption: 'Returned Date', size: '50%', sortable: true, resizable: true },
+                { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Created By", render: function(r){
                     return '['+r.created_by.username +']' + r.created_by.name;
                 } },
                 {
@@ -183,22 +183,7 @@ framework.factory('ListBookPayable', {
             }
         });
     },
-    /*
-     onDblClickGrid: function (e) {
-     var self = this;
-     var grid = this.findElement('grid');
-     var record = grid.get(e.recid);
-     console.log(record);
-     var mess = {
-     type: 'popupListBookPayable',
-     data: record,
-     callback: function () {
-     self.close();
-     }
-     }
-     this.sendMessage(mess);
-     }
-     */
+
     onDblClickGrid: function (e) {
         var self = this;
         var grid = this.findElement('grid');

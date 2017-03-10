@@ -20,18 +20,18 @@ framework.factory('ListBookReservation', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'id', type: 'text', required: false, caption: "Mã phiếu mượn " },
-                { field: 'bookId', type: 'text', required: false, caption: "mã sách" },
-                { field: 'pickUpdate', type: 'date', required: false, caption: "ngày lấy" },
-                { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
+                { field: 'id', type: 'text', required: false, caption: "Id BB Header " },
+                { field: 'bookId', type: 'text', required: false, caption: "Id Book" },
+                { field: 'pickUpdate', type: 'date', required: false, caption: "Pickup Date" },
+                { field: 'status', type: 'text', required: false, caption: "Status" },
             ])
         ;
-        header.setTitle('Danh sách Thể Loại')
+        header.setTitle('Category List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -45,11 +45,11 @@ framework.factory('ListBookReservation', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -72,13 +72,13 @@ framework.factory('ListBookReservation', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'bookId', caption: 'Mã sách', size: '50%', sortable: true, resizable: true },
-                { field: 'pickUpDate',type: 'date', caption: 'Ngày lấy sách', size: '50%', sortable: true, resizable: true },
-                { field: 'status', caption: 'Trạng thái', size: '50%', sortable: true, resizable: true }
+                { field: 'id', caption: 'Id', size: '40%', sortable: true, resizable: true },
+                { field: 'bookId', caption: 'Boook Id', size: '50%', sortable: true, resizable: true },
+                { field: 'pickUpDate',type: 'date', caption: 'Picked Up Date', size: '50%', sortable: true, resizable: true },
+                { field: 'status', caption: 'Status', size: '50%', sortable: true, resizable: true }
             ])
-            .addButton('btnUpdate', 'Đánh dấu đã xử lý', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnUpdate', 'Mark as Solved', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBookReservation.data).setPaginateOptions(pagi.end())
         ;
@@ -97,10 +97,10 @@ framework.factory('ListBookReservation', {
         console.log(id);
         if (!id) {
             //thong bao = noty
-            alert("vui long chon");
+            alert("Please select a row !");
             return;
         }
-        w2confirm('Bạn có chắc chắn đánh dấu đã xử lý không ?').yes(function () {
+        w2confirm('Do you want to mark this as Solved  ?').yes(function () {
             $.post('/api/BookReservation/Handle', { id: id }, function (result) {
                 if(result.success){
                     alertSuccess(result.message);
@@ -115,7 +115,7 @@ framework.factory('ListBookReservation', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ??').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/BookReservation/Deletes', { id: id }, function (result) {

@@ -48,14 +48,14 @@ framework.factory('InsertUser', {
             .addItem({
                 id: 'btnInsert',
                 type: 'button',
-                caption: 'Lưu',
+                caption: 'Save',
                 icon: 'fa-floppy-o',
                 onClick: self.onBtnInsertClick.bind(this)
             })
             .addItem({
                 id: 'btnClear',
                 type: 'button',
-                caption: 'Nhập lại',
+                caption: 'Re-type',
                 icon: 'fa-refresh',
                 onClick: self.onBtnClearClick.bind(this)
             })

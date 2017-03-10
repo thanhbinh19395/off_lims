@@ -48,13 +48,13 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
             request.setStatus(CommonStatus.PENDING);
         }
         Request r = requestRepository.save(request);
-        return Success(r, "Lưu thành công");
+        return Success(r, "Successfully Saved ");
     }
 
     @Override
     public Result delete(Long id) {
         requestRepository.delete(id);
-        return Success(id,"Xóa thành công");
+        return Success(id,"Successfully Deleted ");
     }
 
     @Override

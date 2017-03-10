@@ -21,12 +21,12 @@ framework.factory('ListBookCategory', {
                 { field: 'category_name', type: 'text', required: false, caption: "Tên" },
             ])
         ;
-        header.setTitle('Danh sách Thể Loại')
+        header.setTitle('Category List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -40,11 +40,11 @@ framework.factory('ListBookCategory', {
             .setName('title1')
 
             .addLeft({
-                type: 'button', id: 'btn-reload', caption: 'Tải lại', icon: 'fa-refresh',
+                type: 'button', id: 'btn-reload', caption: 'Reload', icon: 'fa-refresh',
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -67,12 +67,12 @@ framework.factory('ListBookCategory', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Mã', size: '40%', sortable: true, resizable: true },
-                { field: 'category_name', caption: 'Tên thể loại', size: '50%', sortable: true, resizable: true },
+                { field: 'id', caption: 'Id', size: '40%', sortable: true, resizable: true },
+                { field: 'category_name', caption: 'Category Name', size: '50%', sortable: true, resizable: true },
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Cập nhật', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
-            .addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
+            .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'Edit', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
+            .addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBookCategory.data).setPaginateOptions(pagi.end())
         ;
@@ -96,7 +96,7 @@ framework.factory('ListBookCategory', {
         console.log(id);
         if (!id) {
             //thong bao = noty
-            alert("vui long chon");
+            alert("Please select a row !");
             return;
         }
         this.openPopup({
@@ -109,7 +109,7 @@ framework.factory('ListBookCategory', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ??').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/BookCategory/Deletes', { id: id }, function (result) {

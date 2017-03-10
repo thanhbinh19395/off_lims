@@ -1,14 +1,15 @@
 /**
- * Created by Thanh Binh on 2/27/2017.
+ * Created by Thanh Binh on 3/9/2017.
  */
-framework.factory('InsertBookPayable', {
+framework.factory('HandlePendingBookBorrow', {
     onPopupHandler: function (data) {
+        debugger;
         if (data.eventType == 'remove') {
             var form = this.findElement('form');
             form.clear();
         }
         else if (data.eventType == 'open') {
-            $.extend(data.param, {status: 1});
+            $.extend(data.param, {status: 0});
         }
     },
     onMessageReceive: function (sender, message) {
@@ -38,7 +39,7 @@ framework.factory('InsertBookPayable', {
         else if (sender.pageName == 'insertBook') {
             data.data.BookCode = data.message.Code;
             data.data.BookName = data.message.Name;
-            this.insertBPDetailHandler(sender, message.data);
+            this.insertBBDetailHandler(sender, message.data);
         }
         else if (sender.pageName == 'ListUser') {
             var form = this.findElement('form');
@@ -48,7 +49,7 @@ framework.factory('InsertBookPayable', {
         }
     },
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Create BookPayable header').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('Handle Pending Book Borrow').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {
@@ -61,14 +62,13 @@ framework.factory('InsertBookPayable', {
             .addFields([
                 {
                     field: 'bookBorrowId',
-                    caption: 'BB Header Id',
+                    caption: 'Mã phiếu mượn',
                     type: 'popupListBookBorrow',
                     span: 1,
-                    options: {caller: self},
-                    required: true
+                    options: {caller: self}
                 },
                 {type: 'empty'},
-                {field: 'name', caption: 'User Name', type: 'text'},
+                {field: 'name', caption: 'Borrowed By', type: 'text'},
                 {field: 'phone', caption: 'Phone', type: 'text'},
                 {field: 'address', caption: 'Address', type: 'text'},
                 {field: 'email', caption: 'Email', type: 'text'},
@@ -81,11 +81,11 @@ framework.factory('InsertBookPayable', {
         var toolbar = widget.setting.toolbar();
         toolbar.setName('toolbar')
             .addItem({
-                type: 'button', id: 'back', caption: 'Back', icon: 'fa-list',
+                type: 'button', id: 'back', caption: 'Trở lại danh sách', icon: 'fa-list',
                 onClick: self.onBtnBackClick.bind(this)
             })
             .addItem({
-                type: 'button', id: 'save', caption: 'Save', icon: 'glyphicon glyphicon-floppy-saved',
+                type: 'button', id: 'save', caption: 'Lưu', icon: 'glyphicon glyphicon-floppy-saved',
                 onClick: self.onBtnSaveClick.bind(this)
             })
         ;
@@ -95,24 +95,24 @@ framework.factory('InsertBookPayable', {
             .setHeight('600px')
             .setIdColumn('id')
             .addColumns([
-                {field: 'id', caption: 'Id', size: '10%', resizable: true, sortable: true},
+                {field: 'id', caption: 'Mã sản phẩm', size: '10%', resizable: true, sortable: true},
                 {field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true},
-                {field: 'publish_year', caption: 'Publishing Year', size: '10%', sortable: true, resizable: true},
-                {field: 'author', caption: 'Author', size: '10%', sortable: true, resizable: true},
+                {field: 'publish_year', caption: 'Năm Xuất Bản', size: '10%', sortable: true, resizable: true},
+                {field: 'author', caption: 'Tác giả', size: '10%', sortable: true, resizable: true},
                 //{ field: 'image', caption: 'Hình', size: '15%', sortable: true, resizable: true },
                 {field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true},
                 {
                     field: 'bookCategory.category_name',
-                    caption: 'Category',
+                    caption: 'Thể loại',
                     size: '15%',
                     sortable: true,
                     resizable: true
                 },
-                {field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true}
+                {field: 'bookStatus.description', caption: 'Trạng Thái', size: '15%', sortable: true, resizable: true}
             ])
-            .addButton('delete', 'Delete', 'fa fa-times', self.onBtnDeleteClick.bind(self))
-            .addButton('product', 'Choose', 'fa fa-check', self.onChooseBookClick.bind(self))
-            .addButton('insertBook', 'Add New', 'fa fa-plus', self.onInsertBookClick.bind(self))
+            .addButton('delete', 'Xóa', 'fa fa-times', self.onBtnDeleteClick.bind(self))
+            .addButton('product', 'Chọn', 'fa fa-check', self.onChooseBookClick.bind(self))
+            .addButton('insertBook', 'Thêm mới', 'fa fa-plus', self.onInsertBookClick.bind(self))
             .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
         ;
 
@@ -124,54 +124,20 @@ framework.factory('InsertBookPayable', {
             this.close();
         }
         else {
-            window.location.replace("/Admin/BookPayable/ListBookPayable");
+            window.location.replace("/Admin/BookBorrow/ListBookBorrow");
         }
     },
     onSearchBookGrid: function (e) {
         console.log(e);
     },
-    onBtnSaveInventoryClick: function () {
-        var curBP = this.getCurrentBP();
-        if (curBP) {
-            $.post('/api/BookBorrowHeader/Save', {
-                header: this.form.record,
-                detail: this.w2ui.grid.record
-            }, function (data) {
-                framework.common.cmdResultNoti(data);
-            });
-        }
-    },
-    onBtnSaveFinishClick: function () {
-        var curBP = this.getCurrentBP();
-        var self = this;
-        var form = this.findElement('form');
-        var grid = this.findElement('grid');
-        console.log({header: form.record, detail: grid.records});
-        if (curBP) {
-
-            $.post('/api/BookBorrowHeader/Save', {header: form.record, detail: grid.records}, function (data) {
-                framework.common.cmdResultNoti(data);
-            });
-        }
-    },
     onBtnSaveClick: function () {
         var self = this;
-        var curBP = this.getCurrentBP();
-        if (curBP) {
-            $.ajax({
-                url: "/api/BookPayable/Insert",
-                type: "POST",
-                data: JSON.stringify(curBP),
-                success: function (r) {
-                    framework.common.cmdResultNoti(r);
-                    if (r.success) {
-                        self.toInitState();
-                        if (self.parentId)
-                            self.sendMessage(r);
-                    }
-                },
-                dataType: "json",
-                contentType: "application/json"
+        var form = this.findElement('form');
+
+        if (form.record.bookBorrowId) {
+            $.post('/api/BookBorrow/HandlePendingBookBorrow', {bookBorrowHeaderId: form.record.bookBorrowId}, function (r) {
+                framework.common.cmdResultNoti(r);
+
             });
         }
     },
@@ -222,11 +188,11 @@ framework.factory('InsertBookPayable', {
         });
         return total;
     },
-    insertBPDetailHandler: function (sender, data) {
+    insertBBDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
-        var existBPDetail = grid.get(data.id);
-        if (existBPDetail) {
-            alert("");
+        var existBBDetail = grid.get(data.id);
+        if (existBBDetail) {
+            alert("Do not choose Duplicated Book");
         }
         else {
             grid.add(data);
@@ -247,29 +213,6 @@ framework.factory('InsertBookPayable', {
             url: '/Admin/Book/ListBook',
             width: 600
         });
-    },
-    getCurrentBP: function () {
-        var form = this.findElement('form');
-        var grid = this.findElement('grid');
-        if (form.validate() != 0)
-            return;
-
-
-        var header = {
-            returnDate: form.record.returnDate,
-            actualReturnDate: form.record.actualReturnDate,
-            bookBorrowId: form.record.bookBorrowId
-        };
-        var details = $.map(grid.records, function (v) {
-            return {
-                bookId: v.id,
-                note: "hello"
-            }
-        });
-        return {
-            header: header,
-            details: details
-        }
     },
     toInitState: function () {
         var form = this.findElement('form');
