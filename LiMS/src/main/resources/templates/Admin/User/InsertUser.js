@@ -15,14 +15,14 @@ framework.factory('InsertUser', {
         var form = widget.setting.form();
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
-                {field: 'name', caption: 'Name', type: 'text', required: true},
+                {field: 'name', caption: 'Name', type: 'text'},
                 {field: 'phone', caption: 'Phone', type: 'text'},
                 {field: 'address', caption: 'Address', type: 'text'},
                 {field: 'idcard', caption: 'ID Number', type: 'text'},
-                {field: 'birthday', caption: 'Birthday', type: 'date', required: true},
-                {field: 'username', caption: 'Username', type: 'text', required: true},
+                {field: 'birthday', caption: 'Birthday', type: 'date' },
+                {field: 'username', caption: 'Username', type: 'text',required: true},
                 {field: 'password', caption: 'Password', type: 'text', required: true},
-                {field: 'email', caption: 'Email', type: 'email', required: true},
+                {field: 'email', caption: 'Email', type: 'email'},
                 {field: 'roleId', caption: 'Role', type: 'popupListRole', options: {caller: self}, required: true},
                 {
                     field: 'status', type: 'list', required: true, caption: 'Status', options: {

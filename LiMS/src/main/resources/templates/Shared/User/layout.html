@@ -25,15 +25,6 @@
             <ul class="nav navbar-nav">
                 <li><a href="/" class="external" th:text="#{Homepage}"></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Service}"></a>
-                    <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
-                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forStudent}"></a></li>
-                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forLecturer}"></a></li>
-                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forResearcher}"></a></li>
-                        <li><a style="line-height: 40px;" href="#" class="external" th:text="#{forCommunity}"></a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Borrow}"></a>
                     <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
                         <li><a style="line-height: 40px;" href="/Borrow/HowToBorrow" class="external" th:text="#{HowtoBorrow}"></a></li>
@@ -61,7 +52,14 @@
                         <li><a style="line-height: 40px;" href="/logout"  class="external" th:text="#{Logout}"></a></li>
                     </ul>
                 </li>
-                <li><a  class="external" th:href="${#authorization.expression('isAuthenticated()') ? '/':'/login'}" style="background-color: #0A96DE;" th:text="#{login}"></a></li>
+                <li th:if="${not #authorization.expression('isAuthenticated()')}"><a  class="external"  href="/login" style="background-color: #0A96DE;" th:text="#{login}"></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Language</a>
+                    <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
+                        <li><a style="line-height: 40px;" href="?lang=vn" class="external">Tiếng Việt</a></li>
+                        <li><a style="line-height: 40px;" href="?lang=en" class="external">English</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
