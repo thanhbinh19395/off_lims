@@ -23,7 +23,8 @@ $(document).ready(function () {
         errorElement: 'span',
         onfocusout: function (element, event) {
             this.element(element);
-        }
+        },
+
     });
    $('#btnClear').click(function() {
         $('#title').val('');

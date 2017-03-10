@@ -16,6 +16,8 @@
     <link rel="icon" href="/images/logo.png"/>
     <link rel="stylesheet" href="/css/layout/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/layout/style.css"/>
+
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" style="position: relative; !important; margin-bottom: 0 !important;">
@@ -123,6 +125,9 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.updatePassword.js"></script>
 <script src="/js/jquery.validate.min.js"></script>
+<script src="/plugins/noty-2.3.11/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+<script src="/js/noty.setting.js"></script>
+<script src="/js/framework.common.js"></script>
 <script>
 
     // HTML document is loaded. DOM is ready.
@@ -188,5 +193,6 @@
 
     });
 </script>
+<div th:remove="tag" layout:fragment="scripts" ></div>
 </body>
 </html>

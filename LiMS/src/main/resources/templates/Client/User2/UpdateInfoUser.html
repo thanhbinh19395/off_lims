@@ -22,7 +22,7 @@
         </div>
     </div>
     <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <form id="form" th:action="@{/User/SaveInfoUser}" th:object="${User}" method="post">
+    <form id="form" action="/"  th:object="${User}" method="post">
         <h1><b th:text="#{UserInformation}">User Information</b></h1>
         <div class="alert alert-info">
             <p th:text="#{InfoUserNoti1}">
@@ -44,6 +44,7 @@
             </h3>
         </div>
         <br/>
+
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{password}"/>
         <input type="hidden" th:field="*{roleId}"/>
@@ -107,16 +108,19 @@
         </div>
         <div class="form-group">
             <div align="center">
-                <button type="submit" class="button btn-success btn-sm" th:text="#{Save}">Save</button>
-                <button type="reset" class="button btn-default btn-sm" th:text="#{Reset}">Reset</button>
+                <input type="button" id="submitButton" class="button btn-success btn-sm" th:value="#{Save}"/>
             </div>
         </div>
     </form>
 </div>
+
+<div layout:fragment="scripts" >
 <script src="/js/jquery.validate.min.js"></script>
 <script>
-    $('#form').validate();
-    function validate(evt) {
+$(document).ready(function(){
+        //$('#form').validate();
+    window.validate =  function (evt) {
+        debugger
         var theEvent = evt || window.event;
         var key = theEvent.keyCode || theEvent.which;
         key = String.fromCharCode(key);
@@ -126,7 +130,16 @@
             if (theEvent.preventDefault) theEvent.preventDefault();
         }
     }
+
+        $('#submitButton').click(function () {
+            $.post('/User/SaveInfoUser',$('#form').serialize() ,function (result) {
+                framework.common.cmdResultNoti(result);
+                // k can dong nay this.sendMessage(result);
+            });
+        });
+    });
 </script>
+</div>
 </body>
 </html>
 

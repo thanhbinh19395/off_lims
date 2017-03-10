@@ -35,24 +35,14 @@
                         The more details you can supply, the easier we can process your request.
                     </p>
                 </div>
-                <div th:if="${param.success}">
-                    <h3>
-                        <span class="label label-success" th:text="#{RequestSuccess}"> Your request is submitted ! </span>
-                    </h3>
-                </div>
-                <div th:if="${param.error}">
-                    <h3>
-                        <span class="label label-danger" th:text="#{RequestValid}"> Your request is invalid</span>
-                    </h3>
-                </div>
                 <h3><b th:text="#{BookDetail}">Book Details</b></h3>
                 <p th:text="#{BookDetailContent}">Please provide as many details as possible.</p>
                 <label for="title" th:text="#{Title}"> Title <span style="color: red">*</span></label>
                 <input class="form-control" type="text" name="title" id="title" alt="This field is required"
-                       required="true" th:placeholder="#{Booktitle} " th:field="*{book_name}"/>
+                        th:placeholder="#{Booktitle} " th:field="*{book_name}"/>
                 <br/>
                 <label for="author" th:text="#{Author}"> Author <span style="color: red">*</span></label>
-                <input class="form-control" type="text" name="author" id="author" required="true"
+                <input class="form-control" type="text" name="author" id="author"
                        th:placeholder="#{Authorname}" th:field="*{author}"/>
                 <br/>
                 <label for="publisher" th:text="#{Publisher}"> Publisher </label>
@@ -68,7 +58,7 @@
                           id="additionalInformation"  th:placeholder="#{note}"
                           th:field="*{note}"></textarea>
                 <br/>
-                <input class="col-sm-2 col-sm-offset-3 button btn-success btn-sm" type="submit" th:value="#{Submit}"/>
+                <input id="submitButton" class="col-sm-2 col-sm-offset-3 button btn-success btn-sm" type="button" th:value="#{Submit}"/>
                 <input class="col-sm-2 col-sm-offset-2 button btn-info btn-sm" id="btnClear" type="reset"
                        th:value="#{Reset}"/>
             </div>
@@ -83,6 +73,18 @@
 <script src="/js/bootstrap.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/jquery.requestPurchase.js"></script>
-<script src="/js/jquery.validate.min.js"></script>
+<div layout:fragment="scripts" >
+    <script src="/js/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submitButton').click(function () {
+                $.post('/User/RequestPurchase',$('#request_purchase_form').serialize() ,function (result) {
+                    framework.common.cmdResultNoti(result);
+                    // k can dong nay this.sendMessage(result);
+                });
+            });
+        });
+    </script>
+</div>
 </body>
 </html>

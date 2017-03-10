@@ -78,11 +78,10 @@
                             </h4>
                         </td>
                         <td>
-                            <a type="button" class="btn btn-danger"
+
+                            <input type="button" class="btn btn-danger btnBookBorrowCancel"
                                th:if="${item.header.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:href="@{/User/ViewLog/BookBorrow/cancel/}+${item.header.id}" th:text="#{Cancel}">
-                                Cancel
-                            </a>
+                               th:id="${item.header.id}"    th:value="#{Cancel}"/>
                             <p style="vertical-align: middle; margin: 0"
                                th:if="${item.header.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
                                 not available</p>
@@ -128,9 +127,9 @@
                             </h4>
                         </td>
                         <td>
-                            <a type="button" class="btn btn-danger"
+                            <a type="button" class="btn btn-danger btnBookReservationCancel"
                                th:if="${item2.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:href="@{/User/ViewLog/BookReservation/cancel/}+${item2.id}" th:text="#{Cancel}">
+                               th:id="${item2.id}" th:text="#{Cancel}">
                                 Cancel
                             </a>
                             <p style="vertical-align: middle; margin: 0"
@@ -183,11 +182,10 @@
                             </h4>
                         </td>
                         <td>
-                            <a type="button" class="btn btn-danger"
+                            <input type="button" class="btn btn-danger btnBookRequestCancel"
                                th:if="${item.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:href="@{/User/ViewLog/BookRequest/cancel/}+${item.id}" th:text="#{Cancel}">
-                                Cancel
-                            </a>
+                               th:id="${item.id}" th:value="#{Cancel}"/>
+
                             <p style="vertical-align: middle; margin: 0"
                                th:if="${item.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
                                 not available</p>
@@ -200,21 +198,43 @@
 
         </div>
     </div>
-    <script>
-        jQuery(document).ready(function () {
-            jQuery('.tabs .tab-links a').on('click', function (e) {
-                var currentAttrValue = jQuery(this).attr('href');
+    <div layout:fragment="scripts" >
+        <script src="/js/jquery.validate.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                jQuery('.tabs .tab-links a').on('click', function (e) {
+                    var currentAttrValue = jQuery(this).attr('href');
+                    // Show/Hide Tabs
+                    jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+                    // Change/remove current tab to active
+                    jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+                    e.preventDefault();
+                });
+                $('.btnBookBorrowCancel').click(function(){
+                    var id = $(this).attr('id');
+                    console.log(id);
+                    $.post('/User/ViewLog/BookBorrow/cancel' ,{id:id}, function (result) {
+                        framework.common.cmdResultNoti(result);
+                    })
+                });
+                $('.btnBookReservationCancel').click(function(){
+                    var id = $(this).attr('id');
+                    console.log(id);
+                    $.post('/User/ViewLog/BookReservation/cancel' ,{id:id}, function (result) {
+                        framework.common.cmdResultNoti(result);
+                    })
+                });
+                $('.btnBookRequestCancel').click(function(){
+                    var id = $(this).attr('id');
+                    console.log(id);
+                    $.post('/User/ViewLog/BookRequest/cancel' ,{id:id}, function (result) {
+                        framework.common.cmdResultNoti(result);
+                    })
+                });
 
-                // Show/Hide Tabs
-                jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
-
-                // Change/remove current tab to active
-                jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
-
-                e.preventDefault();
             });
-        });
-    </script>
+        </script>
+    </div>
 </div>
 </body>
 </html>

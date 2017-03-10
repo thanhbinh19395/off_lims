@@ -43,7 +43,7 @@ public class RESTAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
                 setDefaultTargetUrl("/");
             }
             else {
-                setDefaultTargetUrl("/Admin/User/ListUser");
+                setDefaultTargetUrl("/Admin/BookBorrow/InsertBookBorrow");
             }
             super.onAuthenticationSuccess(request,response,authentication);
             return;
