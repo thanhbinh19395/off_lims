@@ -8,6 +8,8 @@ framework.factory('InsertBookPayable', {
             form.clear();
         }
         else if (data.eventType == 'open') {
+            if(!data.param)
+                data.param = {};
             $.extend(data.param, {status: 1});
         }
     },
@@ -32,19 +34,6 @@ framework.factory('InsertBookPayable', {
             grid.add($.map(message.bookBorrowDetails, function (v) {
                 return v.book;
             }));
-
-            console.log(message);
-        }
-        else if (sender.pageName == 'insertBook') {
-            data.data.BookCode = data.message.Code;
-            data.data.BookName = data.message.Name;
-            this.insertBPDetailHandler(sender, message.data);
-        }
-        else if (sender.pageName == 'ListUser') {
-            var form = this.findElement('form');
-            $.extend(form.record, message.data);
-            form.refresh();
-            sender.close && sender.close();
         }
     },
     onInitHeader: function (header) {
@@ -110,10 +99,6 @@ framework.factory('InsertBookPayable', {
                 },
                 {field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true}
             ])
-            .addButton('delete', 'Delete', 'fa fa-times', self.onBtnDeleteClick.bind(self))
-            .addButton('product', 'Choose', 'fa fa-check', self.onChooseBookClick.bind(self))
-            .addButton('insertBook', 'Add New', 'fa fa-plus', self.onInsertBookClick.bind(self))
-            .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
         ;
 
 
@@ -132,6 +117,7 @@ framework.factory('InsertBookPayable', {
     },
     onBtnSaveInventoryClick: function () {
         var curBP = this.getCurrentBP();
+        var self = this;
         if (curBP) {
             $.post('/api/BookBorrowHeader/Save', {
                 header: this.form.record,
@@ -175,53 +161,6 @@ framework.factory('InsertBookPayable', {
             });
         }
     },
-    onChangeForm: function (e) {
-        if (e.target == 'CustomerPaid') {
-            var self = this;
-            e.done(function () {
-                self.updateCharge(e.value_new);
-            });
-
-        }
-    },
-    onBtnDeleteClick: function (e) {
-        var grid = this.findElement('grid');
-        grid.delete(true);
-        this.updateTotal();
-    },
-    onEditFieldGrid: function (e) {
-        var self = this;
-        e.done(function () {
-            self.refreshGrid(e.recid);
-        });
-    },
-    refreshGrid: function (recid) {
-        var grid = this.findElement('grid');
-        grid.mergeChanges();
-        if (recid)
-            grid.refresh(recid);
-        else
-            grid.refresh();
-        this.updateTotal();
-    },
-    updateTotal: function () {
-        var form = this.findElement('form');
-        //form.record.Total = this.calculateTotal();
-        form.refresh();
-    },
-    updateCharge: function (paid) {
-        var form = this.findElement('form');
-        form.record.Charge = paid - form.record.Total;
-        form.refresh();
-    },
-    calculateTotal: function () {
-        var grid = this.findElement('grid');
-        var total = 0;
-        $.each(grid.records, function (k, v) {
-            total += v.BookPrice * v.Quantity;
-        });
-        return total;
-    },
     insertBPDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
         var existBPDetail = grid.get(data.id);
@@ -234,20 +173,6 @@ framework.factory('InsertBookPayable', {
         this.updateTotal();
     },
 
-    onInsertBookClick: function () {
-        this.openPopup({
-            name: 'insertPopup',
-            url: '/  /BookHandler/InsertBook',
-            width: 600
-        });
-    },
-    onChooseBookClick: function () {
-        this.openPopup({
-            name: 'insertPopup',
-            url: '/Admin/Book/ListBook',
-            width: 600
-        });
-    },
     getCurrentBP: function () {
         var form = this.findElement('form');
         var grid = this.findElement('grid');
@@ -276,8 +201,5 @@ framework.factory('InsertBookPayable', {
         var grid = this.findElement('grid');
         grid.clear();
         form.clear();
-    },
-    onLoadComplete: function () {
-        this.$contentEl.find('#product').focus();
     },
 });
