@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/Admin/emptylayout">
+<html  xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/Admin/emptylayout">
 
 <script layout:fragment="scripts"></script>
 <div th:remove="tag" layout:fragment="styles"></div>
@@ -19,7 +20,7 @@
         <ul class="nav flaty-nav navbar-collapse collapse">
             <li class="user-profile pull-right">
                 <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
-                    <img class="nav-user-photo" src="~/Content/flaty/img/demo/avatar/avatar2.jpg" alt="Penny's Photo"/>
+                    <img class="nav-user-photo" src="/flaty/img/demo/avatar/avatar2.jpg" alt="Penny's Photo"/>
                     <span class="hhh" id="user_info">
                         Xin chào!
                     </span>
@@ -28,7 +29,7 @@
                 <!-- BEGIN User Dropdown -->
                 <ul class="dropdown-menu dropdown-navbar" id="user_menu">
                     <li class="nav-header">
-                        <i class="fa fa-clock-o"></i> Đăng nhập lúc @LoginDate.ToString("hh:mm")
+                        <i class="fa fa-clock-o"></i> Đăng nhập lúc <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}"></span>
                     </li>
                     <li>
                         <a href="#">

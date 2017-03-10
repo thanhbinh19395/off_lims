@@ -3,6 +3,7 @@ package hcmue.gst.off.authentication;
 import hcmue.gst.off.entities.Request;
 import org.codehaus.groovy.util.StringUtil;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
@@ -37,7 +38,13 @@ public class RESTAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
 
         SavedRequest savedRequest = requestCache.getRequest(request,response);
         if (savedRequest == null) {
-            setDefaultTargetUrl("/");
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth.getAuthorities().iterator().next().getAuthority().equals("USER")) {
+                setDefaultTargetUrl("/");
+            }
+            else {
+                setDefaultTargetUrl("/Admin/User/ListUser");
+            }
             super.onAuthenticationSuccess(request,response,authentication);
             return;
         }

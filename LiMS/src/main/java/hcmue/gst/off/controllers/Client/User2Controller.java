@@ -57,6 +57,7 @@ public class User2Controller extends UserBaseController{
         model.addAttribute("username", securityService.findLoggedInUsername());
         return View();
     }
+
     @RequestMapping(value = "/UpdateInfoUser", method = RequestMethod.GET)
     public String UpdateInfoUser(Model model){
         User userExist = userService.findByUsername(securityService.findLoggedInUsername());
@@ -68,14 +69,7 @@ public class User2Controller extends UserBaseController{
         if (bindingResult.hasErrors()) {
             return "redirect:/User/UpdateInfoUser?error";
         }
-        User temp = userService.findByUsername(securityService.findLoggedInUsername());
-        temp.setName(user.getName());
-        temp.setPhone(user.getPhone());
-        temp.setAddress(user.getAddress());
-        temp.setIdcard(user.getIdcard());
-        temp.setEmail(user.getEmail());
-        temp.setBirthday(user.getBirthday());
-        userService.save(temp);
+        userService.save(user);
         return "redirect:/User/UpdateInfoUser?success";
     }
 

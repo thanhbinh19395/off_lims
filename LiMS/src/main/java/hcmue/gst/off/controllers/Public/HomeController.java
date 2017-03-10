@@ -30,7 +30,7 @@ import java.util.Date;
 @Controller
 public class HomeController extends PublicBaseController {
 
-    private final int NUMBER_OF_DAY = -7;
+    private final int NUMBER_OF_DAY = -2;
     private Book bookResult = new Book();
 
     @Autowired
