@@ -21,15 +21,15 @@
             <li class="user-profile pull-right">
                 <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
                     <img class="nav-user-photo" src="/flaty/img/demo/avatar/avatar2.jpg" alt="Penny's Photo"/>
-                    <span class="hhh" id="user_info">
-                        Xin chào!
+                    <span th:text="${#authentication.getName()}" class="hhh" id="user_info">
+
                     </span>
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <!-- BEGIN User Dropdown -->
                 <ul class="dropdown-menu dropdown-navbar" id="user_menu">
                     <li class="nav-header">
-                        <i class="fa fa-clock-o"></i> Đăng nhập lúc <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}"></span>
+                        <i class="fa fa-clock-o"></i>Signed at <span th:text="${#dates.format(#dates.createNow(), 'HH:mm dd/MM')}"></span>
                     </li>
                     <li>
                         <a href="#">
