@@ -107,22 +107,22 @@
                     <ul class="submenu">
                         <li th:class="${#strings.equals(viewName,'ListBookBorrow')} ? active : ''">
                             <a href="/Admin/BookBorrow/ListBookBorrow">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Borrow</span>
+                                <i class="fa fa-book"></i>&nbsp;<span>Book Borrow</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'ListOverdueBookBorrow')} ? active : ''">
                             <a href="/Admin/BookBorrow/ListOverdueBookBorrow">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Overdue Book Borrow</span>
+                                <i class="fa fa-list-alt"></i>&nbsp;<span>Overdue Book Borrow</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
                             <a href="/Admin/BookBorrow/InsertBookBorrow">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Create Book Borrow</span>
+                                <i class="fa fa-plus-square"></i>&nbsp;<span>Create Book Borrow</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'HandlePendingBookBorrow')} ? active : ''">
                             <a href="/Admin/BookBorrow/HandlePendingBookBorrow">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Handle Pending Book Borrow</span>
+                                <i class="fa fa-exchange"></i>&nbsp;<span>Handle Pending Book Borrow</span>
                             </a>
                         </li>
 
@@ -133,17 +133,17 @@
                 <!-- BEGIN Book Payable Mgt -->
                 <li th:class="${#strings.equals(viewName,'ListBookPayable') || #strings.equals(viewName,'InsertBookPayable')} ? active : ''">
                     <a href="#" class="dropdown-toggle">
-                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Payable Mgt</span><b
+                        <i class="fa fa-book"></i>&nbsp;<span>Book Payable Mgt</span><b
                             class="arrow fa fa-angle-right"></b></a>
                     <ul class="submenu">
                         <li th:class="${#strings.equals(viewName,'ListBookPayable')} ? active : ''">
                             <a href="/Admin/BookPayable/ListBookPayable">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Payable</span>
+                                <i class="fa fa-book"></i>&nbsp;<span>Book Payable</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'InsertBookPayable')} ? active : ''">
                             <a href="/Admin/BookPayable/InsertBookPayable">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Create Book Payable</span>
+                                <i class="fa fa-plus-square"></i>&nbsp;<span>Create Book Payable</span>
                             </a>
                         </li>
 
@@ -153,7 +153,7 @@
 
                 <li th:class="${#strings.equals(viewName,'ListRequest')} ? active : ''">
                     <a href="/Admin/Request/ListRequest">
-                        <i class="fa-shopping-bag"></i>
+                        <i class="fa fa-list"></i>
                         <span>Request</span>
                     </a>
                 </li>
@@ -161,22 +161,22 @@
                 <!-- BEGIN Book Mgt -->
                 <li th:class="${#strings.equals(viewName,'ListBook') || #strings.equals(viewName,'ListBookCategory') || #strings.equals(viewName,'ListBookStatus')} ? active : ''">
                     <a href="#" class="dropdown-toggle">
-                        <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Management</span><b
+                        <i class="fa fa-edit"></i>&nbsp;<span>Book Management</span><b
                             class="arrow fa fa-angle-right"></b></a>
                     <ul class="submenu">
                         <li th:class="${#strings.equals(viewName,'ListBook')} ? active : ''">
                             <a href="/Admin/Book/ListBook">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book</span>
+                                <i class="fa fa-book"></i>&nbsp;<span>Book</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'ListBookCategory')} ? active : ''">
                             <a href="/Admin/BookCategory/ListBookCategory">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Category</span>
+                                <i class="fa fa-list-ol"></i>&nbsp;<span>Book Category</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'ListBookStatus')} ? active : ''">
                             <a href="/Admin/BookStatus/ListBookStatus">
-                                <i class="fa fa-dashboard"></i>&nbsp;<span>Book Status</span>
+                                <i class="fa fa-info"></i>&nbsp;<span>Book Status</span>
                             </a>
                         </li>
                     </ul>
@@ -185,7 +185,7 @@
 
                 <li th:class="${#strings.equals(viewName,'ListUser')} ? active : ''">
                     <a href="/Admin/User/ListUser">
-                        <i class="fa-shopping-bag"></i>
+                        <i class="fa-user"></i>
                         <span>List User</span>
                     </a>
                 </li>
