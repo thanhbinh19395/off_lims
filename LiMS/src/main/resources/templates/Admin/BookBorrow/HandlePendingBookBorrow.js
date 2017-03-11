@@ -128,7 +128,7 @@ framework.factory('HandlePendingBookBorrow', {
         if (form.record.bookBorrowId) {
             $.post('/api/BookBorrow/HandlePendingBookBorrow', {bookBorrowHeaderId: form.record.bookBorrowId}, function (r) {
                 framework.common.cmdResultNoti(r);
-
+                self.toInitState();
             });
         }
     },

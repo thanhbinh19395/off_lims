@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/Admin/BookBorrow")
-public class BookBorrowController extends AdminBaseController{
+public class BookBorrowController extends AdminBaseController {
 
     @Autowired
     private BookBorrowHeaderService bookBorrowHeaderService;
@@ -28,19 +28,28 @@ public class BookBorrowController extends AdminBaseController{
 
     @RequestMapping("/ListBookBorrow")
     public String ListBookBorrow(Model model, BookBorrowHeader data, Pageable p) {
-        getViewBag(model).put("listBookBorrow", bookBorrowHeaderService.search(data,p));
+        getViewBag(model).put("listBookBorrow", bookBorrowHeaderService.search(data, p));
         return View();
     }
+
     @RequestMapping("/InsertBookBorrow")
     public String InsertBookBorrow(Model model, BookBorrowHeader data, Pageable p) {
         getViewBag(model).put("user", securityService.getUser());
         return View();
     }
+
     @RequestMapping("/ViewBookBorrow/{BookBorrowHeaderId}")
     public String ViewBookBorrow(@PathVariable("BookBorrowHeaderId") long BookBorrowHeaderId, Model model) {
-        getViewBag(model).put("bookBorrow",bookBorrowHeaderService.findOne(BookBorrowHeaderId));
+        getViewBag(model).put("bookBorrow", bookBorrowHeaderService.findOne(BookBorrowHeaderId));
         return View();
     }
+
+    @RequestMapping("/ListOverdueBookBorrow")
+    public String ListOverdueBookBorrow(Model model, BookBorrowHeader data, Pageable p) {
+        getViewBag(model).put("listBookBorrow", bookBorrowHeaderService.searchOverdue(data, p));
+        return View();
+    }
+
     @RequestMapping("/HandlePendingBookBorrow")
     public String HandlePendingBookBorrow() {
         return View();

@@ -100,7 +100,7 @@
 
 
                 <!-- BEGIN Book Borrow Mgt -->
-                <li th:class="${#strings.equals(viewName,'HandlePendingBookBorrow') || #strings.equals(viewName,'ListBookBorrow') || #strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
+                <li th:class="${#strings.equals(viewName,'ListOverdueBookBorrow') || #strings.equals(viewName,'HandlePendingBookBorrow') || #strings.equals(viewName,'ListBookBorrow') || #strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
                     <a href="#" class="dropdown-toggle">
                         <i class="fa fa-shopping-cart"></i>&nbsp;<span>Book Borrow Mgt</span><b
                             class="arrow fa fa-angle-right"></b></a>
@@ -108,6 +108,11 @@
                         <li th:class="${#strings.equals(viewName,'ListBookBorrow')} ? active : ''">
                             <a href="/Admin/BookBorrow/ListBookBorrow">
                                 <i class="fa fa-dashboard"></i>&nbsp;<span>Book Borrow</span>
+                            </a>
+                        </li>
+                        <li th:class="${#strings.equals(viewName,'ListOverdueBookBorrow')} ? active : ''">
+                            <a href="/Admin/BookBorrow/ListOverdueBookBorrow">
+                                <i class="fa fa-dashboard"></i>&nbsp;<span>Overdue Book Borrow</span>
                             </a>
                         </li>
                         <li th:class="${#strings.equals(viewName,'InsertBookBorrow')} ? active : ''">
