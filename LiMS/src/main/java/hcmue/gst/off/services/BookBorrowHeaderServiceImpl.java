@@ -116,6 +116,16 @@ public class BookBorrowHeaderServiceImpl extends BaseCommand implements BookBorr
         return Success(rs);
     }
 
+    @Override
+    public PageableResult<BookBorrowHeader> searchOverdue(BookBorrowHeader model, Pageable p) {
+        return Success(bookBorrowHeaderRepository.searchOverdue(model,new PageRequest(p.getPageNumber(), PAGESIZE, p.getSort())));
+    }
+
+    @Override
+    public Result<Iterable<BookBorrowHeader>> searchOverdue(BookBorrowHeader model) {
+        return Success(bookBorrowHeaderRepository.searchOverdue(model));
+    }
+
 
     public static Date getZeroTimeDate(Date fecha) {
         Date res = fecha;

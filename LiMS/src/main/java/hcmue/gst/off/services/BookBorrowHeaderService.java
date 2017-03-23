@@ -20,5 +20,7 @@ public interface BookBorrowHeaderService {
     Result<Iterable<BookBorrowHeader>> search(BookBorrowHeader model);
     Result<List<BookBorrowHeader>> findDeadlineBBHeader();
     Result<List<BookBorrowHeader>> findCancledBBHeader();
+    PageableResult<BookBorrowHeader> searchOverdue(BookBorrowHeader model, Pageable p) ;
+    Result<Iterable<BookBorrowHeader>> searchOverdue(BookBorrowHeader model);
 
 }

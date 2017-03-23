@@ -28,6 +28,7 @@ public class UserServiceImpl extends BaseCommand implements UserService {
     @Override
     public Result<User> save(User user) {
         // valid username existinc
+
         if (user.getId() == null) {
             if (userRepository.findByUsername(user.getUsername()) != null) {
                 return Fail("Username already exists");

@@ -33,7 +33,6 @@ framework.factory('HandlePendingBookBorrow', {
             grid.add($.map(message.bookBorrowDetails, function (v) {
                 return v.book;
             }));
-
         }
         else if (sender.pageName == 'insertBook') {
             data.data.BookCode = data.message.Code;
@@ -49,7 +48,6 @@ framework.factory('HandlePendingBookBorrow', {
     },
     onInitHeader: function (header) {
         header.setWidth('700px').setTitle('Handle Pending Book Borrow').setIcon('fa fa-list');
-
     },
     onInitContent: function (content) {
         var self = this;
@@ -89,7 +87,6 @@ framework.factory('HandlePendingBookBorrow', {
             })
         ;
         var grid = widget.setting.grid();
-
         grid.setName('grid')
             .setHeight('600px')
             .setIdColumn('id')
@@ -109,13 +106,8 @@ framework.factory('HandlePendingBookBorrow', {
                 },
                 {field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true}
             ])
-            .addButton('delete', 'Delete', 'fa fa-times', self.onBtnDeleteClick.bind(self))
-            .addButton('product', 'Choose', 'fa fa-check', self.onChooseBookClick.bind(self))
-            .addButton('insertBook', 'Add new', 'fa fa-plus', self.onInsertBookClick.bind(self))
-            .createEvent('onChange', self.onEditFieldGrid.bind(self)).createEvent('onSearch', self.onSearchBookGrid.bind(self))
+
         ;
-
-
         content.setWidth('700px').addItem(form.end()).addItem(toolbar.end()).addItem(grid.end());
     },
     onBtnBackClick: function () {
@@ -136,56 +128,9 @@ framework.factory('HandlePendingBookBorrow', {
         if (form.record.bookBorrowId) {
             $.post('/api/BookBorrow/HandlePendingBookBorrow', {bookBorrowHeaderId: form.record.bookBorrowId}, function (r) {
                 framework.common.cmdResultNoti(r);
-
+                self.toInitState();
             });
         }
-    },
-    onChangeForm: function (e) {
-        if (e.target == 'CustomerPaid') {
-            var self = this;
-            e.done(function () {
-                self.updateCharge(e.value_new);
-            });
-
-        }
-    },
-    onBtnDeleteClick: function (e) {
-        var grid = this.findElement('grid');
-        grid.delete(true);
-        this.updateTotal();
-    },
-    onEditFieldGrid: function (e) {
-        var self = this;
-        e.done(function () {
-            self.refreshGrid(e.recid);
-        });
-    },
-    refreshGrid: function (recid) {
-        var grid = this.findElement('grid');
-        grid.mergeChanges();
-        if (recid)
-            grid.refresh(recid);
-        else
-            grid.refresh();
-        this.updateTotal();
-    },
-    updateTotal: function () {
-        var form = this.findElement('form');
-        //form.record.Total = this.calculateTotal();
-        form.refresh();
-    },
-    updateCharge: function (paid) {
-        var form = this.findElement('form');
-        form.record.Charge = paid - form.record.Total;
-        form.refresh();
-    },
-    calculateTotal: function () {
-        var grid = this.findElement('grid');
-        var total = 0;
-        $.each(grid.records, function (k, v) {
-            total += v.BookPrice * v.Quantity;
-        });
-        return total;
     },
     insertBBDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
@@ -198,28 +143,10 @@ framework.factory('HandlePendingBookBorrow', {
         }
         this.updateTotal();
     },
-
-    onInsertBookClick: function () {
-        this.openPopup({
-            name: 'insertPopup',
-            url: '/  /BookHandler/InsertBook',
-            width: 600
-        });
-    },
-    onChooseBookClick: function () {
-        this.openPopup({
-            name: 'insertPopup',
-            url: '/Admin/Book/ListBook',
-            width: 600
-        });
-    },
     toInitState: function () {
         var form = this.findElement('form');
         var grid = this.findElement('grid');
         grid.clear();
         form.clear();
-    },
-    onLoadComplete: function () {
-        this.$contentEl.find('#product').focus();
     },
 });

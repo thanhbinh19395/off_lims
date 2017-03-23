@@ -189,35 +189,6 @@ framework.factory('InsertBookBorrow', {
         grid.delete(true);
         this.updateTotal();
     },
-    onEditFieldGrid: function (e) {
-        var self = this;
-        e.done(function () {
-            self.refreshGrid(e.recid);
-        });
-    },
-    refreshGrid: function (recid) {
-        var grid = this.findElement('grid');
-        grid.mergeChanges();
-        if (recid)
-            grid.refresh(recid);
-        else
-            grid.refresh();
-        this.updateTotal();
-    },
-    updateTotal: function () {
-        var form = this.findElement('form');
-        //form.record.Total = this.calculateTotal();
-        form.refresh();
-    },
-    updateCharge: function (paid) {
-        var form = this.findElement('form');
-        form.record.Charge = paid - form.record.Total;
-        form.refresh();
-    },
-    calculateTotal: function () {
-
-        return 1;
-    },
     insertBBDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
         var existBBDetail = grid.get(data.id);

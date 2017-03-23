@@ -1,7 +1,7 @@
 /**
- * Created by dylan on 2/21/2017.
+ * Created by Thanh Binh on 3/11/2017.
  */
-framework.factory('ListBookBorrow', {
+framework.factory('ListOverdueBookBorrow', {
     onMessageReceive: function (sender, data) {
         if (sender.pageName == 'InsertBookBorrow') {
             if (data.success) {
@@ -38,7 +38,7 @@ framework.factory('ListBookBorrow', {
                 }
             ])
         ;
-        header.setTitle('BB Header List')
+        header.setTitle('Overdue Book Borrow')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -96,15 +96,6 @@ framework.factory('ListBookBorrow', {
                     }
                 },
                 {
-                    field: 'created_date',
-                    render: 'date',
-                    caption: 'Created Date',
-                    size: '50%',
-                    sortable: true,
-                    resizable: true
-                },
-                {field: 'returnDate', render: 'date', caption: 'Returned Date', size: '50%', sortable: true, resizable: true},
-                {
                     field: 'createdUser',
                     size: '40%',
                     sortable: true,
@@ -114,6 +105,17 @@ framework.factory('ListBookBorrow', {
                         return '[' + r.created_by.username + ']' + r.created_by.name;
                     }
                 },
+                {field: 'returnDate', render: 'date', caption: 'Returned Date', size: '50%', sortable: true, resizable: true},
+                {field: 'overdue', render: 'date', caption: 'Overdue', size: '50%', sortable: true, resizable: true, render:function(r){
+                    var curDate = new Date();
+                    var returnDate = new Date(r.returnDate);
+
+                    var MS_PER_DAY = 1000 * 60 * 60 * 24;
+                    var utc1 = Date.UTC(returnDate.getFullYear(), returnDate.getMonth(), returnDate.getDate());
+                    var utc2 = Date.UTC(curDate.getFullYear(), curDate.getMonth(), curDate.getDate());
+
+                    return Math.floor((utc2 - utc1) / MS_PER_DAY) + ' days';
+                }},
                 {
                     field: 'status',
                     size: '40%',
@@ -135,7 +137,6 @@ framework.factory('ListBookBorrow', {
                                 return 'CANCELLED';
                                 break;
                         }
-
                     }
                 },
                 {
@@ -239,7 +240,7 @@ framework.factory('ListBookBorrow', {
     },
     reloadGridData: function () {
         var grid = this.findElement('grid');
-        $.post('/api/BookBorrow/GetList', this.searchParam, function (result) {
+        $.post('/api/BookBorrow/SearchOverdue', this.searchParam, function (result) {
             if (result.success) {
                 grid.clear();
                 grid.add(result.data);

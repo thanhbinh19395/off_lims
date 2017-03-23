@@ -45,6 +45,16 @@ public class BookBorrowApiController {
         return BookBorrowHeaderService.search(model,p);
     }
 
+    @RequestMapping("/GetListOverdue")
+    Result<Iterable<BookBorrowHeader>> GetListOverdue(BookBorrowHeader model) {
+        return BookBorrowHeaderService.searchOverdue(model);
+    }
+
+    @RequestMapping("/SearchOverdue")
+    PageableResult<BookBorrowHeader> SearchOverdue(BookBorrowHeader model, Pageable p) {
+        return BookBorrowHeaderService.searchOverdue(model,p);
+    }
+
     @RequestMapping("/Search")
     PageableResult<BookBorrowHeader> Search(BookBorrowHeader model, Pageable p){
         return BookBorrowHeaderService.search(model,p);

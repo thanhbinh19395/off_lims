@@ -71,9 +71,11 @@ framework.factory('UpdateUser', {
         var self = this;
         var form = this.findElement('updateForm');
         delete form.record.role;
+        form.record.status = form.record.status.id;
+        form.record.borrowable = form.record.borrowable.id;
         if (!form.validate().length) {
             $.post('/api/User/Save', form.record, function (result) {
-                framework.common.cmdResulNoti(result);
+                framework.common.cmdResultNoti(result);
                 self.sendMessage(result);
             });
         }

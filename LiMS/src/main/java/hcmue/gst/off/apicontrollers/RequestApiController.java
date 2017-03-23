@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.util.Map;
@@ -48,8 +49,10 @@ public class RequestApiController {
         return requestService.search(request,p);
     }
     @RequestMapping("/Approve")
-    Result Approve(Mail mail){
+    Result Approve(Mail mail) throws Exception {
         Request request = requestService.findOne(mail.getId()).getData();
+        if(StringUtils.isEmptyOrWhitespace(request.getCreated_by().getEmail()))
+            throw new Exception("Email not found");
         request.setStatus(CommonStatus.SOLVED);
         mailService.sendMail(request.getCreated_by().getEmail(),"Approved Your Request", mail.getMessage());
         return requestService.save(request);

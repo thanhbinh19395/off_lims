@@ -14,7 +14,7 @@ framework.factory('InsertBook', {
         form.setName('insertForm').setFieldPerRow(1)
             .addFields([
                 {field: 'name', type: 'text', required: true, caption: 'Book Name'},
-                {field: 'publish_year', type: 'text', required: true, caption: 'Publishing year'},
+                {field: 'publish_year', type: 'number', required: true, caption: 'Publishing year'},
                 {
                     field: 'image', type: 'file', required: false, caption: 'Image',
                     options: {
@@ -88,16 +88,8 @@ framework.factory('InsertBook', {
         }
 
     },
-    uploadImage: function () {
-        var self = this;
-        var form = this.findElement('insertForm');
-
-
-    },
     onBtnClearClick: function () {
         var form = this.findElement('insertForm');
         form.clear();
     }
-
-
 });
