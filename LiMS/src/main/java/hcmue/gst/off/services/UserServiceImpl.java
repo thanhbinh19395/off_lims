@@ -30,16 +30,17 @@ public class UserServiceImpl extends BaseCommand implements UserService {
         // valid username existinc
         if (user.getId() == null) {
             if (userRepository.findByUsername(user.getUsername()) != null) {
-                return Fail("Username đã tồn tại");
+                return Fail("Username already exists");
             }
         }
         if(StringUtils.isEmptyOrWhitespace(user.getUsername()) || user.getUsername() == null){
 
-            return Fail("Vui lòng nhập Username");
+            return Fail("Please enter Username");
         }
         if(StringUtils.isEmptyOrWhitespace(user.getPassword()) || user.getPassword() == null){
-            return Fail("Vui lòng nhập Password");
+            return Fail("please enter Password");
         }
+
         //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return Success(userRepository.save(user));
 

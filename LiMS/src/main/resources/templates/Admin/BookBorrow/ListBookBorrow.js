@@ -148,7 +148,7 @@ framework.factory('ListBookBorrow', {
                         var a = $("<a>");
                         a.attr('href', '#');
                         a.attr('type', 'click');
-                        a.html('Xem chi tiết');
+                        a.html('View Details');
                         return a[0].outerHTML;
                     }
                 }

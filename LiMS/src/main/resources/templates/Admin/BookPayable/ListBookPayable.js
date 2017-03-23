@@ -80,17 +80,17 @@ framework.factory('ListBookPayable', {
                     return '['+r.created_by.username +']' + r.created_by.name;
                 } },
                 {
-                    field: 'details', caption: 'Xem chi tiết', size: '30%', sortable: true, resizable: true, render: function (r) {
+                    field: 'details', caption: 'View Details', size: '30%', sortable: true, resizable: true, render: function (r) {
                     var a = $("<a>");
                     a.attr('href', '#');
                     a.attr('type', 'click');
-                    a.html('Xem chi tiết');
+                    a.html('View Details');
                     return a[0].outerHTML;
                 }
                 }
             ])
-            .addButton('btnInsert', 'Thêm', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
-            .addButton('btnUpdate', 'Xem chi tiết', 'fa fa-pencil', self.onbtnViewClickGrid.bind(this))
+            .addButton('btnInsert', 'Add', 'fa fa-plus', self.onbtnInsertClickGrid.bind(this))
+            .addButton('btnUpdate', 'View Details', 'fa fa-pencil', self.onbtnViewClickGrid.bind(this))
             //.addButton('btnDelete', 'Xóa', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
             .setIdColumn('id')
             .setRecords(self.ViewBag.listBookPayable.data).setPaginateOptions(pagi.end())
