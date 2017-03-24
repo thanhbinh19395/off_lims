@@ -3,7 +3,7 @@
  */
 framework.factory('ViewBookPayable', {
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Xem phiếu trả sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('View Book Payable Header').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {

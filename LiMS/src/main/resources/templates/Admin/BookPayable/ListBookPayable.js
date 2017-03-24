@@ -24,12 +24,12 @@ framework.factory('ListBookPayable', {
                 { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
-        header.setTitle('Danh sách Phiếu trả')
+        header.setTitle('List BookPayable Header')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
         formFooter.addItem({
-            type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+            type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
             onClick: self.onbtnSearchClickSearchForm.bind(self)
         });
 
@@ -47,7 +47,7 @@ framework.factory('ListBookPayable', {
                 onClick: self.onbtnReloadClick.bind(self)
             })
             .addRight({
-                type: 'button', id: 'btn-search', caption: 'Tìm kiếm', icon: 'fa-search',
+                type: 'button', id: 'btn-search', caption: 'Search', icon: 'fa-search',
                 onClick: function (evt) {
                     var headerContent = self.findElement('headerContent');
                     headerContent.toggle();
@@ -74,7 +74,7 @@ framework.factory('ListBookPayable', {
                 { field: 'username', size: '50%', sortable: true, resizable: true, caption: "Borrowed By", render: function(r){
                     return '['+r.bookBorrowHeader.user.username +']' + r.bookBorrowHeader.user.name;
                 } },
-                { field: 'created_date',render:'date', caption: 'Ngày lập', size: '50%', sortable: true, resizable: true },
+                { field: 'created_date',render:'date', caption: 'Created date', size: '50%', sortable: true, resizable: true },
                 //{ field: 'returnDate',render:'date', caption: 'Returned Date', size: '50%', sortable: true, resizable: true },
                 { field: 'createdUser',size: '40%', sortable: true, resizable: true, caption: "Created By", render: function(r){
                     return '['+r.created_by.username +']' + r.created_by.name;
@@ -128,7 +128,7 @@ framework.factory('ListBookPayable', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Bạn có chắc chắn muốn xóa các dòng này không ?').yes(function () {
+        w2confirm('Do you want to delete this record ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/BookPayable/Deletes', { id: id }, function (result) {

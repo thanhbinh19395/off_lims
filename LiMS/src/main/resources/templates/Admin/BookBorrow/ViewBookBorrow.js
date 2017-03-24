@@ -4,7 +4,7 @@
 
 framework.factory('ViewBookBorrow', {
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Xem phiếu mượn sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('View Book Borrow Header').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {

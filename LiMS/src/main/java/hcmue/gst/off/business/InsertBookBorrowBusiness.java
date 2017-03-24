@@ -74,7 +74,7 @@ public class InsertBookBorrowBusiness extends BaseCommand {
         {
             Book tmp = bookService.findOne(detail.getBookId()).getData();
             if(tmp.getState() == BookTransactionStep.BORROWED)
-                return Fail("Sách [" + tmp.getBookCode() +"]" + tmp.getName() + " đã có người mượn");
+                return Fail("Book [" + tmp.getBookCode() +"]" + tmp.getName() + " had been borrowed");
             tmp.setState(BookTransactionStep.BORROWED);
             bookService.save(tmp);
             //detail.setBookBorrowHeader(bookBorrowHeader.getData());

@@ -62,7 +62,7 @@ framework.factory('ListRole', {
         var grid = widget.setting.grid();
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Id vai trò', size: '40%', sortable: true, resizable: true },
+                { field: 'id', caption: 'Id ', size: '40%', sortable: true, resizable: true },
                 { field: 'name', caption: 'Role Name', size: '50%', sortable: true, resizable: true },
                 { field: 'created_date', caption: 'created_date', size: '50%', sortable: true, resizable: true },
             ])
@@ -104,7 +104,7 @@ framework.factory('ListRole', {
     },
     onbtnDeleteClickGrid: function () {
         var self = this;
-        w2confirm('Do you want to delete this record ??').yes(function () {
+        w2confirm('Do you want to delete this record ?').yes(function () {
             var grid = self.findElement('grid');
             var id = grid.getSelection()[0];
             $.post('/api/Role/Deletes', { id: id }, function (result) {

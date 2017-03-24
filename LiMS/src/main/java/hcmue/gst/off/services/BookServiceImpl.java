@@ -39,7 +39,7 @@ public class BookServiceImpl extends BaseCommand implements BookService {
         if (book.getId() == null) {
             if( tmp!=null)
             {
-               return Fail("bookcode trùng");
+               return Fail("Duplicated Book Code");
             }
             else
             {

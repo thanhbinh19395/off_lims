@@ -14,7 +14,7 @@ $().w2field('addType', 'popupListRole', function (options) {
             width: '65%',
             border: '0px'
             //1
-        }).attr('placeholder', 'Tìm theo tên').addClass('inputSearch');
+        }).attr('placeholder', 'Find by name').addClass('inputSearch');
         $(this.el).parent().append(input);
     }
     if (options.data) {
@@ -137,7 +137,7 @@ $().w2field('addType', 'popupListBookCategory', function (options) {
             width: '65%',
             border: '0px'
             //1
-        }).attr('placeholder', 'Tìm theo tên thể loại').addClass('inputSearch');
+        }).attr('placeholder', 'Find by name').addClass('inputSearch');
         $(this.el).parent().append(input);
     }
     if (options.data) {
@@ -261,7 +261,7 @@ $().w2field('addType', 'popupListBookStatus', function (options) {
             width: '65%',
             border: '0px'
             //1
-        }).attr('placeholder', 'Tìm theo tên trạng thái').addClass('inputSearch');
+        }).attr('placeholder', 'Find by name').addClass('inputSearch');
         $(this.el).parent().append(input);
     }
     if (options.data) {
@@ -519,7 +519,7 @@ $().w2field('addType', 'popupListBookBorrow', function (options) {
             width: '65%',
             border: '0px'
             //1
-        }).attr('placeholder', 'Tìm theo mã').addClass('inputSearch');
+        }).attr('placeholder', 'Find by id').addClass('inputSearch');
         $(this.el).parent().append(input);
     }
     if (options.data) {

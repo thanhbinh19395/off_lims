@@ -45,7 +45,7 @@ framework.factory('InsertBookBorrow', {
         }
     },
     onInitHeader: function (header) {
-        header.setWidth('700px').setTitle('Tạo mới phiếu mượn sách').setIcon('fa fa-list');
+        header.setWidth('700px').setTitle('Create new Book Bookborrow Header').setIcon('fa fa-list');
 
     },
     onInitContent: function (content) {

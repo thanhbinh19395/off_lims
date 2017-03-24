@@ -51,6 +51,6 @@ public class RoleServiceImpl extends BaseCommand implements RoleService {
     @Override
     public Result delete(Long id) {
         roleRepository.delete(id);
-        return Success(id,"xóa thành công");
+        return Success(id,"Delete Successfully");
     }
 }
