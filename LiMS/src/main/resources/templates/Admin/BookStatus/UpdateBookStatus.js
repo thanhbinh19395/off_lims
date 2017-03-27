@@ -30,6 +30,8 @@ framework.factory('UpdateBookStatus', {
         var form = this.findElement('updateForm');
         if (!form.validate().length) {
             $.post('/api/BookStatus/Save', form.record , function (result) {
+                delete form.record.created_by;
+                delete form.record.update_by;
                 if(result.success)
                     alertSuccess(result.message);
                 else

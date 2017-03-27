@@ -22,7 +22,7 @@ framework.factory('ListBookStatus', {
                 { field: 'description', type: 'text', required: false, caption: "Description" },
             ])
         ;
-        header.setTitle('Status List')
+        header.setTitle('List Book Status')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

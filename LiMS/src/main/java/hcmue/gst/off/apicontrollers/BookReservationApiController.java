@@ -37,6 +37,10 @@ public class BookReservationApiController {
     @RequestMapping("/Handle")
     Result Handle(Long id) {
         BookReservation model = bookReservationService.findOne(id).getData();
+        if(model.getStatus()== CommonStatus.SOLVED)
+        {
+            return new Result(model,"Book Reservation already solved", false);
+        }
         model.setStatus(CommonStatus.SOLVED);
         return bookReservationService.save(model);
     }

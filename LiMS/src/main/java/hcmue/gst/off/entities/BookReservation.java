@@ -1,5 +1,6 @@
 package hcmue.gst.off.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import hcmue.gst.off.extensions.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,6 +18,7 @@ public class BookReservation extends BaseEntity implements Serializable {
     private Book book;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd",timezone = "PST")
     private Date pickUpDate;
     private Integer status;
 

@@ -13,7 +13,7 @@ framework.factory('UpdateBookCategory', {
         var form = widget.setting.form();
         form.setName('updateForm').setFieldPerRow(1)
             .addFields([
-                { field: 'category_name', type: 'text', required: true, caption: 'tên thể loại' }
+                { field: 'category_name', type: 'text', required: true, caption: 'Category Name' }
             ])
             .setRecord(this.ViewBag.bookcategory.data)
         ;
@@ -27,7 +27,12 @@ framework.factory('UpdateBookCategory', {
     onBtnUpdateClick: function () {
         var self = this;
         var form = this.findElement('updateForm');
+
+
+
         if (!form.validate().length) {
+            delete form.record.created_by;
+            delete form.record.update_by;
             $.post('/api/BookCategory/Save', form.record , function (result) {
                 if(result.success)
                     alertSuccess(result.message);

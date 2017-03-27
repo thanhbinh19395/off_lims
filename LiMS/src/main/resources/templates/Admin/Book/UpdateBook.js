@@ -19,7 +19,7 @@ framework.factory('UpdateBook', {
                 { field: 'image', type: 'text', required: false, caption: 'Image' },
                 { field: 'author', type: 'text', required: true, caption: 'Author' },
                 { field: 'state', type: 'text', required: true, caption: 'Status' },
-                { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },
+                { field: 'publisher', type: 'text', required: true, caption: 'Publisher' },
                 { field: 'bookCode', type: 'text', required: true, caption: 'Book Code' },
                 { field: 'bookCategoryId', caption: 'Thể Loại', type: 'popupListBookCategory',required: true, options:{caller:self} },
                 { field: 'bookStatusId',caption:'Tình trạng', required: true,type: 'popupListBookStatus', options:{caller:self}  }
@@ -41,6 +41,8 @@ framework.factory('UpdateBook', {
             delete form.record.bookStatus;
             delete form.record.bookCategory;
             delete form.record.bookBorrowDetail;
+            delete form.record.created_by;
+            delete form.record.update_by;
             $.post('/api/Book/Save', form.record , function (result) {
                 if(result.success)
                     alertSuccess(result.message);
