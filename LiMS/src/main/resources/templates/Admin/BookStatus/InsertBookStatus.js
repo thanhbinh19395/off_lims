@@ -27,12 +27,16 @@ framework.factory('InsertBookStatus', {
         var self = this;
         var form = this.findElement('insertForm');
         //if (!form.validate().length) {
-        $.post('/api/BookStatus/Save', form.record , function (result) {
-            if(result.success)
-                alertSuccess(result.message);
-            else
-                alert(result.message)
-            self.sendMessage(result);
+        $.ajax({
+            url: "/api/BookStatus/Save",
+            type: "POST",
+            data: JSON.stringify(form.record),
+            success: function (result) {
+                framework.common.cmdResultNoti(result);
+                self.sendMessage(result);
+            },
+            dataType: "json",
+            contentType: "application/json"
         });
         //}
     },

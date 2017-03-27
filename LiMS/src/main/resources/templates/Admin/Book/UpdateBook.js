@@ -41,12 +41,16 @@ framework.factory('UpdateBook', {
             delete form.record.bookStatus;
             delete form.record.bookCategory;
             delete form.record.bookBorrowDetail;
-            $.post('/api/Book/Save', form.record , function (result) {
-                if(result.success)
-                    alertSuccess(result.message);
-                else
-                    alert(result.message)
-                self.sendMessage(result);
+            $.ajax({
+                url: "/api/Book/Save",
+                type: "POST",
+                data: JSON.stringify(form.record),
+                success: function (result) {
+                    framework.common.cmdResultNoti(result);
+                    self.sendMessage(result);
+                },
+                dataType: "json",
+                contentType: "application/json"
             });
         }
     },

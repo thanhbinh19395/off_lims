@@ -28,12 +28,16 @@ framework.factory('UpdateBookCategory', {
         var self = this;
         var form = this.findElement('updateForm');
         if (!form.validate().length) {
-            $.post('/api/BookCategory/Save', form.record , function (result) {
-                if(result.success)
-                    alertSuccess(result.message);
-                else
-                    alert(result.message)
-                self.sendMessage(result);
+            $.ajax({
+                url: "/api/BookCategory/Save",
+                type: "POST",
+                data: JSON.stringify(form.record),
+                success: function (r) {
+                    framework.common.cmdResultNoti(r);
+                    self.sendMessage(result);
+                },
+                dataType: "json",
+                contentType: "application/json"
             });
         }
     },

@@ -70,9 +70,16 @@ framework.factory('InsertBook', {
                         if (result.success) {
                             form.record.imageUrl = result.data;
                             form.record.image = null;
-                            $.post('/api/Book/Save', form.record, function (r) {
-                                framework.common.cmdResultNoti(r);
-                                self.sendMessage(r);
+                            $.ajax({
+                                url: "/api/Book/Save",
+                                type: "POST",
+                                data: JSON.stringify(form.record),
+                                success: function (result) {
+                                    framework.common.cmdResultNoti(result);
+                                    self.sendMessage(result);
+                                },
+                                dataType: "json",
+                                contentType: "application/json"
                             });
                         }
                     }.bind(self)
@@ -80,9 +87,16 @@ framework.factory('InsertBook', {
             }
             else {
                 form.record.image = null; //link anh mac dinh
-                $.post('/api/Book/Save', form.record, function (r) {
-                    framework.common.cmdResultNoti(r);
-                    self.sendMessage(r);
+                $.ajax({
+                    url: "/api/Book/Save",
+                    type: "POST",
+                    data: JSON.stringify(form.record),
+                    success: function (result) {
+                        framework.common.cmdResultNoti(result);
+                        self.sendMessage(result);
+                    },
+                    dataType: "json",
+                    contentType: "application/json"
                 });
             }
         }

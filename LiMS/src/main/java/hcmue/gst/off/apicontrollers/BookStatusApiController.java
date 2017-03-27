@@ -9,6 +9,7 @@ import hcmue.gst.off.services.BookStatusService;
 import hcmue.gst.off.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class BookStatusApiController {
     private BookStatusService bookStatusService;
 
     @RequestMapping("/Save")
-    Result<BookStatus> Save(BookStatus model){
+    Result<BookStatus> Save(@RequestBody BookStatus model){
         return bookStatusService.save(model);
     }
     @RequestMapping("/Deletes")
