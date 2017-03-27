@@ -57,8 +57,6 @@ framework.factory('InsertBookBorrow', {
         form.setName('form')
             .setFieldPerRow(2)
             .addFields([
-                { field: 'createdUsername', caption: 'Created By', type: 'text', html:{attr:{disabled:'disabled'}}, span : 1},
-                {type: 'empty'},
                 { field: 'userId', caption: 'Borrowed By', type: 'popupListUser',options:{caller:self}, span :1, required : true },
                 {type: 'empty'},
                 {field: 'name', caption: 'Name', type: 'text'},
@@ -187,7 +185,6 @@ framework.factory('InsertBookBorrow', {
     onBtnDeleteClick: function (e) {
         var grid = this.findElement('grid');
         grid.delete(true);
-        this.updateTotal();
     },
     insertBBDetailHandler: function (sender, data) {
         var grid = this.findElement('grid');
@@ -198,7 +195,6 @@ framework.factory('InsertBookBorrow', {
         else {
             grid.add(data);
         }
-        this.updateTotal();
     },
 
     onInsertBookClick: function () {

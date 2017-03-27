@@ -34,7 +34,7 @@ $().w2field('addType', 'popupListRole', function (options) {
                 $(self.el).change();
                 $(input).val(message.name)
                 $(self.el).data('data', message);
-                sender.close();
+                sender.close && sender.close();
             }
         }
     });
@@ -86,7 +86,7 @@ $().w2field('addType', 'popupListRole', function (options) {
             }
             if (records.length == 1) {
                 self.onMessageReceive(data, records[0]);
-                options.caller.onMessageReceive(data, records[0]);
+                options.caller.onMessageReceive && options.caller.onMessageReceive(data, records[0]);
                 return;
             }
             else {
@@ -157,7 +157,7 @@ $().w2field('addType', 'popupListBookCategory', function (options) {
                 $(self.el).change();
                 $(input).val(message.category_name)
                 $(self.el).data('data', message);
-                sender.close();
+                sender.close && sender.close();
             }
         }
     });
@@ -210,7 +210,7 @@ $().w2field('addType', 'popupListBookCategory', function (options) {
             }
             if (records.length == 1) {
                 self.onMessageReceive(data, records[0]);
-                options.caller.onMessageReceive(data, records[0]);
+                options.caller.onMessageReceive && options.caller.onMessageReceive(data, records[0]);
                 return;
             }
             else {
@@ -281,7 +281,7 @@ $().w2field('addType', 'popupListBookStatus', function (options) {
                 $(self.el).change();
                 $(input).val(message.description)
                 $(self.el).data('data', message);
-                sender.close();
+                sender.close && sender.close();
             }
         }
     });
@@ -334,7 +334,7 @@ $().w2field('addType', 'popupListBookStatus', function (options) {
             }
             if (records.length == 1) {
                 self.onMessageReceive(data, records[0]);
-                options.caller.onMessageReceive(data, records[0]);
+                options.caller.onMessageReceive && options.caller.onMessageReceive(data, records[0]);
                 return;
             }
             else {
@@ -462,7 +462,7 @@ $().w2field('addType', 'popupListUser', function (options) {
                 return;
             }
             if (records.length == 1) {
-                options.caller.onMessageReceive(data, records[0]);
+                options.caller.onMessageReceive && options.caller.onMessageReceive(data, records[0]);
                 self.onMessageReceive(data, records[0]);
 
                 return;
@@ -539,7 +539,7 @@ $().w2field('addType', 'popupListBookBorrow', function (options) {
                 $(self.el).change();
                 //$(input).val(message.name)
                 $(self.el).data('data', message);
-                //sender.close || sender.close();
+                //sender.close && sender.close();
             }
         }
     });
@@ -607,7 +607,7 @@ $().w2field('addType', 'popupListBookBorrow', function (options) {
             }
             if (records.length == 1) {
                 self.onMessageReceive(data, records[0]);
-                options.caller.onMessageReceive(data, records[0]);
+                options.caller.onMessageReceive && options.caller.onMessageReceive(data, records[0]);
                 return;
             }
             else {
