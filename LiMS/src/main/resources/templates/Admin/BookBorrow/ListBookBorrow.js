@@ -38,7 +38,7 @@ framework.factory('ListBookBorrow', {
                 }
             ])
         ;
-        header.setTitle('BB Header List')
+        header.setTitle('Book Borrow List')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

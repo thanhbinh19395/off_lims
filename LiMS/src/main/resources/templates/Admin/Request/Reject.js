@@ -12,13 +12,13 @@ framework.factory('Reject', {
         var form = widget.setting.form();
         form.setName('updateForm').setFieldPerRow(1)
             .addFields([
-                { field: 'message', type: 'text', required: true, caption: 'Tin nhắn' }
+                { field: 'message', type: 'text', required: true, caption: 'Message' }
             ])
             .setRecord(this.ViewBag.email)
         ;
         var formFooter = widget.setting.toolbar();
         formFooter.setName('insertToolbar')
-            .addItem({ id: 'btnInsert', type: 'button', caption: 'Gửi', icon: 'fa-floppy-o', onClick:self.onBtnUpdateClick.bind(this) })
+            .addItem({ id: 'btnInsert', type: 'button', caption: 'Send', icon: 'fa-floppy-o', onClick:self.onBtnUpdateClick.bind(this) })
             .addItem({ id: 'btnClear', type: 'button', caption:'Re-type', icon:'fa-refresh', onClick:self.onBtnClearClick.bind(this) })
         ;
         content.setName('content1').addItem(form.end()).addItem(formFooter.end());

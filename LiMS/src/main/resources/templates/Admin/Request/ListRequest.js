@@ -23,7 +23,7 @@ framework.factory('ListRequest', {
                 {field: 'status', type: 'text', required: false, caption: "Status"},
             ])
         ;
-        header.setTitle('Request List')
+        header.setTitle('List Request')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

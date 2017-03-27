@@ -27,7 +27,7 @@ framework.factory('ListBook', {
                 { field: 'state', caption: 'Status', type: 'text', required: true }
             ])
         ;
-        header.setTitle('Book List')
+        header.setTitle('List Book')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

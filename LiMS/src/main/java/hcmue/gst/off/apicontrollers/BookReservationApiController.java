@@ -38,6 +38,9 @@ public class BookReservationApiController {
     Result Handle(Long id) {
         BookReservation model = bookReservationService.findOne(id).getData();
         model.setStatus(CommonStatus.FINISHED);
+        {
+            return new Result(model,"Book Reservation already solved", false);
+        }
         return bookReservationService.save(model);
     }
 }

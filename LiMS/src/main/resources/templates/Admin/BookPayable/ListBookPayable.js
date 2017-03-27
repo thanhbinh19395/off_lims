@@ -24,7 +24,7 @@ framework.factory('ListBookPayable', {
                 { field: 'status', type: 'text', required: false, caption: "Trạng thái" },
             ])
         ;
-        header.setTitle('List BookPayable Header')
+        header.setTitle('List Book Payable ')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();
@@ -115,7 +115,7 @@ framework.factory('ListBookPayable', {
         var id = grid.getSelection()[0];
         if (!id) {
             //thong bao = noty
-            alert("vui long chon");
+            alert("Please choose one");
             return;
         }
         this.openPopup({

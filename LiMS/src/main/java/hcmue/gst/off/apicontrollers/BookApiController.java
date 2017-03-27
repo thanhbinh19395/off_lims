@@ -10,6 +10,7 @@ import hcmue.gst.off.services.BookCategoryService;
 import hcmue.gst.off.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class BookApiController {
     private BookService bookService;
 
     @RequestMapping("/Save")
-    Result Save(Book model) {
+    Result Save(@RequestBody Book model) {
         return bookService.save(model);
     }
 
