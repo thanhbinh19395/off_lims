@@ -18,10 +18,10 @@ framework.factory('ListBookCategory', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'category_name', type: 'text', required: false, caption: "Tên" },
+                { field: 'category_name', type: 'text', required: false, caption: "Name" },
             ])
         ;
-        header.setTitle('Category List')
+        header.setTitle('List Book Category')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

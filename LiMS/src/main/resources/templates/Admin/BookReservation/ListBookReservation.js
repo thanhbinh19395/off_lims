@@ -26,7 +26,7 @@ framework.factory('ListBookReservation', {
                 { field: 'status', type: 'text', required: false, caption: "Status" },
             ])
         ;
-        header.setTitle('Category List')
+        header.setTitle('List Book Reservation ')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

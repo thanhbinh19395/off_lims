@@ -29,7 +29,7 @@ framework.factory('ListUser', {
                 {field: 'roleId', caption: 'Role', type: 'popupListRole', options: {caller: self}},
             ])
         ;
-        header.setTitle('User List')
+        header.setTitle('List User')
             .setIcon('fa fa-list');
 
         var formFooter = widget.setting.toolbar();

@@ -150,6 +150,12 @@
                     </ul>
                 </li>
                 <!-- END Book Payable Mgt -->
+                <li th:class="${#strings.equals(viewName,'ListBookReservation')} ? active : ''">
+                    <a href="/Admin/BookReservation/ListBookReservation">
+                        <i class="fa fa-list"></i>
+                        <span>Book Reservation</span>
+                    </a>
+                </li>
 
                 <li th:class="${#strings.equals(viewName,'ListRequest')} ? active : ''">
                     <a href="/Admin/Request/ListRequest">
