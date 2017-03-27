@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
     <style>
-        .skill-score{
+        .skill-score {
             background-color: #6f6f6f;
             color: snow;
             padding: 10px;
@@ -15,45 +15,434 @@
             text-align: center;
         }
 
-        .total-score{
+        .total-score {
             background-color: orange;
             color: snow;
             padding: 10px;
             margin-bottom: 10px;
             text-align: center;
         }
-        .skill-score-title{
+
+        .skill-score-title {
             padding: 10px;
             margin-bottom: 10px;
         }
-        tab-content{
+
+        tab-content {
             margin-top: 10px;
         }
-        .title{
+
+        .title {
             color: green;
         }
-        .job{
+
+        .job {
             color: red;
         }
 
     </style>
 </head>
 <body>
-<div  layout:fragment="content">
-    <ul class="nav nav-pills"><br/>
-        <li class="active"><a data-toggle="tab" href="#OffTeam">OFF Team</a><br/></li>
-        <li><a  data-toggle="tab" href="#Thinh" th:text="#{Thinh}">Thinh</a></li>
-        <li><a  data-toggle="tab" href="#Phuong" th:text="#{Phuong}">Phuong</a></li>
-        <li><a data-toggle="tab" href="#Binh" th:text="#{Binh}">Binh</a></li>
-        <li><a data-toggle="tab" href="#Kiet" th:text="#{Kiet}">Kiet</a></li>
-        <li><a data-toggle="tab" href="#Tien" th:text="#{Tien}">Tien</a></li>
-    </ul>
+<div layout:fragment="content">
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-address-book"></i>
+                <a th:href="@{/Contact}" th:text="#{Contact}"></a>
+            </li>
+
+        </ul>
+    </div>
+    <div style="overflow: hidden">
+        <div class="col-md-12">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3 th:text="#{ThinhName}"></h3>
+                </div>
+                <div class="box-content" style="overflow: hidden;">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <img src="/images/thinh.jpg" width="300px"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="title">
+                            <b th:text="#{HELLO}">HELLO</b>
+                        </h4>
+
+                        <div>
+                            <h3><span th:text="#{Im}">I'm </span> <b th:text="#{ThinhName}">Trần Hưng Thịnh</b></h3>
+                            <div class="job"> Tester and Designer</div>
+                            <br/>
+                            <div>
+                                <p th:text="#{ThinhInfo}"> I'm Tran Hung Thinh, studying at HCM Education University.
+                                    My forte is Testing
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 row">
+                            <div><b th:text="#{AGE}">AGE</b></div>
+                            <br/>
+                            <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                            <br/>
+                            <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                            <br/>
+                            <div><b th:text="#{PHONE}">PHONE</b></div>
+                            <br/>
+                            <div><b th:text="#{FORTE}">FORTE</b></div>
+                            <br/>
+                        </div>
+                        <div class="col-md-7">
+                            <div>21</div>
+                            <br/>
+                            <div>27c đường 131, Tân Thạnh Đông, Củ Chi</div>
+                            <br/>
+                            <div><a href="https://goo.gl/X2ppou">ththinh11396@gmail.com</a></div>
+                            <br/>
+                            <div>+84 165 323 0665</div>
+                            <br/>
+                            <div>Testing on C#</div>
+                            <br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col-md-7 ">
+                            <div class="skill-score-title" th:text="#{DESIGN}">DESIGN</div>
+                            <div class="skill-score-title" th:text="#{FUNCTIONALITY}">FUNCTIONALITY</div>
+                            <div class="skill-score-title" th:text="#{DATABASE}">DATABASE</div>
+                            <div class="skill-score-title" th:text="#{USABILITY}">USABILITY</div>
+                            <div class="skill-score-title" th:text="#{SCORE}">SCORE</div>
+                        </div>
+                        <div class="col-md-5 ">
+                            <div class="skill-score">7.8</div>
+                            <div class="skill-score">7.4</div>
+                            <div class="skill-score">7.2</div>
+                            <div class="skill-score">8.2</div>
+                            <div class="total-score">7.8</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="overflow: hidden">
+        <div class="col-md-12">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3 th:text="#{BinhName}"></h3>
+                </div>
+                <div class="box-content" style="overflow: hidden;">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <img src="/images/binh.jpg" width="300px"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="title">
+                            <b th:text="#{HELLO}">HELLO</b>
+                        </h4>
+
+                        <div>
+                            <h3><span th:text="#{Im}">I'm </span> <b th:text="#{BinhName}">Trần Hưng Thịnh</b></h3>
+                            <div class="job">  Java and Javascript</div>
+                            <br/>
+                            <div>
+                                <p th:text="#{BinhInfo}"> I'm Tran Hung Thinh, studying at HCM Education University.
+                                    My forte is Testing
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 row">
+                            <div><b th:text="#{AGE}">AGE</b></div>
+                            <br/>
+                            <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                            <br/><br/><br/>
+                            <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                            <br/>
+                            <div><b th:text="#{PHONE}">PHONE</b></div>
+                            <br/>
+                            <div><b th:text="#{FORTE}">FORTE</b></div>
+                            <br/>
+                        </div>
+                        <div class="col-md-7">
+                            <div>22</div>
+                            <br/>
+                            <div>15/125 đường Gò Xoài,P. Bình Hưng Hòa A, Q.Bình Tân</div>
+                            <br/> <br/>
+                            <div><a href="#">binhdesire816gmail.com</a></div>
+                            <br/>
+                            <div>+84 937 179 469</div>
+                            <br/>
+                            <div>C#, .NET, Javascript</div>
+                            <br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col-md-7 ">
+                            <div class="skill-score-title" th:text="#{DESIGN}">DESIGN</div>
+                            <div class="skill-score-title" th:text="#{FUNCTIONALITY}">FUNCTIONALITY</div>
+                            <div class="skill-score-title" th:text="#{DATABASE}">DATABASE</div>
+                            <div class="skill-score-title" th:text="#{USABILITY}">USABILITY</div>
+                            <div class="skill-score-title" th:text="#{SCORE}">SCORE</div>
+                        </div>
+                        <div class="col-md-5 ">
+                            <div class="skill-score">7.4</div>
+                            <div class="skill-score">8.6</div>
+                            <div class="skill-score">8.4</div>
+                            <div class="skill-score">8.0</div>
+                            <div class="total-score">8.1</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="overflow: hidden">
+        <div class="col-md-12">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3 th:text="#{KietName}"></h3>
+                </div>
+                <div class="box-content" style="overflow: hidden;">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <img src="/images/kiet.jpg" width="300px"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="title">
+                            <b th:text="#{HELLO}">HELLO</b>
+                        </h4>
+
+                        <div>
+                            <h3><span th:text="#{Im}">I'm </span> <b th:text="#{KietName}">Trần Hưng Thịnh</b></h3>
+                            <div class="job"> Mobile Dev</div>
+                            <br/>
+                            <div>
+                                <p th:text="#{KietInfo}"> I'm Tran Hung Thinh, studying at HCM Education University.
+                                    My forte is Testing
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 row">
+                            <div><b th:text="#{AGE}">AGE</b></div>
+                            <br/>
+                            <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                            <br/><br/><br/>
+                            <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                            <br/>
+                            <div><b th:text="#{PHONE}">PHONE</b></div>
+                            <br/>
+                            <div><b th:text="#{FORTE}">FORTE</b></div>
+                            <br/>
+                        </div>
+                        <div class="col-md-7">
+                            <div>21</div>
+                            <br/>
+                            <div>42/12 đường Lạc Long Quân,P.10, Q.11</div>
+                            <br/><br/>
+                            <div><a href="#">dylanlam96@gmail.com</a></div>
+                            <br/>
+                            <div>+84 126 516 3767</div>
+                            <br/>
+                            <div>Java, Mobile</div>
+                            <br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col-md-7 ">
+                            <div class="skill-score-title" th:text="#{DESIGN}">DESIGN</div>
+                            <div class="skill-score-title" th:text="#{FUNCTIONALITY}">FUNCTIONALITY</div>
+                            <div class="skill-score-title" th:text="#{DATABASE}">DATABASE</div>
+                            <div class="skill-score-title" th:text="#{USABILITY}">USABILITY</div>
+                            <div class="skill-score-title" th:text="#{SCORE}">SCORE</div>
+                        </div>
+                        <div class="col-md-5 ">
+                            <div class="skill-score">7.4</div>
+                            <div class="skill-score">7.8</div>
+                            <div class="skill-score">7.9</div>
+                            <div class="skill-score">8.1</div>
+                            <div class="total-score">7.8</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="overflow: hidden">
+        <div class="col-md-12">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3 th:text="#{TienName}"></h3>
+                </div>
+                <div class="box-content" style="overflow: hidden;">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <img src="/images/tien.jpg" width="300px"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="title">
+                            <b th:text="#{HELLO}">HELLO</b>
+                        </h4>
+
+                        <div>
+                            <h3><span th:text="#{Im}">I'm </span> <b th:text="#{TienName}">Trần Hưng Thịnh</b></h3>
+                            <div class="job"> .NET Dev</div>
+                            <br/>
+                            <div>
+                                <p th:text="#{TienInfo}"> I'm Tran Hung Thinh, studying at HCM Education University.
+                                    My forte is Testing
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 row">
+                            <div><b th:text="#{AGE}">AGE</b></div>
+                            <br/>
+                            <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                            <br/><br/><br/>
+                            <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                            <br/>
+                            <div><b th:text="#{PHONE}">PHONE</b></div>
+                            <br/>
+                            <div><b th:text="#{FORTE}">FORTE</b></div>
+                            <br/>
+                        </div>
+                        <div class="col-md-7">
+                            <div>21</div>
+                            <br/>
+                            <div>575/15B đường CMT8,P.15, Q.10</div>
+                            <br/><br/>
+                            <div><a href="#">tranviettien1996@gmail.com</a></div>
+                            <br/>
+                            <div>+84 163 214 9942</div>
+                            <br/>
+                            <div>.NET</div>
+                            <br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col-md-7 ">
+                            <div class="skill-score-title" th:text="#{DESIGN}">DESIGN</div>
+                            <div class="skill-score-title" th:text="#{FUNCTIONALITY}">FUNCTIONALITY</div>
+                            <div class="skill-score-title" th:text="#{DATABASE}">DATABASE</div>
+                            <div class="skill-score-title" th:text="#{USABILITY}">USABILITY</div>
+                            <div class="skill-score-title" th:text="#{SCORE}">SCORE</div>
+                        </div>
+                        <div class="col-md-5 ">
+                            <div class="skill-score">7.5</div>
+                            <div class="skill-score">7.9</div>
+                            <div class="skill-score">8.0</div>
+                            <div class="skill-score">8.2</div>
+                            <div class="total-score">7.9</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="overflow: hidden">
+        <div class="col-md-12">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3 th:text="#{PhuongName}"></h3>
+                </div>
+                <div class="box-content" style="overflow: hidden;">
+                    <div class="col-md-3">
+                        <div align="center">
+                            <img src="/images/phuong.jpg" width="300px"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h4 class="title">
+                            <b th:text="#{HELLO}">HELLO</b>
+                        </h4>
+
+                        <div>
+                            <h3><span th:text="#{Im}">I'm </span> <b th:text="#{PhuongName}">Trần Hưng Thịnh</b></h3>
+                            <div class="job"> Java and Mobile</div>
+                            <br/>
+                            <div>
+                                <p th:text="#{PhuongInfo}"> I'm Tran Hung Thinh, studying at HCM Education University.
+                                    My forte is Testing
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 row">
+                            <div><b th:text="#{AGE}">AGE</b></div>
+                            <br/>
+                            <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                            <br/><br/><br/>
+                            <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                            <br/>
+                            <div><b th:text="#{PHONE}">PHONE</b></div>
+                            <br/>
+                            <div><b th:text="#{FORTE}">FORTE</b></div>
+                            <br/>
+                        </div>
+                        <div class="col-md-7">
+                            <div>21</div>
+                            <br/>
+                            <div>17/16 đường số 9 P. Hiệp Bình Chánh Q. Thủ Đức</div>
+                            <br/> <br/>
+                            <div><a href="#">nhphuong96@gmail.com</a></div>
+                            <br/>
+                            <div>+84 902 444 505</div>
+                            <br/>
+                            <div>Java web</div>
+                            <br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col-md-7 ">
+                            <div class="skill-score-title" th:text="#{DESIGN}">DESIGN</div>
+                            <div class="skill-score-title" th:text="#{FUNCTIONALITY}">FUNCTIONALITY</div>
+                            <div class="skill-score-title" th:text="#{DATABASE}">DATABASE</div>
+                            <div class="skill-score-title" th:text="#{USABILITY}">USABILITY</div>
+                            <div class="skill-score-title" th:text="#{SCORE}">SCORE</div>
+                        </div>
+                        <div class="col-md-5 ">
+                            <div class="skill-score">7.8</div>
+                            <div class="skill-score">8.0</div>
+                            <div class="skill-score">8.8</div>
+                            <div class="skill-score">8.2</div>
+                            <div class="total-score">8.2</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="tab-content">
+        <!--
         <div id="OffTeam" class="tab-pane fade in active tab-content">
             <h2 class="total-score">ONE FOR FIVE TEAM</h2>
             <br/>
+
             <div class="row">
+
                     <div class="col-sm-4 ">
                         <a data-toggle="tab" href="#Thinh">
                         <div class="row">
@@ -137,35 +526,14 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div>-->
         <div id="Thinh" class="tab-pane fade tab-content">
             <div class="col-md-8">
                 <div class="col-md-5">
                     <img src="/images/thinh.jpg"/>
                 </div>
                 <div class="col-md-7">
-                    <h4 class="title">
-                        <b th:text="#{HELLO}">HELLO</b>
-                    </h4>
-                    <div>
-                        <h3><span th:text="#{Im}">I'm </span> <b th:text="#{ThinhName}">Trần Hưng Thịnh</b></h3>
-                        <div class="job"> Tester and Designer</div>
-                        <br/> <br/>
-                    </div>
-                    <div class="col-md-5 row">
-                        <div><b th:text="#{AGE}">AGE</b></div><br/>
-                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div><br/><br/><br/>
-                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div><br/>
-                        <div><b th:text="#{PHONE}">PHONE</b></div><br/>
-                        <div><b th:text="#{FORTE}">FORTE</b></div><br/>
-                    </div>
-                    <div class="col-md-7">
-                        <div>21</div><br/>
-                        <div >27c đường 131, Tân Thạnh Đông, Củ Chi </div> <br/><br/>
-                        <div><a href="https://goo.gl/X2ppou">ththinh11396@gmail.com</a></div><br/>
-                        <div>+84 165 323 0665</div><br/>
-                        <div>Testing on C#</div><br/>
-                    </div>
+
                 </div>
             </div>
             <div class="col-md-4">
@@ -184,8 +552,8 @@
                     <div class="total-score">7.8</div>
                 </div>
             </div>
-            <div >
-                <p th:text="#{ThinhInfo}"> I'm Tran Hung Thinh, studying at HCM  Education University.
+            <div>
+                <p th:text="#{ThinhInfo}"> I'm Tran Hung Thinh, studying at HCM Education University.
                     My forte is Testing
                 </p>
             </div>
@@ -205,18 +573,28 @@
                         <br/> <br/>
                     </div>
                     <div class="col-md-5 row">
-                        <div><b th:text="#{AGE}">AGE</b></div><br/>
-                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div><br/><br/><br/>
-                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div><br/>
-                        <div><b th:text="#{PHONE}">PHONE</b></div><br/>
-                        <div><b th:text="#{FORTE}">FORTE</b></div><br/>
+                        <div><b th:text="#{AGE}">AGE</b></div>
+                        <br/>
+                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                        <br/><br/><br/>
+                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                        <br/>
+                        <div><b th:text="#{PHONE}">PHONE</b></div>
+                        <br/>
+                        <div><b th:text="#{FORTE}">FORTE</b></div>
+                        <br/>
                     </div>
                     <div class="col-md-7">
-                        <div>21</div><br/>
-                        <div >17/16 đường số 9 P. Hiệp Bình Chánh Q. Thủ Đức </div> <br/> <br/>
-                        <div><a href="#">nhphuong96@gmail.com</a></div><br/>
-                        <div>+84 902 444 505</div><br/>
-                        <div>Java web</div><br/>
+                        <div>21</div>
+                        <br/>
+                        <div>17/16 đường số 9 P. Hiệp Bình Chánh Q. Thủ Đức</div>
+                        <br/> <br/>
+                        <div><a href="#">nhphuong96@gmail.com</a></div>
+                        <br/>
+                        <div>+84 902 444 505</div>
+                        <br/>
+                        <div>Java web</div>
+                        <br/>
                     </div>
                 </div>
             </div>
@@ -236,8 +614,8 @@
                     <div class="total-score">8.2</div>
                 </div>
             </div>
-            <div >
-                <p th:text="#{PhuongInfo}"> I'm Nguyen Ho Phuong, studying at HCM  Education University.
+            <div>
+                <p th:text="#{PhuongInfo}"> I'm Nguyen Ho Phuong, studying at HCM Education University.
                     My forte is Java Web
                 </p>
             </div>
@@ -245,7 +623,7 @@
         <div id="Binh" class="tab-pane fade tab-content">
             <div class="col-md-8">
                 <div class="col-md-5">
-                    <img src="/images/binh.jpg" />
+                    <img src="/images/binh.jpg"/>
                 </div>
                 <div class="col-md-7">
                     <h4 class="title">
@@ -257,18 +635,28 @@
                         <br/> <br/>
                     </div>
                     <div class="col-md-5 row">
-                        <div><b th:text="#{AGE}">AGE</b></div><br/>
-                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div><br/><br/><br/>
-                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div><br/>
-                        <div><b th:text="#{PHONE}">PHONE</b></div><br/>
-                        <div><b th:text="#{FORTE}">FORTE</b></div><br/>
+                        <div><b th:text="#{AGE}">AGE</b></div>
+                        <br/>
+                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                        <br/><br/><br/>
+                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                        <br/>
+                        <div><b th:text="#{PHONE}">PHONE</b></div>
+                        <br/>
+                        <div><b th:text="#{FORTE}">FORTE</b></div>
+                        <br/>
                     </div>
                     <div class="col-md-7">
-                        <div>22</div><br/>
-                        <div >15/125 đường Gò Xoài,P. Bình Hưng Hòa A, Q.Bình Tân </div> <br/> <br/>
-                        <div><a href="#">binhdesire816gmail.com</a></div><br/>
-                        <div>+84 937 179 469</div><br/>
-                        <div>C#, .NET, Javascript</div><br/>
+                        <div>22</div>
+                        <br/>
+                        <div>15/125 đường Gò Xoài,P. Bình Hưng Hòa A, Q.Bình Tân</div>
+                        <br/> <br/>
+                        <div><a href="#">binhdesire816gmail.com</a></div>
+                        <br/>
+                        <div>+84 937 179 469</div>
+                        <br/>
+                        <div>C#, .NET, Javascript</div>
+                        <br/>
                     </div>
                 </div>
             </div>
@@ -288,8 +676,8 @@
                     <div class="total-score">8.1</div>
                 </div>
             </div>
-            <div >
-                <p th:text="#{BinhInfo}"> I'm Ho Thanh Binh, studying at HCM  Education University.
+            <div>
+                <p th:text="#{BinhInfo}"> I'm Ho Thanh Binh, studying at HCM Education University.
                     My forte is .NET Web
                 </p>
             </div>
@@ -297,7 +685,7 @@
         <div id="Kiet" class="tab-pane fade tab-content">
             <div class="col-md-8">
                 <div class="col-md-5">
-                    <img src="/images/kiet.jpg" />
+                    <img src="/images/kiet.jpg"/>
                 </div>
                 <div class="col-md-7">
                     <h4 class="title">
@@ -309,18 +697,28 @@
                         <br/> <br/>
                     </div>
                     <div class="col-md-5 row">
-                        <div><b th:text="#{AGE}">AGE</b></div><br/>
-                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div><br/><br/><br/>
-                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div><br/>
-                        <div><b th:text="#{PHONE}">PHONE</b></div><br/>
-                        <div><b th:text="#{FORTE}">FORTE</b></div><br/>
+                        <div><b th:text="#{AGE}">AGE</b></div>
+                        <br/>
+                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                        <br/><br/><br/>
+                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                        <br/>
+                        <div><b th:text="#{PHONE}">PHONE</b></div>
+                        <br/>
+                        <div><b th:text="#{FORTE}">FORTE</b></div>
+                        <br/>
                     </div>
                     <div class="col-md-7">
-                        <div>21</div><br/>
-                        <div >42/12 đường Lạc Long Quân,P.10, Q.11 </div> <br/><br/>
-                        <div><a href="#">dylanlam96@gmail.com</a></div><br/>
-                        <div>+84 126 516 3767</div><br/>
-                        <div>Java, Mobile</div><br/>
+                        <div>21</div>
+                        <br/>
+                        <div>42/12 đường Lạc Long Quân,P.10, Q.11</div>
+                        <br/><br/>
+                        <div><a href="#">dylanlam96@gmail.com</a></div>
+                        <br/>
+                        <div>+84 126 516 3767</div>
+                        <br/>
+                        <div>Java, Mobile</div>
+                        <br/>
                     </div>
                 </div>
             </div>
@@ -340,7 +738,7 @@
                     <div class="total-score">7.8</div>
                 </div>
             </div>
-            <div >
+            <div>
                 <p th:text="#{KietInfo}"> I'm Lam Anh Kiet, studying at HCM Education University.
                     My forte is Mobile
                 </p>
@@ -349,7 +747,7 @@
         <div id="Tien" class="tab-pane fade tab-content">
             <div class="col-md-8">
                 <div class="col-md-5">
-                    <img src="/images/tien.jpg" />
+                    <img src="/images/tien.jpg"/>
                 </div>
                 <div class="col-md-7">
                     <h4 class="title">
@@ -361,18 +759,28 @@
                         <br/> <br/>
                     </div>
                     <div class="col-md-5 row">
-                        <div><b th:text="#{AGE}">AGE</b></div><br/>
-                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div><br/><br/><br/>
-                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div><br/>
-                        <div><b th:text="#{PHONE}">PHONE</b></div><br/>
-                        <div><b th:text="#{FORTE}">FORTE</b></div><br/>
+                        <div><b th:text="#{AGE}">AGE</b></div>
+                        <br/>
+                        <div><b th:text="#{ADDRESS}">ADDRESS</b></div>
+                        <br/><br/><br/>
+                        <div><b th:text="#{E-MAIL}">E-MAIL</b></div>
+                        <br/>
+                        <div><b th:text="#{PHONE}">PHONE</b></div>
+                        <br/>
+                        <div><b th:text="#{FORTE}">FORTE</b></div>
+                        <br/>
                     </div>
                     <div class="col-md-7">
-                        <div>21</div><br/>
-                        <div >575/15B đường CMT8,P.15, Q.10 </div> <br/><br/>
-                        <div><a href="#">tranviettien1996@gmail.com</a></div><br/>
-                        <div>+84 163 214 9942</div><br/>
-                        <div>.NET</div><br/>
+                        <div>21</div>
+                        <br/>
+                        <div>575/15B đường CMT8,P.15, Q.10</div>
+                        <br/><br/>
+                        <div><a href="#">tranviettien1996@gmail.com</a></div>
+                        <br/>
+                        <div>+84 163 214 9942</div>
+                        <br/>
+                        <div>.NET</div>
+                        <br/>
                     </div>
                 </div>
             </div>
@@ -392,7 +800,7 @@
                     <div class="total-score">7.9</div>
                 </div>
             </div>
-            <div >
+            <div>
                 <p th:text="#{TienInfo}"> I'm Tran Viet Tien, studying at HCM Education University.
                     My forte is .Net Web
                 </p>

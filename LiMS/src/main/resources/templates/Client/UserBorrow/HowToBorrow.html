@@ -107,6 +107,7 @@
                         <p>If your book is Available, the book will be able borrowed. If it was borrowed, you can make a
                             reservation. <a href="/Reservation/HowToReserve">Click here</a> to know how to reserve book
                         </p>
+                        <p>The result will display all the book have the keyword you enterred. Click Detail.</p>
                         <div align="center">
                             <img src="/images/borrow2tut3.png"/>
                         </div>
@@ -114,8 +115,10 @@
 
 
                         <h3><label>Step 4</label></h3>
-                        <p th:text="#{BorrowStep2Content4}">
-                            The result will display all the book have the keyword you enterred. Click Detail.
+                        <p>
+                            If book is available. The Borrow Now will be display. In the other hand, Reserve Now button
+                            will
+                            be display. Click Borrow Now in case.
                         <div align="center">
                             <img src="/images/borrow2tut4.png"/>
                         </div>
@@ -126,9 +129,8 @@
 
                         <h3><label>Step 5</label></h3>
                         <p>
-                            If book is available. The Borrow Now will be display. In the other hand, Reserve Now button
-                            will
-                            be display. Click Borrow Now in case.
+                            You will be redirect to book cart. If you want to continue borrow, click Keep Borrowing.
+                        If not, click Borrow to sent borrowing request.
                         <div align="center">
                             <img src="/images/borrow2tut5.png" width="80%"/>
                         </div>
@@ -138,7 +140,7 @@
                         <h3><label>Step 6</label></h3>
                         <p>
                             When borrowing request have been sent. Another people cannot borrow this book right now. You
-                            have to go to OFF Library to take that book in 1 day.
+                            have to go to OFF Library to take that book in <b>1 DAY</b>.
                             If not, your request will be automatically cancelled. And others allows borrow that book.
                         <div align="center">
                             <img src="/images/borrow2tut6.png" width="80%"/>
