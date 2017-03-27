@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout2">
 <head>
     <meta charset="UTF-8"/>
     <title>How to reserve</title>
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
-
     <style>
         label {
             color: #0055aa;
@@ -16,59 +14,72 @@
     </style>
 </head>
 <body>
-<div  layout:fragment="content">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/Borrow/HowToReserve}" ></a></li>
-            </ol>
+<div layout:fragment="content">
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-pencil"></i>
+                <a th:href="@{/Borrow/HowToReserve}" th:text="#{HowtoReserve}"></a>
+            </li>
+        </ul>
+    </div>
+    <div style="overflow: hidden" align="center">
+        <div style="width: 70%">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3><i class="fa fa-bookmark-o"></i>How to make a reservation?</h3>
+                </div>
+                <div class="box-content">
+                    <div class="alert alert-info">
+                        <p th:text="#{ReservingbookContent}">
+                            You want to borrow that book but it has been borrowed by others.
+                            Don't worry, you can reserve and borrow this when it returned.
+                        </p>
+                    </div>
+                    <div class="howtoreserve">
+                        <h3><label for="step1" th:text="#{Step1}">Step 1</label></h3>
+                        <p id="step1" th:text="#{ReserveStep1}">
+                            Books with red sign is borrowed. Click at detail of the book which you want to borrow
+                        </p><br/>
+                        <img src="/images/tut1.png"/>
+                        <br/><br/>
+
+                        <h3><label for="step2" th:text="#{Step2}">Step 2</label></h3>
+                        <br/>
+                        <p id="step2" th:text="#{ReserveStep2}">
+                            Watch the Book's detail and make sure that you want borrow it. And now you
+                            must click at the Reserve button.
+                        </p><br/>
+                        <img src="/images/tut2.png"/>
+                        <br/><br/>
+
+
+                        <h3><label for="step3" th:text="#{Step3}">Step 3</label></h3>
+                        <p id="step3" th:text="#{ReserveStep3}"> A dialog will show up provides for you the information
+                            about the date the book was returned
+                        </p><br/>
+                        <img src="/images/tut3.png"/>
+                        <br/><br/>
+
+                        <label for="step4" th:text="#{Step4}">Step 4</label>
+                        <p id="step4"><span th:text="#{ReserveStep4_1}"> When you click ok, your request
+                will be sent to the librarian. You can check your reserve in tab 2 </span><a
+                                href="http://localhost:8080/User/ViewLog" th:text="#{ViewLog}">View Log</a>.
+                            <span th:text="#{ReserveStep4_2}">And remember come to library to borrow this book on appointment.</span>
+                        </p><br/>
+                        <img src="/images/tut5.png" width="90%"/>
+                        <br/><br/>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <div class="row">
-        <h1><b th:text="#{HowtoReserve}"> How to reserve </b> </h1>
-        <br/><br/>
-        <h3><b th:text="#{Reservingbook}"> Reserving book </b> </h3>
-        <div class="alert alert-info">
-            <p  th:text="#{ReservingbookContent}">
-               You want to borrow that book but it has been borrowed by others.
-                Don't worry, you can reserve and borrow this when it returned.
-            </p>
-        </div>
-        <div class="howtoreserve">
-            <label for="step1"  th:text="#{Step1}">Step 1</label>
-            <p id="step1" th:text="#{ReserveStep1}">
-                Books with red sign is borrowed. Click at detail of the book which you want to borrow
-            </p><br/>
-            <img src="/images/Reserve01.png"/>
-            <br/><br/>
 
-            <label for="step2" th:text="#{Step2}">Step 2</label>
-            <br/>
-            <p id="step2" th:text="#{ReserveStep2}">
-                Watch the Book's detail and make sure that you want borrow it. And now you
-                must click at the Reserve button.
-            </p><br/>
-            <img src="/images/Reserve02.png"/>
-            <br/><br/>
-
-
-            <label for="step3"  th:text="#{Step3}">Step 3</label>
-            <p  id="step3"  th:text="#{ReserveStep3}"> A dialog will show up provides for you the information about the date the book was returned
-            </p><br/>
-            <img src="/images/Reserve03.png"/>
-            <br/><br/>
-
-            <label for="step4" th:text="#{Step4}">Step 4</label>
-            <p  id="step4" ><span th:text="#{ReserveStep4_1}"> When you click ok, your request
-                will be sent to the librarian. You can check your reserve in tab 2 </span><a href="http://localhost:8080/User/ViewLog" th:text="#{ViewLog}">View Log</a>.
-                <span th:text="#{ReserveStep4_2}">And remember come to library to borrow this book on appointment.</span>
-            </p><br/>
-            <img src="/images/Reserve04.png"/>
-            <br/><br/>
-        </div>
-    </div>
 </div>
 
 </body>

@@ -60,8 +60,14 @@ public class SendEmailBusiness extends BaseCommand{
                 "Thank you.\n"+
                 "Best regards,\n"+
                 "From OFF Library.";
-        String subject = "Book reservatin confirm";
+        String subject = "Book reservation confirm";
         mailService.sendMail(user.getEmail(),subject,emailContext);
+        return Success();
+    }
+
+    public Result sendEmail(Long bookId) {
+        toReservationUser(bookId);
+        toBorrowUser(bookId);
         return Success();
     }
 

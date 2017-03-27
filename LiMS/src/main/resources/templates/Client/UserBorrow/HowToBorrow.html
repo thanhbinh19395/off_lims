@@ -1,80 +1,176 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout2">
 <head>
     <meta charset="UTF-8"/>
     <title>How to borrow</title>
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 
     <style>
-       label {
-           color: #0055aa;
-       }
+        label {
+            color: #0055aa;
+        }
     </style>
 </head>
 <body>
-<div  layout:fragment="content">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/Borrow/HowToBorrow}" th:text="#{HowtoBorrow}"></a></li>
-            </ol>
-        </div>
-    </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <div class="row">
-        <h1><b th:text="#{HowtoBorrow}"> How to borrow </b> </h1>
-        <br/><br/>
-        <h3><b th:text="#{Borrowingbook}"> Borrowing book </b> </h3>
-        <div class="alert alert-danger">
-            <p th:text="#{BorrowingbookContent}">
-                By borrowing from the Library you agree to comply with our borrowing rules.
-            </p>
-        </div>
-        <div class="howtoborrow">
-            <label for="step1" th:text="#{Step1}" >Step 1</label>
-            <p id="step1" th:text="#{BorrowStep1Content}"> At first you need contacts with librarian to register a account.
-                You can register at 222 Le Van Sy Dist.3 Ho Chi Minh city </p>
-            <div th:text="#{BorrowStep1Content2}">Phone : 0123 456 789 - Mrs Cô</div>
-            <br/>
+<div layout:fragment="content">
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-pencil"></i>
+                <a th:href="@{/Borrow/HowToBorrow}" th:text="#{HowtoBorrow}"></a>
+            </li>
 
-            <label for="step2" th:text="#{Step2}">Step 2</label>
-            <br/>
-            <span id="step2" th:text="#{BorrowStep2Content}">When you not have an account, you still can see the</span>
-                <a href="http://localhost:8080/" th:text="#{BorrowStep2Content2}" >list book </a>
-                <span th:text="#{BorrowStep2Content3}">are having in library. </span>
-                <p th:text="#{BorrowStep2Content4}">
-                You can click on the book to see the detail. But only when you login,
-                you can be reserve books.
-                </p>
-
-            <br/>
-
-
-            <label for="step3" th:text="#{Step3}">Step 3</label>
-            <p  id="step3" th:text="#{BorrowStep3Content}">You can click Borrow button and fill your infomation to reserve that book.
-                You will be received a code on email.
-             </p>
-            <br/>
-
-            <label for="step4" th:text="#{Step4}">Step 4</label>
-            <p  id="step4" th:text="#{BorrowStep4Content}">You need take the code for the librarian and go to storage to get that book.
-                And take it to librarian to complete the book borrow process </p><br/>
-            <br/>
-        </div>
-        <h3><b th:text="#{Recalledloans}"> Recalled loans </b> </h3>
-        <label for="recallloan" th:text="#{RecalledloansTitle}">Standard loans are subject to recall if required by another client:</label>
-        <ul id="recallloan">
-            <li th:text="#{recallloan1}">You are guaranteed a loan of at least 7 days on standard book</li>
-            <li th:text="#{recallloan2}">Teacher are guaranteed a loan of at least 14 days</li>
-            <li th:text="#{recallloan3}">We will request the return of the book by email</li>
-            <li ><span th:text="#{recallloan4}">Return the item by the new due date to avoid </span><a href="http://localhost:8080/Borrow/OverdueBook" th:text="' '+#{overdueloans}">overdue loans</a></li>
         </ul>
+    </div>
+    <div style="overflow: hidden">
+        <div align="center">
+            <div style="width: 80%;">
+                <div class="box box-black">
+                    <div class="box-title">
+                        <h3><i class="fa fa-user"></i><span>Method 1 - Offline</span></h3>
+                    </div>
+                    <div class="box-content">
+                        <div class="howtoborrow">
+                            <h3><label for="step1" th:text="#{Step1}">Step 1</label></h3>
+                            <p>Go straigh to our library, located at 280 An Duong Vuong, District 5, HCM City</p>
+                            <div align="center">
+                                <img src="/images/borrow1tut1.jpg"/>
+                            </div>
+                            <br/>
 
-        <br/><br/>
+                            <h3><label for="step2" th:text="#{Step2}">Step 2</label></h3>
+                            <p>
+                                At the librarian desk. Register account for using library service.
+                            <div align="center">
+                                <img src="/images/borrow1tut2.jpg" width="50%"/>
+                            </div>
+                            </p>
+                            <br/>
+
+
+                            <h3><label for="step3" th:text="#{Step3}">Step 3</label></h3>
+                            <p>
+                                After finished registration, go inside the library and find you book you want to borrow.
+                            <div align="center">
+                                <img src="/images/borrow1tut3.jpg" width="50%"/>
+                            </div>
+                            </p>
+                            <br/>
+
+                            <h3><label for="step4" th:text="#{Step4}">Step 4</label></h3>
+                            <p>Return to librarian desk to make borrowing book procedure</p>
+                            <br/>
+
+                            <h3><label for="step5">Step 5</label></h3>
+                            <p>You can check your borrowing <a href="/User/ViewLog">status</a> on the library website.
+                            <div align="center">
+                                <img src="/images/borrow1tut4.png" width="80%"/>
+                            </div>
+                            </p>
+
+
+                            <br/>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div style="width: 80%;">
+                <div class="box box-black">
+                    <div class="box-title">
+                        <h3><i class="fa fa-desktop"></i><span>Method 2 - Online</span></h3>
+                    </div>
+                    <div class="box-content">
+                        <h3><label th:text="#{Step1}">Step 1</label></h3>
+                        <p>Go to OFF Library website</p>
+                        <div align="center">
+                            <img src="/images/borrow2tut1.png" width="80%"/>
+                        </div>
+                        <br/>
+
+                        <h3><label>Step 2</label></h3>
+                        <p>Search the book you may want to borrow</p>
+                        <div align="center">
+                            <img src="/images/borrow2tut2.png" width="80%"/>
+                        </div>
+                        <br/>
+
+                        <h3><label>Step 3</label></h3>
+                        <p>If your book is Available, the book will be able borrowed. If it was borrowed, you can make a
+                            reservation. <a href="/Reservation/HowToReserve">Click here</a> to know how to reserve book
+                        </p>
+                        <div align="center">
+                            <img src="/images/borrow2tut3.png"/>
+                        </div>
+                        <br/>
+
+
+                        <h3><label>Step 4</label></h3>
+                        <p th:text="#{BorrowStep2Content4}">
+                            The result will display all the book have the keyword you enterred. Click Detail.
+                        <div align="center">
+                            <img src="/images/borrow2tut4.png"/>
+                        </div>
+                        </p>
+
+                        <br/>
+
+
+                        <h3><label>Step 5</label></h3>
+                        <p>
+                            If book is available. The Borrow Now will be display. In the other hand, Reserve Now button
+                            will
+                            be display. Click Borrow Now in case.
+                        <div align="center">
+                            <img src="/images/borrow2tut5.png" width="80%"/>
+                        </div>
+                        </p>
+                        <br/>
+
+                        <h3><label>Step 6</label></h3>
+                        <p>
+                            When borrowing request have been sent. Another people cannot borrow this book right now. You
+                            have to go to OFF Library to take that book in 1 day.
+                            If not, your request will be automatically cancelled. And others allows borrow that book.
+                        <div align="center">
+                            <img src="/images/borrow2tut6.png" width="80%"/>
+                        </div>
+                        </p>
+                        <br/>
+
+                    </div>
+                </div>
+            </div>
+            <div style="width: 80%;" align="left">
+                <div class="box box-green">
+                    <div class="box-title">
+                        <h3><i class="fa fa-credit-card"></i><span th:text="#{Recalledloans}"></span></h3>
+                    </div>
+                    <div class="box-content">
+                        <label for="recallloan" th:text="#{RecalledloansTitle}">Standard loans are subject to recall if
+                            required by another client:</label>
+                        <ul id="recallloan">
+                            <li th:text="#{recallloan1}">You are guaranteed a loan of at least 7 days on standard book
+                            </li>
+                            <li th:text="#{recallloan2}">Teacher are guaranteed a loan of at least 14 days</li>
+                            <li th:text="#{recallloan3}">We will request the return of the book by email</li>
+                            <li><span th:text="#{recallloan4}">Return the item by the new due date to avoid </span><a
+                                    href="http://localhost:8080/Borrow/OverdueBook" th:text="' '+#{overdueloans}">overdue
+                                loans</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 

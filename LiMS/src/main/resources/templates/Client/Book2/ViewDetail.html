@@ -2,10 +2,9 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="/Shared/User/layout">
+        layout:decorator="/Shared/User/layout2">
 <head>
     <title th:text="${Book.name}">Book Detail</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
           type='text/css'/>
     <link href="/index/detail.css" rel="stylesheet"/>
@@ -14,52 +13,174 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/book/bookCategory/}+${Book.bookCategory.id}"
-                       th:text="${Book.bookCategory.category_name}"></a></li>
-                <li><a th:href="@{/Book/ViewDetail/}+${Book.id}" th:text="${Book.name}"></a></li>
-            </ol>
-        </div>
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-reorder"></i>
+                <a th:href="@{/book/bookCategory/}+${Book.bookCategory.id}"
+                   th:text="${Book.bookCategory.category_name}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-book"></i>
+                <a th:href="@{/Book/ViewDetail/}+${Book.id}" th:text="${Book.name}"></a>
+            </li>
+
+        </ul>
     </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
     <div class="row" style="margin: 10px" th:object="${Book}">
-        <div class="col-xs-5">
-            <div align="center" style="margin-top: 30px;">
-                <img th:src="${Book.imageUrl}" th:width="300px" th:height="400px"/>
+        <div class="col-md-7">
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3><span th:text="*{name}"></span></h3>
+                </div>
+                <div class="box-content" style="overflow: hidden;">
+                    <div class="col-xs-5">
+                        <div align="center" style="margin: 5px 0 3px 0px">
+                            <img th:src="${Book.imageUrl}" th:width="250px"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="user-profile-info" style="margin-top: 20px;">
+                            <p>
+                                <span th:text="#{author}"></span>&nbsp;
+                                <span th:text="*{author}"></span>
+                            </p>
+                            <p>
+                                <span th:text="#{publisher}+':'"></span>&nbsp;
+                                <span th:text="*{publisher}"></span>
+                            </p>
+                            <p>
+                                <span th:text="#{publishedYear}"></span>&nbsp;
+                                <span th:text="*{publish_year}"></span>
+                            </p>
+                            <p>
+                                <span th:text="#{bookTransactionStatus}"></span>
+                                <span class="badge bagde-lg"
+                                                                    th:classappend="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? 'badge-success' : 'label-important'"
+                                                                    th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}? #{Available}:#{Occupied}"></span>
+                            </p>
+
+                        </div>
+
+                        <div class="alert alert-danger" th:text="#{Younolonger}" th:if="${forbiddenUser}">
+
+                        </div>
+                        <form th:unless="${forbiddenUser}" action="/User/Book/ViewDetail/addToBookCart"
+                              style="clear: both" method="POST">
+                            <div>
+                                <p th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? #{likeThis} : #{someoneBorrowed}"></p>
+                                <input type="hidden" name="ID" th:value="*{id}"/>
+                                <button th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}"
+                                        th:disabled="${existed} ? 'disabled' : 'false'"
+                                        class="btn btn-danger"><i
+                                        class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
+                                        th:text="#{borrowNow}"></span></button>
+                            </div>
+                        </form>
+                        <div th:unless="${forbiddenUser}"
+                             th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED} and ${bookBorrowHeader.status} eq ${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}">
+                            <a type="button" th:disabled="${existed} ? 'disabled' : 'false'" class="btn btn-primary"
+                               data-toggle="modal" data-target="#myModal"><i
+                                    class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
+                                    th:text="#{reserve}"></span>
+                            </a>
+                        </div>
+                        <div class="alert alert-danger" th:unless="${forbiddenUser}"
+                             th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}" th:text="#{Thisbookhave}+' '+${returnDate}">
+                        </div>
+
+                        <div th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED}" id="myModal"
+                             class="modal fade" role="dialog"  data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="content">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <img th:src="${Book.imageUrl}" th:width="200px"/>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <form action="/User/Book/ViewDetail/reserveBook" method="POST"
+                                                          id="reserveForm">
+                                                        <div class="box">
+                                                            <div class="box-title">
+                                                                <h3><span th:text="${Book.name}"></span></h3>
+                                                            </div>
+                                                            <div class="box-content">
+                                                                <div class="user-profile-info">
+                                                                    <span id="id" class="hidden"
+                                                                          th:text="${Book.id}"></span>
+                                                                    <span id="pickUpDate" class="hidden"
+                                                                          th:text="${returnDate}"></span>
+
+                                                                    <p><span th:text="#{Author}+':'"></span>&nbsp;<span
+                                                                            th:text="${Book.author}"></span>
+                                                                    </p>
+                                                                    <p><span
+                                                                            th:text="#{Publisher}+':'"></span>&nbsp;<span
+                                                                            th:text="${Book.publisher}"></span>
+                                                                    </p>
+                                                                    <p><span th:text="#{PublishedYear}+':'"></span>&nbsp;<span
+                                                                            th:text="${Book.publish_year}"></span>
+                                                                    </p>
+                                                                    <h5><span class="label label-warning">This book will be returned to library on <span
+                                                                            th:text="${returnDate}"></span></span>
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div align="center" >
+                                                    <a type="button" class="btn btn-danger"
+                                                       id="confirmModal">Confirm</a>
+                                                    <a type="button" class="btn btn-gray" id="cancelModal" data-dismiss="modal">Cancel</a>
+                                                    <br/>
+                                                    <br/>
+                                                    <span class="loader" hidden="hidden"><img src="/images/ajax-loader.gif"/>
+                                                    Please wait...</span>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-xs-7">
-            <h3 class="book-name" th:text="*{name}"></h3>
-            <div class="book-box">
-                <div class="book-row">
-                    <div class="book-info">
-                        <div>
-                            <h5 class="book-author" th:text="#{author}"></h5>
-                            <p class="book-author"><a class="author" th:text="*{author}" href="#"></a></p>
-                        </div>
-                        <div>
-                            <span class="book-detail"><h5 th:text="#{publisher}+': '"></h5></span>
-                            <span class="book-detail" th:text="*{publisher}"></span>
-                        </div>
-
-                        <div>
-                            <span class="book-detail"><h5 th:text="#{publishedYear}"></h5></span>
-                            <span class="book-detail" th:text="*{publish_year}"></span>
-                        </div>
-
-                        <div>
-                            <span class="book-detail"><h5 th:text="#{bookTransactionStatus}"></h5></span>
-                            <span class="book-detail"><h4><span class="label"
-                                                                th:classappend="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? 'label-success' : 'label-danger'"
-                                                                th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}? #{Available}:#{Occupied}"></span></h4></span>
-                        </div>
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="divider-vertical"></div>
-                    <div class="item-other">
+        <div class="col-md-5">
+            <div class="box box-red">
+                <div class="box-title">
+                    <h3 th:text="#{Rule}"></h3>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li th:text="#{rule5}"></li>
+                        <li th:text="#{rule1}"></li>
+                        <li th:text="#{rule2}"></li>
+                        <li th:text="#{rule3}"></li>
+                        <li th:text="#{rule4}"></li>
+                        <li><span th:text="#{viewMore}"></span>&nbsp;<a th:text="#{ruleList}"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box box-default">
+                <div class="box-title">
+                    <h3> More Information</h3>
+                </div>
+                <div class="box-content">
+                    <div>
                         <p>&diams;
                             <span th:text="#{Seemore}"> See more </span><a href="#"
                                                                            th:text=" ' '+#{books}+' '+ #{of} +' ' + *{author}"></a>
@@ -71,128 +192,64 @@
                                     th:text="#{and}">and</span> <a href="#" th:text="#{Reserve}">reserve</a> <span
                                     th:text="#{books}"> books </span>
                         </p>
-
                         <p>&diams;
                             <span th:text="#{CannotFindbook}"> Can not find books? Send us a request</span>
                             <a href="/User/Request/RequestPurchase" th:text="#{Athere}">at here</a>
                         </p>
                     </div>
                 </div>
-                <br/>
+            </div>
+        </div>
 
-                <div th:if="${forbiddenUser}">
-                    <p>
-                    <h4><span class="label label-danger" th:text="#{Younolonger}">You no longer borrow or reserve book. Please return book back to library before borrow a new one.</span>
-                    </h4>
-                    </p>
-                </div>
-                <form th:unless="${forbiddenUser}" action="/User/Book/ViewDetail/addToBookCart"
-                      style="clear: both" method="POST">
+
+    </div>
+    <div class="modal fade" id="SuccessModal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
                     <div>
-                        <p th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? #{likeThis} : #{someoneBorrowed}"></p>
-                        <input type="hidden" name="ID" th:value="*{id}"/>
-                        <button th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}" th:disabled="${existed} ? 'disabled' : 'false'"
-                                class="btn btn-danger"><i
-                                class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span
-                                th:text="#{borrowNow}"></span></button>
-                    </div>
-                </form>
-                <div th:unless="${forbiddenUser}" th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED} and ${bookBorrowHeader.status} eq ${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}">
-                    <a type="button" th:disabled="${existed} ? 'disabled' : 'false'" class="btn btn-primary"
-                       href="#popup1"><i
-                            class="fa fa-share" aria-hidden="true"></i>&nbsp;&nbsp;<span th:text="#{reserve}"></span>
-                    </a>
-                </div>
-                <div th:unless="${forbiddenUser}" th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}">
-                    <p>
-                    <h4><span class="label label-danger" th:text="#{Thisbookhave}+' '+${returnDate}"></span>
-                    </h4>
-                    </p>
-                </div>
-
-                <div th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED}" id="popup1" class="overlay">
-                    <div class="popup">
-                        <h2 th:text="${Book.name}">Here i am</h2>
-                        <a class="close" href="#">&times;</a>
-                        <div class="content">
-                            <form action="/User/Book/ViewDetail/reserveBook" id="reserveForm" method="post" th:object="${reservationBook}">
-                                <div>
-                                    <div style="float: left; width: 40%;">
-                                        <div align="center" style="margin-top:20px;">
-                                            <img th:src="${Book.imageUrl}" th:width="200px"
-                                                 th:height="300px"/>
-                                        </div>
-                                    </div>
-                                    <div style="float: right; width: 55%;">
-                                        <div>
-                                            <input type="hidden" id="bookId" name="bookId" th:value="${Book.id}"/>
-                                            <input type="hidden" id="pickUpDate" name="pickUpDate" th:value="${returnDate}"/>
-                                            <label for="name">Book name</label>
-                                            <input class="form-control" id="name" type="text" th:value="${Book.name}"
-                                                   readonly="readonly"/>
-                                            <br/>
-                                            <label for="author">Author</label>
-                                            <input class="form-control" id="author" type="text" th:value="${Book.author}"
-                                                   readonly="readonly"/><br/>
-
-                                            <label for="publisher">Publisher</label>
-                                            <input class="form-control" id="publisher" type="text"
-                                                   th:value="${Book.publisher}"
-                                                   readonly="readonly"/>
-                                        </div>
-                                    </div>
-
-                                    <div style="clear: both; padding-top: 10px" align="center">
-                                        <div style="margin-top: 20px;">
-                                            <h3>
-                                            <span class="label label-danger">This book will be returned to library on <span
-                                                    th:text="${returnDate}"></span></span>
-                                            </h3>
-                                            <p>Do you want to reserve it?</p>
-                                            <button type="submit" form="reserveForm" class="btn btn-danger">Yes
-                                            </button>
-                                            <a type="button" class="btn btn-default" href="#">No
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
+                        <img src="/layout/img/successicon.png" width="50px"/>
+                        <span>Your reservation have been sent successfully</span>
                     </div>
                 </div>
-                <div class="book-rule">
-                    <div class="book-rule-title">
-                        <h3 style="opacity: 0.5;" th:text="#{Rule}"></h3>
-                        <div class="hr"></div>
-                    </div>
-                    <div class="book-rule-list">
-                        <ul>
-                            <li th:text="#{rule5}"></li>
-                            <li th:text="#{rule1}"></li>
-                            <li th:text="#{rule2}"></li>
-                            <li th:text="#{rule3}"></li>
-                            <li th:text="#{rule4}"></li>
-                            <li><span th:text="#{viewMore}"></span>&nbsp;<a th:text="#{ruleList}"></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="book-service">
-                    <div class="book-service-title">
-                        <h3 style="opacity: 0.5;" th:text="#{Service}"></h3>
-                        <div class="hr"></div>
-                    </div>
-                    <div class="book-service-list">
-                        <ul>
-                            <li><a th:text="#{delivery}" href="#"></a></li>
-                            <li><a th:text="#{attachEquipment}" href="#"></a></li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
+</div>
+<div layout:fragment="scripts">
+    <script src="/js/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#confirmModal').click(function () {
+                debugger
+                $('.loader').show();
+                $('#confirmModal').hide();
+                $('#cancelModal').hide();
+                $('#confirmModal').addClass('disable');
+                $.post('/User/Book/ViewDetail/reserveBook', {
+                    bookId: $("#id").text(),
+                    pickUpDate: $("#pickUpDate").text()
+                }, function (result) {
+                    if (result.success) {
+                        debugger
+                        $('.loader').hide();
+                        $('#SuccessModal').modal();
+                        setTimeout(function () {
+                            window.history.back();
+                        }, 2000);
+                    }
+                    else {
+                        $('.loader').hide();
+                        $('#FailureModal').modal();
+                        setTimeout(function () {
+                            window.location.replace("/User/UpdateInfoUser");
+                        }, 1000);
+                    }
+                });
+            });
+        });
+    </script>
 </div>
 </body>
 </html>

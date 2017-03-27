@@ -31,23 +31,20 @@ public class User2Controller extends UserBaseController{
     @Autowired
     private ListBookReservationBusiness listBookReservationBusiness;
     @Autowired
-    private ListBookRequestBusiness listBookRequestBusiness;
-    @Autowired
     private CancelBookBorrowBusiness cancelBookBorrowBusiness;
     @Autowired
     private CancelBookReservationBusiness cancelBookReservationBusiness;
-    @Autowired
-    private CancelBookRequestBusiness cancelBookRequestBusiness;
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(value = "/UpdatePassword", method = RequestMethod.POST)
     @ResponseBody Result<User> UpdatePassword(@RequestParam("oldPassword") String oldPassword,
-                                 @RequestParam("newPassword") String newPassword) {
+                                              @RequestParam("newPassword") String newPassword) {
         User user = securityService.getUser();
-        if (!bCryptPasswordEncoder.matches(oldPassword,user.getPassword())) {
-            return new Result(null,"Invailid old password. Try again!", false);
-        }
+        //if (!bCryptPasswordEncoder.matches(oldPassword,user.getPassword())) {
+        //    return new Result(null,"Invailid old password. Try again!", false);
+        //}
         return userService.save(user);
 
     }
@@ -66,7 +63,7 @@ public class User2Controller extends UserBaseController{
     }
 
     @RequestMapping(value = "/SaveInfoUser", method = RequestMethod.POST)
-    @ResponseBody  Result<User> ProcessUpdateInfoUser (@ModelAttribute("User") User user, BindingResult bindingResult){
+    @ResponseBody  Result<User> ProcessUpdateInfoUser (@ModelAttribute("User") User user){
         return userService.save(user);
     }
 
@@ -74,10 +71,8 @@ public class User2Controller extends UserBaseController{
     public String viewLog(Model model) {
         listBookBorrowBusiness.Execute();
         listBookReservationBusiness.Execute();
-        listBookRequestBusiness.Execute();
         model.addAttribute("bookBorrowList",  listBookBorrowBusiness.getBorrowItemList());
         model.addAttribute("bookReservationList", listBookReservationBusiness.getBookReservationList());
-        model.addAttribute("bookRequestList", listBookRequestBusiness.getRequestList());
         return View("ViewLog");
     }
 
@@ -94,13 +89,5 @@ public class User2Controller extends UserBaseController{
         cancelBookReservationBusiness.setId(id);
         return cancelBookReservationBusiness.Execute();
     }
-
-    @RequestMapping(value = "/ViewLog/BookRequest/cancel")
-    @ResponseBody
-    Result cancelBookRequest(Long id) {
-        cancelBookRequestBusiness.setId(id);
-        return cancelBookRequestBusiness.Execute();
-    }
-
 
 }

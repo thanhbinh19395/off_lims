@@ -2,145 +2,211 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="/Shared/User/layout">
+        layout:decorator="/Shared/User/layout2">
 <head>
     <title>Home Page | OFF Library</title>
     <link th:href='@{/index/index.css}' rel='stylesheet' type='text/css'/>
     <link href="/index/detail.css" rel="stylesheet"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="/css/bootstrap.min.css" rel="stylesheet"/>-->
+
 </head>
 <body>
 <div layout:fragment="content">
-    <nav class="navbar navbar-inverse" style="border-radius: 0px !important; text-align: center !important;">
-        <div class="container-fluid">
-            <br/>
-                    <form action="/book/searchHandle" th:action="@{/book/searchHandle}" method="post" class="contact-form">
-                <div  style="width: 100%; ">
-                    <div style="display: inline-block; !important; width: 20%">
-                        <select class="form-control" name="searchType" id="searchType">
-                            <option value="2" th:text="#{Name}"></option>
-                            <option value="1" th:text="#{Code}"></option>
-                            <option value="3" th:text="#{Author}"></option>
-                            <option value="4" th:text="#{PublishedYear}"></option>
 
-                        </select>
-                    </div>
-                    <div style="display: inline-block !important; width: 60% ">
-                        <input name="search" type="text" class="form-control" style="display: table-cell; !important;" id="search"  th:placeholder="#{placeholder}"/>
-                    </div>
-                    <div style="display: inline-block !important;">
-                        <button type="submit" class="btn btn-danger" style="width: 100px" th:text="#{Search}">
-                        </button>
-                    </div>
-                </div>
-            </form>
-            </div>
-        <br/>
-        <ul class="nav navbar-nav" style="float: left;">
-                <li><a href="/" th:text="#{Allbook}">All book</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:text="#{Categories}"></a>
-                    <ul class="dropdown-menu" role="menu" style="border-radius: 5px">
-                        <li><a style="line-height: 40px;" class="external" th:each="category : ${categories}" th:text="${category.category_name}" th:href="@{/book/bookCategory/}+${category.id}">for Student</a></li>
-                    </ul>
-                </li>
-                <li><a href="/book/new" th:text="#{New}">New!</a></li>
-                <li><a href="/book/new" th:text="#{Mostborrowed}">New!</a></li>
+    <!--Begin image slider -->
+
+    <!--End image slider -->
+    <!--Begin breadcrumbs-->
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li th:if="${bookCategory}">
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-reorder"></i>
+                <a th:href="@{/book/bookCategory/}+${bookCategory.id}"
+                   th:text="${bookCategory.category_name}"></a>
+            </li>
+            <li th:if="${newText}">
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-bolt"></i>
+                <a th:href="@{/book/new}" th:text="#{New}"></a>
+            </li>
+            <li th:if="${result}">
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-search"></i>
+                <a th:href="@{/book/searchQuery?searchResult=}+${result}" th:text="${result}"></a>
+            </li>
         </ul>
-        <ul class="nav navbar-nav" style="float: right;">
-            <li><a style="background: #d62643; color: #fff" href="/User/Borrow/RegistryBorrowForm"  class="external"><span  th:text="#{bookCart}"></span>&nbsp;<span th:if="${#authorization.expression('isAuthenticated()')}" class="badge" th:text="${total}"></span></a></li>
-        </ul>
-    </nav>
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li th:if="${bookCategory}" ><a th:href="@{/book/bookCategory/}+${bookCategory.id}" th:text="${bookCategory.category_name}"></a></li>
-                <li th:if="${newText}" ><a th:href="@{/book/new}" th:text="#{New}"></a></li>
-                <li th:if="${result}" ><a th:href="@{/book/searchQuery?searchResult=}+${result}" th:text="${result}"></a></li>
-            </ol>
-        </div>
     </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <section>
-        <div align="center">
-            <div th:if="${#lists.isEmpty(books)}">
-                <br/>
-                <h3 style="font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif; opacity: 0.6;"><b>BOOK NOT FOUND!</b></h3>
-                <img style="opacity: 0.6; width: 300px" src="/images/missingbook.png"/>
-                <br/>
-                <br/>
-                <div style="width: 300px">
-                <button style="width: 100%" class="btn btn-danger" type="button" onclick="window.location.href='/'">Return to library</button>
+    <!--End breadcrumbs-->
+    <!--Begin container-->
+    <div class="row" style="margin: 0 auto;">
+        <div class="col-md-2" style="padding: 0px 5px 5px 0px">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title" th:text="#{Categories}"></h3>
+                </div>
+                <div class="panel-body">
+                    <a class="btn-block btn btn-primary"
+                       th:each="category : ${categories}"
+                       th:text="${category.category_name}"
+                       th:href="@{/book/bookCategory/}+${category.id}"
+                    />
                 </div>
             </div>
-            <div class="container-item" th:each="book : ${books}">
-            <div class="item">
-                <div class="item-overlay" th:style="'background:url(' + ${book.imageUrl} + ');'">
-                    <div th:style="${book.state} != 0 ? 'background: #ff3333' :'' " class="sale-tag"><span></span></div>
+        </div>
+        <div class="col-md-10" style="padding: 0px 0px 5px 5px">
+            <!-- Begin form search -->
+            <div class="box">
+                <div class="box-content" align="center" style="background-color: #000;">
+                    <form action="/book/searchHandle" th:action="@{/book/searchHandle}" method="POST"
+                          class="form-horizontal">
+                        <div>
+                            <div style="display: inline-block; !important; width: 20%">
+                                <select class="form-control" name="searchType" id="searchType">
+                                    <option value="2" th:text="#{Name}"></option>
+                                    <option value="1" th:text="#{Code}"></option>
+                                    <option value="3" th:text="#{Author}"></option>
+                                    <option value="4" th:text="#{PublishedYear}"></option>
+                                </select>
+                            </div>
+                            <div style="display: inline-block !important; width: 60% ">
+                                <input name="search" type="text" class="form-control"
+                                       style="display: table-cell; !important;"
+                                       id="search" th:placeholder="#{placeholder}"/>
+                            </div>
+                            <div style="display: inline-block !important;">
+                                <button type="submit" class="btn btn-danger" style="width: 100px; height: 34px;"
+                                        th:text="#{Search}">
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
-                <div class="item-content">
+            </div>
+            <!-- Eng form search -->
+            <!-- Begin navbar menu -->
+            <div class="box">
+                <div class="box-header">
+                    <div id="navbar" class="navbar" style="background: #000;">
+                        <ul class="nav flaty-nav navbar-collapse collapse" style="float: left;">
+                            <li><a href="/" th:text="#{Allbook}">All book</a></li>
+                            <li><a href="/book/new" th:text="#{New}">New!</a></li>
+                        </ul>
+                        <ul class="nav flaty-nav pull-right">
+                            <button style="margin-top: 7px"
+                                    onclick="window.location.href='/User/Borrow/RegistryBorrowForm'"
+                                    class="btn btn-warning btn-sm">
+                                <span th:text="#{bookCart}"></span>&nbsp;<span
+                                    th:if="${#authorization.expression('isAuthenticated()')}" class="badge"
+                                    th:text="${total}"></span>
+                            </button>
 
-                    <div class="item-top-content">
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <!-- End navbar menu -->
+                    <!-- Begin main content -->
+                    <div align="center">
+                        <div th:if="${#lists.isEmpty(books)}">
+                            <br/>
+                            <h3 style="font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif; opacity: 0.6;"><b>BOOK
+                                NOT
+                                FOUND!</b></h3>
+                            <img style="opacity: 0.6; width: 300px" src="/images/missingbook.png"/>
+                            <br/>
+                            <br/>
+                            <div style="width: 300px">
+                                <button style="width: 100%" class="btn btn-danger" type="button"
+                                        onclick="window.location.href='/'">
+                                    Return to library
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" th:each="book: ${books}">
+                            <div class="box box-black">
+                                <div class="box-title">
+                                    <h5><span style="color: #fff;" th:text="${book.name}"></span></h5>
+                                    <p style="margin-bottom: 0px"><span style="color: #fff;"
+                                                                        th:text="${book.author}"></span></p>
+                                    <span th:if="${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED}
+                                          OR
+                                          ${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}"
+                                          class="badge badge-important"
+                                    >Borrowed</span>
+                                    <span th:if="${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}"
+                                          class="badge badge-success"
+                                          th:text="#{Available}">Available</span>
+                                    <span th:if="${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}"
+                                            class="badge badge-magenta"
+                                            >Reserved</span>
+                                </div>
+                                <div class="box-content" style="border: 1px solid">
+                                    <img th:src="${book.imageUrl}" width="100%" height="300px" style="margin-bottom: 10px"/>
 
-                        <div class="item-top-content-inner">
+                                    <div style="margin-top: 5px; text-align: center">
+                                        <a class="btn btn-info" th:href="@{/Book/ViewDetail/}+${book.id}"><i
+                                                class="fa fa-info-circle"></i>&nbsp;<span
+                                                th:text="#{Detail}"></span></a>
+                                    </div>
 
-                            <div class="item-product">
-                                <div class="item-top-title">
-                                    <h2 th:text="${book.name}"></h2>
-                                    <p class="subdescription" th:text="${book.author}">
-                                        Low skateshoes - Grey
-                                    </p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                    <div class="item-add-content">
-                        <div class="item-add-content-inner">
-                            <!-- <div class="section">
-                                <h4>Sizes</h4>
-                                <p>40,41,42,43,44,45</p>
-                            </div> -->
-                            <div class="section">
-                                <a th:href="@{/Book/ViewDetail/}+${book.id}" class="btn buy expand" th:text="#{Detail}">Detail</a>
-                            </div>
+                    <div style="text-align: center; clear: both" th:fragment='paginationbar'>
+                        <div th:if="${not #lists.isEmpty(page.items)}">
+                            <ul class='pagination pagination-centered'>
+                                <li th:class="${page.firstPage}?'disabled':''">
+                                    <span th:if='${page.firstPage}'>← First</span>
+                                    <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>←
+                                        First</a>
+                                </li>
+                                <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
+                                    <span th:if='${not page.hasPreviousPage}'>«</span>
+                                    <a th:if='${page.hasPreviousPage}'
+                                       th:href='@{${page.url}(page=${page.number-2},size=${page.size})}'
+                                       title='Go to previous page'>«</a>
+                                </li>
+                                <li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''">
+                                    <span th:if='${item.current}' th:text='${item.number}'>1</span>
+                                    <a th:if='${not item.current}'
+                                       th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span
+                                            th:text='${item.number}'>1</span></a>
+                                </li>
+                                <li th:class="${page.hasNextPage}? '' : 'disabled'">
+                                    <span th:if='${not page.hasNextPage}'>»</span>
+                                    <a th:if='${page.hasNextPage}'
+                                       th:href='@{${page.url}(page=${page.number},size=${page.size})}'
+                                       title='Go to next page'>»</a>
+                                </li>
+                                <li th:class="${page.lastPage}? 'disabled' : ''">
+                                    <span th:if='${page.lastPage}'>Last →</span>
+                                    <a th:if='${not page.lastPage}'
+                                       th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last
+                                        →</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <!-- End main content -->
         </div>
-        </div>
-    </section>
+    </div>
+    <!--End container-->
 
-
-<div style="text-align: center; clear: both" th:fragment='paginationbar'>
-                <div th:if="${not #lists.isEmpty(page.items)}">
-                    <ul class='pagination pagination-centered'>
-                        <li th:class="${page.firstPage}?'disabled':''">
-                            <span th:if='${page.firstPage}'>← First</span>
-                            <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>← First</a>
-                        </li>
-                        <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
-                            <span th:if='${not page.hasPreviousPage}'>«</span>
-                            <a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'>«</a>
-                        </li>
-                        <li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''">
-                            <span th:if='${item.current}' th:text='${item.number}'>1</span>
-                            <a th:if='${not item.current}' th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span th:text='${item.number}'>1</span></a>
-                        </li>
-                        <li th:class="${page.hasNextPage}? '' : 'disabled'">
-                            <span th:if='${not page.hasNextPage}'>»</span>
-                            <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>»</a>
-                        </li>
-                        <li th:class="${page.lastPage}? 'disabled' : ''">
-                            <span th:if='${page.lastPage}'>Last →</span>
-                            <a th:if='${not page.lastPage}' th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last →</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <!-- #region Jssor Slider Begin -->
+    <!-- Generator: Jssor Slider Maker -->
+    <!-- Source: http://www.jssor.com -->
+    <!-- This code works without jquery library. -->
 
 
 </div>

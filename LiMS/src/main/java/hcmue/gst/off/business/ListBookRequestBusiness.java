@@ -8,6 +8,8 @@ import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.repositories.RequestRepository;
 import hcmue.gst.off.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.List;
 @Component
 public class ListBookRequestBusiness extends BaseCommand {
     List<Request> requestList;
+    Page<Request> requestListPageable;
 
     @Autowired
     private RequestRepository requestRepository;
@@ -34,6 +37,14 @@ public class ListBookRequestBusiness extends BaseCommand {
         this.requestList = requestList;
     }
 
+    public Page<Request> getRequestListPageable() {
+        return requestListPageable;
+    }
+
+    public void setRequestListPageable(Page<Request> requestListPageable) {
+        this.requestListPageable = requestListPageable;
+    }
+
     public Result Execute() {
         requestList = new ArrayList<>();
         User user = securityService.getUser();
@@ -43,6 +54,14 @@ public class ListBookRequestBusiness extends BaseCommand {
             requestList.add(request);
         }
         return Success();
+    }
+
+    public Result ExecutePageable(Pageable pageable) {
+        User user = securityService.getUser();
+        Request requestSearchModel = new Request();
+        requestSearchModel.setCreated_by(user);
+        requestListPageable = requestRepository.search(requestSearchModel ,pageable);
+        return Success(requestListPageable);
     }
 
 

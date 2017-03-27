@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!--base css styles-->
+    <link rel="stylesheet" href="/flaty/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/flaty/assets/font-awesome/css/font-awesome.min.css"/>
+
+    <!--page specific css styles-->
+
+    <!--flaty css styles-->
+    <link rel="stylesheet" href="/flaty/css/flaty.css"/>
+    <link rel="stylesheet" href="/flaty/css/flaty-responsive.css"/>
+
+    <link rel="shortcut icon" href="/flaty/img/favicon.html"/>
+</head>
+<body>
+
+<div id="navbar" class="navbar" style="margin-bottom: 0px; !important;">
+    <button type="button" class="navbar-toggle navbar-btn for-nav-horizontal collapsed" data-toggle="collapse"
+            data-target="#nav-horizontal">
+        <span class="fa fa-bars"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+        <div>
+            <i class="fa fa-book"></i>&nbsp;
+            <span th:text="#{library}"></span>
+        </div>
+    </a>
+
+    <!-- BEGIN Navbar Buttons -->
+    <ul class="nav flaty-nav pull-right">
+        <!-- BEGIN Button User -->
+        <li th:if="${not #authorization.expression('isAuthenticated()')}">
+            <a href="/login">
+                <i class="fa fa-sign-in"></i>
+                <span th:text="#{login}"></span>
+            </a>
+        </li>
+        <li class="user-profile" th:if="${#authorization.expression('isAuthenticated()')}">
+            <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+                <img class="nav-user-photo" src="/flaty/img/demo/avatar/avatar1.jpg" alt="Penny's Photo"/>
+                <span id="user_info" th:text="${#authentication.getName()}">
+                </span>
+                <b class="arrow fa fa-caret-down"></b>
+            </a>
+
+            <!-- BEGIN User Dropdown -->
+            <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+                <li class="nav-header">
+                    <i class="fa fa-clock-o"></i>
+                    Logined From 20:45
+                </li>
+
+                <li>
+                    <a href="/User/UpdatePassword">
+                        <i class="fa fa-cog"></i>
+                        <span th:text="#{Changepassword}"></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/User/UpdateInfoUser">
+                        <i class="fa fa-user"></i>
+                        <span th:text="#{SettingProfile}"></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/User/ViewLog">
+                        <i class="fa fa-question"></i>
+                        <span th:text="#{ViewLog}"></span>
+                    </a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="/logout">
+                        <i class="fa fa-sign-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- BEGIN User Dropdown -->
+        </li>
+        <li>
+            <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+                <i class="fa fa-globe"></i>
+                <span>Language</span>
+            </a>
+            <ul class="dropdown-menu dropdown-navbar">
+                <li>
+                    <a href="?lang=en">
+                        <span>English</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="?lang=vn">
+                        <span>Tiếng Việt</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- END Button User -->
+    </ul>
+    <!-- END Navbar Buttons -->
+
+    <!-- BEGIN Horizontal Menu -->
+    <ul class="nav flaty-nav navbar-collapse collapse" id="nav-horizontal">
+        <li>
+            <a href="/">
+                <i class="fa fa-home"></i>
+                <span th:text="#{Homepage}"></span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/User/Request/RequestPurchase">
+                <i class="fa fa-comment"></i>
+                <span th:text="#{Request}"></span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/Contact">
+                <i class="fa fa-users"></i>
+                <span th:text="#{Contact}"></span>
+            </a>
+
+        </li>
+
+        <li>
+            <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+                <i class="fa fa-info"></i>
+                <span th:text="#{Help}"></span>
+                <b class="arrow fa fa-caret-down"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-navbar">
+                <li><a href="/Borrow/HowToBorrow"><i class="fa fa-file"></i><span th:text="#{HowtoBorrow}"></span></a>
+                </li>
+                <li><a href="/Request/HowToRequest"><i class="fa fa-list-alt"></i><span
+                        th:text="#{HowtoRequest}"></span></a></li>
+                <li><a href="/Reservation/HowToReserve"><i class="fa fa-credit-card"></i><span th:text="#{HowtoReserve}"></span></a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <!-- END Horizontal Menu -->
+
+</div>
+<div style="margin-bottom: 20px">
+    <div id="jssor_1"
+         style="position:relative;margin:0 auto;top:0px;left:0px;right:0px; width: 1349px;height:400px;overflow:hidden;visibility:hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" class="jssorl-oval"
+             style="position:absolute;top:0px;left:0px;text-align:center;background-color:rgba(0,0,0,0.7);">
+            <img style="margin-top:-19.0px;position:relative;top:50%;width:38px;height:38px;"
+                 src="/layout/img/oval.svg"/>
+        </div>
+        <div data-u="slides"
+             style="cursor:default;position:relative;top:0px;left:0px;right:0px;width:1500px;height:600px;overflow:hidden;">
+            <div>
+                <img data-u="image" src="/layout/img/image1.jpg"/>
+                <div style="position:absolute;top:85px;left:100px;width:600px;height:120px;z-index:0;background-color:rgba(0,0,0,0.5);">
+                    <div style="position:absolute;top:15px;left:15px;width:500px;height:40px;z-index:0;font-size:30px;color:#ffffff;line-height:40px;">
+                        With very quiet environment
+                    </div>
+                    <div style="position:absolute;top:60px;left:15px;width:570px;height:40px;z-index:0;font-size:22px;color:#ffffff;line-height:38px;">
+                        People concentrate on the book
+                    </div>
+                </div>
+            </div>
+            <a data-u="any" href="http://www.jssor.com" style="display:none">Full Width Slider</a>
+            <div>
+                <img data-u="image" src="/layout/img/image2.jpg"/>
+                <div style="position:absolute;top:85px;left:100px;width:600px;height:120px;z-index:0;background-color:rgba(0,0,0,0.5);">
+                    <div style="position:absolute;top:15px;left:15px;width:500px;height:40px;z-index:0;font-size:30px;color:#ffffff;line-height:40px;">
+                        A good place for studying
+                    </div>
+                    <div style="position:absolute;top:60px;left:15px;width:570px;height:40px;z-index:0;font-size:22px;color:#ffffff;line-height:38px;">
+                        Reading is the key to success
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="/layout/img/image3.jpg"/>
+                <div style="position:absolute;top:85px;left:100px;width:600px;height:120px;z-index:0;background-color:rgba(0,0,0,0.5);">
+                    <div style="position:absolute;top:15px;left:15px;width:500px;height:40px;z-index:0;font-size:30px;color:#ffffff;line-height:40px;">
+                        A lot of book is waiting for you
+                    </div>
+                    <div style="position:absolute;top:60px;left:15px;width:570px;height:40px;z-index:0;font-size:22px;color:#ffffff;line-height:38px;">
+                        Update everyday for new book
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+            <!-- bullet navigator item prototype -->
+            <div data-u="prototype" style="width:16px;height:16px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:8px;width:40px;height:58px;"
+              data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0px;right:8px;width:40px;height:58px;"
+              data-autocenter="2"></span>
+    </div>
+</div>
+<!-- END Navbar -->
+<div class="container" id="main-container" style="margin: 0;">
+    <div id="main-content" layout:fragment="content"></div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    <![CDATA[
+    window.jQuery || document.write('<script src="/flaty/assets/jquery/jquery-2.1.1.min.js"><\/script>')
+    ]]>
+</script>
+<script src="/flaty/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/flaty/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/flaty/assets/jquery-cookie/jquery.cookie.js"></script>
+
+<!--page specific plugin scripts-->
+
+
+<!--flaty scripts-->
+<script src="/flaty/js/flaty.js"></script>
+<script src="/flaty/js/flaty-demo-codes.js"></script>
+<script src="/layout/js/jssor.slider-22.2.16.min.js" type="text/javascript"></script>
+<script src="/js/jquery.updatePassword.js"></script>
+
+<script type="text/javascript">
+    jssor_1_slider_init = function () {
+
+        var jssor_1_options = {
+            $AutoPlay: true,
+            $SlideDuration: 800,
+            $SlideEasing: $Jease$.$OutQuint,
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+            },
+            $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+            }
+        };
+
+        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+        /*responsive code begin*/
+        /*remove responsive code if you don't want the slider scales while window resizing*/
+        function ScaleSlider() {
+            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            if (refSize) {
+                refSize = Math.min(refSize, 1920);
+                jssor_1_slider.$ScaleWidth(refSize);
+            }
+            else {
+                window.setTimeout(ScaleSlider, 30);
+            }
+        }
+
+        ScaleSlider();
+        $Jssor$.$AddEvent(window, "load", ScaleSlider);
+        $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+        $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+        /*responsive code end*/
+    };
+</script>
+<style>
+    /* jssor slider loading skin oval css */
+
+    .jssorl-oval img {
+        animation-name: jssorl-oval;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes jssorl-oval {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* jssor slider bullet navigator skin 05 css */
+    /*
+    .jssorb05 div           (normal)
+    .jssorb05 div:hover     (normal mouseover)
+    .jssorb05 .av           (active)
+    .jssorb05 .av:hover     (active mouseover)
+    .jssorb05 .dn           (mousedown)
+    */
+    .jssorb05 {
+        position: absolute;
+    }
+
+    .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+        position: absolute;
+        /* size of bullet elment */
+        width: 16px;
+        height: 16px;
+        background: url('/layout/img/b05.png') no-repeat;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .jssorb05 div {
+        background-position: -7px -7px;
+    }
+
+    .jssorb05 div:hover, .jssorb05 .av:hover {
+        background-position: -37px -7px;
+    }
+
+    .jssorb05 .av {
+        background-position: -67px -7px;
+    }
+
+    .jssorb05 .dn, .jssorb05 .dn:hover {
+        background-position: -97px -7px;
+    }
+
+    /* jssor slider arrow navigator skin 22 css */
+    /*
+    .jssora22l                  (normal)
+    .jssora22r                  (normal)
+    .jssora22l:hover            (normal mouseover)
+    .jssora22r:hover            (normal mouseover)
+    .jssora22l.jssora22ldn      (mousedown)
+    .jssora22r.jssora22rdn      (mousedown)
+    .jssora22l.jssora22lds      (disabled)
+    .jssora22r.jssora22rds      (disabled)
+    */
+    .jssora22l, .jssora22r {
+        display: block;
+        position: absolute;
+        /* size of arrow element */
+        width: 40px;
+        height: 58px;
+        cursor: pointer;
+        background: url('/layout/img/a22.png') center center no-repeat;
+        overflow: hidden;
+    }
+
+    .jssora22l {
+        background-position: -10px -31px;
+    }
+
+    .jssora22r {
+        background-position: -70px -31px;
+    }
+
+    .jssora22l:hover {
+        background-position: -130px -31px;
+    }
+
+    .jssora22r:hover {
+        background-position: -190px -31px;
+    }
+
+    .jssora22l.jssora22ldn {
+        background-position: -250px -31px;
+    }
+
+    .jssora22r.jssora22rdn {
+        background-position: -310px -31px;
+    }
+
+    .jssora22l.jssora22lds {
+        background-position: -10px -31px;
+        opacity: .3;
+        pointer-events: none;
+    }
+
+    .jssora22r.jssora22rds {
+        background-position: -70px -31px;
+        opacity: .3;
+        pointer-events: none;
+    }
+</style>
+
+<script type="text/javascript">jssor_1_slider_init();</script>
+<div th:remove="tag" layout:fragment="scripts" ></div>
+<!-- #endregion Jssor Slider End -->
+</body>
+</html>

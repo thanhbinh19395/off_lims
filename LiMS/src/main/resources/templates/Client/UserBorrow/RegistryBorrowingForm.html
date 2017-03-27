@@ -1,123 +1,207 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout2">
 <head>
     <meta charset="UTF-8"/>
     <title>Call card</title>
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
     <link href="/index/borrowingform.css" rel="stylesheet"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/User/Borrow/RegistryBorrowingForm}" th:text="#{callCard}"></a></li>
-            </ol>
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-pencil"></i>
+                <a th:href="@{/User/Borrow/RegistryBorrowForm}" th:text="#{callCard}"></a>
+            </li>
+        </ul>
+    </div>
+    <div style="overflow: hidden">
+        <div class="col-md-3">
+            <div class="box box-default">
+                <div class="box-title">
+                    <h3><i class="fa fa-info-circle"></i> Information</h3>
+                    <div class="box-tool">
+                        <a class="show-tooltip" style="font-size: 25px" href="/User/UpdateInfoUser"
+                           data-original-title="Setting profile"><i class="fa fa-pencil-square-o"></i></a>
+                    </div>
+                </div>
+                <div class="box-content" th:object="${user}">
+                    <div class="user-profile-info">
+                        <span id="borrowable" class="hidden" th:text="*{borrowable}"></span>
+                        <p><span th:text="#{Name}+':'"></span>&nbsp;<span id="readerName" th:text="*{name}"></span></p>
+                        <p><span th:text="#{BirthDay}+':'"></span>&nbsp;<span id="birthday"
+                                                                              th:text="*{birthday}"></span>
+                        </p>
+                        <p><span th:text="#{Phonenumber}+':'"></span>&nbsp;<span id="phone" th:text="*{phone}"></span>
+                        </p>
+                        <p><span th:text="#{Email}+':'"></span>&nbsp;<span id="email" th:text="*{email}"></span></p>
+                        <p><span th:text="#{IDCard}+':'"></span>&nbsp;<span id="idcard" th:text="*{idcard}"></span></p>
+                        <p><span th:text="#{Address}+':'"></span>&nbsp;<span id="address" th:text="*{address}"></span>
+                        </p>
+                        <p><span th:text="#{BorrowDate}"></span><span class="label label-success"
+                                                                      th:text="${borrowDate}"></span></p>
+                        <p><span th:text="#{ReturnDate}"></span><span id="returnDate" class="label label-important"
+                                                                      th:text="${returnDate}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="box box-red">
+                <div class="box-title">
+                    <h3><i class="fa fa-table"></i> List of book in cart</h3>
+                </div>
+                <div class="box-content">
+                    <div th:if="${#lists.isEmpty(bookList)}">
+                        <p style="opacity: 0.5;"><b th:text="#{NobookHave}">No book have been borrowed</b></p>
+                        <a href="/" class="btn btn-danger" th:text="#{Cometolibrary}">Come to library and find you
+                            book</a>
+                    </div>
+                    <div th:if="${not #lists.isEmpty(bookList)}">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th th:text="#{BookCode}"></th>
+                                <th th:text="#{BookName}">Last Name</th>
+                                <th th:text="#{Author}"></th>
+                                <th th:text="#{Categories}"></th>
+                                <th th:text="#{publisher}">Username</th>
+                                <th th:text="#{Status}"></th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="book : ${bookList}">
+                                <th th:text="${book.bookCode}"></th>
+                                <td><a th:text="${book.name}" th:field="*{book.name}"
+                                       th:href="@{/Book/ViewDetail/}+${book.id}"></a></td>
+                                <td th:text="${book.author}">Otto</td>
+                                <td th:text="${book.bookCategory.category_name}">Otto</td>
+                                <td th:text="${book.publisher}">Otto</td>
+                                <td th:text="${book.bookStatus.description}">Otto</td>
+                                <td>
+                                    <input type="hidden" name="ID" th:value="${book.id}"/>
+                                    <input type="button" class="btn btn-danger remove" th:id="${book.id}" th:value="Remove"/>
+                                </td>
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                        <div class="form-group" align="center">
+                            <a class="btn btn-primary" th:text="#{Borrow}" id="submitBorrow"></a>
+                            <button type="button" class="btn btn-success" th:if="${notEnough}"
+                                    onclick="window.location.href='/'" th:text="#{Keepborrowing}">Keep borrowing
+                            </button>
+                        </div>
+                        <div class="alert alert-danger">
+                            <p th:text="'Notice: '+#{BorrowFormNoti}">You only borrow maximum 3 books at time. Your
+                                account
+                                will
+                                be
+                                lock for borrowing until book was returned to library</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <form th:action="@{/User/Borrow/RegistryBorrowForm/handleSubmit}" method="post" id="submitBorrow">
-        <h2 th:text="#{callCard}"></h2>
-        <div class="alert alert-info">
-            <p th:text="#{CallCardTitle}">
-                Please check the information below. Press Borrow if all the infor are correct.
-            </p>
-        </div>
-        <div style="overflow: hidden">
-            <div class="user-info" th:object="${user}">
-                <h3><b th:text="#{callCard}+' '+#{Detail}"></b></h3>
-                <input type="hidden" th:field="*{id}"/>
-                <div class="form-group">
-                    <label for="readerName" th:text="#{Name}"></label>
-                    <input class="form-control" id="readerName" name="readerName" th:field="*{name}"
-                          required="required" placeholder="Your name goes here"/>
-                </div>
-                <div class="form-group">
-                    <label for="birthday" th:text="#{BirthDay}"></label>
-                    <input class="form-control" id="birthday" name="birthday" th:field="*{birthday}"
-                        required="required" placeholder="yyyy/MM/dd"  />
-                </div>
-                <div class="form-group">
-                    <label for="phone" th:text="#{Phonenumber}"></label>
-                    <input class="form-control" id="phone" name="phone" th:field="*{phone}"
-                          required="required" placeholder="+8499999999" />
-                </div>
-                <div class="form-group">
-                    <label for="email" th:text="#{Email}"></label>
-                    <input class="form-control" id="email" name="email" th:field="*{email}"
-                          required="required" placeholder="example@gmail.com"/>
-                </div>
-                <div class="form-group">
-                    <label for="idcard" th:text="#{IDCard}"></label>
-                    <input class="form-control" id="idcard" name="idcard" th:field="*{idcard}"
-                           required="required" placeholder="9 digits from your ID Card"/>
-                </div>
-                <div class="form-group">
-                    <label for="address" th:text="#{Address}"></label>
-                    <input class="form-control" id="address" name="address" th:field="*{address}"
-                           required="required" placeholder="Your address goes here"/>
-                </div>
-                <div class="form-group">
-                    <label for="borrowDate" th:text="#{BorrowDate}"></label>
-                    <input class="form-control" id="borrowDate" name="borrowDate" th:value="${borrowDate}"
-                           readonly="readonly"/>
-                    <label for="returnDate" th:text="#{ReturnDate}"></label>
-                    <input class="form-control" id="returnDate" name="returnDate" th:value="${returnDate}"
-                           readonly="readonly"/>
-                </div>
-            </div>
-
-            <div class="borrowing-book" th:if="${#lists.isEmpty(bookList)}">
-                <p style="opacity: 0.5;"><b th:text="#{NobookHave}">No book have been borrowed</b></p>
-                <a href="/" class="btn btn-danger" th:text="#{Cometolibrary}">Come to library and find you book</a>
-            </div>
-            <div class="borrowing-book" th:if="${not #lists.isEmpty(bookList)}">
-
-                <h3><b th:text="#{List}+' '+#{Book}"></b></h3>
-                <p th:text="#{Thisisthe}">This is the list of book you want to borrow. Please check carefully!</p>
-
-                <table class="table table-bordered table-inverse">
-                    <thead>
-                    <tr>
-                        <th th:text="#{BookCode}"></th>
-                        <th th:text="#{BookName}">Last Name</th>
-                        <th th:text="#{Author}"></th>
-                        <th th:text="#{Categories}"></th>
-                        <th th:text="#{publisher}">Username</th>
-                        <th th:text="#{Status}"></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="book : ${bookList}">
-                        <th scope="row" th:text="${book.bookCode}"></th>
-                        <td><a th:text="${book.name}" th:field="*{book.name}" th:href="@{/Book/ViewDetail/}+${book.id}"></a></td>
-                        <td th:text="${book.author}">Otto</td>
-                        <td th:text="${book.bookCategory.category_name}">Otto</td>
-                        <td th:text="${book.publisher}">Otto</td>
-                        <td th:text="${book.bookStatus.description}">Otto</td>
-                        <td>
-                            <input type="hidden" name="ID" th:value="${book.id}" form="delete"/>
-                            <input class="btn btn-danger" type="submit" th:value="#{Delete}" form="delete"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div align="center">
-                    <p th:text="#{BorrowFormNoti}">You only borrow maximum 3 books at time. Your account will be lock for borrowing until book was returned to library</p>
-                </div>
-                <div class="form-group" align="center">
-                    <button class="btn btn-primary" type="submit" th:text="#{Borrow}" form="submitBorrow"></button>
-                    <button type="button" class="btn btn-success" th:if="${notEnough}" onclick="window.location.href='/'" th:text="#{Keepborrowing}">Keep borrowing</button>
+    <div class="modal fade" id="SuccessModal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <img src="/layout/img/successicon.png" width="50px"/>
+                        <span>Your borrowing request have been sent successfully</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </form>
-    <form id="delete" th:action="@{/User/Borrow/RegistryBorrowForm/Delete}" method="POST"></form>
+    </div>
+    <div class="modal fade" id="SuccessModal1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <img src="/layout/img/successicon.png" width="50px"/>
+                        <span>Removed successfully</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="FailureModal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <img src="/layout/img/no-success-icon.png" width="50px"/>
+                        <span>Lack of information or you do not have permission to borrow book</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div layout:fragment="scripts">
+    <script src="/js/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#submitBorrow').click(function () {
+                debugger
+                if ($("#readerName").text() == "" || $("#phone").text() == "" || $("#email").text() == "" ||
+                    $("#address").text() == "" || $("#idcard").text() == "" || $("#birthday").text() == "" ||
+                    $("#borrowable").text() == "false") {
+                    $('#FailureModal').modal();
+                }
+                else {
+                    var returnDate = $('#returnDate').text();
+                    console.log(returnDate);
+                    $.post('/User/Borrow/RegistryBorrowForm/handleSubmit', {returnDate: returnDate} ,function (result) {
+                        if (result.success) {
+                            $('#SuccessModal').modal();
+                            setTimeout(function () {
+                                window.location.replace("/");
+                            }, 1000);
+                        }
+                        else {
+                            $('#FailureModal').modal();
+                            setTimeout(function () {
+                                $('#FailureModal').modal('hide');
+                                location.reload();
+                            },1000);
+                        }
+                    });
+                }
+            });
+            $('.remove').click(function () {
+                var id = $(this).attr('id');
+                console.log(id);
+                $.post('/User/Borrow/RegistryBorrowForm/Delete', {id: id}, function (result) {
+                    if (result.success) {
+                        $('#SuccessModal1').modal();
+                        setTimeout(function () {
+                            $('#SuccessModal1').modal('hide');
+                            location.reload();
+                        },1500);
+
+                    }
+                });
+            });
+        });
+    </script>
 </div>
 
 </body>

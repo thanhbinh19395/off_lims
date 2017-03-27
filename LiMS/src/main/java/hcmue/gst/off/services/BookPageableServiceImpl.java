@@ -26,8 +26,8 @@ public class BookPageableServiceImpl implements BookPageableService {
     @Override
     public Page<Book> findAll(Pageable pageable) {
         return bookPageableRepository.findAll(pageable);
-
     }
+
     @Override
     public Page<Book> search(Book model, Pageable pageable) {
         return bookRepository.search(model, pageable);

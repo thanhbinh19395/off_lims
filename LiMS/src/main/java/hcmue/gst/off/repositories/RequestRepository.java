@@ -25,5 +25,6 @@ public interface RequestRepository extends CrudRepository<Request, Long> {
     Page<Request> search(@Param("model") Request model, Pageable page);
     @Query(searchQuery)
     Iterable<Request> search(@Param("model") Request model);
+    Page<Request> findAll(Pageable pageable);
 
 }

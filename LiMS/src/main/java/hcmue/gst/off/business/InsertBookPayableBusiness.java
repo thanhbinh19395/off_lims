@@ -79,7 +79,7 @@ public class InsertBookPayableBusiness extends BaseCommand {
 
         }
         // bbheader.status = solved;
-        curBB.setStatus(CommonStatus.SOLVED);
+        curBB.setStatus(CommonStatus.FINISHED);
         bookBorrowHeaderService.save(curBB);
 
         // user.borrowable = true

@@ -1,150 +1,177 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="/Shared/User/layout">
+      layout:decorator="/Shared/User/layout2">
 <head>
     <meta charset="UTF-8"/>
     <title>View Log</title>
-    <link href="/css/bootstrap.css" rel="stylesheet"/>
     <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
           type='text/css'/>
     <link href="/index/detail.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/index/user.css"/>
-    <script src="/js/layout/jquery-1.11.2.min.js"></script>
-
 
 </head>
 <body>
 <div layout:fragment="content" style="min-height: 600px;">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/User/ViewLog}" th:text="#{ViewLog}">View Log</a></li>
-            </ol>
-        </div>
+
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-history"></i>
+                <a th:href="@{/User/ViewLog}" th:text="#{ViewLog}">View Log</a>
+            </li>
+
+        </ul>
     </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <br/>
-    <div class="tabs">
-        <ul class="tab-links">
-            <li class="active"><a href="#tab1" th:text="#{BorrowedBook}">Borrowed Book</a></li>
-            <li><a href="#tab2" th:text="#{ReservatedBook}">Reservated Book</a></li>
-            <li><a href="#tab3" th:text="#{RequestedBook}">Requested Book</a></li>
+    <div class="tabbable tabs-left">
+        <ul id="myTab3" class="nav nav-tabs active-red">
+            <li class="active">
+                <a href="#tab1" data-toggle="tab"><i class="fa fa-home"></i><span>Borrowed</span></a>
+            </li>
+            <li><a href="#tab2" data-toggle="tab"><i class="fa fa-user"></i><span>Reserved</span></a>
+            </li>
         </ul>
 
-        <div class="tab-content">
-            <div id="tab1" class="tab active">
-                <h3 th:text="#{BorrowedLog}">Borrowed Log</h3>
-                <p th:if="${#lists.isEmpty(bookBorrowList)}">
-                    <span th:text="#{Youhavenot}">You have not </span>
-                    <span th:text="#{Borrowed}"> borrowed </span>
-                    <span th:text="#{anybookyet}"> any book yet? </span>
-                    <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a>
-                </p>
-                <table class="table table-bordered" th:if="${not #lists.isEmpty(bookBorrowList)}">
-                    <thead>
-                    <tr>
-                        <th th:text="#{BorrowID}">Borrow ID</th>
-                        <th th:text="#{Book}">Book</th>
-                        <th th:text="#{BorrowedDate}">Borrowed date</th>
-                        <th th:text="#{ReturnDate}">Return date</th>
-                        <th th:text="#{Status}">Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="item : ${bookBorrowList}">
-                        <th scope="row" th:text="${item.header.id}"></th>
-                        <td>
-                            <ul th:each="detail : ${item.details}"
-                                style="margin: 0; text-align: left !important; list-style: none;">
-                                <li class="borrowedBook"><a th:href="@{/Book/ViewDetail/}+${detail.book.id}"
-                                                            th:text="${detail.book.name}"></a></li>
-                            </ul>
-                        </td>
-                        <td th:text="${item.header.created_date}"></td>
-                        <td th:text="${item.header.returnDate}"></td>
-                        <td>
-                            <h4 th:switch="${item.header.status}">
+        <div id="myTabContent3" class="tab-content">
+            <div class="tab-pane fade in active" id="tab1">
+                <div class="box box-black">
+                    <div class="box-title">
+                        <h3 th:text="#{BorrowedLog}">Borrowed Log</h3>
+                    </div>
+                    <div class="box-content">
+                        <p th:if="${#lists.isEmpty(bookBorrowList)}">
+                            <span th:text="#{Youhavenot}">You have not </span>
+                            <span th:text="#{Borrowed}"> borrowed </span>
+                            <span th:text="#{anybookyet}"> any book yet? </span>
+                            <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a>
+                        </p>
+                        <table class="table table-hover" th:if="${not #lists.isEmpty(bookBorrowList)}">
+                            <thead>
+                            <tr>
+                                <th th:text="#{BorrowID}">Borrow ID</th>
+                                <th th:text="#{Book}">Book</th>
+                                <th th:text="#{BorrowedDate}">Borrowed date</th>
+                                <th th:text="#{ReturnDate}">Return date</th>
+                                <th th:text="#{Status}">Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="item : ${bookBorrowList}">
+                                <th scope="row" th:text="${item.header.id}"></th>
+                                <td>
+                                    <ul th:each="detail : ${item.details}"
+                                        style="margin: 0; text-align: left !important; list-style: none;">
+                                        <li class="borrowedBook"><a
+                                                th:href="@{/Book/ViewDetail/}+${detail.book.id}"
+                                                th:text="${detail.book.name}"></a></li>
+                                    </ul>
+                                </td>
+                                <td th:text="${item.header.created_date}"></td>
+                                <td th:text="${item.header.returnDate}"></td>
+                                <td>
+                                    <h4 th:switch="${item.header.status}">
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                                          class="label label-primary" th:text="#{Pending}">Pending</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
-                                      class="label label-warning" th:text="#{InProgress}">In Progress</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).SOLVED}"
-                                      class="label label-success" th:text="#{Solved}">Solved</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
-                                      class="label label-danger" th:text="#{Cancelled}">Cancelled</span>
-                            </h4>
-                        </td>
-                        <td>
+                                          class="badge badge-xlarge badge-gray" th:text="#{Pending}">Pending</span>
+                                        <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
+                                              class="badge badge-xlarge badge-warning" th:text="#{InProgress}">In Progress</span>
+                                        <span th:case="${T(hcmue.gst.off.entities.CommonStatus).FINISHED}"
+                                              class="badge badge-xlarge badge-success">Finished</span>
+                                        <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
+                                              class="badge badge-xlarge badge-important" th:text="#{Cancelled}">Cancelled</span>
+                                    </h4>
+                                </td>
+                                <td>
 
-                            <input type="button" class="btn btn-danger btnBookBorrowCancel"
-                               th:if="${item.header.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:id="${item.header.id}"    th:value="#{Cancel}"/>
-                            <p style="vertical-align: middle; margin: 0"
-                               th:if="${item.header.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
-                                not available</p>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                                    <input type="button" class="btn btn-danger btnBookBorrowCancel"
+                                           th:if="${item.header.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
+                                           th:id="${item.header.id}" th:value="#{Cancel}"/>
+                                    <p style="vertical-align: middle; margin: 0"
+                                       th:if="${item.header.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
+                                       th:text="#{CancelNotAvailable}">Cancel
+                                        not available</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
             </div>
-            <div id="tab2" class="tab">
-                <h3 th:text="#{ReservedLog}">Reserved Log</h3>
-                <p th:if="${#lists.isEmpty(bookReservationList)}"><span th:text="#{Youhavenot}">You have not </span>
-                    <span th:text="#{Reserved}"> reserved </span> <span th:text="#{anybookyet}"> any book yet? </span>
-                    <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
-
-                <table class="table table-bordered" th:if="${not #lists.isEmpty(bookReservationList)}">
-                    <thead>
-                    <tr>
-                        <th th:text="#{ReservationID}">Reservation ID</th>
-                        <th th:text="#{Book}">Book</th>
-                        <th th:text="#{ReserveDate}">Reserve Date</th>
-                        <th th:text="#{PickUpDate}">Pick Up Date</th>
-                        <th th:text="#{Status}">Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="item2 : ${bookReservationList}">
-                        <th scope="row" th:text="${item2.id}"></th>
-                        <td style="text-align: left"><a th:href="@{/Book/ViewDetail/}+${item2.book.id}"
-                                                        th:text="${item2.book.name}"></a></td>
-                        <td th:text="${item2.created_date}"></td>
-                        <td th:text="${item2.pickUpDate}"></td>
-                        <td>
-                            <h4 th:switch="${item2.status}">
+            <div class="tab-pane fade" id="tab2">
+                <div class="box">
+                    <div class="box-title">
+                        <h3 th:text="#{ReservedLog}">Reserved Log</h3>
+                    </div>
+                    <div class="box-content">
+                        <p th:if="${#lists.isEmpty(bookReservationList)}"><span
+                                th:text="#{Youhavenot}">You have not </span>
+                            <span th:text="#{Reserved}"> reserved </span> <span
+                                    th:text="#{anybookyet}"> any book yet? </span>
+                            <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
+                        <table class="table table-hover" th:if="${not #lists.isEmpty(bookReservationList)}">
+                            <thead>
+                            <tr>
+                                <th th:text="#{ReservationID}">Reservation ID</th>
+                                <th th:text="#{Book}">Book</th>
+                                <th th:text="#{ReserveDate}">Reserve Date</th>
+                                <th th:text="#{PickUpDate}">Pick Up Date</th>
+                                <th th:text="#{Status}">Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="item2 : ${bookReservationList}">
+                                <th scope="row" th:text="${item2.id}"></th>
+                                <td style="text-align: left"><a th:href="@{/Book/ViewDetail/}+${item2.book.id}"
+                                                                th:text="${item2.book.name}"></a></td>
+                                <td th:text="${item2.created_date}"></td>
+                                <td th:text="${item2.pickUpDate}"></td>
+                                <td>
+                                    <h4 th:switch="${item2.status}">
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                                          class="label label-primary" th:text="#{Pending}">Pending</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
-                                      class="label label-warning" th:text="#{InProgress}">In Progress</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).SOLVED}"
-                                      class="label label-success" th:text="#{Solved}">Solved</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
-                                      class="label label-danger" th:text="#{Cancelled}">Cancelled</span>
-                            </h4>
-                        </td>
-                        <td>
-                            <a type="button" class="btn btn-danger btnBookReservationCancel"
-                               th:if="${item2.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:id="${item2.id}" th:text="#{Cancel}">
-                                Cancel
-                            </a>
-                            <p style="vertical-align: middle; margin: 0"
-                               th:if="${item2.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
-                                not available</p>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                                          class="badge badge-xlarge badge-primary" th:text="#{Pending}">Pending</span>
+                                        <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
+                                              class="badge badge-xlarge badge-warning" th:text="#{InProgress}">In Progress</span>
+                                        <span th:case="${T(hcmue.gst.off.entities.CommonStatus).FINISHED}"
+                                              class="badge badge-xlarge badge-success">Finished</span>
+                                        <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
+                                              class="badge badge-xlarge badge-important" th:text="#{Cancelled}">Cancelled</span>
+                                    </h4>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn btn-danger btnBookReservationCancel"
+                                       th:if="${item2.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
+                                       th:id="${item2.id}" th:text="#{Cancel}">
+                                        Cancel
+                                    </a>
+                                    <p style="vertical-align: middle; margin: 0"
+                                       th:if="${item2.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
+                                       th:text="#{CancelNotAvailable}">Cancel
+                                        not available</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-            <div id="tab3" class="tab">
+
+
+
+            </div>
+            <div class="tab-pane fade" id="tab3">
                 <h3 th:text="#{RequestedLog}">Requested Log</h3>
-                <p th:if="${#lists.isEmpty(bookRequestList)}"><span th:text="#{Youhavenot}">You have not </span> <span
-                        th:text="#{Requested}"> requested </span> <span th:text="#{anybookyet}"> any book yet? </span>
+                <p th:if="${#lists.isEmpty(bookRequestList)}"><span th:text="#{Youhavenot}">You have not </span>
+                    <span
+                            th:text="#{Requested}"> requested </span> <span
+                            th:text="#{anybookyet}"> any book yet? </span>
                     <a style="font-weight: bold" href="/" th:text="#{Gotolibrary}">Go to library</a></p>
                 <table class="table table-bordered" th:if="${not #lists.isEmpty(bookRequestList)}">
                     <thead>
@@ -172,69 +199,86 @@
                         <td>
                             <h4 th:switch="${item.status}">
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                                          class="label label-primary" th:text="#{Pending}">Pending</span>
+                                          class="badge badge-xlarge badge-primary" th:text="#{Pending}">Pending</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).INPROGRESS}"
-                                      class="label label-warning" th:text="#{InProgress}">In Progress</span>
-                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).SOLVED}"
-                                      class="label label-success" th:text="#{Solved}">Solved</span>
+                                      class="badge badge-xlarge badge-warning" th:text="#{InProgress}">In Progress</span>
+                                <span th:case="${T(hcmue.gst.off.entities.CommonStatus).FINISHED}"
+                                      class="badge badge-xlarge badge-success">Finished</span>
                                 <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
-                                      class="label label-danger" th:text="#{Cancelled}">Cancelled</span>
+                                      class="badge badge-xlarge badge-important" th:text="#{Cancelled}">Cancelled</span>
                             </h4>
                         </td>
                         <td>
                             <input type="button" class="btn btn-danger btnBookRequestCancel"
-                               th:if="${item.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
-                               th:id="${item.id}" th:value="#{Cancel}"/>
+                                   th:if="${item.status} eq ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
+                                   th:id="${item.id}" th:value="#{Cancel}"/>
 
                             <p style="vertical-align: middle; margin: 0"
-                               th:if="${item.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}" th:text="#{CancelNotAvailable}">Cancel
+                               th:if="${item.status} != ${T(hcmue.gst.off.entities.CommonStatus).PENDING}"
+                               th:text="#{CancelNotAvailable}">Cancel
                                 not available</p>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
-
         </div>
     </div>
-    <div layout:fragment="scripts" >
-        <script src="/js/jquery.validate.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                jQuery('.tabs .tab-links a').on('click', function (e) {
-                    var currentAttrValue = jQuery(this).attr('href');
-                    // Show/Hide Tabs
-                    jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
-                    // Change/remove current tab to active
-                    jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
-                    e.preventDefault();
-                });
-                $('.btnBookBorrowCancel').click(function(){
-                    var id = $(this).attr('id');
-                    console.log(id);
-                    $.post('/User/ViewLog/BookBorrow/cancel' ,{id:id}, function (result) {
-                        framework.common.cmdResultNoti(result);
-                    })
-                });
-                $('.btnBookReservationCancel').click(function(){
-                    var id = $(this).attr('id');
-                    console.log(id);
-                    $.post('/User/ViewLog/BookReservation/cancel' ,{id:id}, function (result) {
-                        framework.common.cmdResultNoti(result);
-                    })
-                });
-                $('.btnBookRequestCancel').click(function(){
-                    var id = $(this).attr('id');
-                    console.log(id);
-                    $.post('/User/ViewLog/BookRequest/cancel' ,{id:id}, function (result) {
-                        framework.common.cmdResultNoti(result);
-                    })
-                });
-
-            });
-        </script>
+    <div class="modal fade" id="SuccessModal1" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <img src="/layout/img/successicon.png" width="50px"/>
+                        <span>Cancelled successfully</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<div layout:fragment="scripts">
+    <script src="/js/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            jQuery('.tabs .tab-links a').on('click', function (e) {
+                var currentAttrValue = jQuery(this).attr('href');
+                // Show/Hide Tabs
+                jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+                // Change/remove current tab to active
+                jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+                e.preventDefault();
+            });
+            $('.btnBookBorrowCancel').click(function () {
+                var id = $(this).attr('id');
+                console.log(id);
+                $.post('/User/ViewLog/BookBorrow/cancel', {id: id}, function (result) {
+                    if (result.success) {
+                        $('#SuccessModal1').modal();
+                        setTimeout(function () {
+                            $('#SuccessModal1').modal('hide');
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+            });
+            $('.btnBookReservationCancel').click(function () {
+                var id = $(this).attr('id');
+                console.log(id);
+                $.post('/User/ViewLog/BookReservation/cancel', {id: id}, function (result) {
+                    if (result.success) {
+                        $('#SuccessModal1').modal();
+                        setTimeout(function () {
+                            $('#SuccessModal1').modal('hide');
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+            });
+
+
+        });
+    </script>
 </div>
 </body>
 </html>

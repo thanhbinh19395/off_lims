@@ -53,14 +53,14 @@ public class RequestApiController {
         Request request = requestService.findOne(mail.getId()).getData();
         if(StringUtils.isEmptyOrWhitespace(request.getCreated_by().getEmail()))
             throw new Exception("Email not found");
-        request.setStatus(CommonStatus.SOLVED);
+        request.setStatus(CommonStatus.FINISHED);
         mailService.sendMail(request.getCreated_by().getEmail(),"Approved Your Request", mail.getMessage());
         return requestService.save(request);
     }
     @RequestMapping("/Reject")
     Result Reject(Mail mail){
         Request request = requestService.findOne(mail.getId()).getData();
-        request.setStatus(CommonStatus.SOLVED);
+        request.setStatus(CommonStatus.FINISHED);
         mailService.sendMail(request.getCreated_by().getEmail(),"Rejected Your Request", mail.getMessage());
         return requestService.save(request);
     }

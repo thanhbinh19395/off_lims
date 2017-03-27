@@ -2,143 +2,174 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="/Shared/User/layout">
+        layout:decorator="/Shared/User/layout2">
 
 <head>
     <meta charset="UTF-8"/>
     <title>Information</title>
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="arrows">
-                <li><a href="/" th:text="#{Homepage}"></a></li>
-                <li><a th:href="@{/User/UpdateInfoUser}" th:text="#{SettingProfile}"></a></li>
-            </ol>
+    <div id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/" th:text="#{Homepage}"></a>
+            </li>
+            <li>
+                <span class="divider"><i class="fa fa-angle-right"></i></span>
+                <i class="fa fa-pencil"></i>
+                <a th:href="@{/User/UpdateInfoUser}" th:text="#{SettingProfile}"></a>
+            </li>
+
+        </ul>
+    </div>
+    <div align="center">
+        <div style="width: 50%">
+            <div class="box box-orange">
+                <div class="box-title">
+                    <h3><i class="fa fa-pencil-square-o"></i> Setting Profile</h3>
+                </div>
+                <div class="box-content">
+                    <div class="alert alert-danger">
+                        <p th:text="#{UpdatePasswordTitle}">
+                            Fill out the form below to update your account's password.
+                            Please remember your password, write it to your note in need.
+                        </p>
+                    </div>
+                    <form id="form" action="/" th:object="${User}" method="post"
+                          class="form-horizontal">
+                        <div th:if="${param.error}">
+                            <h3 class="label label-danger" th:text="#{PasswordError}">Your old password was wrong.
+                                Please
+                                check
+                                again!</h3>
+                        </div>
+
+                        <input type="hidden" th:field="*{id}"/>
+                        <input type="hidden" th:field="*{username}"/>
+                        <input type="hidden" th:field="*{password}"/>
+                        <input type="hidden" th:field="*{roleId}"/>
+                        <input type="hidden" th:value="*{status}" th:name="status"/>
+                        <input type="hidden" th:value="*{borrowable}" th:name="borrowable"/>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-md-5 control-label" for="name" th:text="#{Name}">Name</label>
+                            <div class="col-sm-8 col-md-7 controls">
+                                <input class="form-control" id="name" th:type="text" th:field="*{name}"
+                                       placeholder="Your name goes here..."/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 col-md-5 control-label" for="phone" th:text="#{Phonenumber}">Phone number</label>
+                            <div class="col-sm-8 col-md-7 controls">
+                                <input class="form-control" id="phone" th:type="text" onkeypress="validate(event)"
+                                       th:field="*{phone}"
+                                       placeholder="+84902444505"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-md-5 control-label" for="address" th:text="#{Address}">Address</label>
+                            <div class="col-sm-8 col-md-7 controls">
+                                <input class="form-control" id="address" th:type="text" th:field="*{address}"
+                                       placeholder="Your address goes here..."/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-md-5 control-label" for="idcard" th:text="#{IDCard}">ID Card</label>
+                            <div class="col-sm-8 col-md-7 controls">
+                                <input class="form-control" id="idcard" th:type="text" maxlength="9" minlength="9"
+                                       onkeypress="validate(event)" th:field="*{idcard}"
+                                       placeholder="Input exact 9 digits in your ID card..."/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-md-5 control-label" for="email" th:text="#{Email}">Email</label>
+                            <div class="col-sm-8 col-md-7 controls">
+                                <input class="form-control" id="email" th:type="email" th:field="*{email}"
+                                       required="required"
+                                       placeholder="Your email goes here..."/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 col-md-5 control-label" for="birthday" th:text="#{BirthDay}">BirthDay</label>
+                            <div class="col-sm-8 col-md-7 controls">
+                                <input class="form-control" id="birthday" th:type="date" th:field="*{birthday}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input id="submitButton" type="button" class="btn btn-primary" th:value="#{Submit}"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <hr style="margin-top: 0 !important; margin-bottom: 0 !important;"/>
-    <form id="form" action="/"  th:object="${User}" method="post">
-        <h1><b th:text="#{UserInformation}">User Information</b></h1>
-        <div class="alert alert-info">
-            <p th:text="#{InfoUserNoti1}">
-                Fill out the form below to update your information
-            </p>
-            <p th:text="#{InfoUserNoti2}">
-                Please enter realistic info. We can contact to you easily.
-            </p>
-        </div>
-        <div th:if="${param.success}">
-            <h3>
-                <span class="label label-success"
-                      th:text="#{InfoUsertNotiSuccess}"> Your information has been updated ! </span>
-            </h3>
-        </div>
-        <div th:if="${param.error}">
-            <h3>
-                <span class="label label-danger" th:text="#{InfoUsertNotiError}"> Your information is invalid. Try again!</span>
-            </h3>
-        </div>
-        <br/>
-
-        <input type="hidden" th:field="*{id}"/>
-        <input type="hidden" th:field="*{password}"/>
-        <input type="hidden" th:field="*{roleId}"/>
-        <input type="hidden" th:value="*{status}" th:name="status"/>
-        <input type="hidden" th:value="*{borrowable}" th:name="borrowable"/>
-        <input type="hidden" th:field="*{requests}"/>
-        <input type="hidden" th:field="*{books}"/>
-        <input type="hidden" th:field="*{bookBorrowDetails}"/>
-        <input type="hidden" th:field="*{bookStatuses}"/>
-        <input type="hidden" th:field="*{bookBorrowHeaders}"/>
-        <input type="hidden" th:field="*{bookReservations}"/>
-        <input type="hidden" th:field="*{bookCategories}"/>
-        <div class="form-group">
-            <label for="username" th:text="#{Username}">Username</label>
-            <div class="col-10">
-                <input class="form-control" id="username" th:type="text" th:field="*{username}" readonly="readonly"/>
+    <div class="modal fade" id="SuccessModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <img src="/layout/img/successicon.png" width="50px"/>
+                        <span th:text="#{UpdateSuccessful}"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="name" th:text="#{Name}">Name</label>
-            <div class="col-10">
-                <input class="form-control" id="name" th:type="text" th:field="*{name}"
-                       placeholder="Your name goes here..."/>
+    </div>
+    <div class="modal fade" id="FailureModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <img src="/layout/img/no-success-icon.png" width="50px"/>
+                        <span th:text="#{UpdateFailure}"></span>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="phone" th:text="#{Phonenumber}">Phone number</label>
-            <div class="col-10">
-                <input class="form-control" id="phone" th:type="text" onkeypress="validate(event)" th:field="*{phone}"
-                       placeholder="+84902444505"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="address" th:text="#{Address}">Address</label>
-            <div class="col-10">
-                <input class="form-control" id="address" th:type="text" th:field="*{address}"
-                       placeholder="Your address goes here..."/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="idcard" th:text="#{IDCard}">ID Card</label>
-            <div class="col-10">
-                <input class="form-control" id="idcard" th:type="text" maxlength="9" minlength="9"
-                       onkeypress="validate(event)" th:field="*{idcard}"
-                       placeholder="Input exact 9 digits in your ID card..."/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" th:text="#{Email}">Email</label>
-            <div class="col-10">
-                <input class="form-control" id="email" th:type="email" th:field="*{email}" required="required"
-                       placeholder="Your email goes here..."/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="birthday" th:text="#{BirthDay}">BirthDay</label>
-            <div class="col-10">
-                <input class="form-control" id="birthday" th:type="date" th:field="*{birthday}"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <div align="center">
-                <input type="button" id="submitButton" class="button btn-success btn-sm" th:value="#{Save}"/>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 
-<div layout:fragment="scripts" >
-<script src="/js/jquery.validate.min.js"></script>
-<script>
-$(document).ready(function(){
-        //$('#form').validate();
-    window.validate =  function (evt) {
-        debugger
-        var theEvent = evt || window.event;
-        var key = theEvent.keyCode || theEvent.which;
-        key = String.fromCharCode(key);
-        var regex = /[0-9]|\./;
-        if (!regex.test(key)) {
-            theEvent.returnValue = false;
-            if (theEvent.preventDefault) theEvent.preventDefault();
-        }
-    }
+<div layout:fragment="scripts">
+    <script src="/js/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$('#form').validate();
+            window.validate = function (evt) {
+                debugger
+                var theEvent = evt || window.event;
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+                var regex = /[0-9]|\./;
+                if (!regex.test(key)) {
+                    theEvent.returnValue = false;
+                    if (theEvent.preventDefault) theEvent.preventDefault();
+                }
+            }
 
-        $('#submitButton').click(function () {
-            $.post('/User/SaveInfoUser',$('#form').serialize() ,function (result) {
-                framework.common.cmdResultNoti(result);
-                // k can dong nay this.sendMessage(result);
+            $('#submitButton').click(function () {
+                $.post('/User/SaveInfoUser', $('#form').serialize(), function (result) {
+                    if (result.success) {
+                        $('#SuccessModal').modal();
+                        setTimeout(function () {
+                            window.history.back();
+                        }, 1000);
+                    }
+                    else {
+                        $('#FailureModal').modal();
+                        setTimeout(function () {
+                            window.location.replace("/User/UpdateInfoUser");
+                        },1000);
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 </div>
 </body>
 </html>

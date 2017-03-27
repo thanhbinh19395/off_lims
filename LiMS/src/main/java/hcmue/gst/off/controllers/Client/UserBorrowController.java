@@ -1,6 +1,7 @@
 package hcmue.gst.off.controllers.Client;
 
 import hcmue.gst.off.entities.*;
+import hcmue.gst.off.extensions.Result;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.BookRepository;
 import hcmue.gst.off.services.*;
@@ -81,7 +82,8 @@ public class UserBorrowController extends UserBaseController{
     }
 
     @RequestMapping(value = "/User/Borrow/RegistryBorrowForm/Delete", method = RequestMethod.POST)
-    public String delete(@RequestParam("ID") Long id, HttpServletRequest request, HttpSession session, Model model) {
+    @ResponseBody
+    public Result delete(Long id, HttpServletRequest request, HttpSession session) {
         session = request.getSession(false);
         for (int i = 1; i <= MAX_BORROWING_BOOK; i++) {
             Long currId = (Long)session.getAttribute("item"+i);
@@ -92,20 +94,14 @@ public class UserBorrowController extends UserBaseController{
                 bookService.save(book);
             }
         }
-        return "redirect:/User/Borrow/RegistryBorrowForm";
+        return new Result(null,true);
     }
 
     @RequestMapping(value = "/User/Borrow/RegistryBorrowForm/handleSubmit", method = RequestMethod.POST)
-    public String handleBorrow(@ModelAttribute("user") User user, HttpSession session, HttpServletRequest request,
-                               @RequestParam("returnDate") String returnDate) {
-        User currUser = securityService.getUser();
-        currUser.setName(user.getName());
-        currUser.setBirthday(user.getBirthday());
-        currUser.setEmail(user.getEmail());
-        currUser.setAddress(user.getAddress());
-        currUser.setPhone(user.getPhone());
-        currUser.setIdcard(user.getIdcard());
-        userService.save(currUser);
+    @ResponseBody
+    public Result handleBorrow(HttpSession session, HttpServletRequest request,
+                               String returnDate) {
+        User user = securityService.getUser();
         //Lay thong tin cua cac sach co trong gio
         List<Book> bookList = new ArrayList<>();
         session = request.getSession(false);
@@ -139,6 +135,6 @@ public class UserBorrowController extends UserBaseController{
             if (id!=null) session.removeAttribute("item"+i);
         }
         //Thay doi trang thai cua sach
-        return "redirect:/User/Borrow/RegistryBorrowForm";
+        return new Result(null,true);
     }
 }

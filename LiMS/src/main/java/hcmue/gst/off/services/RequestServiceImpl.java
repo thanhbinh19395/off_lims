@@ -47,8 +47,7 @@ public class RequestServiceImpl  extends BaseCommand implements RequestService {
         if (request.getId() == null) {
             request.setStatus(CommonStatus.PENDING);
         }
-        Request r = requestRepository.save(request);
-        return Success(r, "Successfully Saved ");
+        return Success(requestRepository.save(request));
     }
 
     @Override
