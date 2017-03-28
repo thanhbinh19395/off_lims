@@ -71,6 +71,13 @@ public class HomeController extends PublicBaseController {
 
     @RequestMapping(value = "/book/searchQuery", method = RequestMethod.GET)
     public String search(@RequestParam("searchType")int searchType, @RequestParam("searchResult") String searchResult, Pageable pageable, Model model) {
+        bookResult = new Book();
+        switch (searchType) {
+            case 1: bookResult.setBookCode(searchResult); break;
+            case 2: bookResult.setName(searchResult); break;
+            case 3: bookResult.setAuthor(searchResult); break;
+            case 4: bookResult.setPublish_year(Integer.parseInt(searchResult)); break;
+        }
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.search(bookResult, pageable), "/book/searchQuery?searchResult="+searchResult);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
@@ -98,9 +105,33 @@ public class HomeController extends PublicBaseController {
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findBybookCategoryId(id, pageable), "/book/bookCategory/"+id);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
+        model.addAttribute("newBook", newBook);
         model.addAttribute("categories", bookCategoryRepository.findAll());
         BookCategory bookCategory = bookCategoryRepository.findOne(id);
         model.addAttribute("bookCategory", bookCategory);
+        return View("Index");
+    }
+    @RequestMapping(value = "/book/bookStatus", method = RequestMethod.GET)
+    public String bookByBorrowed(@RequestParam("status")String status, Pageable pageable, Model model) {
+        Book bookSearchModel = new Book();
+        switch (status) {
+            case "available":
+                bookSearchModel.setState(0);
+                break;
+            case "borrowed":
+                bookSearchModel.setState(1);
+                break;
+            case "reserved":
+                bookSearchModel.setState(2);
+                break;
+            default: bookSearchModel.setState(-1);
+        }
+
+        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.search(bookSearchModel,pageable),"/book/bookStatus/borrowed");
+        model.addAttribute("books", page.getContent());
+        model.addAttribute("page",page);
+        model.addAttribute("newBook", newBook);
+        model.addAttribute("categories", bookCategoryRepository.findAll());
         return View("Index");
     }
 }
