@@ -86,4 +86,9 @@ public class BookServiceImpl extends BaseCommand implements BookService {
     public Result<Iterable<Book>> search(Book model) {
         return Success(bookRepository.search(model));
     }
+
+    @Override
+    public Result findByDate(Date beginDate, Date endDate) {
+        return Success(bookRepository.findByDate(beginDate,endDate));
+    }
 }

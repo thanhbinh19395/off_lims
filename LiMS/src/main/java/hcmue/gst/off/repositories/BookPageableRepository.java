@@ -20,6 +20,8 @@ public interface BookPageableRepository extends CrudRepository<Book,Long> {
     @Query(stringQuery)
     Page<Book> findByDate(@Param("beginDate") Date beginDate, @Param("endDate") Date endDate, Pageable pageable);
 
+
+
     Page<Book> findAll(Pageable pageable);
     Page<Book> findBybookCategoryId(Long id, Pageable pageable);
 }
