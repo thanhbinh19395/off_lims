@@ -62,8 +62,8 @@
                             <p>
                                 <span th:text="#{bookTransactionStatus}"></span>
                                 <span class="badge bagde-lg"
-                                                                    th:classappend="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? 'badge-success' : 'label-important'"
-                                                                    th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}? #{Available}:#{Occupied}"></span>
+                                      th:classappend="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE} ? 'badge-success' : 'label-important'"
+                                      th:text="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}? #{Available}:#{Occupied}"></span>
                             </p>
 
                         </div>
@@ -92,11 +92,12 @@
                             </a>
                         </div>
                         <div class="alert alert-danger" th:unless="${forbiddenUser}"
-                             th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}" th:text="#{Thisbookhave}+' '+${returnDate}">
+                             th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}"
+                             th:text="#{Thisbookhave}+' '+${returnDate}">
                         </div>
 
                         <div th:if="*{state} eq ${T(hcmue.gst.off.entities.BookTransactionStep).BORROWED}" id="myModal"
-                             class="modal fade" role="dialog"  data-backdrop="static" data-keyboard="false">
+                             class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
                             <div class="modal-dialog modal-md">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -137,13 +138,15 @@
                                                         </div>
                                                     </form>
                                                 </div>
-                                                <div align="center" >
+                                                <div align="center">
                                                     <a type="button" class="btn btn-danger"
                                                        id="confirmModal">Confirm</a>
-                                                    <a type="button" class="btn btn-gray" id="cancelModal" data-dismiss="modal">Cancel</a>
+                                                    <a type="button" class="btn btn-gray" id="cancelModal"
+                                                       data-dismiss="modal">Cancel</a>
                                                     <br/>
                                                     <br/>
-                                                    <span class="loader" hidden="hidden"><img src="/images/ajax-loader.gif"/>
+                                                    <span class="loader" hidden="hidden"><img
+                                                            src="/images/ajax-loader.gif"/>
                                                     Please wait...</span>
 
                                                 </div>
@@ -182,14 +185,16 @@
                 <div class="box-content">
                     <div>
                         <p>&diams;
-                            <span th:text="#{Seemore}"> See more </span><a href="#"
-                                                                           th:text=" ' '+#{books}+' '+ #{of} +' ' + *{author}"></a>
-                            <span th:text="#{atOffLibrary}"> at OFF Library</span>
+                            <span th:text="#{Seemore}"> See more </span>
+                            <a th:href="@{|/book/searchQuery?searchType=3&amp;searchResult=${Book.author}|}"
+                               th:text=" ' '+#{books}+' '+ #{of} +' ' + *{author}"></a>
+                        <span th:text="#{atOffLibrary}"> at OFF Library</span>
                         </p>
                         <p>&diams;
                             <span th:text="#{Tutorial}"> Tutorial</span> <a href="/Borrow/HowToBorrow"
                                                                             th:text="#{Borrow}">borrow</a> <span
-                                    th:text="#{and}">and</span> <a href="#" th:text="#{Reserve}">reserve</a> <span
+                                    th:text="#{and}">and</span> <a href="/Reservation/HowToReserve"
+                                                                   th:text="#{Reserve}">reserve</a> <span
                                     th:text="#{books}"> books </span>
                         </p>
                         <p>&diams;

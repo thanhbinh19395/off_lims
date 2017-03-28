@@ -7,6 +7,7 @@ import hcmue.gst.off.extensions.PublicBaseController;
 import hcmue.gst.off.extensions.UserBaseController;
 import hcmue.gst.off.repositories.BookCategoryRepository;
 import hcmue.gst.off.services.BookPageableService;
+import hcmue.gst.off.services.BookService;
 import hcmue.gst.off.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,9 +33,13 @@ public class HomeController extends PublicBaseController {
 
     private final int NUMBER_OF_DAY = -2;
     private Book bookResult = new Book();
+    private Book newBook = new Book();
 
     @Autowired
     private BookPageableService bookPageableService;
+
+    @Autowired
+    private BookService bookService;
 
     @Autowired
     private BookCategoryRepository bookCategoryRepository;
@@ -49,6 +54,13 @@ public class HomeController extends PublicBaseController {
             }
         }
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findAll(pageable),"/");
+        Date today = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(today);
+        c.add(Calendar.DATE,NUMBER_OF_DAY);
+        Date beginDate = c.getTime();
+        newBook = bookService.findByDate(beginDate,today).getData().iterator().next();
+        model.addAttribute("newBook", newBook);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
         model.addAttribute("categories", bookCategoryRepository.findAll());
@@ -58,10 +70,11 @@ public class HomeController extends PublicBaseController {
     }
 
     @RequestMapping(value = "/book/searchQuery", method = RequestMethod.GET)
-    public String search(@RequestParam("searchResult") String searchResult, Pageable pageable, Model model) {
+    public String search(@RequestParam("searchType")int searchType, @RequestParam("searchResult") String searchResult, Pageable pageable, Model model) {
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.search(bookResult, pageable), "/book/searchQuery?searchResult="+searchResult);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
+        model.addAttribute("newBook", newBook);
         model.addAttribute("categories", bookCategoryRepository.findAll());
         model.addAttribute("result",searchResult);
         return View("Index");
@@ -77,7 +90,7 @@ public class HomeController extends PublicBaseController {
             case 3: bookResult.setAuthor(searchResult); break;
             case 4: bookResult.setPublish_year(Integer.parseInt(searchResult)); break;
         }
-        return "redirect:/book/searchQuery?searchResult="+searchResult;
+        return "redirect:/book/searchQuery?searchType="+searchType+"&"+"searchResult="+searchResult;
     }
 
     @RequestMapping(value = "/book/bookCategory/{Id}", method = RequestMethod.GET)
@@ -88,22 +101,6 @@ public class HomeController extends PublicBaseController {
         model.addAttribute("categories", bookCategoryRepository.findAll());
         BookCategory bookCategory = bookCategoryRepository.findOne(id);
         model.addAttribute("bookCategory", bookCategory);
-        return View("Index");
-    }
-
-    @RequestMapping(value = "/book/new")
-    public String bookByNew(Pageable pageable, Model model) {
-        Date today = new Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(today);
-        c.add(Calendar.DATE,NUMBER_OF_DAY);
-        Date beginDate = c.getTime();
-        PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findByDate(beginDate,today,pageable), "/book/new");
-        model.addAttribute("books", page.getContent());
-        model.addAttribute("page",page);
-        model.addAttribute("categories", bookCategoryRepository.findAll());
-        String newText = "New!";
-        model.addAttribute("newText",newText);
         return View("Index");
     }
 }

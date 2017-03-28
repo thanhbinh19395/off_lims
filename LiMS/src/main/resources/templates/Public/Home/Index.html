@@ -29,11 +29,6 @@
                 <a th:href="@{/book/bookCategory/}+${bookCategory.id}"
                    th:text="${bookCategory.category_name}"></a>
             </li>
-            <li th:if="${newText}">
-                <span class="divider"><i class="fa fa-angle-right"></i></span>
-                <i class="fa fa-bolt"></i>
-                <a th:href="@{/book/new}" th:text="#{New}"></a>
-            </li>
             <li th:if="${result}">
                 <span class="divider"><i class="fa fa-angle-right"></i></span>
                 <i class="fa fa-search"></i>
@@ -45,16 +40,35 @@
     <!--Begin container-->
     <div class="row" style="margin: 0 auto;">
         <div class="col-md-2" style="padding: 0px 5px 5px 0px">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title" th:text="#{Categories}"></h3>
+            <div class="box box-black">
+                <div class="box-title">
+                    <h3 th:text="#{Categories}"></h3>
                 </div>
-                <div class="panel-body">
-                    <a class="btn-block btn btn-primary"
-                       th:each="category : ${categories}"
-                       th:text="${category.category_name}"
-                       th:href="@{/book/bookCategory/}+${category.id}"
-                    />
+                <div class="box-content" style="padding: 0;">
+                    <ul th:each="category : ${categories}" style="margin: 0; list-style-type: none">
+                        <li style="border-bottom: 1px solid #fff"><a type="button" class="btn btn-gray"
+                                                                     th:text="${category.category_name}"
+                                                                     th:href="@{/book/bookCategory/}+${category.id}"
+                                                                     style="width: 100%"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box box-yellow">
+                <div class="box-title">
+                    <h3 th:text="#{New}"></h3>
+                </div>
+                <div class="box-content">
+                    <div th:if="${newBook}">
+                        <a th:href="@{/Book/ViewDetail/}+${newBook.id}">
+                            <img th:src="${newBook.imageUrl}" width="100%"/>
+                            <div align="center">
+                                <h5 th:text="${newBook.name}"></h5>
+                                <a th:href="@{|/book/searchQuery?searchType=3&amp;searchResult=${newBook.author}|}"
+                                   th:text="${newBook.author}"></a>
+                            </div>
+                        </a>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,11 +161,12 @@
                                           class="badge badge-success"
                                           th:text="#{Available}">Available</span>
                                     <span th:if="${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}"
-                                            class="badge badge-magenta"
-                                            >Reserved</span>
+                                          class="badge badge-magenta"
+                                    >Reserved</span>
                                 </div>
                                 <div class="box-content" style="border: 1px solid">
-                                    <img th:src="${book.imageUrl}" width="100%" height="300px" style="margin-bottom: 10px"/>
+                                    <img th:src="${book.imageUrl}" width="100%" height="300px"
+                                         style="margin-bottom: 10px"/>
 
                                     <div style="margin-top: 5px; text-align: center">
                                         <a class="btn btn-info" th:href="@{/Book/ViewDetail/}+${book.id}"><i
@@ -209,8 +224,6 @@
     <!-- Generator: Jssor Slider Maker -->
     <!-- Source: http://www.jssor.com -->
     <!-- This code works without jquery library. -->
-
-
 </div>
 </body>
 </html>
