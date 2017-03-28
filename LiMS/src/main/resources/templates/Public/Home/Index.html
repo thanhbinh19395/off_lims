@@ -96,8 +96,8 @@
                         <ul class="nav flaty-nav navbar-collapse collapse" style="float: left;">
                             <li><a href="/" th:text="#{Allbook}">All book</a></li>
                             <li><a href="#" th:text="#{Available}">Available</a></li>
-                            <li><a href="#">Borrowed</a></li>
-                            <li><a href="#">Reserved</a></li>
+                            <li><a href="#" th:text="#{Borrowed2}">Borrowed</a></li>
+                            <li><a href="#" th:text="#{Reserved2}">Reserved</a></li>
                         </ul>
                         <ul class="nav flaty-nav pull-right">
                             <button style="margin-top: 7px"
@@ -142,13 +142,13 @@
                                           OR
                                           ${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}"
                                           class="badge badge-important"
-                                    >Borrowed</span>
+                                    th:text="#{Borrowed2}">Borrowed</span>
                                     <span th:if="${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).AVAILABLE}"
                                           class="badge badge-success"
                                           th:text="#{Available}">Available</span>
                                     <span th:if="${book.state} == ${T(hcmue.gst.off.entities.BookTransactionStep).RESERVATED}"
                                             class="badge badge-magenta"
-                                            >Reserved</span>
+                                            th:text="#{Reserved2}">Reserved</span>
                                 </div>
                                 <div class="box-content" style="border: 1px solid">
                                     <img th:src="${book.imageUrl}" width="100%" height="300px" style="margin-bottom: 10px"/>

@@ -27,7 +27,7 @@
         <div class="col-md-4">
             <div class="box box-orange">
                 <div class="box-title">
-                    <h3><i class="fa fa-pencil-square-o"></i><span>Provide book information</span></h3>
+                    <h3><i class="fa fa-pencil-square-o"></i><span th:text="#{Providebookinformation}">Provide book information</span></h3>
                 </div>
                 <div class="box-content">
                     <div class="alert alert-info">
@@ -70,7 +70,7 @@
                                    th:text="#{PublishedYear}"> Publication year </label>
                             <div class="col-sm-8 col-md-7 controls">
                                 <input class="form-control" type="number" name="publication_year" id="publication_year"
-                                       th:placeholder="#{publishedYear}" th:field="*{published_year}"/>
+                                       th:placeholder="#{PublishedYear}" th:field="*{published_year}"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -95,7 +95,7 @@
         <div class="col-md-8" id="myDiv">
             <div class="box box-magenta" id="myBox">
                 <div class="box-title">
-                    <h3>Requested book</h3>
+                    <h3 th:text="#{RequestedBook2}">Requested book</h3>
                 </div>
                 <div class="box-content" style="padding-bottom: 31px;">
                     <p th:if="${#lists.isEmpty(bookRequestList)}"><span th:text="#{Youhavenot}">You have not </span>
@@ -130,7 +130,7 @@
                                           class="badge badge-warning"
                                           th:text="#{InProgress}">In Progress</span>
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).FINISHED}"
-                                          class="badge badge-success">Finished</span>
+                                          class="badge badge-success" th:text="#{Finished}">Finished</span>
                                     <span th:case="${T(hcmue.gst.off.entities.CommonStatus).CANCELLED}"
                                           class="badge badge-important"
                                           th:text="#{Cancelled}">Cancelled</span>
@@ -195,7 +195,7 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/successicon.png" width="50px"/>
-                        <span>Request have been sent.</span>
+                        <span th:text="#{Requesthavebeensent}">Request have been sent</span>
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/successicon.png" width="50px"/>
-                        <span>Cancelled successfully</span>
+                        <span th:text="#{Cancelledsuccessfully}">Cancelled successfully</span>
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/no-success-icon.png" width="50px"/>
-                        <span>Request need at least book name</span>
+                        <span th:text="#{Requestneedatleastbookname}">Request need at least book name</span>
                     </div>
                 </div>
             </div>

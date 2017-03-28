@@ -33,7 +33,7 @@
         <div style="width: 70%;;">
             <div class="box box-black">
                 <div class="box-title">
-                    <h3 ><i class="fa fa-bookmark-o"></i><span th:text="#{HowtoRequest}+'?'"></span></h3>
+                    <h3 ><i class="fa fa-bookmark-o"></i><span th:text="#{HowtoRequest}"></span></h3>
                 </div>
                 <div class="box-content">
                     <div class="howtorequest">
@@ -42,13 +42,13 @@
                         <img src="/images/requesttut1.png"/><br/><br/>
 
                         <h3><label for="step2" th:text="#{Step2}">Step 2</label></h3>
-                        <p>Provide as many as possible information</p>
+                        <p th:text="#{RequestStep2Content}">Provide as many as possible information</p>
                         <div id="step2">
                             <img src="/images/requesttut2.PNG"/>
                         </div>
                         <br/><br/>
                         <h3><label for="step3" th:text="#{Step3}"></label></h3>
-                        <p>Finally, waiting for confirmation from our librarian</p>
+                        <p th:text="#{RequestStep3Content}">Finally, waiting for confirmation from our librarian</p>
                         <div id="step3">
                             <img src="/images/requesttut3.PNG"/>
                         </div>

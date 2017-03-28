@@ -30,7 +30,7 @@
         <div style="width: 50%">
             <div class="box box-orange">
                 <div class="box-title">
-                    <h3><i class="fa fa-pencil-square-o"></i> Setting Profile</h3>
+                    <h3><i class="fa fa-pencil-square-o"></i><span th:text="#{SettingProfile}"> Setting Profile</span></h3>
                 </div>
                 <div class="box-content">
                     <div class="alert alert-danger">
@@ -58,7 +58,7 @@
                             <label class="col-sm-4 col-md-5 control-label" for="name" th:text="#{Name}">Name</label>
                             <div class="col-sm-8 col-md-7 controls">
                                 <input class="form-control" id="name" th:type="text" th:field="*{name}"
-                                       placeholder="Your name goes here..."/>
+                                      th:placeholder="#{Yournamegoeshere}" />
                             </div>
                         </div>
 
@@ -74,7 +74,7 @@
                             <label class="col-sm-4 col-md-5 control-label" for="address" th:text="#{Address}">Address</label>
                             <div class="col-sm-8 col-md-7 controls">
                                 <input class="form-control" id="address" th:type="text" th:field="*{address}"
-                                       placeholder="Your address goes here..."/>
+                                       th:placeholder="#{Youraddressgoeshere}" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -82,7 +82,7 @@
                             <div class="col-sm-8 col-md-7 controls">
                                 <input class="form-control" id="idcard" th:type="text" maxlength="9" minlength="9"
                                        onkeypress="validate(event)" th:field="*{idcard}"
-                                       placeholder="Input exact 9 digits in your ID card..."/>
+                                       th:placeholder="#{Inputexact9digits}" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -90,7 +90,7 @@
                             <div class="col-sm-8 col-md-7 controls">
                                 <input class="form-control" id="email" th:type="email" th:field="*{email}"
                                        required="required"
-                                       placeholder="Your email goes here..."/>
+                                       th:placeholder="#{Youremailgoeshere}" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -115,7 +115,7 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/successicon.png" width="50px"/>
-                        <span th:text="#{UpdateSuccessful}"></span>
+                        <span th:text="#{UpdateSuccessfull}"></span>
                     </div>
                 </div>
             </div>
