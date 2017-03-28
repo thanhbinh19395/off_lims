@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 
 
 /**
@@ -59,7 +60,11 @@ public class HomeController extends PublicBaseController {
         c.setTime(today);
         c.add(Calendar.DATE,NUMBER_OF_DAY);
         Date beginDate = c.getTime();
-        newBook = bookService.findByDate(beginDate,today).getData().iterator().next();
+        final Iterator<Book> itr = bookService.findByDate(beginDate, today).getData().iterator();
+        newBook = itr.next();
+        while(itr.hasNext()) {
+            newBook = itr.next();
+        }
         model.addAttribute("newBook", newBook);
         model.addAttribute("books", page.getContent());
         model.addAttribute("page",page);
