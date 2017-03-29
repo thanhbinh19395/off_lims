@@ -30,46 +30,46 @@
 <div class="login-wrapper">
     <!-- BEGIN Login Form -->
     <form id="form-login" action="/login" method="post">
-        <h3>Login to your account</h3>
+        <h3 th:text="#{Logintoyouraccount}">Login to your account</h3>
         <hr/>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="form-group has-error">
             <div class="controls">
-                <input id="inputError" type="text" placeholder="Username" name="username" class="form-control" />
+                <input id="inputError" type="text" th:placeholder="#{PlaceHolderUsername}"  name="username" class="form-control" />
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <input type="password" placeholder="Password" name="password" class="form-control" />
+                <input type="password" th:placeholder="#{PlaceHolderPassword}"  name="password" class="form-control" />
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
                 <label class="checkbox">
-                    <input type="checkbox" value="remember" /> Remember me
+                    <input type="checkbox" value="remember" th:text="#{Rememberme}" />
                 </label>
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <button type="submit" class="btn btn-primary form-control">Sign In</button>
+                <button type="submit" class="btn btn-primary form-control" th:text="#{Signin}">Sign In</button>
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <a type="button" href="/" class="btn btn-danger form-control">Go to Library Homepage</a>
+                <a type="button" href="/" class="btn btn-danger form-control" th:text="#{GotolibraryHomePage}">Go to Library Homepage</a>
             </div>
         </div>
         <hr/>
         <p class="clearfix">
-            <a href="#" class="goto-forgot pull-left">Forgot Password?</a>
+            <a href="#" class="goto-forgot pull-left" th:text="#{ForgotPassword}">Forgot Password?</a>
         </p>
     </form>
     <!-- END Login Form -->
 
     <!-- BEGIN Forgot Password Form -->
     <form id="form-forgot" action="http://shamsoft.net/flaty/index.html" method="get" style="display:none">
-        <h3>Get back your password</h3>
+        <h3 th:text="#{Getbackyourpassword}">Get back your password</h3>
         <hr/>
         <div class="form-group">
             <div class="controls">
@@ -78,19 +78,19 @@
         </div>
         <div class="form-group">
             <div class="controls">
-                <button type="submit" class="btn btn-primary form-control">Recover</button>
+                <button type="submit" class="btn btn-primary form-control" th:text="#{Recover}">Recover</button>
             </div>
         </div>
         <hr/>
         <p class="clearfix">
-            <a href="#" class="goto-login pull-left">← Back to login form</a>
+            <a href="#" class="goto-login pull-left" th:text="#{Backtologinform}">← Back to login form</a>
         </p>
     </form>
     <!-- END Forgot Password Form -->
 
     <!-- BEGIN Register Form -->
     <form id="form-register" action="http://shamsoft.net/flaty/index.html" method="get" style="display:none">
-        <h3>Sign up</h3>
+        <h3 th:text="#{Signup}">Sign up</h3>
         <hr/>
         <div class="form-group">
             <div class="controls">
@@ -99,27 +99,27 @@
         </div>
         <div class="form-group">
             <div class="controls">
-                <input type="text" placeholder="Username" class="form-control" />
+                <input type="text" th:placeholder="#{PlaceHolderUsername}" class="form-control" />
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <input type="password" placeholder="Password" class="form-control" />
+                <input type="password" th:placeholder="#{PlaceHolderPassword}" class="form-control" />
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <input type="password" placeholder="Repeat Password" class="form-control" />
+                <input type="password" th:placeholder="#{PlaceHolderRepeatPassword}"  class="form-control" />
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <button type="submit" class="btn btn-primary form-control">Sign up</button>
+                <button type="submit" class="btn btn-primary form-control" th:text="#{Signup}">Sign up</button>
             </div>
         </div>
         <hr/>
         <p class="clearfix">
-            <a href="#" class="goto-login pull-left">← Back to login form</a>
+            <a href="#" class="goto-login pull-left" th:text="#{Backtologinform}">← Back to login form</a>
         </p>
     </form>
     <!-- END Register Form -->

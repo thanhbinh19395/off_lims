@@ -8,6 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+
 /**
  * Created by dylan on 2/15/2017.
  */
@@ -29,4 +31,8 @@ public interface BookRepository extends CrudRepository<Book,Long> {
     Iterable<Book> search(@Param("model") Book model);
     Book findByBookCode(String bookcode);
 
+    String stringQuery = "select m from Book m where m.created_date between :beginDate  and :endDate";
+
+    @Query(stringQuery)
+    Iterable<Book> findByDate(@Param("beginDate") Date beginDate, @Param("endDate") Date endDate);
 }

@@ -34,20 +34,20 @@
             <div style="width: 80%;">
                 <div class="box box-black">
                     <div class="box-title">
-                        <h3><i class="fa fa-user"></i><span>Method 1 - Offline</span></h3>
+                        <h3><i class="fa fa-user"></i><span> <span th:text="#{Method}">Method</span> 1 - <span th:text="#{Offline}">Offline</span></span></h3>
                     </div>
                     <div class="box-content">
                         <div class="howtoborrow">
                             <h3><label for="step1" th:text="#{Step1}">Step 1</label></h3>
-                            <p>Go straigh to our library, located at 280 An Duong Vuong, District 5, HCM City</p>
+                            <p th:text="#{BorrowOfflineStep1content}">Go straigh to our library, located at 280 An Duong Vuong, District 5, HCM City</p>
                             <div align="center">
                                 <img src="/images/borrow1tut1.jpg"/>
                             </div>
                             <br/>
 
                             <h3><label for="step2" th:text="#{Step2}">Step 2</label></h3>
-                            <p>
-                                At the librarian desk. Register account for using library service.
+                            <p >
+                                <span th:text="#{BorrowOfflineStep2content}">At the librarian desk. Register account for using library service.</span>
                             <div align="center">
                                 <img src="/images/borrow1tut2.jpg" width="50%"/>
                             </div>
@@ -56,8 +56,8 @@
 
 
                             <h3><label for="step3" th:text="#{Step3}">Step 3</label></h3>
-                            <p>
-                                After finished registration, go inside the library and find you book you want to borrow.
+                            <p >
+                                <span th:text="#{BorrowOfflineStep3content}">After finished registration, go inside the library and find you book you want to borrow.</span>
                             <div align="center">
                                 <img src="/images/borrow1tut3.jpg" width="50%"/>
                             </div>
@@ -65,11 +65,12 @@
                             <br/>
 
                             <h3><label for="step4" th:text="#{Step4}">Step 4</label></h3>
-                            <p>Return to librarian desk to make borrowing book procedure</p>
+                            <p th:text="#{BorrowOfflineStep4content}">Return to librarian desk to make borrowing book procedure</p>
                             <br/>
 
                             <h3><label for="step5">Step 5</label></h3>
-                            <p>You can check your borrowing <a href="/User/ViewLog">status</a> on the library website.
+                            <p >
+                                <span th:text="#{BorrowOfflineStep5content_1}">You can check your borrowing</span> <a href="/User/ViewLog" th:text="#{status}">status</a> <span th:text="#{BorrowOfflineStep5content_2}">on the library website.</span>
                             <div align="center">
                                 <img src="/images/borrow1tut4.png" width="80%"/>
                             </div>
@@ -86,39 +87,40 @@
             <div style="width: 80%;">
                 <div class="box box-black">
                     <div class="box-title">
-                        <h3><i class="fa fa-desktop"></i><span>Method 2 - Online</span></h3>
+                        <h3><i class="fa fa-desktop"></i><span th:text="#{Method}">Method</span> 2 - <span th:text="#{Online}">Online</span></h3>
                     </div>
                     <div class="box-content">
                         <h3><label th:text="#{Step1}">Step 1</label></h3>
-                        <p>Go to OFF Library website</p>
+                        <p th:text="#{BorrowOnlineStep1content}">Go to OFF Library website</p>
                         <div align="center">
                             <img src="/images/borrow2tut1.png" width="80%"/>
                         </div>
                         <br/>
 
-                        <h3><label>Step 2</label></h3>
-                        <p>Search the book you may want to borrow</p>
+                        <h3><label th:text="#{Step2}">Step 2</label></h3>
+                        <p th:text="#{BorrowOnlineStep2content}">Search the book you may want to borrow</p>
                         <div align="center">
                             <img src="/images/borrow2tut2.png" width="80%"/>
                         </div>
                         <br/>
 
-                        <h3><label>Step 3</label></h3>
-                        <p>If your book is Available, the book will be able borrowed. If it was borrowed, you can make a
-                            reservation. <a href="/Reservation/HowToReserve">Click here</a> to know how to reserve book
+                        <h3><label th:text="#{Step3}">Step 3</label></h3>
+                        <p>
+                            <span th:text="#{BorrowOnlineStep3content_1}">If your book is Available, the book will be able borrowed. If it was borrowed, you can make a
+                                reservation. </span><a href="/Reservation/HowToReserve" th:text="#{Clickhere}">Click here</a> <span th:text="#{BorrowOnlineStep3content_2}">to know how to reserve book</span>
                         </p>
-                        <p>The result will display all the book have the keyword you enterred. Click Detail.</p>
+                        <p th:text="#{BorrowOnlineStep3content_3}">The result will display all the book have the keyword you enterred. Click Detail.</p>
                         <div align="center">
                             <img src="/images/borrow2tut3.png"/>
                         </div>
                         <br/>
 
 
-                        <h3><label>Step 4</label></h3>
-                        <p>
+                        <h3><label th:text="#{Step4}">Step 4</label></h3>
+                        <p><span th:text="#{BorrowOnlineStep4content}">
                             If book is available. The Borrow Now will be display. In the other hand, Reserve Now button
                             will
-                            be display. Click Borrow Now in case.
+                            be display. Click Borrow Now in case.</span>
                         <div align="center">
                             <img src="/images/borrow2tut4.png"/>
                         </div>
@@ -127,21 +129,21 @@
                         <br/>
 
 
-                        <h3><label>Step 5</label></h3>
-                        <p>
+                        <h3><label th:text="#{Step5}">Step 5</label></h3>
+                        <p> <span th:text="#{BorrowOnlineStep5content}">
                             You will be redirect to book cart. If you want to continue borrow, click Keep Borrowing.
-                        If not, click Borrow to sent borrowing request.
+                            If not, click Borrow to sent borrowing request.</span>
                         <div align="center">
                             <img src="/images/borrow2tut5.png" width="80%"/>
                         </div>
                         </p>
                         <br/>
 
-                        <h3><label>Step 6</label></h3>
-                        <p>
+                        <h3><label th:text="#{Step6}">Step 6</label></h3>
+                        <p> <span th:text="#{BorrowOnlineStep6content_1}">
                             When borrowing request have been sent. Another people cannot borrow this book right now. You
-                            have to go to OFF Library to take that book in <b>1 DAY</b>.
-                            If not, your request will be automatically cancelled. And others allows borrow that book.
+                            have to go to OFF Library to take that book in</span> <b th:text="#{1DAY}">1 DAY</b>.
+                            <span th:text="#{BorrowOnlineStep6content_2}">If not, your request will be automatically cancelled. And others allows borrow that book.</span>
                         <div align="center">
                             <img src="/images/borrow2tut6.png" width="80%"/>
                         </div>

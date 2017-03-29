@@ -27,7 +27,7 @@
         <div class="col-md-3">
             <div class="box box-default">
                 <div class="box-title">
-                    <h3><i class="fa fa-info-circle"></i> Information</h3>
+                    <h3><i class="fa fa-info-circle"></i> <span th:text="#{Information}"></span> </h3>
                     <div class="box-tool">
                         <a class="show-tooltip" style="font-size: 25px" href="/User/UpdateInfoUser"
                            data-original-title="Setting profile"><i class="fa fa-pencil-square-o"></i></a>
@@ -57,7 +57,7 @@
         <div class="col-md-9">
             <div class="box box-red">
                 <div class="box-title">
-                    <h3><i class="fa fa-table"></i> List of book in cart</h3>
+                    <h3><i class="fa fa-table"></i> <span th:text="#{Listofbookincart}"></span></h3>
                 </div>
                 <div class="box-content">
                     <div th:if="${#lists.isEmpty(bookList)}">
@@ -75,7 +75,7 @@
                                 <th th:text="#{Categories}"></th>
                                 <th th:text="#{publisher}">Username</th>
                                 <th th:text="#{Status}"></th>
-                                <th>Action</th>
+                                <th th:text="#{Action}"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -89,7 +89,7 @@
                                 <td th:text="${book.bookStatus.description}">Otto</td>
                                 <td>
                                     <input type="hidden" name="ID" th:value="${book.id}"/>
-                                    <input type="button" class="btn btn-danger remove" th:id="${book.id}" th:value="Remove"/>
+                                    <input type="button" class="btn btn-danger remove" th:id="${book.id}" th:value="#{Remove}"/>
                                 </td>
                             </tr>
 
@@ -120,7 +120,7 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/successicon.png" width="50px"/>
-                        <span>Your borrowing request have been sent successfully</span>
+                        <span th:text="#{Yourborrowingrequest}">Your borrowing request have been sent successfully</span>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/successicon.png" width="50px"/>
-                        <span>Removed successfully</span>
+                        <span th:text="#{Removedsuccessfully}">Removed successfully</span>
                     </div>
                 </div>
             </div>
@@ -144,11 +144,11 @@
                 <div class="modal-body">
                     <div>
                         <img src="/layout/img/no-success-icon.png" width="50px"/>
-                        <span>Lack of information or you do not have permission to borrow book</span>
+                        <span th:text="#{Lackofinformation}">Lack of information or you do not have permission to borrow book</span>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span th:text="#{Close}"></span></button>
                 </div>
             </div>
         </div>

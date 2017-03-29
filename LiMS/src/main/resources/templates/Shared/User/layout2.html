@@ -56,7 +56,7 @@
             <ul class="dropdown-menu dropdown-navbar" id="user_menu">
                 <li class="nav-header">
                     <i class="fa fa-clock-o"></i>
-                    Logined From 20:45
+                    <span th:text="#{LoginedFrom}"></span> 20:45
                 </li>
 
                 <li>
@@ -85,7 +85,7 @@
                 <li>
                     <a href="/logout">
                         <i class="fa fa-sign-out"></i>
-                        <span>Logout</span>
+                        <span th:text="#{Logout}">Logout</span>
                     </a>
                 </li>
             </ul>
@@ -94,7 +94,7 @@
         <li>
             <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
                 <i class="fa fa-globe"></i>
-                <span>Language</span>
+                <span th:text="#{Language}">Language</span>
             </a>
             <ul class="dropdown-menu dropdown-navbar">
                 <li>
