@@ -74,6 +74,12 @@ public class BookReservationServiceImpl extends BaseCommand implements BookReser
 
     @Override
     public PageableResult<BookReservation> search(BookReservation model, Pageable p) {
+        if(model.getCreated_by() == null){
+            model.setCreated_by(new User());
+        }
+        if(model.getUpdate_by() == null){
+            model.setUpdate_by(new User());
+        }
         return Success(bookReservationRepository.search(model,new PageRequest(p.getPageNumber(), PAGESIZE, p.getSort())));
     }
 

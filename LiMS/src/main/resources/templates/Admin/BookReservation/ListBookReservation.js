@@ -24,6 +24,7 @@ framework.factory('ListBookReservation', {
                 { field: 'bookId', type: 'text', required: false, caption: "Id Book" },
                 { field: 'pickUpdate', type: 'date', required: false, caption: "Pickup Date" },
                 { field: 'status', type: 'text', required: false, caption: "Status" },
+                { field: 'created_by.id', type: 'text', required: false, caption: "Created By" },
             ])
         ;
         header.setTitle('List Book Reservation ')
@@ -73,9 +74,10 @@ framework.factory('ListBookReservation', {
         grid.setName('grid')
             .addColumns([
                 { field: 'id', caption: 'Id', size: '40%', sortable: true, resizable: true },
-                { field: 'bookId', caption: 'Boook Id', size: '50%', sortable: true, resizable: true },
+                { field: 'bookId', caption: 'Book Id', size: '50%', sortable: true, resizable: true },
                 { field: 'pickUpDate',type: 'date', caption: 'Picked Up Date', size: '50%', sortable: true, resizable: true },
-                { field: 'status', caption: 'Status', size: '50%', sortable: true, resizable: true }
+                { field: 'status', caption: 'Status', size: '50%', sortable: true, resizable: true },
+                { field: 'created_by.id', caption: 'Created By', size: '50%', sortable: true, resizable: true }
             ])
             .addButton('btnUpdate', 'Mark as Solved', 'fa fa-pencil', self.onbtnUpdateClickGrid.bind(this))
             .addButton('btnDelete', 'Delete', 'fa fa-trash-o', self.onbtnDeleteClickGrid.bind(this))
