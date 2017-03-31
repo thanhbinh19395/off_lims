@@ -100,8 +100,8 @@ framework.factory('ListRequest', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/Request/Approve/'+id,
-            title: 'Update Role',
+            url: '/Admin/Request/Approve/' + id,
+            title: 'Approve',
             width: '700px'
         });
 
@@ -115,8 +115,8 @@ framework.factory('ListRequest', {
         }
         this.openPopup({
             name: 'updatePopup',
-            url: '/Admin/Request/Reject/'+id,
-            title: 'Update Role',
+            url: '/Admin/Request/Reject/' + id,
+            title: 'Reject',
             width: '700px'
         });
 
@@ -147,8 +147,8 @@ framework.factory('ListRequest', {
     onPageClick: function (event, page) {
         var grid = this.findElement('grid');
         this.searchParam = {
-            page:page,
-            size : 1
+            page: page,
+            size: 1
         };
         debugger;
         this.reloadGridData();
@@ -164,16 +164,16 @@ framework.factory('ListRequest', {
         //reload grid data
         this.reloadGridData();
     },
-    reloadGridData:function(){
+    reloadGridData: function () {
         var grid = this.findElement('grid');
-        $.post('/api/Request/GetList',this.searchParam, function (result) {
-            if(result.success){
+        $.post('/api/Request/GetList', this.searchParam, function (result) {
+            if (result.success) {
                 grid.clear();
                 grid.add(result.data);
                 if (grid.pagination)
                     grid.pagination.reset(result.currentPage, result.totalPage);
             }
-            else{
+            else {
 
             }
         });
