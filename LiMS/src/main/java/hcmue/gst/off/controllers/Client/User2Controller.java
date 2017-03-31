@@ -42,9 +42,7 @@ public class User2Controller extends UserBaseController{
     @ResponseBody Result<User> UpdatePassword(@RequestParam("oldPassword") String oldPassword,
                                               @RequestParam("newPassword") String newPassword) {
         User user = securityService.getUser();
-        //if (!bCryptPasswordEncoder.matches(oldPassword,user.getPassword())) {
-        //    return new Result(null,"Invailid old password. Try again!", false);
-        //}
+        user.setPassword(newPassword);
         return userService.save(user);
 
     }

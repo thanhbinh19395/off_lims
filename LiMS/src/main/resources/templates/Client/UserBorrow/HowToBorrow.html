@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="/Shared/User/layout2">
 <head>
     <meta charset="UTF-8"/>
-    <title>How to borrow</title>
+    <title th:text="#{HowtoBorrow}">How to borrow</title>
     <!-- Bootstrap -->
     <link href="/index/detail.css" rel="stylesheet"/>
 
@@ -34,7 +34,7 @@
             <div style="width: 80%;">
                 <div class="box box-black">
                     <div class="box-title">
-                        <h3><i class="fa fa-user"></i><span> <span th:text="#{Method}">Method</span> 1 - <span th:text="#{Offline}">Offline</span></span></h3>
+                        <h3><i class="fa fa-user"></i><span> <span th:text="#{Method}">Method</span> 1 - <span>Offline</span></span></h3>
                     </div>
                     <div class="box-content">
                         <div class="howtoborrow">
@@ -87,7 +87,7 @@
             <div style="width: 80%;">
                 <div class="box box-black">
                     <div class="box-title">
-                        <h3><i class="fa fa-desktop"></i><span th:text="#{Method}">Method</span> 2 - <span th:text="#{Online}">Online</span></h3>
+                        <h3><i class="fa fa-desktop"></i><span th:text="#{Method}">Method</span> 2 - <span>Online</span></h3>
                     </div>
                     <div class="box-content">
                         <h3><label th:text="#{Step1}">Step 1</label></h3>

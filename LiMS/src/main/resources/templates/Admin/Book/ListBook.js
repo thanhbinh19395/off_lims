@@ -18,13 +18,13 @@ framework.factory('ListBook', {
         form.setName('searchForm')
             .setFieldPerRow(1) // so cot trong form
             .addFields([
-                { field: 'name', type: 'text', required: true, caption: 'Book Name' },
-                { field: 'publish_year', type: 'text', required: true, caption: 'Publishing year' },
-                { field: 'author', type: 'text', required: false, caption: 'Author' },
-                { field: 'publisher', type: 'text', required: false, caption: 'Publisher' },
-                { field: 'bookCategoryId', caption: 'Category', type: 'text', required: true },
-                { field: 'bookStatusId', caption: 'Status', type: 'text', required: true },
-                { field: 'state', caption: 'Status', type: 'text', required: true }
+                { field: 'name', type: 'text', caption: 'Book Name' },
+                { field: 'publish_year', type: 'text', caption: 'Publishing year' },
+                { field: 'author', type: 'text', caption: 'Author' },
+                { field: 'publisher', type: 'text', caption: 'Publisher' },
+                { field: 'bookCategoryId', caption: 'Category', type: 'popupListBookCategory', options:{caller : self} },
+                { field: 'bookStatusId', caption: 'Status', type: 'popupListBookStatus', options:{caller : self} },
+                //{ field: 'state', caption: 'State', type: 'text', required: true }
             ])
         ;
         header.setTitle('List Book')
@@ -72,13 +72,12 @@ framework.factory('ListBook', {
         ;
         grid.setName('grid')
             .addColumns([
-                { field: 'id', caption: 'Id', size: '5%', sortable: true, resizable: true },
+                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
                 { field: 'name', caption: 'Book Name', size: '30%', sortable: true, resizable: true },
                 { field: 'publish_year', caption: 'Publishing Year', size: '10%', sortable: true, resizable: true },
                 { field: 'author', caption: 'Author', size: '10%', sortable: true, resizable: true },
                 { field: 'publisher', caption: 'Publisher', size: '30%', sortable: true, resizable: true },
-                { field: 'state', caption: 'Status', size: '15%', sortable: true, resizable: true },
-                { field: 'bookCode', caption: 'Book Code', size: '15%', sortable: true, resizable: true },
+                //{ field: 'state', caption: 'Status', size: '15%', sortable: true, resizable: true },
                 { field: 'bookCategory.category_name', caption: 'Category', size: '15%', sortable: true, resizable: true },
                 { field: 'bookStatus.description', caption: 'Status', size: '15%', sortable: true, resizable: true },
                 { field:'hinh', caption:'Image', size:'15%', render: function(record){

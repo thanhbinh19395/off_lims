@@ -1,5 +1,6 @@
 package hcmue.gst.off.apicontrollers;
 
+import hcmue.gst.off.business.SendEmailBusiness;
 import hcmue.gst.off.entities.Book;
 import hcmue.gst.off.entities.BookReservation;
 import hcmue.gst.off.entities.CommonStatus;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookReservationApiController {
     @Autowired
     private BookReservationService bookReservationService;
+    @Autowired
+    private SendEmailBusiness sendEmailBusiness;
 
     @RequestMapping("/Save")
     Result Save(BookReservation model) {
@@ -37,11 +40,12 @@ public class BookReservationApiController {
     @RequestMapping("/Handle")
     Result Handle(Long id) {
         BookReservation model = bookReservationService.findOne(id).getData();
-        model.setStatus(CommonStatus.FINISHED);
-        if (true)
+        if (model.getStatus() == CommonStatus.FINISHED)
         {
             return new Result(model,"Book Reservation already solved", false);
         }
+        model.setStatus(CommonStatus.FINISHED);
+        sendEmailBusiness.sendEmail(model.getBookId());
         return bookReservationService.save(model);
     }
 }

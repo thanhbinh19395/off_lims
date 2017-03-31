@@ -16,7 +16,7 @@ framework.factory('UpdateBook', {
             .addFields([
                 { field: 'name', type: 'text', required: true, caption: 'Book Name' },
                 { field: 'publish_year', type: 'text', required: true, caption: 'Publishing Year' },
-                { field: 'image', type: 'text', required: false, caption: 'Image' },
+                //{ field: 'image', type: 'text', required: false, caption: 'Image' },
                 { field: 'author', type: 'text', required: true, caption: 'Author' },
                 { field: 'state', type: 'text', required: true, caption: 'Status' },
                 { field: 'publisher', type: 'text', required: true, caption: 'Nhà xuất bản' },

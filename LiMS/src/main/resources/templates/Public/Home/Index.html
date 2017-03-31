@@ -4,7 +4,7 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorator="/Shared/User/layout2">
 <head>
-    <title>Home Page | OFF Library</title>
+    <title th:text="#{Homepage}+' | '+#{library}">Home Page | OFF Library</title>
     <link th:href='@{/index/index.css}' rel='stylesheet' type='text/css'/>
     <link href="/index/detail.css" rel="stylesheet"/>
     <!--<link href="/css/bootstrap.min.css" rel="stylesheet"/>-->

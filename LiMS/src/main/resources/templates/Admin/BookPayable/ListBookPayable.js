@@ -80,11 +80,11 @@ framework.factory('ListBookPayable', {
                     return '['+r.created_by.username +']' + r.created_by.name;
                 } },
                 {
-                    field: 'details', caption: 'View Details', size: '30%', sortable: true, resizable: true, render: function (r) {
+                    field: 'details', caption: 'View Details', size: '5%', sortable: true, resizable: true,  render: function (r) {
                     var a = $("<a>");
                     a.attr('href', '#');
-                    a.attr('type', 'click');
-                    a.html('View Details');
+                    //a.attr('type', 'click');
+                    a.html('<i type = "click" class="fa-search"></i>');
                     return a[0].outerHTML;
                 }
                 }

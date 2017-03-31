@@ -32,7 +32,6 @@ import java.util.Iterator;
 @Controller
 public class HomeController extends PublicBaseController {
 
-    private final int NUMBER_OF_DAY = -2;
     private Book bookResult = new Book();
     private Book newBook = new Book();
 
@@ -55,12 +54,7 @@ public class HomeController extends PublicBaseController {
             }
         }
         PageWrapper<Book> page = new PageWrapper<>(bookPageableService.findAll(pageable),"/");
-        Date today = new Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(today);
-        c.add(Calendar.DATE,NUMBER_OF_DAY);
-        Date beginDate = c.getTime();
-        final Iterator<Book> itr = bookService.findByDate(beginDate, today).getData().iterator();
+        final Iterator<Book> itr = bookService.findAll().getData().iterator();
         newBook = itr.next();
         while(itr.hasNext()) {
             newBook = itr.next();
