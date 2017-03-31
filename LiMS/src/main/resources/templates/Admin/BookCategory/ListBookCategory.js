@@ -102,7 +102,7 @@ framework.factory('ListBookCategory', {
         this.openPopup({
             name: 'updatePopup',
             url: '/Admin/BookCategory/UpdateBookCategory/'+id,
-            title: 'Update Role',
+            title: 'Update Book Category',
             width: '700px'
         });
 

@@ -41,24 +41,23 @@ public class BookServiceImpl extends BaseCommand implements BookService {
             {
                return Fail("Duplicated Book Code");
             }
-            else
-            {
-                book.setCreated_by(user);
-                book.setCreated_date(new Date());
-                book.setBookBorrowDetail(null);
-                book.setState(BookTransactionStep.AVAILABLE);
-                return Success(bookRepository.save(book), "Successfully Saved ");
-            }
+            book.setCreated_by(user);
+            book.setCreated_date(new Date());
+            book.setBookBorrowDetail(null);
+            book.setState(BookTransactionStep.AVAILABLE);
+
         }
         else{
-            if((tmp!=null && tmp.getId().equals(book.getId())) || tmp == null)
+            if((tmp!=null && !tmp.getId().equals(book.getId())))
             {
-                book.setUpdate_date(new Date());
-                book.setUpdate_by(user);
-                return Success(bookRepository.save(book), "Successfully Saved ");
+
+                return Fail("Duplicated Book Code");
             }
+            book.setUpdate_date(new Date());
+            book.setUpdate_by(user);
         }
-        return Fail("Trùng Book Code");
+
+        return Success(bookRepository.save(book),"Successfully saved");
     }
 
     @Override
